@@ -1,2 +1,5 @@
 springboot/.idea
 springboot/target
+
+angular/node_modules
+angular/.angular
