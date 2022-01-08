@@ -1,4 +1,4 @@
-package wiwitaditya.demo.dotapedia;
+package wiwitaditya.demo.dotapedia.db.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +15,6 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "player_id")
     private Integer id;
-
     private String nickName;
     private String fullName;
     private String roles;
