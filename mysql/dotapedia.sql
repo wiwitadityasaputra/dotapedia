@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 07, 2022 at 05:53 PM
+-- Generation Time: Jan 08, 2022 at 03:05 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -1352,14 +1352,14 @@ INSERT INTO `tournament_team` (`tournament_team_id`, `tournament_id`, `team_id`,
 (6, 1, 6, NULL, NULL, NULL, NULL),
 (7, 1, 7, NULL, NULL, NULL, NULL),
 (8, 1, 8, NULL, NULL, NULL, NULL),
-(9, 2, 6, NULL, NULL, NULL, NULL),
-(10, 2, 9, NULL, NULL, NULL, NULL),
-(11, 2, 10, NULL, NULL, NULL, NULL),
-(12, 2, 5, NULL, NULL, NULL, NULL),
-(13, 2, 3, NULL, NULL, NULL, NULL),
-(14, 2, 2, NULL, NULL, NULL, NULL),
-(15, 2, 4, NULL, NULL, NULL, NULL),
-(16, 2, 1, NULL, NULL, NULL, NULL);
+(9, 2, 6, 4, 14600, NULL, NULL),
+(10, 2, 9, 2, 37900, NULL, NULL),
+(11, 2, 10, 7, 5700, NULL, NULL),
+(12, 2, 5, 1, 73000, NULL, NULL),
+(13, 2, 3, 5, 8800, NULL, NULL),
+(14, 2, 2, 6, 8800, NULL, NULL),
+(15, 2, 4, 3, 20400, NULL, NULL),
+(16, 2, 1, 8, 5700, NULL, NULL);
 
 --
 -- Indexes for dumped tables
