@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 08, 2022 at 03:05 AM
+-- Generation Time: Jan 08, 2022 at 04:58 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -1141,14 +1141,14 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`team_id`, `name`, `region`, `sponsors`, `total_earnings`) VALUES
-(1, 'Alliance', 'western_europe', 'Monster Energy', 5762816),
-(2, 'Team Liquid', 'western_europe', 'Alianware', 23038513),
-(3, 'Nigma Galaxy', 'western_europe', 'Etihad Airways', 595414),
-(4, 'Team Secret', 'western_europe', 'Secretlab', 15240459),
-(5, 'Tundra Esports', 'western_europe', 'Noblechairs', 348100),
-(6, 'OG', 'western_europe', 'BMW', 34880062),
-(7, 'Team Tickles', 'western_europe', NULL, 0),
-(8, 'Coolguys', 'western_europe', NULL, 0),
+(1, 'Alliance', 'WESTERN_EUROPE', 'Monster Energy', 5762816),
+(2, 'Team Liquid', 'WESTERN_EUROPE', 'Alianware', 23038513),
+(3, 'Nigma Galaxy', 'WESTERN_EUROPE', 'Etihad Airways', 595414),
+(4, 'Team Secret', 'WESTERN_EUROPE', 'Secretlab', 15240459),
+(5, 'Tundra Esports', 'WESTERN_EUROPE', 'Noblechairs', 348100),
+(6, 'OG', 'WESTERN_EUROPE', 'BMW', 34880062),
+(7, 'Team Tickles', 'WESTERN_EUROPE', NULL, 0),
+(8, 'Coolguys', 'WESTERN_EUROPE', NULL, 0),
 (9, 'Team Spirit', 'EASTERN_EUROPE', 'DXRacer', 18837882),
 (10, 'Natus Vincere', 'EASTERN_EUROPE', 'GG BET', 5000070);
 
