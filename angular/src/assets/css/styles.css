@@ -220,6 +220,7 @@ https://templatemo.com/tm-512-moonlight
   }
   nav ul li {
       margin: 25px 0px;
+      cursor: pointer;
   }
   nav a, nav a:visited, nav a:active {
     color: #fff;
