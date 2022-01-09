@@ -297,23 +297,20 @@ https://templatemo.com/tm-512-moonlight
       background: rgba(250, 250, 250, 0.5);
   }
   
-  .slides .slide:nth-child(1) {
+  .slides .slide.home {
     background-image: url(src/assets/image/dota-background-1.jpeg);
   }
-  .slides .slide:nth-child(2) {
+  .slides .slide.tournament {
     background-image: url(src/assets/image/dota-ti-1.jpeg);
   }
-  .slides .slide:nth-child(3) {
+  .slides .slide.team {
     background-image: url(src/assets/image/third_bg.jpg);
   }
-  .slides .slide:nth-child(4) {
+  .slides .slide.hero {
     background-image: url(src/assets/image/fourth_bg.jpg);
    }
-  .slides .slide:nth-child(5) {
+  .slides .slide.schedule {
     background-image: url(src/assets/image/fifth_bg.jpg);
-  }
-  .slides .slide:nth-child(6) {
-    background-image: url(src/assets/image/fourth_bg.jpg);
   }
   .slides .slide img {
     width: 100%;
