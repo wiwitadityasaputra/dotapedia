@@ -7,6 +7,7 @@ import { HeroComponent } from './hero/hero.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 
 const routes: Routes = [
+  { path: '', component: LandingComponent, data: { name: 'home' } },
   { path: 'home', component: LandingComponent, data: { name: 'home' } },
   { path: 'tournament', component: TournamentComponent, data: { name: 'tournament' } },
   { path: 'team', component: TeamComponent, data: { name: 'team' } },

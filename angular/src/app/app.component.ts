@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, ActivationEnd, NavigationEnd, Router } from '@angular/router';
+import { ActivationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +10,7 @@ export class AppComponent {
 
   public activeRoute: string = '';
 
-  constructor(titleService: Title, router: Router, activatedRoute: ActivatedRoute) {
+  constructor(router: Router) {
     router.events.subscribe(event => {
       if (event instanceof ActivationEnd) {
         if (event.snapshot.data['name']) {
