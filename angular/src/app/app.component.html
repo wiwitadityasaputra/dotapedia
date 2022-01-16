@@ -1,26 +1,51 @@
-<nav>
-  <div class="logo">
-    <img src="assets/image/dotapedia.png" alt="">
-  </div>
-  <div class="mini-logo">
-    <img src="assets/image/mini_dotapedia.png" alt="">
-  </div>
-  <ul>
-    <li class=""><a routerLink="/home" routerLinkActive="active"><i class="fa fa-home"></i><em>DoTA</em></a></li>
-    <li class=""><a routerLink="/tournament" routerLinkActive="active"><i class="fa fa-table"></i><em>Tournament</em></a></li>
-    <li class=""><a routerLink="/team" routerLinkActive="active"><i class="fa fa-users"></i><em>Teams</em></a></li>
-    <li class=""><a routerLink="/hero" routerLinkActive="active"><i class="fa fa-gamepad"></i><em>Hero</em></a></li>
-    <li class=""><a routerLink="/schedule" routerLinkActive="active"><i class="fa fa-clock-o"></i><em>Schedule</em></a></li>
-  </ul>
-</nav>
-<div class="slides">
-  <div class="slide {{activeRoute}}">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">
+          menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened">
+          close
+      </mat-icon>
+  </button>
+  Responsive side navigation
+</mat-toolbar>
 
-<div class="footer">
-  <div class="content">
-    <p>Copyright &copy; 2020 Company Name . Template: <a rel="nofollow" href="https://templatemo.com/tm-512-moonlight">Moonlight</a></p>
-  </div>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+    <h4 class="name">John Smith</h4>
+    <p class="designation">Software Engineer</p>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="/home" routerLinkActive="active">
+        <mat-icon>home</mat-icon>
+        <span>DoTA</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/tournament" routerLinkActive="active">
+        <mat-icon>person</mat-icon>
+        <span>Tournament</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/team" routerLinkActive="active">
+        <mat-icon>info</mat-icon>
+        <span>Team</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/hero" routerLinkActive="active">
+      <mat-icon>info</mat-icon>
+      <span>Hero</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/schedule" routerLinkActive="active">
+      <mat-icon>info</mat-icon>
+      <span>Schedule</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <div class="content mat-elevation-z8">
+        <router-outlet></router-outlet>
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

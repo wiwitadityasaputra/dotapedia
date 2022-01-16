@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { MatSidenav } from '@angular/material/sidenav';
 import { ActivationEnd, Router } from '@angular/router';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +11,12 @@ import { ActivationEnd, Router } from '@angular/router';
 })
 export class AppComponent {
 
+  @ViewChild(MatSidenav)
+  sidenav!: MatSidenav;
+
   public activeRoute: string = '';
 
-  constructor(router: Router) {
+  constructor(private router: Router, private observer: BreakpointObserver) {
     router.events.subscribe(event => {
       if (event instanceof ActivationEnd) {
         if (event.snapshot.data['name']) {
@@ -18,5 +24,20 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  ngAfterViewInit() {
+    this.observer
+      .observe(['(max-width: 800px)'])
+      .pipe(delay(1))
+      .subscribe((res) => {
+        if (res.matches) {
+          this.sidenav.mode = 'over';
+          this.sidenav.close();
+        } else {
+          this.sidenav.mode = 'side';
+          this.sidenav.open();
+        }
+      });
   }
 }

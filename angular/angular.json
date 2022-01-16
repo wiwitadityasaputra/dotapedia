@@ -27,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/bootstrap/dist/css/bootstrap-theme.min.css",
               "./node_modules/fontawesome-4.7/css/font-awesome.min.css",
