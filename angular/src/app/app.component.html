@@ -1,9 +1,9 @@
 <mat-toolbar class="mat-elevation-z8">
   <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-      <mat-icon *ngIf="!sidenav.opened">
+      <mat-icon class="menu-icon-toggle" *ngIf="!sidenav.opened">
           menu
       </mat-icon>
-      <mat-icon *ngIf="sidenav.opened">
+      <mat-icon class="menu-icon-toggle" *ngIf="sidenav.opened">
           close
       </mat-icon>
   </button>
@@ -21,23 +21,23 @@
 
     <button mat-button class="menu-button" routerLink="/home" routerLinkActive="active">
         <mat-icon>home</mat-icon>
-        <span>DotA</span>
+        <span class="menu-name">DotA</span>
     </button>
     <button mat-button class="menu-button" routerLink="/tournament" routerLinkActive="active">
-        <mat-icon>person</mat-icon>
-        <span>Tournament</span>
+        <mat-icon>table_chart</mat-icon>
+        <span class="menu-name">Tournament</span>
     </button>
     <button mat-button class="menu-button" routerLink="/team" routerLinkActive="active">
-        <mat-icon>info</mat-icon>
-        <span>Team</span>
+        <mat-icon>group</mat-icon>
+        <span class="menu-name">Team</span>
     </button>
     <button mat-button class="menu-button" routerLink="/hero" routerLinkActive="active">
-      <mat-icon>info</mat-icon>
-      <span>Hero</span>
+      <mat-icon>person_pin_circle</mat-icon>
+      <span class="menu-name">Hero</span>
     </button>
     <button mat-button class="menu-button" routerLink="/schedule" routerLinkActive="active">
-      <mat-icon>info</mat-icon>
-      <span>Schedule</span>
+      <mat-icon>access_time</mat-icon>
+      <span class="menu-name">Schedule</span>
     </button>
 
     <mat-divider></mat-divider>
