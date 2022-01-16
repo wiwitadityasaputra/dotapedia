@@ -21,11 +21,17 @@ mat-sidenav {
     margin-left: 32px;
 
     /* display: flex; */
-    justify-content: center;
+    /* justify-content: center; */
     /* align-items: flex-start; */
 
-    font-size: 2rem;
+    font-size: 14px;
     /* color: lightgray; */
+}
+
+@media (max-width: 800px) {
+    .content {
+        margin-left: 16px;
+    }
 }
 
 mat-sidenav-container {
