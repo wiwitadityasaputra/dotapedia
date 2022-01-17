@@ -5,7 +5,7 @@ import wiwitaditya.demo.dotapedia.db.entity.TournamentTeam;
 
 public class TeamParticipantMapping {
 
-    public static TeamParticipant mapping(TournamentTeam tournamentTeam, Team team) {
+    public static TeamParticipant toTeamParticipant(TournamentTeam tournamentTeam, Team team) {
         TeamParticipant teamParticipant = new TeamParticipant();
 
         teamParticipant.setTeamId(team.getId());

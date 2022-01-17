@@ -27,7 +27,7 @@ public class TournamentService {
             Team team = teamRepository.findById(tournamentTeam.getTeamId()).orElse(null);
             if (team != null) {
                 TeamParticipant tp = new TeamParticipant();
-                participants.add(TeamParticipantMapping.mapping(tournamentTeam, team));
+                participants.add(TeamParticipantMapping.toTeamParticipant(tournamentTeam, team));
             }
         }
 

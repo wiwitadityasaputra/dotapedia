@@ -33,36 +33,20 @@ public class TeamService {
 
         List<Team> teams = teamRepository.findTeamOrderByEarningsDesc();
         for (Team team : teams) {
+            TeamResponse tr = TeamMapping.toTeamResponse(team);
 
-            TeamResponse tr = new TeamResponse();
-            tr.setTeamId(team.getId());
-            tr.setName(team.getName());
-            tr.setRegion(team.getRegion());
-            tr.setSponsors(team.getSponsors());
-            tr.setTotalEarnings(team.getTotalEarnings());
-            tr.setImage(team.getImage());
-
-            List<TeamPlayerResponse> players = new ArrayList();
             List<TeamPlayer> teamPlayers = teamPlayerRepository.findTeamPlayerByTeamId(team.getId());
             for (TeamPlayer teamPlayer : teamPlayers) {
                 Player player = playerRepository.findById(teamPlayer.getPlayerId()).orElse(null);
                 PlayerRole playerRole = playerRoleRepository.findById(teamPlayer.getPlayerRoleId()).orElse(null);
 
                 if (player != null && playerRole != null) {
-                    TeamPlayerResponse tpr = new TeamPlayerResponse();
-                    tpr.setPlayerId(player.getId());
-                    tpr.setFullName(player.getFullName());
-                    tpr.setNickName(player.getNickName());
-                    tpr.setPlayerRoleId(playerRole.getId());
-                    tpr.setRole(playerRole.getName());
-
-                    players.add(tpr);
+                    TeamPlayerResponse tpr = TeamMapping.toTeamPlayerResponse(player, playerRole);
+                    tr.getPlayers().add(tpr);
                 }
             }
-            tr.setPlayers(players);
             response.add(tr);
         }
-
         return response;
     }
 }
