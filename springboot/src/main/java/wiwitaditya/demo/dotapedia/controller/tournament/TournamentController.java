@@ -13,8 +13,8 @@ public class TournamentController {
     private TournamentService tournamentService;
 
     @GetMapping(path = "")
-    public List getTournaments(@RequestParam(name = "region", required = false) String region) {
-        return tournamentService.findTournamentByRegion(region);
+    public List getTournaments(@RequestParam(name = "regions", required = false) String regions) {
+        return tournamentService.findTournamentByRegion(regions);
     }
 
     @GetMapping(path = "/{tournamentId}/teams")

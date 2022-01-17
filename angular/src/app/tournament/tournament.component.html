@@ -1,62 +1,78 @@
-<div class="content second-content">
-    <div class="container-fluid">
-        <div class="col-md-12">
-            <div class="left-content">
-                <h2>OGA Dota PIT Season 5: Europe/CIS</h2>
-                <div class="col-md-4 left-section">
-                    <img src="assets/image/dota-ti-2.jpeg" alt="">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <mat-checkbox class="example-margin" [(ngModel)]="allRegion" (change)="allRegionChange($event)">
+                All Region
+            </mat-checkbox>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4" *ngFor="let region of regions">
+            <mat-checkbox class="example-margin" [(ngModel)]="region.checked" (change)="selectedRegionChange($event)"
+                [ngClass]="region.value">
+                {{region.name}}
+            </mat-checkbox>
+        </div>
+    </div>
+    <div class="row tournaments">
+        <div class="col col-12 col-sm-6 wrapper" *ngFor="let t of tournaments">
+            <div class="col info" [ngClass]="t.region">
+                <div class="col-12">
+                    <h3>
+                        {{t.name}}
+                    </h3>
                 </div>
-                <div class="col-md-8 right-section">
-                    <div class="col-md-6 left-side">
-                        <h3>Format</h3>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                        </p>
-                    </div>
-                    <div class="col-md-6 right-side">
-                        <h3>Talent</h3>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                        </p>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                        </p>
-                    </div>
-                    <div class="col-md-6 right-side">
-                        <h3>Price Pool</h3>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                        </p>
-                    </div>
-                    <div class="col-md-6 right-side">
-                        <h3>Matchs</h3>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                        </p>
-                    </div>
+                <div class="col-12">
+                    <mat-list>
+                        <mat-list-item>
+                            <div class="col-6">
+                                Region
+                            </div>
+                            <div class="col-6">
+                                {{t.region}}
+                            </div>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item>
+                            <div class="col-6">
+                                Prize Pool
+                            </div>
+                            <div class="col-6">
+                                {{t.prizePool}}
+                            </div>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item>
+                            <div class="col-6">
+                                Start Date
+                            </div>
+                            <div class="col-6">
+                                {{t.startDate}}
+                            </div>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item>
+                            <div class="col-6">
+                                End Date
+                            </div>
+                            <div class="col-6">
+                                {{t.endDate}}
+                            </div>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item>
+                            <div class="col-6">
+                                Format
+                            </div>
+                            <div class="col-6">
+                                {{t.tournamentType}}
+                            </div>
+                        </mat-list-item>
+                      </mat-list>
+                </div>
+                <div class="col-12 image">
+                    <img [src]="'assets/image/tournaments/' + t.image" >
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="left-content">
-                <h2>DPC WEU 2021/22 Tour 1: Division I (DreamLeague Season 16)</h2>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="left-content">
-                <h2>Lorem Ipsum</h2>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="left-content">
-                <h2>Lorem Ipsum</h2>
-            </div>
-        </div>
+
     </div>
 </div>

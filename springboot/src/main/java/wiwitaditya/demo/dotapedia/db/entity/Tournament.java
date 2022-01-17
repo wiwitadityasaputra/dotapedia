@@ -21,6 +21,7 @@ public class Tournament {
     @Enumerated(EnumType.STRING)
     private Region region;
     private String name;
+    private String image;
     private long prizePool;
     private long startDate;
     private long endDate;

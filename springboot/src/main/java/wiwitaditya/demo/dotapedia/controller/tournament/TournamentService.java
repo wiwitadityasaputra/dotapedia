@@ -38,12 +38,23 @@ public class TournamentService {
         return participants;
     }
 
-    public List findTournamentByRegion(String r) {
-        Region region = LookupUtil.lookup(Region.class, r);
-        if (region == null) {
+    public List findTournamentByRegion(String regions) {
+        if (regions == null) {
+            return tournamentRepository.findAll();
+        }
+        List<String> listRegion = new ArrayList();
+        String[] regionSplit = regions.split(",");
+        for (String regionStr: regionSplit) {
+            Region region = LookupUtil.lookup(Region.class, regionStr);
+            if (region != null) {
+                listRegion.add(region.toString());
+            }
+        }
+
+        if (listRegion.size() == 0) {
             return tournamentRepository.findAll();
         } else {
-            return tournamentRepository.findByRegion(region.toString());
+            return tournamentRepository.findByRegion(listRegion);
         }
     }
 }

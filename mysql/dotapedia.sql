@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 17, 2022 at 02:23 PM
+-- Generation Time: Jan 17, 2022 at 05:49 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -1237,6 +1237,7 @@ CREATE TABLE `tournament` (
   `tournament_id` int NOT NULL,
   `region` varchar(25) NOT NULL,
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `image` varchar(25) NOT NULL,
   `prize_pool` int NOT NULL,
   `start_date` bigint NOT NULL,
   `end_date` bigint NOT NULL,
@@ -1248,9 +1249,9 @@ CREATE TABLE `tournament` (
 -- Dumping data for table `tournament`
 --
 
-INSERT INTO `tournament` (`tournament_id`, `region`, `name`, `prize_pool`, `start_date`, `end_date`, `total_dpc_points`, `tournament_type`) VALUES
-(1, 'WESTERN_EUROPE', 'DPC WEU 2021/22 Tour 1: Division I (DreamLeague Season 16)', 205000, 1638230400000, 1642550400000, 690, 'ROUND_ROBIN'),
-(2, 'EASTERN_EUROPE', 'OGA Dota PIT Season 5: Europe/CIS', 175000, 1639353600000, 1639958400000, 0, 'BRACKET');
+INSERT INTO `tournament` (`tournament_id`, `region`, `name`, `image`, `prize_pool`, `start_date`, `end_date`, `total_dpc_points`, `tournament_type`) VALUES
+(1, 'WESTERN_EUROPE', 'DPC WEU', 'dream-league.png', 205000, 1638230400000, 1642550400000, 690, 'ROUND_ROBIN'),
+(2, 'EASTERN_EUROPE', 'Dota PIT', 'dota-pit.png', 175000, 1639353600000, 1639958400000, 0, 'BRACKET');
 
 -- --------------------------------------------------------
 

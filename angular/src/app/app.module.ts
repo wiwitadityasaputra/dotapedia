@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,8 +12,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +28,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { HeroService } from './hero/hero.service';
 import { EnvirontmentService } from './utility/environtment.service';
 import { TeamService } from './team/team.service';
+import { TournamentService } from './tournament/tournament.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { TeamService } from './team/team.service';
     ScheduleComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -49,6 +53,9 @@ import { TeamService } from './team/team.service';
     MatGridListModule,
     MatButtonToggleModule,
     MatCardModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatExpansionModule,
     FlexLayoutModule,
 
     AppRoutingModule,
@@ -57,6 +64,7 @@ import { TeamService } from './team/team.service';
     EnvirontmentService,
     HeroService,
     TeamService,
+    TournamentService,
   ],
   bootstrap: [AppComponent]
 })
