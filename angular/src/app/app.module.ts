@@ -22,6 +22,7 @@ import { TeamComponent } from './team/team.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 
 import { HeroService } from './hero/hero.service';
+import { EnvirontmentService } from './utility/environtment.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HeroService } from './hero/hero.service';
     AppRoutingModule,
   ],
   providers: [
-    HeroService
+    EnvirontmentService,
+    HeroService,
   ],
   bootstrap: [AppComponent]
 })
