@@ -11,7 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +25,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 
 import { HeroService } from './hero/hero.service';
 import { EnvirontmentService } from './utility/environtment.service';
+import { TeamService } from './team/team.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,7 @@ import { EnvirontmentService } from './utility/environtment.service';
     MatDividerModule,
     MatGridListModule,
     MatButtonToggleModule,
+    MatCardModule,
     FlexLayoutModule,
 
     AppRoutingModule,
@@ -52,6 +56,7 @@ import { EnvirontmentService } from './utility/environtment.service';
   providers: [
     EnvirontmentService,
     HeroService,
+    TeamService,
   ],
   bootstrap: [AppComponent]
 })

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 15, 2022 at 05:53 PM
+-- Generation Time: Jan 17, 2022 at 02:23 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -1132,6 +1132,7 @@ INSERT INTO `series` (`series_id`, `team_id_a`, `team_id_b`, `format`, `team_a_s
 CREATE TABLE `team` (
   `team_id` int NOT NULL,
   `name` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `image` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `region` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `sponsors` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `total_earnings` int NOT NULL
@@ -1141,17 +1142,17 @@ CREATE TABLE `team` (
 -- Dumping data for table `team`
 --
 
-INSERT INTO `team` (`team_id`, `name`, `region`, `sponsors`, `total_earnings`) VALUES
-(1, 'Alliance', 'WESTERN_EUROPE', 'Monster Energy', 5762816),
-(2, 'Team Liquid', 'WESTERN_EUROPE', 'Alianware', 23038513),
-(3, 'Nigma Galaxy', 'WESTERN_EUROPE', 'Etihad Airways', 595414),
-(4, 'Team Secret', 'WESTERN_EUROPE', 'Secretlab', 15240459),
-(5, 'Tundra Esports', 'WESTERN_EUROPE', 'Noblechairs', 348100),
-(6, 'OG', 'WESTERN_EUROPE', 'BMW', 34880062),
-(7, 'Team Tickles', 'WESTERN_EUROPE', NULL, 0),
-(8, 'Coolguys', 'WESTERN_EUROPE', NULL, 0),
-(9, 'Team Spirit', 'EASTERN_EUROPE', 'DXRacer', 18837882),
-(10, 'Natus Vincere', 'EASTERN_EUROPE', 'GG BET', 5000070);
+INSERT INTO `team` (`team_id`, `name`, `image`, `region`, `sponsors`, `total_earnings`) VALUES
+(1, 'Alliance', 'team-alliance.webp', 'WESTERN_EUROPE', 'Monster Energy', 5762816),
+(2, 'Team Liquid', 'team-liquid.jpeg', 'WESTERN_EUROPE', 'Alianware', 23038513),
+(3, 'Nigma Galaxy', 'team-nigmagalaxy.jpeg', 'WESTERN_EUROPE', 'Etihad Airways', 595414),
+(4, 'Team Secret', 'team-secret.jpeg', 'WESTERN_EUROPE', 'Secretlab', 15240459),
+(5, 'Tundra Esports', 'team-tundra.png', 'WESTERN_EUROPE', 'Noblechairs', 348100),
+(6, 'OG', 'team-og.jpeg', 'WESTERN_EUROPE', 'BMW', 34880062),
+(7, 'Team Tickles', 'team-tickles.jpeg', 'WESTERN_EUROPE', NULL, 0),
+(8, 'Coolguys', 'team-coolguys.png', 'WESTERN_EUROPE', NULL, 0),
+(9, 'Team Spirit', 'team-spirit.jpeg', 'EASTERN_EUROPE', 'DXRacer', 18837882),
+(10, 'Natus Vincere', 'team-navi.jpeg', 'EASTERN_EUROPE', 'GG BET', 5000070);
 
 -- --------------------------------------------------------
 

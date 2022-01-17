@@ -12,6 +12,7 @@ public class TeamResponse {
 
     private Integer teamId;
     private String name;
+    private String image;
     private Region region;
     private String sponsors;
     private long totalEarnings;

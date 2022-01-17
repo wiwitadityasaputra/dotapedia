@@ -40,6 +40,7 @@ public class TeamService {
             tr.setRegion(team.getRegion());
             tr.setSponsors(team.getSponsors());
             tr.setTotalEarnings(team.getTotalEarnings());
+            tr.setImage(team.getImage());
 
             List<TeamPlayerResponse> players = new ArrayList();
             List<TeamPlayer> teamPlayers = teamPlayerRepository.findTeamPlayerByTeamId(team.getId());

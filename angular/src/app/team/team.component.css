@@ -1,0 +1,28 @@
+.container {
+    padding-top: 10px;
+}
+@media (min-width: 576px) {
+    .container, .container-sm {
+        max-width: 100%;
+    }
+}
+.row {
+    border: 1px solid #004a9e;
+    background: #565656;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+}
+.team-tittle {
+    margin-top: 10px;
+}
+.list-group-item {
+    background: inherit;
+    color: white;
+}
