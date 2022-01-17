@@ -1,11 +1,7 @@
 package wiwitaditya.demo.dotapedia.controller.tournament;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import wiwitaditya.demo.dotapedia.db.repository.TournamentRepository;;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,14 +10,11 @@ import java.util.List;
 public class TournamentController {
 
     @Autowired
-    private TournamentRepository tournamentRepository;
-
-    @Autowired
     private TournamentService tournamentService;
 
     @GetMapping(path = "")
-    public List getTournaments() {
-        return tournamentRepository.findAll();
+    public List getTournaments(@RequestParam(name = "region", required = false) String region) {
+        return tournamentService.findTournamentByRegion(region);
     }
 
     @GetMapping(path = "/{tournamentId}/teams")
