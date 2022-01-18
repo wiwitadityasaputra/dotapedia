@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 17, 2022 at 05:49 PM
+-- Generation Time: Jan 18, 2022 at 02:23 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -1250,8 +1250,16 @@ CREATE TABLE `tournament` (
 --
 
 INSERT INTO `tournament` (`tournament_id`, `region`, `name`, `image`, `prize_pool`, `start_date`, `end_date`, `total_dpc_points`, `tournament_type`) VALUES
-(1, 'WESTERN_EUROPE', 'DPC WEU', 'dream-league.png', 205000, 1638230400000, 1642550400000, 690, 'ROUND_ROBIN'),
-(2, 'EASTERN_EUROPE', 'Dota PIT', 'dota-pit.png', 175000, 1639353600000, 1639958400000, 0, 'BRACKET');
+(1, 'WESTERN_EUROPE', 'DPC WEU Div 1', 'dream-league.png', 205000, 1638230400000, 1642550400000, 690, 'ROUND_ROBIN'),
+(2, 'EASTERN_EUROPE', 'Dota PIT', 'dota-pit.png', 175000, 1639353600000, 1639958400000, 0, 'BRACKET'),
+(3, 'WESTERN_EUROPE', 'Dummy EU 1', 'dummy-image.png', 205000, 1638230403000, 1642550405000, 690, 'ROUND_ROBIN'),
+(4, 'WESTERN_EUROPE', 'Dummy EU 2', 'dummy-image.png', 205000, 1638230100000, 1642550130000, 690, 'ROUND_ROBIN'),
+(5, 'EASTERN_EUROPE', 'Dummy EEU 1', 'dummy-image.png', 175000, 1639351600000, 1639951400000, 0, 'BRACKET'),
+(6, 'CHINA', 'Dummy China 1', 'dummy-image.png', 205000, 1638230223000, 1642550335000, 690, 'ROUND_ROBIN'),
+(7, 'CHINA', 'Dummy China 2', 'dummy-image.png', 205000, 1638230119000, 1642550123000, 690, 'ROUND_ROBIN'),
+(8, 'SOUTHEAST_ASIA', 'Dummy SEA 1', 'dummy-image.png', 205000, 1638225223000, 1642529335000, 690, 'ROUND_ROBIN'),
+(9, 'SOUTHEAST_ASIA', 'Dummy SEA 2', 'dummy-image.png', 205000, 1638233119000, 1642553323000, 690, 'ROUND_ROBIN'),
+(10, 'NORTH_AMERICA', 'Dummy NA 1', 'dummy-image.png', 205000, 1638239319000, 1642559523000, 690, 'ROUND_ROBIN');
 
 -- --------------------------------------------------------
 
@@ -1518,7 +1526,7 @@ ALTER TABLE `team_player`
 -- AUTO_INCREMENT for table `tournament`
 --
 ALTER TABLE `tournament`
-  MODIFY `tournament_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `tournament_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tournament_bracket`

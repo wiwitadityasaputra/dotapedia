@@ -35,6 +35,8 @@ export class TournamentComponent implements OnInit {
 
     if (checked) {
       this.updateTournaments();
+    } else {
+      this.tournaments = [];
     }
   }
 
@@ -54,9 +56,7 @@ export class TournamentComponent implements OnInit {
     });
 
     this.tournamentService.getTournaments(regions.slice(1)).subscribe((response) => {
-      // this.tournaments = response;
-      this.tournaments.push(response[0]);this.tournaments.push(response[1]);
-      this.tournaments.push(response[0]);this.tournaments.push(response[1]);
+      this.tournaments = response;
     });
   }
 }
