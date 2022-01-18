@@ -14,7 +14,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from '@angular/material/list';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +30,8 @@ import { HeroService } from './hero/hero.service';
 import { EnvirontmentService } from './utility/environtment.service';
 import { TeamService } from './team/team.service';
 import { TournamentService } from './tournament/tournament.service';
+import { RegionPipe } from './utility/region.pipe';
+import { TournamentTypePipe } from './utility/tournament-type.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { TournamentService } from './tournament/tournament.service';
     LandingComponent,
     TournamentComponent,
     TeamComponent,
-    ScheduleComponent
+    ScheduleComponent,
+
+    RegionPipe,
+    TournamentTypePipe,
   ],
   imports: [
     FormsModule,
@@ -56,6 +62,7 @@ import { TournamentService } from './tournament/tournament.service';
     MatCheckboxModule,
     MatListModule,
     MatExpansionModule,
+    MatTabsModule,
     FlexLayoutModule,
 
     AppRoutingModule,

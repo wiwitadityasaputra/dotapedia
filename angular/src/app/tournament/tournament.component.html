@@ -27,7 +27,7 @@
                                 Region
                             </div>
                             <div class="col-6">
-                                {{t.region}}
+                                {{ t.region | region }}
                             </div>
                         </mat-list-item>
                         <mat-divider></mat-divider>
@@ -36,7 +36,7 @@
                                 Prize Pool
                             </div>
                             <div class="col-6">
-                                {{t.prizePool}}
+                                {{ t.prizePool | currency:'USD': 'symbol' }}
                             </div>
                         </mat-list-item>
                         <mat-divider></mat-divider>
@@ -45,7 +45,7 @@
                                 Start Date
                             </div>
                             <div class="col-6">
-                                {{t.startDate}}
+                                {{ t.startDate | date: 'mediumDate' }} 
                             </div>
                         </mat-list-item>
                         <mat-divider></mat-divider>
@@ -54,7 +54,7 @@
                                 End Date
                             </div>
                             <div class="col-6">
-                                {{t.endDate}}
+                                {{ t.endDate | date: 'mediumDate' }} 
                             </div>
                         </mat-list-item>
                         <mat-divider></mat-divider>
@@ -63,7 +63,7 @@
                                 Format
                             </div>
                             <div class="col-6">
-                                {{t.tournamentType}}
+                                {{ t.tournamentType | tournamentPipe }}
                             </div>
                         </mat-list-item>
                       </mat-list>

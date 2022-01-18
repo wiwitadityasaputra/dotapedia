@@ -44,7 +44,7 @@ export class TournamentComponent implements OnInit {
     if (!event.checked) {
       this.allRegion = false;
     }
-    this.updateTournaments();    
+    this.updateTournaments();
   }
 
   private updateTournaments(): void {
@@ -54,6 +54,11 @@ export class TournamentComponent implements OnInit {
         regions += "," + value.value;
       }
     });
+
+    if (regions.length == 0) {
+      this.tournaments = [];
+      return;
+    }
 
     this.tournamentService.getTournaments(regions.slice(1)).subscribe((response) => {
       this.tournaments = response;
