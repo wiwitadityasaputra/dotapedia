@@ -1,7 +1,7 @@
 <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
     <mat-tab *ngFor="let region of regions" label="{{region.abbreviation}}">
         <div class="container" *ngFor="let team of teams[region.index]">
-            <div class="row">
+            <div class="row" [ngClass]="region.key">
                 <div class="col-xs-12">
                     <h3 class="team-tittle">
                         {{team.teamA?.name}}
@@ -25,7 +25,7 @@
                     <img [src]="'assets/image/teams/' + team.teamA?.image" class="img-fluid" alt="...">
                 </div>
             </div>
-            <div class="row">
+            <div class="row" [ngClass]="region.key">
                 <div class="col-xs-12">
                     <h3 class="team-tittle">
                         {{team.teamB?.name}}
@@ -52,21 +52,3 @@
         </div>
     </mat-tab>
 </mat-tab-group>
-
-<!-- 
-    <mat-tab label="EEU">
-        coming soon
-    </mat-tab>
-    <mat-tab label="CN">
-        coming soon
-    </mat-tab>
-    <mat-tab label="SEA">
-        coming soon
-    </mat-tab>
-    <mat-tab label="NA">
-        coming soon
-    </mat-tab>
-    <mat-tab label="SA">
-        coming soon
-    </mat-tab>
- -->

@@ -29,7 +29,7 @@ export class RegionType {
     static readonly NORTH_AMERICA = new RegionType("NORTH_AMERICA", 4, "North America", "NA");
     static readonly SOUTH_AMERICA  = new RegionType("SOUTH_AMERICA", 5, "South America", "SA");
 
-    private constructor(private readonly key: string,
+    private constructor(public readonly key: string,
         public readonly index: number,
         public readonly value: string,
         public readonly abbreviation: string) {

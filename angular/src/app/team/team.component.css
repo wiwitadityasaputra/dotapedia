@@ -6,6 +6,26 @@
         max-width: 100%;
     }
 }
+
+mat-checkbox.WESTERN_EUROPE {
+    color: yellow;
+}
+mat-checkbox.EASTERN_EUROPE {
+    color: orange;
+}
+mat-checkbox.CHINA {
+    color: red;
+}
+mat-checkbox.SOUTHEAST_ASIA {
+    color: purple;
+}
+mat-checkbox.NORTH_AMERICA {
+    color: blue;
+}
+mat-checkbox.SOUTH_AMERICA {
+    color: green;
+}
+
 .row {
     border: 1px solid #004a9e;
     background: #565656;
@@ -25,4 +45,23 @@
 .list-group-item {
     background: inherit;
     color: white;
+}
+
+.row.WESTERN_EUROPE {
+    border: 1px solid yellow;
+}
+.row.EASTERN_EUROPE {
+    border: 1px solid orange;
+}
+.tournaments .col.CHINA {
+    border: 1px solid red;
+}
+.tournaments .col.SOUTHEAST_ASIA {
+    border: 1px solid purple;
+}
+.tournaments .col.NORTH_AMERICA {
+    border: 1px solid blue;
+}
+.tournaments .col.SOUTH_AMERICA {
+    border: 1px solid green;
 }
