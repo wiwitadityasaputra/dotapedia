@@ -10,4 +10,7 @@ public interface TeamRepository extends JpaRepository<Team, Integer> {
 
     @Query(value = "SELECT * FROM team ORDER BY total_earnings DESC", nativeQuery = true)
     List<Team> findTeamOrderByEarningsDesc();
+
+    @Query(value = "SELECT * FROM team WHERE region = :region ORDER BY total_earnings DESC", nativeQuery = true)
+    List<Team> findTeamByRegion(String region);
 }

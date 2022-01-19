@@ -2,6 +2,7 @@ package wiwitaditya.demo.dotapedia.controller.team;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import wiwitaditya.demo.dotapedia.controller.LookupUtil;
 import wiwitaditya.demo.dotapedia.controller.team.model.TeamPlayerResponse;
 import wiwitaditya.demo.dotapedia.controller.team.model.TeamResponse;
 import wiwitaditya.demo.dotapedia.db.entity.Player;
@@ -12,6 +13,7 @@ import wiwitaditya.demo.dotapedia.db.repository.PlayerRepository;
 import wiwitaditya.demo.dotapedia.db.repository.PlayerRoleRepository;
 import wiwitaditya.demo.dotapedia.db.repository.TeamPlayerRepository;
 import wiwitaditya.demo.dotapedia.db.repository.TeamRepository;
+import wiwitaditya.demo.dotapedia.db.utility.Region;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +30,18 @@ public class TeamService {
     @Autowired
     private PlayerRoleRepository playerRoleRepository;
 
-    public List<TeamResponse> getTeamAndRoster() {
+    public List<TeamResponse> getTeamAndRoster(String regionStr) {
+        Region region = LookupUtil.lookup(Region.class, regionStr);
+
         List<TeamResponse> response = new ArrayList();
 
-        List<Team> teams = teamRepository.findTeamOrderByEarningsDesc();
+        List<Team> teams;
+        if (region == null) {
+            teams = teamRepository.findTeamOrderByEarningsDesc();
+        } else {
+            teams = teamRepository.findTeamByRegion(region.toString());
+        }
+
         for (Team team : teams) {
             TeamResponse tr = TeamMapping.toTeamResponse(team);
 

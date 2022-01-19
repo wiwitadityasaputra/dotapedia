@@ -32,6 +32,7 @@ import { TeamService } from './team/team.service';
 import { TournamentService } from './tournament/tournament.service';
 import { RegionPipe } from './utility/region.pipe';
 import { TournamentTypePipe } from './utility/tournament-type.pipe';
+import { RegionService } from './utility/region.service';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { TournamentTypePipe } from './utility/tournament-type.pipe';
     HeroService,
     TeamService,
     TournamentService,
+    RegionService,
   ],
   bootstrap: [AppComponent]
 })

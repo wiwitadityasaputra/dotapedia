@@ -1,6 +1,6 @@
-<mat-tab-group>
-    <mat-tab label="TI Champions">
-        <div class="container" *ngFor="let team of teams">
+<mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
+    <mat-tab *ngFor="let region of regions" label="{{region.abbreviation}}">
+        <div class="container" *ngFor="let team of teams[region.index]">
             <div class="row">
                 <div class="col-xs-12">
                     <h3 class="team-tittle">
@@ -26,7 +26,6 @@
                 </div>
             </div>
             <div class="row">
-        
                 <div class="col-xs-12">
                     <h3 class="team-tittle">
                         {{team.teamB?.name}}
@@ -52,9 +51,9 @@
             </div>
         </div>
     </mat-tab>
-    <mat-tab label="WEU">
-        coming soon
-    </mat-tab>
+</mat-tab-group>
+
+<!-- 
     <mat-tab label="EEU">
         coming soon
     </mat-tab>
@@ -70,4 +69,4 @@
     <mat-tab label="SA">
         coming soon
     </mat-tab>
-</mat-tab-group>
+ -->
