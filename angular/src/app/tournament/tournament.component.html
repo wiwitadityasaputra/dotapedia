@@ -17,7 +17,9 @@
             <div class="col info" [ngClass]="t.region">
                 <div class="col-12">
                     <h3>
-                        {{t.name}}
+                        <span (click)="selectTournament(t)">
+                            {{t.name}}
+                        </span>
                     </h3>
                 </div>
                 <div class="col-12">

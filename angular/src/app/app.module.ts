@@ -23,6 +23,7 @@ import { AppComponent } from './app.component';
 import { HeroComponent } from './hero/hero.component';
 import { LandingComponent } from './landing/landing.component';
 import { TournamentComponent } from './tournament/tournament.component';
+import { TournamentDetailComponent } from './tournament/tournament-detail/tournament-detail.component';
 import { TeamComponent } from './team/team.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 
@@ -40,6 +41,7 @@ import { RegionService } from './utility/region.service';
     HeroComponent,
     LandingComponent,
     TournamentComponent,
+    TournamentDetailComponent,
     TeamComponent,
     ScheduleComponent,
 

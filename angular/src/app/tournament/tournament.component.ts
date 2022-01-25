@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { Router } from '@angular/router';
 import { TournamentModel } from './tournament.model';
 import { TournamentService } from './tournament.service';
 
@@ -21,7 +22,7 @@ export class TournamentComponent implements OnInit {
     { name: "South America", checked: true, value: "SOUTH_AMERICA" },
   ];
 
-  constructor(private tournamentService: TournamentService) { }
+  constructor(private router: Router, private tournamentService: TournamentService) { }
 
   ngOnInit(): void {
     this.updateTournaments();
@@ -63,5 +64,10 @@ export class TournamentComponent implements OnInit {
     this.tournamentService.getTournaments(regions.slice(1)).subscribe((response) => {
       this.tournaments = response;
     });
+  }
+
+  selectTournament(tournament: TournamentModel): void {
+    console.log("selectTournament ", tournament)
+    this.router.navigate(['/tournament/' + tournament.id, { }]);
   }
 }
