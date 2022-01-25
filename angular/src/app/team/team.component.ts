@@ -13,13 +13,16 @@ import { TeamService } from './team.service';
 export class TeamComponent implements OnInit {
 
   public teams: TeamViewModel[][];
+  public teamsLoaded: boolean[];
   public regions: RegionType[];
 
   constructor(private teamService: TeamService, private regionService: RegionService) { }
 
   ngOnInit(): void {
     this.regions = this.regionService.getAllRegions();
-    this.teams = new Array(this.regions.length).fill([]).map(() => []);
+    const totalRegion = this.regions.length;
+    this.teams = new Array(totalRegion).fill([]).map(() => []);
+    this.teamsLoaded = new Array(totalRegion).fill(false);
     this.updateTeams(0);
   }
 
@@ -31,7 +34,10 @@ export class TeamComponent implements OnInit {
   }
 
   private updateTeams(index: number): void {
+    this.teamsLoaded[index] = false;
     this.teamService.getTeams(this.regionService.getRegionByIndex(index)).subscribe((response) => {
+      this.teamsLoaded[index] = true;
+      
       let teamViewModel: TeamViewModel = {
         teamA: null,
         teamB: null

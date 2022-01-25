@@ -1,7 +1,17 @@
 <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
-    <mat-tab *ngFor="let region of regions" label="{{region.abbreviation}}">
+    <mat-tab *ngFor="let region of regions; let i = index;" label="{{region.abbreviation}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12" *ngIf="teamsLoaded[i] === false">
+                    Please wait...
+                </div>
+                <div class="col-xs-12" *ngIf="teamsLoaded[i] === true && teams[region.index].length === 0">
+                    No Teams available.
+                </div>
+            </div>
+        </div>
         <div class="container" *ngFor="let team of teams[region.index]">
-            <div class="row" [ngClass]="region.key">
+            <div class="row teams" [ngClass]="region.key">
                 <div class="col-xs-12">
                     <h3 class="team-tittle">
                         {{team.teamA?.name}}

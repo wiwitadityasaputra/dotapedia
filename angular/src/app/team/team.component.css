@@ -26,7 +26,7 @@ mat-checkbox.SOUTH_AMERICA {
     color: green;
 }
 
-.row {
+.row.teams {
     border: 1px solid #004a9e;
     background: #565656;
     margin-top: 0px;
