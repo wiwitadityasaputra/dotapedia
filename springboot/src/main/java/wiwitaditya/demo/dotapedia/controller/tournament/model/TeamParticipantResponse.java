@@ -1,4 +1,4 @@
-package wiwitaditya.demo.dotapedia.controller.tournament;
+package wiwitaditya.demo.dotapedia.controller.tournament.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,7 +6,7 @@ import wiwitaditya.demo.dotapedia.db.utility.Region;
 
 @Getter
 @Setter
-public class TeamParticipant {
+public class TeamParticipantResponse {
     private Integer teamId;
     private String name;
     private Region region;

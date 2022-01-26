@@ -1,23 +1,16 @@
-package wiwitaditya.demo.dotapedia.db.entity;
+package wiwitaditya.demo.dotapedia.controller.tournament.model;
 
 import lombok.Getter;
 import lombok.Setter;
 import wiwitaditya.demo.dotapedia.db.utility.Region;
 import wiwitaditya.demo.dotapedia.db.utility.TournamentType;
 
-import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "tournament")
-public class Tournament {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tournament_id")
+public class TournamentResponse {
     private Integer id;
-    @Enumerated(EnumType.STRING)
     private Region region;
     private String name;
     private String image;
@@ -25,6 +18,9 @@ public class Tournament {
     private long startDate;
     private long endDate;
     private int totalDpcPoints;
-    @Enumerated(EnumType.STRING)
     private TournamentType tournamentType;
+    private List<TournamentTeamResponse> teams;
+
+    private List<TournamentBracketResponse> bracketSeries;
+    private List<TournamentRoundRobinResponse> roundRobinSeries;
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 18, 2022 at 02:23 AM
+-- Generation Time: Jan 26, 2022 at 09:43 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -1275,14 +1275,14 @@ CREATE TABLE `tournament_bracket` (
   `round_index` int NOT NULL,
   `next_bracket_tournament_id` int DEFAULT NULL,
   `prev_bracket_tournament_id` int DEFAULT NULL,
-  `bracket_posisiton` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+  `bracket_position` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tournament_bracket`
 --
 
-INSERT INTO `tournament_bracket` (`tournament_bracket_id`, `tournament_id`, `series_id`, `bracket_round`, `round_index`, `next_bracket_tournament_id`, `prev_bracket_tournament_id`, `bracket_posisiton`) VALUES
+INSERT INTO `tournament_bracket` (`tournament_bracket_id`, `tournament_id`, `series_id`, `bracket_round`, `round_index`, `next_bracket_tournament_id`, `prev_bracket_tournament_id`, `bracket_position`) VALUES
 (1, 2, 11, 1, 1, NULL, NULL, 'UPPER'),
 (2, 2, 12, 1, 2, NULL, NULL, 'UPPER'),
 (3, 2, 13, 1, 3, NULL, NULL, 'UPPER'),

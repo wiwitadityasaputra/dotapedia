@@ -1,12 +1,13 @@
 package wiwitaditya.demo.dotapedia.controller.tournament;
 
+import wiwitaditya.demo.dotapedia.controller.tournament.model.TeamParticipantResponse;
 import wiwitaditya.demo.dotapedia.db.entity.Team;
 import wiwitaditya.demo.dotapedia.db.entity.TournamentTeam;
 
 public class TeamParticipantMapping {
 
-    public static TeamParticipant toTeamParticipant(TournamentTeam tournamentTeam, Team team) {
-        TeamParticipant teamParticipant = new TeamParticipant();
+    public static TeamParticipantResponse toTeamParticipant(TournamentTeam tournamentTeam, Team team) {
+        TeamParticipantResponse teamParticipant = new TeamParticipantResponse();
 
         teamParticipant.setTeamId(team.getId());
         teamParticipant.setName(team.getName());
