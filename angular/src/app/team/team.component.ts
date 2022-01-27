@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { RegionService, RegionType } from '../utility/region.service';
-import { TeamViewModel } from './model/team-view.model';
-import { TeamModel } from './model/team.model';
+import { TeamResponse } from './team.response.model';
+import { TeamModel } from './team.view.model';
 import { TeamService } from './team.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { TeamService } from './team.service';
 })
 export class TeamComponent implements OnInit {
 
-  public teams: TeamViewModel[][];
+  public teams: TeamModel[][];
   public teamsLoaded: boolean[];
   public regions: RegionType[];
 
@@ -35,17 +35,17 @@ export class TeamComponent implements OnInit {
 
   private updateTeams(index: number): void {
     this.teamsLoaded[index] = false;
-    this.teamService.getTeams(this.regionService.getRegionByIndex(index)).subscribe((response) => {
+    this.teamService.getTeams(this.regionService.getRegionByIndex(index)).subscribe((response: TeamResponse[]) => {
       this.teamsLoaded[index] = true;
       
-      let teamViewModel: TeamViewModel = {
+      let teamViewModel: TeamModel = {
         teamA: null,
         teamB: null
       };
       let teamA: boolean = true;
 
       for (let key in response) {
-        let team: TeamModel = response[key];
+        let team: TeamResponse = response[key];
 
         if (teamA) {
           teamA = false;

@@ -1,4 +1,4 @@
-export interface HeroModel {
+export interface HeroResponse {
     id: number;
     name: string;
     imageName: string;

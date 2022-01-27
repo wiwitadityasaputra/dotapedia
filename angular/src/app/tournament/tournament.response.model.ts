@@ -1,4 +1,16 @@
-export interface TournamentResponse {
+export interface TournamentModel {
+    id: number;
+    name: string;
+    image: string;
+    region: string;
+    tournamentType: string;
+    prizePool: number;
+    totalDpcPoints: number;
+    startDate: number;
+    endDate: number;
+}
+
+export interface TournamentDetailResponse {
     id: number;
     // TODO change to enum
     region: string;

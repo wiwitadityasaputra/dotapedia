@@ -2,8 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { EnvirontmentService } from "../utility/environtment.service";
-import { TournamentResponse } from "./tournament-detail/model/tournament-detail.model";
-import { TournamentModel } from "./tournament.model";
+import { TournamentModel, TournamentDetailResponse } from "./tournament.response.model";
 
 @Injectable()
 export class TournamentService {
@@ -17,8 +16,8 @@ export class TournamentService {
         return this.http.get<TournamentModel[]>(url);
     }
 
-    public getTournamentDetail(tournamentId: number): Observable<TournamentResponse> {
+    public getTournamentDetail(tournamentId: number): Observable<TournamentDetailResponse> {
         var url = this.environtment.getServerUrl() + this.API_PATH + "/" + tournamentId;
-        return this.http.get<TournamentResponse>(url);
+        return this.http.get<TournamentDetailResponse>(url);
     }
 }

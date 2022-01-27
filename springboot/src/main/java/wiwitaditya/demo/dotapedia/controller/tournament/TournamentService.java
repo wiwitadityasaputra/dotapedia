@@ -64,9 +64,9 @@ public class TournamentService {
         }
     }
 
-    public TournamentResponse getTournamentByTournamentId(int tournamentId) {
+    public TournamentDetailResponse getTournamentByTournamentId(int tournamentId) {
         Map<Integer, Team> mapTeam = new HashMap();
-        TournamentResponse response = new TournamentResponse();
+        TournamentDetailResponse response = new TournamentDetailResponse();
 
         Tournament tournament = tournamentRepository.findById(tournamentId).orElse(null);
         if (tournament != null) {

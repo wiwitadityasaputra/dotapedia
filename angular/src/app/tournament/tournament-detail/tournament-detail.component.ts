@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { TournamentDetailResponse } from "../tournament.response.model";
 import { TournamentService } from "../tournament.service";
-import { TournamentResponse } from "./model/tournament-detail.model";
 
 @Component({
     selector: 'app-tournament-detail',
@@ -17,7 +17,7 @@ import { TournamentResponse } from "./model/tournament-detail.model";
     ngOnInit(): void {
       this.activatedRoute.params.subscribe((param: any) => {
         this.tournamentService.getTournamentDetail(param.tournamentId)
-          .subscribe((response: TournamentResponse) => {
+          .subscribe((response: TournamentDetailResponse) => {
             console.log(response)
           });
       });

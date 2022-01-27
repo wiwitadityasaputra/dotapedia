@@ -15,6 +15,7 @@ public class TeamResponse {
     private String image;
     private Region region;
     private String sponsors;
+
     private long totalEarnings;
     private List<TeamPlayerResponse> players;
 }

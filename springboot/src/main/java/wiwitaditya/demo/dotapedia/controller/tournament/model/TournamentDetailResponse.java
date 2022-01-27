@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class TournamentResponse {
+public class TournamentDetailResponse {
     private Integer id;
     private Region region;
     private String name;

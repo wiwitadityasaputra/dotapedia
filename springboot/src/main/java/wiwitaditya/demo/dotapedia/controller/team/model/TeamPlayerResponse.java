@@ -8,8 +8,9 @@ import lombok.Setter;
 public class TeamPlayerResponse {
 
     private int playerId;
-    private int playerRoleId;
     private String fullName;
     private String nickName;
+
+    private int playerRoleId;
     private String role;
 }

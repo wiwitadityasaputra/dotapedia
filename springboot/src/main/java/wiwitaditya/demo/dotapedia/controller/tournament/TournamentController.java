@@ -2,7 +2,7 @@ package wiwitaditya.demo.dotapedia.controller.tournament;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import wiwitaditya.demo.dotapedia.controller.tournament.model.TournamentResponse;
+import wiwitaditya.demo.dotapedia.controller.tournament.model.TournamentDetailResponse;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class TournamentController {
     }
 
     @GetMapping(path = "/{tournamentId}")
-    public TournamentResponse getTournament(@PathVariable(value = "tournamentId") int tournamentId) {
+    public TournamentDetailResponse getTournament(@PathVariable(value = "tournamentId") int tournamentId) {
         return tournamentService.getTournamentByTournamentId(tournamentId);
     }
 
