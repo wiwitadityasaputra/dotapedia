@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
+import { TournamentService } from "../tournament.service";
+import { TournamentResponse } from "./model/tournament-detail.model";
 
 @Component({
     selector: 'app-tournament-detail',
@@ -8,12 +10,16 @@ import { ActivatedRoute, Router } from "@angular/router";
   })
   export class TournamentDetailComponent implements OnInit {
 
-    constructor(private activatedRoute: ActivatedRoute) {
+    constructor(private activatedRoute: ActivatedRoute,
+      private tournamentService: TournamentService) {
     }
 
     ngOnInit(): void {
       this.activatedRoute.params.subscribe((param: any) => {
-        console.log(param.tournamentId)
-      })
+        this.tournamentService.getTournamentDetail(param.tournamentId)
+          .subscribe((response: TournamentResponse) => {
+            console.log(response)
+          });
+      });
     }
   }

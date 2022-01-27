@@ -14,10 +14,12 @@ public class TournamentResponse {
     private Region region;
     private String name;
     private String image;
+
     private long prizePool;
     private long startDate;
     private long endDate;
     private int totalDpcPoints;
+
     private TournamentType tournamentType;
     private List<TournamentTeamResponse> teams;
 
