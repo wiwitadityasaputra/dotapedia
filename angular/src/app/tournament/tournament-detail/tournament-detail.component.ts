@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import * as moment from 'moment'
 import { TournamentDetailResponse } from "../tournament.response.model";
 import { TournamentService } from "../tournament.service";
 import { RoundSeriesWeekly } from "../tournament.view.model";
@@ -38,7 +39,6 @@ import { RoundSeriesWeekly } from "../tournament.view.model";
               }
             });
 
-            console.log(response.roundRobinSeries)
             if (response.roundRobinSeries) {
               this.initRoundRobinSeries(response);
             }
@@ -57,7 +57,7 @@ import { RoundSeriesWeekly } from "../tournament.view.model";
       let lastMd = "";
       response.roundRobinSeries.forEach((series) => {
         const date = new Date(series.startDate);
-        const md = (date.getMonth() + 1) + " - " + date.getDate();
+        const md = moment(series.startDate).format('MMMM DD');
         if (lastWeek != series.weekIndex) {
           var weekIndex = this.roundSeries.length
           const roundSeriesWeekly: RoundSeriesWeekly = {
@@ -93,6 +93,8 @@ import { RoundSeriesWeekly } from "../tournament.view.model";
           lastMd = md;
         }
       });
+
+      console.log(this.roundSeries)
     }
 
     public back(): void {
