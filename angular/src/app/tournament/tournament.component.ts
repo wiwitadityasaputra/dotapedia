@@ -67,7 +67,6 @@ export class TournamentComponent implements OnInit {
   }
 
   selectTournament(tournament: TournamentModel): void {
-    console.log("selectTournament ", tournament)
     this.router.navigate(['/tournament/' + tournament.id, { }]);
   }
 }

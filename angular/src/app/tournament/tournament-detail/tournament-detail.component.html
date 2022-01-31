@@ -1,3 +1,99 @@
-<div>
-    tournament detail
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 image">
+            <div class="col-12 title-area">
+                <button mat-icon-button aria-label="Back" (click)="back();">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+                <h3>
+                    {{ tournament?.name }}
+                </h3>
+            </div>
+            <img [src]="'assets/image/tournaments/' + tournament?.image" >
+        </div>
+        <div class="col-sm-3">
+            <mat-list>
+                <mat-list-item>
+                    <div class="col-6">
+                        Region
+                    </div>
+                    <div class="col-6">
+                        {{ tournament?.region | region }}
+                    </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="col-6">
+                        Prize Pool
+                    </div>
+                    <div class="col-6">
+                        {{ tournament?.prizePool | currency:'USD': 'symbol' }}
+                    </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="col-6">
+                        Format
+                    </div>
+                    <div class="col-6">
+                        {{ tournament?.tournamentType | tournamentPipe }}
+                    </div>
+                </mat-list-item>
+                <mat-divider [hidden]="!tournament?.totalDpcPoints"></mat-divider>
+                <mat-list-item [hidden]="!tournament?.totalDpcPoints">
+                    <div class="col-6">
+                        Total DPC Points
+                    </div>
+                    <div class="col-6">
+                        {{ tournament?.totalDpcPoints }}
+                    </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="col-6">
+                        Start Date
+                    </div>
+                    <div class="col-6">
+                        {{ tournament?.startDate | date: 'mediumDate' }} 
+                    </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="col-6">
+                        End Date
+                    </div>
+                    <div class="col-6">
+                        {{ tournament?.endDate | date: 'mediumDate' }} 
+                    </div>
+                </mat-list-item>
+            </mat-list>
+        </div>
+        <div class="col-sm-6">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">$ USD {{columnDpc}}</th>
+                    <th scope="col" [hidden]="!columnSeed">Seed</th>
+                    <th scope="col" [hidden]="!columnDpc">DPC</th>
+                    <th scope="col">Team</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let t of tournament?.teams">
+                    <td>{{ t.place }}</td>
+                    <td>
+                        {{ t?.price | currency:'USD': 'symbol' }}
+                    </td>
+                    <td [hidden]="!columnSeed">{{ t.seed }}</td>
+                    <td [hidden]="!columnDpc">{{ t.dpcPoints }}</td>
+                    <td>
+                        <img [src]="'assets/image/teams-logo-100/' + t?.id + '.png'" class="img-fluid logo-100" alt="">
+                        {{ t.name }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
 </div>
