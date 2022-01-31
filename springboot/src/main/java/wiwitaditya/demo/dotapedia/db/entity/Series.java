@@ -25,4 +25,6 @@ public class Series {
     private int teamASeriesScore;
     @Column(name = "team_b_series_score")
     private int teamBSeriesScore;
+    @Column(name = "start_date")
+    private long startDate;
 }

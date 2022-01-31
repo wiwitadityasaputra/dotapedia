@@ -18,6 +18,6 @@ public class TournamentRoundRobin {
     private Integer seriesId;
 
     private int weekIndex;
-    private long dayOfWeek;
     private int dayIndex;
+    private int matchIndex;
 }

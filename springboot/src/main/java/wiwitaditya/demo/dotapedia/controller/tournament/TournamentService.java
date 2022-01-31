@@ -116,6 +116,7 @@ public class TournamentService {
                         seriesResponse.setTeamBScore(series.getTeamBSeriesScore());
                         seriesResponse.setTeamAId(series.getTeamIdA());
                         seriesResponse.setTeamBId(series.getTeamIdB());
+                        seriesResponse.setStartDate(series.getStartDate());
 
                         Team teamA = mapTeam.get(series.getTeamIdA());
                         seriesResponse.setTeamAName(teamA.getName());
@@ -148,6 +149,7 @@ public class TournamentService {
                         seriesResponse.setTeamBScore(series.getTeamBSeriesScore());
                         seriesResponse.setTeamAId(series.getTeamIdA());
                         seriesResponse.setTeamBId(series.getTeamIdB());
+                        seriesResponse.setStartDate(series.getStartDate());
 
                         Team teamA = mapTeam.get(series.getTeamIdA());
                         seriesResponse.setTeamAName(teamA.getName());
@@ -159,17 +161,15 @@ public class TournamentService {
                         TournamentRoundRobinResponse tournamentRoundRobinResponse =
                                 new TournamentRoundRobinResponse(seriesResponse);
                         tournamentRoundRobinResponse.setWeekIndex(roundRobin.getWeekIndex());
-                        tournamentRoundRobinResponse.setDayOfWeek(roundRobin.getDayOfWeek());
                         tournamentRoundRobinResponse.setDayIndex(roundRobin.getDayIndex());
+                        tournamentRoundRobinResponse.setMatchIndex(roundRobin.getMatchIndex());
 
                         roundRobinSeries.add(tournamentRoundRobinResponse);
                     }
                 }
-
                 response.setRoundRobinSeries(roundRobinSeries);
             }
         }
-
         return response;
     }
 }

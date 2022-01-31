@@ -22,6 +22,8 @@ public class SeriesResponse {
     private String teamBName;
     private String teamBImage;
 
+    private long startDate;
+
     public SeriesResponse() {}
     public SeriesResponse(SeriesResponse seriesResponse) {
         this.seriesId = seriesResponse.getSeriesId();
@@ -36,5 +38,7 @@ public class SeriesResponse {
         this.teamBId = seriesResponse.getTeamBId();
         this.teamBName = seriesResponse.getTeamBName();
         this.teamBImage = seriesResponse.getTeamBImage();
+
+        this.startDate = seriesResponse.getStartDate();
     }
 }

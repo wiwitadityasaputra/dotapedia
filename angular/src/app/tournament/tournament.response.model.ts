@@ -56,6 +56,8 @@ export interface SeriesResponse {
 
     teamBName: string;
     teamBImage: string;
+
+    startDate: number;
 }
 
 export interface TournamentBracketResponse extends SeriesResponse {
@@ -67,6 +69,6 @@ export interface TournamentBracketResponse extends SeriesResponse {
 
 export interface TournamentRoundRobinResponse extends SeriesResponse {
     weekIndex: number;
-    dayOfWeek: number;
     dayIndex: number;
+    matchIndex: number;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TournamentDetailResponse } from "../tournament.response.model";
 import { TournamentService } from "../tournament.service";
+import { RoundSeriesWeekly } from "../tournament.view.model";
 
 @Component({
     selector: 'app-tournament-detail',
@@ -13,6 +14,7 @@ import { TournamentService } from "../tournament.service";
     public tournament: TournamentDetailResponse;
     public columnSeed: boolean = false;
     public columnDpc: boolean = false;
+    public roundSeries: RoundSeriesWeekly[];
 
     constructor(private activatedRoute: ActivatedRoute,
       private tournamentService: TournamentService,
@@ -24,9 +26,9 @@ import { TournamentService } from "../tournament.service";
         this.tournamentService.getTournamentDetail(param.tournamentId)
           .subscribe((response: TournamentDetailResponse) => {
             this.tournament = response;
-            console.log(response)
 
             this.columnSeed = false;
+            this.columnDpc = false;
             this.tournament.teams.forEach((team) => {
               if (team.seed) {
                 this.columnSeed = true;
@@ -35,7 +37,61 @@ import { TournamentService } from "../tournament.service";
                 this.columnDpc = true;
               }
             });
+
+            console.log(response.roundRobinSeries)
+            if (response.roundRobinSeries) {
+              this.initRoundRobinSeries(response);
+            }
           });
+      });
+    }
+
+    private initRoundRobinSeries(response: TournamentDetailResponse): void {
+      response.roundRobinSeries.sort((ta, tb) => {
+        return ta.startDate - tb.startDate;
+      });
+
+      this.roundSeries = [];
+      let lastWeek = 0;
+      let lastDay = 0;
+      let lastMd = "";
+      response.roundRobinSeries.forEach((series) => {
+        const date = new Date(series.startDate);
+        const md = (date.getMonth() + 1) + " - " + date.getDate();
+        if (lastWeek != series.weekIndex) {
+          var weekIndex = this.roundSeries.length
+          const roundSeriesWeekly: RoundSeriesWeekly = {
+            index: weekIndex,
+            name: "Week " + (weekIndex + 1),
+            roundSeriesDaily: [
+              {
+                index: 0,
+                name: md,
+                series: [
+                  series
+                ]
+              }
+            ]
+          };
+          this.roundSeries.push(roundSeriesWeekly);
+          lastWeek++;
+          lastDay = 0;
+          lastMd = md;
+        } else {
+          if (md === lastMd) {
+            this.roundSeries[lastWeek - 1].roundSeriesDaily[lastDay].series.push(series);
+          } else {
+            lastDay++;
+            this.roundSeries[lastWeek - 1].roundSeriesDaily.push(              {
+              index: 0,
+              name: md,
+              series: [
+                series
+              ]
+            })
+          }
+          lastMd = md;
+        }
       });
     }
 

@@ -7,8 +7,8 @@ import lombok.Setter;
 @Setter
 public class TournamentRoundRobinResponse extends SeriesResponse {
     private int weekIndex;
-    private long dayOfWeek;
     private int dayIndex;
+    private int matchIndex;
 
     public TournamentRoundRobinResponse() {}
     public TournamentRoundRobinResponse(SeriesResponse seriesResponse) {

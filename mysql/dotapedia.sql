@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 26, 2022 at 09:43 AM
+-- Generation Time: Jan 31, 2022 at 12:58 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -1085,43 +1085,44 @@ CREATE TABLE `series` (
   `team_id_b` int NOT NULL,
   `format` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `team_a_series_score` int DEFAULT NULL,
-  `team_b_series_score` int DEFAULT NULL
+  `team_b_series_score` int DEFAULT NULL,
+  `start_date` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `series`
 --
 
-INSERT INTO `series` (`series_id`, `team_id_a`, `team_id_b`, `format`, `team_a_series_score`, `team_b_series_score`) VALUES
-(1, 1, 5, 'BO_3', 0, 2),
-(2, 4, 6, 'BO_3', 0, 2),
-(3, 2, 8, 'BO_3', 2, 0),
-(4, 3, 7, 'BO_3', 0, 2),
-(5, 1, 4, 'BO_3', 0, 2),
-(6, 5, 3, 'BO_3', 2, 0),
-(7, 2, 6, 'BO_3', 2, 1),
-(8, 8, 7, 'BO_3', 0, 2),
-(9, 2, 7, 'BO_3', 2, 1),
-(10, 4, 5, 'BO_3', 2, 1),
-(11, 6, 10, 'BO_3', 2, 1),
-(12, 9, 5, 'BO_3', 2, 0),
-(13, 1, 3, 'BO_3', 1, 2),
-(14, 2, 4, 'BO_3', 0, 2),
-(15, 10, 5, 'BO_3', 1, 2),
-(16, 1, 2, 'BO_3', 0, 2),
-(17, 6, 9, 'BO_3', 1, 2),
-(18, 3, 4, 'BO_3', 0, 2),
-(19, 3, 5, 'BO_3', 0, 2),
-(20, 6, 2, 'BO_3', 2, 1),
-(21, 5, 6, 'BO_3', 2, 0),
-(22, 9, 4, 'BO_3', 2, 1),
-(23, 4, 5, 'BO_3', 0, 2),
-(24, 9, 5, 'BO_5', 1, 3),
-(25, 8, 1, 'BO_3', 2, 0),
-(26, 6, 3, 'BO_3', 2, 0),
-(27, 2, 5, 'BO_3', 2, 0),
-(28, 1, 7, 'BO_3', 0, 2),
-(29, 4, 3, 'BO_3', 0, 2);
+INSERT INTO `series` (`series_id`, `team_id_a`, `team_id_b`, `format`, `team_a_series_score`, `team_b_series_score`, `start_date`) VALUES
+(1, 1, 5, 'BO_3', 0, 2, 1638230400000),
+(2, 4, 6, 'BO_3', 0, 2, 1638233450000),
+(3, 2, 8, 'BO_3', 2, 0, 1638316800000),
+(4, 3, 7, 'BO_3', 0, 2, 1638576000000),
+(5, 1, 4, 'BO_3', 0, 2, 1638596000000),
+(6, 5, 3, 'BO_3', 2, 0, 1638835200000),
+(7, 2, 6, 'BO_3', 2, 1, 1638835200000),
+(8, 8, 7, 'BO_3', 0, 2, 1638921600000),
+(9, 2, 7, 'BO_3', 2, 1, 1639180800000),
+(10, 4, 5, 'BO_3', 2, 1, 1639190800000),
+(11, 6, 10, 'BO_3', 2, 1, 1639393319000),
+(12, 9, 5, 'BO_3', 2, 0, 1639405259000),
+(13, 1, 3, 'BO_3', 1, 2, 1639411200000),
+(14, 2, 4, 'BO_3', 0, 2, 1639422000000),
+(15, 10, 5, 'BO_3', 1, 2, 1639674000000),
+(16, 1, 2, 'BO_3', 0, 2, 1639688400000),
+(17, 6, 9, 'BO_3', 1, 2, 1639652400000),
+(18, 3, 4, 'BO_3', 0, 2, 1639663200000),
+(19, 3, 5, 'BO_3', 0, 2, 1639760400000),
+(20, 6, 2, 'BO_3', 2, 1, 1639771200000),
+(21, 5, 6, 'BO_3', 2, 0, 1639933200000),
+(22, 9, 4, 'BO_3', 2, 1, 1639944000000),
+(23, 4, 5, 'BO_3', 0, 2, 1640005200000),
+(24, 9, 5, 'BO_5', 1, 3, 1640016000000),
+(25, 8, 1, 'BO_3', 2, 0, 1639418400000),
+(26, 6, 3, 'BO_3', 2, 0, 1639468400000),
+(27, 2, 5, 'BO_3', 2, 0, 1639499400000),
+(28, 1, 7, 'BO_3', 0, 2, 1639764000000),
+(29, 4, 3, 'BO_3', 0, 2, 1639964000000);
 
 -- --------------------------------------------------------
 
@@ -1309,30 +1310,30 @@ CREATE TABLE `tournament_roundrobin` (
   `tournament_id` int NOT NULL,
   `series_id` int DEFAULT NULL,
   `week_index` int NOT NULL,
-  `day_of_week` bigint NOT NULL,
-  `day_index` int NOT NULL
+  `day_index` int NOT NULL,
+  `match_index` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tournament_roundrobin`
 --
 
-INSERT INTO `tournament_roundrobin` (`tournament_roundrobin_id`, `tournament_id`, `series_id`, `week_index`, `day_of_week`, `day_index`) VALUES
-(1, 1, 1, 1, 1638230400000, 1),
-(2, 1, 2, 1, 1638230400000, 2),
-(3, 1, 3, 1, 1638316800000, 1),
-(4, 1, 4, 1, 1638576000000, 1),
-(5, 1, 5, 1, 1638576000000, 2),
-(6, 1, 6, 2, 1638835200000, 1),
-(7, 1, 7, 2, 1638835200000, 2),
-(8, 1, 8, 2, 1638921600000, 1),
-(9, 1, 9, 2, 1639180800000, 1),
-(10, 1, 10, 2, 1639180800000, 2),
-(21, 1, 25, 3, 1639418400000, 1),
-(22, 1, 26, 3, 1639418400000, 2),
-(23, 1, 27, 3, 1639159200000, 1),
-(24, 1, 28, 3, 1639764000000, 1),
-(25, 1, 29, 3, 1639764000000, 2);
+INSERT INTO `tournament_roundrobin` (`tournament_roundrobin_id`, `tournament_id`, `series_id`, `week_index`, `day_index`, `match_index`) VALUES
+(1, 1, 1, 1, 1, 1),
+(2, 1, 2, 1, 1, 2),
+(3, 1, 3, 1, 2, 1),
+(4, 1, 4, 1, 3, 1),
+(5, 1, 5, 1, 3, 2),
+(6, 1, 6, 2, 1, 1),
+(7, 1, 7, 2, 1, 2),
+(8, 1, 8, 2, 2, 1),
+(9, 1, 9, 2, 3, 1),
+(10, 1, 10, 2, 3, 2),
+(21, 1, 25, 3, 1, 1),
+(22, 1, 26, 3, 1, 2),
+(23, 1, 27, 3, 2, 1),
+(24, 1, 28, 3, 3, 1),
+(25, 1, 29, 3, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -1355,14 +1356,14 @@ CREATE TABLE `tournament_team` (
 --
 
 INSERT INTO `tournament_team` (`tournament_team_id`, `tournament_id`, `team_id`, `place`, `price`, `dpc_points`, `seed`) VALUES
-(1, 1, 1, NULL, NULL, NULL, NULL),
-(2, 1, 2, NULL, NULL, NULL, NULL),
-(3, 1, 3, NULL, NULL, NULL, NULL),
-(4, 1, 4, NULL, NULL, NULL, NULL),
-(5, 1, 5, NULL, NULL, NULL, NULL),
-(6, 1, 6, NULL, NULL, NULL, NULL),
-(7, 1, 7, NULL, NULL, NULL, NULL),
-(8, 1, 8, NULL, NULL, NULL, NULL),
+(1, 1, 1, 7, 23000, 0, 'Division II'),
+(2, 1, 2, 1, 30000, 300, 'Division I'),
+(3, 1, 3, 6, 24000, 0, 'Division I'),
+(4, 1, 4, 5, 25000, 30, 'Division I'),
+(5, 1, 5, 3, 27000, 120, 'Division I'),
+(6, 1, 6, 4, 26000, 60, 'Division I'),
+(7, 1, 7, 2, 28000, 180, 'Division I'),
+(8, 1, 8, 8, 22000, 0, 'Division II'),
 (9, 2, 6, 4, 14600, NULL, NULL),
 (10, 2, 9, 2, 37900, NULL, NULL),
 (11, 2, 10, 7, 5700, NULL, NULL),
