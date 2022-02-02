@@ -37,6 +37,43 @@
 
 .table {
     color: white;
+    margin-bottom: 0px;
+    border-bottom: none;
+}
+
+.round-robind-wrapper {
+    margin-top: 10px;
+}
+
+.round-robind-wrapper .table {
+    color: white;
+    margin-bottom: 0px;
+    border-bottom: none;
+}
+
+.round-robind-wrapper .table h5 {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.round-robind-wrapper .table .series-name {
+    text-align: center;
+}
+
+.round-robind-wrapper .table .team-a {
+    text-align: right;
+    cursor: pointer;
+}
+
+.round-robind-wrapper .table .team-b {
+    text-align: left;
+    cursor: pointer;
+}
+
+.round-robind-wrapper .table .score {
+    text-align: center;
+    cursor: pointer;
 }
 
 .logo-100 {

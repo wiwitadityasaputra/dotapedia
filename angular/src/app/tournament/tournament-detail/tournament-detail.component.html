@@ -97,29 +97,36 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-3">
-            <table class="table table-sm">
+    <div class="row round-robind-wrapper">
+        <div class="col col-xs-2 col-sm-3 col-md-4" *ngFor="let round of roundSeries">
+            <table class="table table-hover" >
                 <thead>
                     <tr>
-                        <th colspan="3">First</th>
+                        <th colspan="3">
+                            <h5>
+                                {{round.name}}
+                            </h5>
+                        </th>
+                    </tr>
+                </thead>                
+            </table>
+            <table class="table table-hover" *ngFor="let series of round.roundSeriesDaily">
+                <thead>
+                    <tr>
+                        <th colspan="3" class="series-name">{{series.name}}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Mark</td>
-                        <td>2 - 1</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>0 - 0</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <td>Larry</td>
-                        <td>1 - 2</td>
-                        <td>@twitter</td>
+                    <tr *ngFor="let match of series.series">
+                        <td class="team-a">
+                            {{ match.teamAName }}
+                            <img [src]="'assets/image/teams-logo-100/' + match.teamAId + '.png'" class="img-fluid logo-100" alt="">
+                        </td>
+                        <td class="score">{{match.teamAScore}} - {{match.teamAScore}}</td>
+                        <td class="team-b">
+                            <img [src]="'assets/image/teams-logo-100/' + match.teamBId + '.png'" class="img-fluid logo-100" alt="">
+                            {{ match.teamBName }}
+                        </td>
                     </tr>
                 </tbody>
             </table>
