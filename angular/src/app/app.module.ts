@@ -35,6 +35,9 @@ import { RegionPipe } from './utility/region.pipe';
 import { TournamentTypePipe } from './utility/tournament-type.pipe';
 import { RegionService } from './utility/region.service';
 
+import { NgttDoubleEliminationTreeModule } from './utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.module';
+import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +70,9 @@ import { RegionService } from './utility/region.service';
     MatExpansionModule,
     MatTabsModule,
     FlexLayoutModule,
+
+    NgttDoubleEliminationTreeModule,
+    NgttMatchModule,
 
     AppRoutingModule,
   ],

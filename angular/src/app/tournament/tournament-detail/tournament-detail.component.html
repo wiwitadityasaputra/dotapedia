@@ -134,6 +134,10 @@
     </div>
 
     <div class="row bracket-wrapper">
-        
+        <ngtt-double-elimination-tree [tournament]="doubleEliminationTournament"
+        [matchTemplate]="matchTemplate"></ngtt-double-elimination-tree>
     </div>
+    <ng-template #matchTemplate let-match>
+        <ngtt-match [match]="match"></ngtt-match>
+    </ng-template>
 </div>

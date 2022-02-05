@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import * as moment from 'moment'
+import { NgttTournament } from "src/app/utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.model";
 import { TournamentDetailResponse } from "../tournament.response.model";
 import { TournamentService } from "../tournament.service";
 import { RoundSeriesWeekly } from "../tournament.view.model";
@@ -16,6 +17,7 @@ import { RoundSeriesWeekly } from "../tournament.view.model";
     public columnSeed: boolean = false;
     public columnDpc: boolean = false;
     public roundSeries: RoundSeriesWeekly[];
+    public doubleEliminationTournament: NgttTournament;
 
     constructor(private activatedRoute: ActivatedRoute,
       private tournamentService: TournamentService,
@@ -44,6 +46,102 @@ import { RoundSeriesWeekly } from "../tournament.view.model";
             }
           });
       });
+
+      this.doubleEliminationTournament = {
+        rounds: [
+          {
+            type: 'Winnerbracket',
+            matches: [
+              {
+                teams: [{name: 'Team  A', score: 1}, {name: 'Team  B', score: 2}]
+              },
+              {
+                teams: [{name: 'Team  C', score: 1}, {name: 'Team  D', score: 2}]
+              },
+              {
+                teams: [{name: 'Team  E', score: 1}, {name: 'Team  F', score: 2}]
+              },
+              {
+                teams: [{name: 'Team  G', score: 1}, {name: 'Team  H', score: 2}]
+              }
+            ]
+          },
+          {
+            type: 'Winnerbracket',
+            matches: [
+              {
+                teams: [{name: 'Team  B', score: 1}, {name: 'Team  D', score: 2}]
+              },
+              {
+                teams: [{name: 'Team  F', score: 1}, {name: 'Team  H', score: 2}]
+              }
+            ]
+          },
+          {
+            type: 'Winnerbracket',
+            matches: [
+              {
+                teams: [{name: 'Team  D', score: 1}, {name: 'Team  H', score: 2}]
+              }
+            ]
+          },
+          {
+            type: 'Loserbracket',
+            matches: [
+              {
+                teams: [{name: 'Team  A', score: 1}, {name: 'Team  C', score: 2}]
+              },
+              {
+                teams: [{name: 'Team  E', score: 1}, {name: 'Team  G', score: 2}]
+              }
+            ]
+          },
+          {
+            type: 'Loserbracket',
+            matches: [
+              {
+                teams: [{name: 'Team  C', score: 1}, {name: 'Team  B', score: 2}]
+              },
+              {
+                teams: [{name: 'Team  G', score: 1}, {name: 'Team  F', score: 2}]
+              }
+            ]
+          },
+          {
+            type: 'Loserbracket',
+            matches: [
+              {
+                teams: [{name: 'Team  B', score: 1}, {name: 'Team  F', score: 2}]
+              }
+            ]
+          },
+          {
+            type: 'Loserbracket',
+            matches: [
+              {
+                teams: [{name: 'Team  D', score: 1}, {name: 'Team  F', score: 2}]
+              }
+            ]
+          },
+          {
+            type: 'Final',
+            matches: [
+              {
+                teams: [
+                  {
+                    name: 'Team  H',
+                    score: 1
+                  },
+                  {
+                    name: 'Team  F',
+                    score: 2
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      };
     }
 
     private initRoundRobinSeries(response: TournamentDetailResponse): void {
