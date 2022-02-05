@@ -1,9 +1,17 @@
 <div class="ngtt__match-wrapper">
-  <ng-container *ngFor="let team of match.teams">
-    <div class="ngtt__team-wrapper">
-      <div class="ngtt__team-avatar"></div>
-      <h6 class="ngtt__team-title">{{team.name}}</h6>
-      <div class="ngtt__team-score">{{team.score}}</div>
+  <div class="ngtt__team-wrapper">
+    <div class="ngtt__team-avatar">
+      <img [src]="'assets/image/teams-logo-100/' + match?.teamAId + '.png'" class="img-fluid logo-100" alt="">
     </div>
-  </ng-container>
+    <h6 class="ngtt__team-title">{{match?.teamAShortName}}</h6>
+    <div class="ngtt__team-score">{{match?.teamAScore}}</div>
+  </div>
+
+  <div class="ngtt__team-wrapper">
+    <div class="ngtt__team-avatar">
+      <img [src]="'assets/image/teams-logo-100/' + match?.teamBId + '.png'" class="img-fluid logo-100" alt="">
+    </div>
+    <h6 class="ngtt__team-title">{{match?.teamBShortName}}</h6>
+    <div class="ngtt__team-score">{{match?.teamBScore}}</div>
+  </div>
 </div>

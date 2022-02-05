@@ -134,10 +134,13 @@
     </div>
 
     <div class="row bracket-wrapper">
-        <ngtt-double-elimination-tree [tournament]="doubleEliminationTournament"
-        [matchTemplate]="matchTemplate"></ngtt-double-elimination-tree>
+        <ngtt-double-elimination-tree
+            [tournament]="tournamentData"
+            [matchTemplate]="matchTemplate">
+        </ngtt-double-elimination-tree>
+
+        <ng-template #matchTemplate let-match>
+            <ngtt-match [match]="match"></ngtt-match>
+        </ng-template>
     </div>
-    <ng-template #matchTemplate let-match>
-        <ngtt-match [match]="match"></ngtt-match>
-    </ng-template>
 </div>

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { TournamentBracketResponse } from 'src/app/tournament/tournament.response.model';
 
 @Component({
   selector: 'ngtt-match',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class NgttMatchComponent implements OnInit {
 
-  @Input() match: any;
+  @Input() match: TournamentBracketResponse;
 
   constructor() {
   }

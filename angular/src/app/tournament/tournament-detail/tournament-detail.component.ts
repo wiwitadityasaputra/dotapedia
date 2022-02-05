@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import * as moment from 'moment'
 import { NgttTournament } from "src/app/utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.model";
-import { TournamentDetailResponse } from "../tournament.response.model";
+import { TournamentBracketResponse, TournamentDetailResponse } from "../tournament.response.model";
 import { TournamentService } from "../tournament.service";
 import { RoundSeriesWeekly } from "../tournament.view.model";
 
@@ -17,7 +17,7 @@ import { RoundSeriesWeekly } from "../tournament.view.model";
     public columnSeed: boolean = false;
     public columnDpc: boolean = false;
     public roundSeries: RoundSeriesWeekly[];
-    public doubleEliminationTournament: NgttTournament;
+    public tournamentData: NgttTournament;
 
     constructor(private activatedRoute: ActivatedRoute,
       private tournamentService: TournamentService,
@@ -44,104 +44,11 @@ import { RoundSeriesWeekly } from "../tournament.view.model";
             if (response.roundRobinSeries) {
               this.initRoundRobinSeries(response);
             }
+            if (response.bracketSeries) {
+              this.initBracketSeries(response) 
+            }
           });
       });
-
-      this.doubleEliminationTournament = {
-        rounds: [
-          {
-            type: 'Winnerbracket',
-            matches: [
-              {
-                teams: [{name: 'Team  A', score: 1}, {name: 'Team  B', score: 2}]
-              },
-              {
-                teams: [{name: 'Team  C', score: 1}, {name: 'Team  D', score: 2}]
-              },
-              {
-                teams: [{name: 'Team  E', score: 1}, {name: 'Team  F', score: 2}]
-              },
-              {
-                teams: [{name: 'Team  G', score: 1}, {name: 'Team  H', score: 2}]
-              }
-            ]
-          },
-          {
-            type: 'Winnerbracket',
-            matches: [
-              {
-                teams: [{name: 'Team  B', score: 1}, {name: 'Team  D', score: 2}]
-              },
-              {
-                teams: [{name: 'Team  F', score: 1}, {name: 'Team  H', score: 2}]
-              }
-            ]
-          },
-          {
-            type: 'Winnerbracket',
-            matches: [
-              {
-                teams: [{name: 'Team  D', score: 1}, {name: 'Team  H', score: 2}]
-              }
-            ]
-          },
-          {
-            type: 'Loserbracket',
-            matches: [
-              {
-                teams: [{name: 'Team  A', score: 1}, {name: 'Team  C', score: 2}]
-              },
-              {
-                teams: [{name: 'Team  E', score: 1}, {name: 'Team  G', score: 2}]
-              }
-            ]
-          },
-          {
-            type: 'Loserbracket',
-            matches: [
-              {
-                teams: [{name: 'Team  C', score: 1}, {name: 'Team  B', score: 2}]
-              },
-              {
-                teams: [{name: 'Team  G', score: 1}, {name: 'Team  F', score: 2}]
-              }
-            ]
-          },
-          {
-            type: 'Loserbracket',
-            matches: [
-              {
-                teams: [{name: 'Team  B', score: 1}, {name: 'Team  F', score: 2}]
-              }
-            ]
-          },
-          {
-            type: 'Loserbracket',
-            matches: [
-              {
-                teams: [{name: 'Team  D', score: 1}, {name: 'Team  F', score: 2}]
-              }
-            ]
-          },
-          {
-            type: 'Final',
-            matches: [
-              {
-                teams: [
-                  {
-                    name: 'Team  H',
-                    score: 1
-                  },
-                  {
-                    name: 'Team  F',
-                    score: 2
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      };
     }
 
     private initRoundRobinSeries(response: TournamentDetailResponse): void {
@@ -193,6 +100,80 @@ import { RoundSeriesWeekly } from "../tournament.view.model";
       });
 
       console.log(this.roundSeries)
+    }
+
+    private initBracketSeries(response: TournamentDetailResponse): void {
+      
+      this.tournamentData = {
+        rounds: []
+      };
+
+      let lastBracketRound = -1;
+      let lastRoundsIndex = -1;
+
+      response.bracketSeries.filter((series) => {
+        return series.bracketPosition === "UPPER";
+      })
+      .sort(this.sortingBracketSeries)
+      .forEach((series, index) => {
+        if (0 === index) {
+          lastRoundsIndex++;
+          lastBracketRound = series.bracketRound;
+          this.tournamentData.rounds.push({
+            type: "Winnerbracket",
+            matches: [series]
+          });
+        } else if (lastBracketRound === series.bracketRound) {
+          this.tournamentData.rounds[lastRoundsIndex].matches.push(series);
+        } else {
+          lastRoundsIndex++;
+          lastBracketRound = series.bracketRound;
+          this.tournamentData.rounds.push({
+            type: "Winnerbracket",
+            matches: [series]
+          });
+        }
+      });
+
+      response.bracketSeries.filter((series) => {
+        return series.bracketPosition === "LOWER";
+      })
+      .sort(this.sortingBracketSeries)
+      .forEach((series, index) => {
+        if (0 === index) {
+          lastRoundsIndex++;
+          lastBracketRound = series.bracketRound;
+          this.tournamentData.rounds.push({
+            type: "Loserbracket",
+            matches: [series]
+          });
+        } else if (lastBracketRound === series.bracketRound) {
+          this.tournamentData.rounds[lastRoundsIndex].matches.push(series);
+        } else {
+          lastRoundsIndex++;
+          lastBracketRound = series.bracketRound;
+          this.tournamentData.rounds.push({
+            type: "Loserbracket",
+            matches: [series]
+          });
+        }
+      });
+
+      const finalSeries = response.bracketSeries.find((series) => {
+        return series.bracketPosition === "FINAL";
+      });
+      if (finalSeries) {
+        this.tournamentData.rounds.push({
+          type: "Final",
+          matches: [
+            finalSeries
+          ]
+        });
+      }
+    }
+
+    private sortingBracketSeries(a: TournamentBracketResponse, b: TournamentBracketResponse): number {
+      return ((a.bracketRound * 10) + a.roundIndex) - ((b.bracketRound * 10) + b.roundIndex);
     }
 
     public back(): void {
