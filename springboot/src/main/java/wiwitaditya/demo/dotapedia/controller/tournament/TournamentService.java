@@ -30,19 +30,18 @@ public class TournamentService {
     @Autowired
     private SeriesRepository seriesRepository;
 
-    public List<TeamParticipantResponse> getAllTeamByTournamentId(int tournamentId) {
-        List<TeamParticipantResponse> participants = new ArrayList();
-
-        List<TournamentTeam> teams = tournamentTeamRepository.findTeamsByTournamentId(tournamentId);
-        for (TournamentTeam tournamentTeam: teams) {
-            Team team = teamRepository.findById(tournamentTeam.getTeamId()).orElse(null);
-            if (team != null) {
-                participants.add(TeamParticipantMapping.toTeamParticipant(tournamentTeam, team));
-            }
-        }
-
-        return participants;
-    }
+//    public List<TeamParticipantResponse> getAllTeamByTournamentId(int tournamentId) {
+//        List<TeamParticipantResponse> participants = new ArrayList();
+//
+//        List<TournamentTeam> teams = tournamentTeamRepository.findTeamsByTournamentId(tournamentId);
+//        for (TournamentTeam tournamentTeam: teams) {
+//            Team team = teamRepository.findById(tournamentTeam.getTeamId()).orElse(null);
+//            if (team != null) {
+//                participants.add(TeamParticipantMapping.toTeamParticipant(tournamentTeam, team));
+//            }
+//        }
+//        return participants;
+//    }
 
     public List findTournamentByRegion(String regions) {
         if (regions == null) {
@@ -70,16 +69,7 @@ public class TournamentService {
 
         Tournament tournament = tournamentRepository.findById(tournamentId).orElse(null);
         if (tournament != null) {
-            response.setId(tournament.getId());
-            response.setRegion(tournament.getRegion());
-            response.setName(tournament.getName());
-            response.setImage(tournament.getImage());
-            response.setPrizePool(tournament.getPrizePool());
-            response.setStartDate(tournament.getStartDate());
-            response.setEndDate(tournament.getEndDate());
-            response.setTotalDpcPoints(tournament.getTotalDpcPoints());
-            TournamentType tournamentType = tournament.getTournamentType();
-            response.setTournamentType(tournamentType);
+            response = TournamentMapping.toTournamentDetailResponse(tournament);
 
             List<TournamentTeamResponse> tournamentTeamResponses = new ArrayList();
             List<TournamentTeam> tournamentTeams = tournamentTeamRepository.findTeamsByTournamentId(tournamentId);
@@ -87,84 +77,29 @@ public class TournamentService {
                 Team team = teamRepository.findById(tournamentTeam.getTeamId()).orElse(null);
                 if (team != null) {
                     mapTeam.put(team.getId(), team);
-
-                    TournamentTeamResponse tournamentTeamResponse = new TournamentTeamResponse();
-                    tournamentTeamResponse.setId(team.getId());
-                    tournamentTeamResponse.setName(team.getName());
-                    tournamentTeamResponse.setImage(team.getImage());
-
-                    tournamentTeamResponse.setPlace(tournamentTeam.getPlace());
-                    tournamentTeamResponse.setPrice(tournamentTeam.getPrice());
-                    tournamentTeamResponse.setDpcPoints(tournamentTeam.getDpcPoints());
-                    tournamentTeamResponse.setSeed(tournamentTeam.getSeed());
-
-                    tournamentTeamResponses.add(tournamentTeamResponse);
+                    tournamentTeamResponses.add(TournamentMapping.toTournamentTeamResponse(team, tournamentTeam));
                 }
             }
             response.setTeams(tournamentTeamResponses);
 
-            if (TournamentType.BRACKET.equals(tournamentType)) {
+            if (TournamentType.BRACKET.equals(tournament.getTournamentType())) {
                 List<TournamentBracketResponse> bracketSeries = new ArrayList();
                 List<TournamentBracket> brackets = bracketRepository.findByTournamentId(tournament.getId());
                 for (TournamentBracket bracket: brackets) {
                     Series series = seriesRepository.findById(bracket.getSeriesId()).orElse(null);
                     if (series != null) {
-                        SeriesResponse seriesResponse = new SeriesResponse();
-                        seriesResponse.setSeriesId(series.getId());
-                        seriesResponse.setSeriesFormat(series.getFormat());
-                        seriesResponse.setTeamAScore(series.getTeamASeriesScore());
-                        seriesResponse.setTeamBScore(series.getTeamBSeriesScore());
-                        seriesResponse.setTeamAId(series.getTeamIdA());
-                        seriesResponse.setTeamBId(series.getTeamIdB());
-                        seriesResponse.setStartDate(series.getStartDate());
-
-                        Team teamA = mapTeam.get(series.getTeamIdA());
-                        seriesResponse.setTeamAName(teamA.getName());
-                        seriesResponse.setTeamAImage(teamA.getImage());
-                        Team teamB = mapTeam.get(series.getTeamIdB());
-                        seriesResponse.setTeamBName(teamB.getName());
-                        seriesResponse.setTeamBImage(teamB.getImage());
-
-                        TournamentBracketResponse tournamentBracketResponse =
-                                new TournamentBracketResponse(seriesResponse);
-                        tournamentBracketResponse.setBracketRound(bracket.getBracketRound());
-                        tournamentBracketResponse.setRoundIndex(bracket.getRoundIndex());
-                        tournamentBracketResponse.setBracketPosition(bracket.getBracketPosition());
-
-                        bracketSeries.add(tournamentBracketResponse);
+                        bracketSeries.add(TournamentMapping.toTournamentBracketResponse(series, mapTeam, bracket));
                     }
                 }
 
                 response.setBracketSeries(bracketSeries);
-            } else if (TournamentType.ROUND_ROBIN.equals(tournamentType)) {
+            } else if (TournamentType.ROUND_ROBIN.equals(tournament.getTournamentType())) {
                 List<TournamentRoundRobinResponse> roundRobinSeries = new ArrayList();
                 List<TournamentRoundRobin> roundRobins = roundrobinRepository.findByTournamentId(tournament.getId());
                 for (TournamentRoundRobin roundRobin: roundRobins) {
                     Series series = seriesRepository.findById(roundRobin.getSeriesId()).orElse(null);
                     if (series != null) {
-                        SeriesResponse seriesResponse = new SeriesResponse();
-                        seriesResponse.setSeriesId(series.getId());
-                        seriesResponse.setSeriesFormat(series.getFormat());
-                        seriesResponse.setTeamAScore(series.getTeamASeriesScore());
-                        seriesResponse.setTeamBScore(series.getTeamBSeriesScore());
-                        seriesResponse.setTeamAId(series.getTeamIdA());
-                        seriesResponse.setTeamBId(series.getTeamIdB());
-                        seriesResponse.setStartDate(series.getStartDate());
-
-                        Team teamA = mapTeam.get(series.getTeamIdA());
-                        seriesResponse.setTeamAName(teamA.getName());
-                        seriesResponse.setTeamAImage(teamA.getImage());
-                        Team teamB = mapTeam.get(series.getTeamIdB());
-                        seriesResponse.setTeamBName(teamB.getName());
-                        seriesResponse.setTeamBImage(teamB.getImage());
-
-                        TournamentRoundRobinResponse tournamentRoundRobinResponse =
-                                new TournamentRoundRobinResponse(seriesResponse);
-                        tournamentRoundRobinResponse.setWeekIndex(roundRobin.getWeekIndex());
-                        tournamentRoundRobinResponse.setDayIndex(roundRobin.getDayIndex());
-                        tournamentRoundRobinResponse.setMatchIndex(roundRobin.getMatchIndex());
-
-                        roundRobinSeries.add(tournamentRoundRobinResponse);
+                        roundRobinSeries.add(TournamentMapping.toTournamentRoundRobinResponse(series, mapTeam, roundRobin));
                     }
                 }
                 response.setRoundRobinSeries(roundRobinSeries);

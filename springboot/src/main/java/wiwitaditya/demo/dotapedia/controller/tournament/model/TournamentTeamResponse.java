@@ -8,6 +8,7 @@ import lombok.Setter;
 public class TournamentTeamResponse {
     private Integer id;
     private String name;
+    private String shortName;
     private String image;
 
     private Integer place;

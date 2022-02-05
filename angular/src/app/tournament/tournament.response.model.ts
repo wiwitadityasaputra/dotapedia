@@ -33,6 +33,7 @@ export interface TournamentDetailResponse {
 export interface TournamentTeamResponse {
     id: number;
     name: string;
+    shortName: string;
     image: string;
 
     place: number;
@@ -52,9 +53,11 @@ export interface SeriesResponse {
     teamBId: number;
 
     teamAName: string;
+    teamAShortName: string;
     teamAImage: string;
 
     teamBName: string;
+    teamBShortName: string;
     teamBImage: string;
 
     startDate: number;

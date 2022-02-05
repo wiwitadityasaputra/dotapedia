@@ -23,8 +23,8 @@ public class TournamentController {
         return tournamentService.getTournamentByTournamentId(tournamentId);
     }
 
-    @GetMapping(path = "/{tournamentId}/teams")
-    public List getTournamentTeam(@PathVariable(value = "tournamentId") int tournamentId) {
-        return tournamentService.getAllTeamByTournamentId(tournamentId);
-    }
+//    @GetMapping(path = "/{tournamentId}/teams")
+//    public List getTournamentTeam(@PathVariable(value = "tournamentId") int tournamentId) {
+//        return tournamentService.getAllTeamByTournamentId(tournamentId);
+//    }
 }

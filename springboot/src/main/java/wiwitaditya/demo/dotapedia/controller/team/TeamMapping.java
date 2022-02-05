@@ -14,6 +14,7 @@ public class TeamMapping {
         TeamResponse tr = new TeamResponse();
         tr.setTeamId(team.getId());
         tr.setName(team.getName());
+        tr.setShortName(team.getShortName());
         tr.setRegion(team.getRegion());
         tr.setSponsors(team.getSponsors());
         tr.setTotalEarnings(team.getTotalEarnings());

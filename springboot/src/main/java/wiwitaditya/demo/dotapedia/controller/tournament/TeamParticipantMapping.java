@@ -11,6 +11,7 @@ public class TeamParticipantMapping {
 
         teamParticipant.setTeamId(team.getId());
         teamParticipant.setName(team.getName());
+        teamParticipant.setShortName(team.getShortName());
         teamParticipant.setRegion(team.getRegion());
 
         teamParticipant.setTournamentTeamId(tournamentTeam.getId());

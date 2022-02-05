@@ -9,6 +9,7 @@ import wiwitaditya.demo.dotapedia.db.utility.Region;
 public class TeamParticipantResponse {
     private Integer teamId;
     private String name;
+    private String shortName;
     private Region region;
 
     private Integer tournamentTeamId;

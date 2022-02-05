@@ -17,6 +17,7 @@ public class Team {
     @Column(name = "team_id")
     private Integer id;
     private String name;
+    private String shortName;
     private String image;
     @Enumerated(EnumType.STRING)
     private Region region;

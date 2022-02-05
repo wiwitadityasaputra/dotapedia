@@ -17,9 +17,11 @@ public class SeriesResponse {
     private Integer teamBId;
 
     private String teamAName;
+    private String teamAShortName;
     private String teamAImage;
 
     private String teamBName;
+    private String teamBShortName;
     private String teamBImage;
 
     private long startDate;
@@ -33,10 +35,12 @@ public class SeriesResponse {
 
         this.teamAId = seriesResponse.getTeamAId();
         this.teamAName = seriesResponse.getTeamAName();
+        this.teamAShortName = seriesResponse.getTeamAShortName();
         this.teamAImage = seriesResponse.getTeamAImage();
 
         this.teamBId = seriesResponse.getTeamBId();
         this.teamBName = seriesResponse.getTeamBName();
+        this.teamBShortName = seriesResponse.getTeamBShortName();
         this.teamBImage = seriesResponse.getTeamBImage();
 
         this.startDate = seriesResponse.getStartDate();
