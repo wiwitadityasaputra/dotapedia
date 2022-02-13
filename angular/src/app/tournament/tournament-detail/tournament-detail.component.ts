@@ -98,8 +98,6 @@ import { RoundSeriesWeekly } from "../tournament.view.model";
           lastMd = md;
         }
       });
-
-      console.log(this.roundSeries)
     }
 
     private initBracketSeries(response: TournamentDetailResponse): void {

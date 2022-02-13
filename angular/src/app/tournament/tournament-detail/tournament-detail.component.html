@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row tournament-info">
         <div class="col-sm-3 image">
             <div class="col-12 title-area">
                 <button mat-icon-button aria-label="Back" (click)="back();">
@@ -88,7 +88,9 @@
                     <td [hidden]="!columnSeed">{{ t.seed }}</td>
                     <td [hidden]="!columnDpc">{{ t.dpcPoints }}</td>
                     <td>
-                        <img [src]="'assets/image/teams-logo-100/' + t?.id + '.png'" class="img-fluid logo-100" alt="">
+                        <div class="image-wrapper">
+                            <img [src]="'assets/image/teams-logo-100/' + t?.id + '.png'" class="" alt="">
+                        </div>
                         {{ t.name }}
                     </td>
                   </tr>
@@ -97,7 +99,7 @@
         </div>
     </div>
 
-    <div class="row round-robind-wrapper">
+    <div class="row round-robind-wrapper" [hidden]="!roundSeries">
         <div class="col col-xs-2 col-sm-3 col-md-4" *ngFor="let round of roundSeries">
             <table class="table" >
                 <thead>
@@ -120,11 +122,15 @@
                     <tr *ngFor="let match of series.series">
                         <td class="team-a">
                             {{ match.teamAShortName }}
-                            <img [src]="'assets/image/teams-logo-100/' + match.teamAId + '.png'" class="img-fluid logo-100" alt="">
+                            <div class="image-wrapper">
+                                <img [src]="'assets/image/teams-logo-100/' + match.teamAId + '.png'" class="" alt="">
+                            </div>
                         </td>
                         <td class="score">{{match.teamAScore}} - {{match.teamAScore}}</td>
                         <td class="team-b">
-                            <img [src]="'assets/image/teams-logo-100/' + match.teamBId + '.png'" class="img-fluid logo-100" alt="">
+                            <div class="image-wrapper">
+                                <img [src]="'assets/image/teams-logo-100/' + match.teamBId + '.png'" class="" alt="">
+                            </div>
                             {{ match.teamBShortName }}
                         </td>
                     </tr>
@@ -133,7 +139,7 @@
         </div>
     </div>
 
-    <div class="row bracket-wrapper">
+    <div class="row bracket-wrapper" [hidden]="!tournamentData">
         <ngtt-double-elimination-tree
             [tournament]="tournamentData"
             [matchTemplate]="matchTemplate">
