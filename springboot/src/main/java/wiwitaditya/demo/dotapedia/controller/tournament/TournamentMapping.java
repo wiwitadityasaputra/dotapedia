@@ -35,8 +35,8 @@ public class TournamentMapping {
         return tournamentTeamResponse;
     }
 
-    private static SeriesResponse toSeriesResponse(Series series, Map<Integer, Team> mapTeam) {
-        SeriesResponse seriesResponse = new SeriesResponse();
+    private static TournamentSeriesResponse toSeriesResponse(Series series, Map<Integer, Team> mapTeam) {
+        TournamentSeriesResponse seriesResponse = new TournamentSeriesResponse();
         seriesResponse.setSeriesId(series.getId());
         seriesResponse.setSeriesFormat(series.getFormat());
         seriesResponse.setTeamAScore(series.getTeamASeriesScore());

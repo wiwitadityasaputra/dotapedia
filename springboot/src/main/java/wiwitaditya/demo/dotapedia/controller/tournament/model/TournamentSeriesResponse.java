@@ -6,7 +6,7 @@ import wiwitaditya.demo.dotapedia.db.utility.SeriesFormat;
 
 @Getter
 @Setter
-public class SeriesResponse {
+public class TournamentSeriesResponse {
 
     private int seriesId;
     private SeriesFormat seriesFormat;
@@ -26,8 +26,8 @@ public class SeriesResponse {
 
     private long startDate;
 
-    public SeriesResponse() {}
-    public SeriesResponse(SeriesResponse seriesResponse) {
+    public TournamentSeriesResponse() {}
+    public TournamentSeriesResponse(TournamentSeriesResponse seriesResponse) {
         this.seriesId = seriesResponse.getSeriesId();
         this.seriesFormat = seriesResponse.getSeriesFormat();
         this.teamAScore = seriesResponse.getTeamAScore();

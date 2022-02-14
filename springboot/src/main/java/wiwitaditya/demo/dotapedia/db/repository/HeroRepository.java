@@ -16,4 +16,7 @@ public interface HeroRepository extends JpaRepository<Hero, Integer> {
     @Query(value = "SELECT * FROM hero where type = :type and is_active = :isActive",
             nativeQuery = true)
     List<Hero> findHeroesByTypeAndActive(@Param("type") String type, @Param("isActive") int isActive);
+
+    @Query(value = "SELECT * FROM hero where hero_id IN (:heroIds)", nativeQuery = true)
+    List<Hero> findByHeroIds(@Param("heroIds") List<Integer> heroIds);
 }

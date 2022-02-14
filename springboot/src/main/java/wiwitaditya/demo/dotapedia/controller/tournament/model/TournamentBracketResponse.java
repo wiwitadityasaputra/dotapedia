@@ -6,13 +6,13 @@ import wiwitaditya.demo.dotapedia.db.utility.BracketPosition;
 
 @Getter
 @Setter
-public class TournamentBracketResponse extends SeriesResponse {
+public class TournamentBracketResponse extends TournamentSeriesResponse {
     private int bracketRound;
     private int roundIndex;
     private BracketPosition bracketPosition;
 
     public TournamentBracketResponse() {}
-    public TournamentBracketResponse(SeriesResponse seriesResponse) {
+    public TournamentBracketResponse(TournamentSeriesResponse seriesResponse) {
         super(seriesResponse);
     }
 }
