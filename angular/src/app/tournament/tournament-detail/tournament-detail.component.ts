@@ -1,10 +1,12 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Optional } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment'
 import { NgttTournament } from "src/app/utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.model";
-import { TournamentBracketResponse, TournamentDetailResponse } from "../tournament.response.model";
+import { TournamentSeriesResponse, TournamentBracketResponse, TournamentDetailResponse } from "../tournament.response.model";
 import { TournamentService } from "../tournament.service";
 import { RoundSeriesWeekly } from "../tournament.view.model";
+import { SeriesComponent } from "./series/series.component";
 
 @Component({
     selector: 'app-tournament-detail',
@@ -21,7 +23,8 @@ import { RoundSeriesWeekly } from "../tournament.view.model";
 
     constructor(private activatedRoute: ActivatedRoute,
       private tournamentService: TournamentService,
-      private router: Router) {
+      private router: Router,
+      @Optional() public dialog: MatDialog) {
     }
 
     ngOnInit(): void {
@@ -176,5 +179,11 @@ import { RoundSeriesWeekly } from "../tournament.view.model";
 
     public back(): void {
       this.router.navigate(['/tournament', {}]);
+    }
+
+    public openSeries(series: TournamentSeriesResponse): void {
+      this.dialog
+        .open(SeriesComponent, { data: { seriesId: series.seriesId } })
+        .afterClosed().subscribe(result => {});
     }
   }

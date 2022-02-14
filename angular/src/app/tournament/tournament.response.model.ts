@@ -42,7 +42,7 @@ export interface TournamentTeamResponse {
     seed: string;
 }
 
-export interface SeriesResponse {
+export interface TournamentSeriesResponse {
     seriesId: number;
     // TODO change to enum
     seriesFormat: string;
@@ -63,14 +63,14 @@ export interface SeriesResponse {
     startDate: number;
 }
 
-export interface TournamentBracketResponse extends SeriesResponse {
+export interface TournamentBracketResponse extends TournamentSeriesResponse {
     bracketRound: number;
     roundIndex: number;
     // TODO change to enum
     bracketPosition: string;
 }
 
-export interface TournamentRoundRobinResponse extends SeriesResponse {
+export interface TournamentRoundRobinResponse extends TournamentSeriesResponse {
     weekIndex: number;
     dayIndex: number;
     matchIndex: number;

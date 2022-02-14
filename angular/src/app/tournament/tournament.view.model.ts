@@ -1,4 +1,4 @@
-import { SeriesResponse } from "./tournament.response.model";
+import { TournamentSeriesResponse } from "./tournament.response.model";
 
 export interface RoundSeriesWeekly {
     index: number;
@@ -9,6 +9,6 @@ export interface RoundSeriesWeekly {
 export interface RoundSeriesDaily {
     index: number;
     name: string;
-    series: SeriesResponse[];
+    series: TournamentSeriesResponse[];
 }
 

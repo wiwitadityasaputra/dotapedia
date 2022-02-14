@@ -17,6 +17,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +26,7 @@ import { HeroComponent } from './hero/hero.component';
 import { LandingComponent } from './landing/landing.component';
 import { TournamentComponent } from './tournament/tournament.component';
 import { TournamentDetailComponent } from './tournament/tournament-detail/tournament-detail.component';
+import { SeriesComponent } from './tournament/tournament-detail/series/series.component';
 import { TeamComponent } from './team/team.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 
@@ -34,6 +37,7 @@ import { TournamentService } from './tournament/tournament.service';
 import { RegionPipe } from './utility/region.pipe';
 import { TournamentTypePipe } from './utility/tournament-type.pipe';
 import { RegionService } from './utility/region.service';
+import { SeriesService } from './tournament/tournament-detail/series/series.service';
 
 import { NgttDoubleEliminationTreeModule } from './utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.module';
 import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
@@ -46,6 +50,7 @@ import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
     TournamentComponent,
     TournamentDetailComponent,
     TeamComponent,
+    SeriesComponent,
     ScheduleComponent,
 
     RegionPipe,
@@ -70,6 +75,8 @@ import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
     MatExpansionModule,
     MatTabsModule,
     FlexLayoutModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
 
     NgttDoubleEliminationTreeModule,
     NgttMatchModule,
@@ -82,6 +89,7 @@ import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
     TeamService,
     TournamentService,
     RegionService,
+    SeriesService,
   ],
   bootstrap: [AppComponent]
 })

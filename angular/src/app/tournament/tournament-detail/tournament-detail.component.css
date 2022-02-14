@@ -96,6 +96,14 @@
     cursor: pointer;
 }
 
+.round-robind-wrapper .table .score.lose {
+    color: red;
+}
+
+.round-robind-wrapper .table .score.win {
+    color: green;
+}
+
 .round-robind-wrapper .image-wrapper {
     height: 25px;
     width: 25px;
