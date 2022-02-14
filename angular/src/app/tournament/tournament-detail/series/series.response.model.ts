@@ -25,6 +25,8 @@ export interface GameResponse {
     direTeamName: string;
     direScore: number;
     direPlayers: PlayerGameResponse[];
+
+    startDateStr?: string;
 }
 
 export interface PlayerGameResponse {

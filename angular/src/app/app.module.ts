@@ -19,6 +19,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -77,6 +78,7 @@ import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
     FlexLayoutModule,
     MatDialogModule,
     MatProgressSpinnerModule,
+    MatTableModule,
 
     NgttDoubleEliminationTreeModule,
     NgttMatchModule,

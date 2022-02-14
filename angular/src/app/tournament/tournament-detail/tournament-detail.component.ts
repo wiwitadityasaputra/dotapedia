@@ -183,7 +183,7 @@ import { SeriesComponent } from "./series/series.component";
 
     public openSeries(series: TournamentSeriesResponse): void {
       this.dialog
-        .open(SeriesComponent, { data: { seriesId: series.seriesId } })
+        .open(SeriesComponent, { width: '100%', data: { seriesId: series.seriesId } })
         .afterClosed().subscribe(result => {});
     }
   }

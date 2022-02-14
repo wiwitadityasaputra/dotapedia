@@ -1,0 +1,32 @@
+.team-name.win {
+    color: green;
+}
+.team-name.lose {
+    color: red;
+}
+h5 {
+    margin-top: 10px;
+}
+.image-wrapper {
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+.image-wrapper-hero {
+    height: 100%;
+    width: 50px;
+}
+.image-wrapper-hero img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
