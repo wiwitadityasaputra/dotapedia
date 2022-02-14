@@ -61,7 +61,7 @@ public class SeriesMapping {
         gameResponse.setRadiantScore(game.getRadiantScore());
         gameResponse.setRadiantPlayers(new ArrayList());
 
-        Team direTeam = findTeam(game.getRadiantTeamId(), teamA, teamB);
+        Team direTeam = findTeam(game.getDireTeamId(), teamA, teamB);
         gameResponse.setDireTeamId(direTeam.getId());
         gameResponse.setDireTeamName(direTeam.getShortName());
         gameResponse.setDireScore(game.getDireScore());
