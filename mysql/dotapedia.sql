@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Feb 05, 2022 at 01:00 AM
+-- Generation Time: Feb 15, 2022 at 02:29 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -1122,7 +1122,17 @@ INSERT INTO `series` (`series_id`, `team_id_a`, `team_id_b`, `format`, `team_a_s
 (26, 6, 3, 'BO_3', 2, 0, 1639468400000),
 (27, 2, 5, 'BO_3', 2, 0, 1639499400000),
 (28, 1, 7, 'BO_3', 0, 2, 1639764000000),
-(29, 4, 3, 'BO_3', 0, 2, 1639964000000);
+(29, 4, 3, 'BO_3', 0, 2, 1639964000000),
+(30, 6, 8, 'BO_3', NULL, NULL, 1640120100000),
+(31, 2, 4, 'BO_3', NULL, NULL, 1640130900000),
+(32, 1, 3, 'BO_3', NULL, NULL, 1641416100000),
+(33, 5, 8, 'BO_3', NULL, NULL, 1641675300000),
+(34, 6, 7, 'BO_3', NULL, NULL, 1641686100000),
+(35, 2, 3, 'BO_3', NULL, NULL, 1641934500000),
+(36, 4, 8, 'BO_3', NULL, NULL, 1641945300000),
+(37, 1, 6, 'BO_3', NULL, NULL, 1642020900000),
+(38, 5, 7, 'BO_3', NULL, NULL, 1642280100000),
+(39, 3, 8, 'BO_3', NULL, NULL, 1642290900000);
 
 -- --------------------------------------------------------
 
@@ -1334,7 +1344,17 @@ INSERT INTO `tournament_roundrobin` (`tournament_roundrobin_id`, `tournament_id`
 (22, 1, 26, 3, 1, 2),
 (23, 1, 27, 3, 2, 1),
 (24, 1, 28, 3, 3, 1),
-(25, 1, 29, 3, 3, 2);
+(25, 1, 29, 3, 3, 2),
+(26, 1, 30, 4, 1, 1),
+(27, 1, 31, 4, 1, 2),
+(28, 1, 32, 4, 2, 1),
+(29, 1, 33, 4, 3, 1),
+(30, 1, 34, 4, 3, 2),
+(36, 1, 35, 5, 1, 1),
+(37, 1, 36, 5, 1, 2),
+(38, 1, 37, 5, 2, 1),
+(39, 1, 38, 5, 3, 1),
+(40, 1, 39, 5, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -1510,7 +1530,7 @@ ALTER TABLE `player_role`
 -- AUTO_INCREMENT for table `series`
 --
 ALTER TABLE `series`
-  MODIFY `series_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `series_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `team`
@@ -1540,7 +1560,7 @@ ALTER TABLE `tournament_bracket`
 -- AUTO_INCREMENT for table `tournament_roundrobin`
 --
 ALTER TABLE `tournament_roundrobin`
-  MODIFY `tournament_roundrobin_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `tournament_roundrobin_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tournament_team`
