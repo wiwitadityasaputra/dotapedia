@@ -22,9 +22,9 @@ public class Series {
     @Enumerated(EnumType.STRING)
     private SeriesFormat format;
     @Column(name = "team_a_series_score")
-    private int teamASeriesScore;
+    private Integer teamASeriesScore;
     @Column(name = "team_b_series_score")
-    private int teamBSeriesScore;
+    private Integer teamBSeriesScore;
     @Column(name = "start_date")
     private long startDate;
 }

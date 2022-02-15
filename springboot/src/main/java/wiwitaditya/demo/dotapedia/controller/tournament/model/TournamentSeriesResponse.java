@@ -10,8 +10,8 @@ public class TournamentSeriesResponse {
 
     private int seriesId;
     private SeriesFormat seriesFormat;
-    private int teamAScore;
-    private int teamBScore;
+    private Integer teamAScore;
+    private Integer teamBScore;
 
     private Integer teamAId;
     private Integer teamBId;

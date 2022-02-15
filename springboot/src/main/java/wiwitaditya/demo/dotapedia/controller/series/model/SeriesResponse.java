@@ -14,8 +14,8 @@ public class SeriesResponse {
     private SeriesFormat format;
     private List<GameResponse> games;
 
-    private int teamAScore;
-    private int teamBScore;
+    private Integer teamAScore;
+    private Integer teamBScore;
 
     private int teamAId;
     private int teamBId;
