@@ -19,7 +19,6 @@ export class NgttMatchComponent implements OnInit {
   }
 
   public openSeries(): void {
-    console.log('openSeries ', this.match)
     this.dialog
     .open(SeriesComponent, { width: '100%', data: { seriesId: this.match.seriesId } })
     .afterClosed().subscribe(result => {});
