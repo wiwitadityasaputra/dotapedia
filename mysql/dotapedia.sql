@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Feb 15, 2022 at 02:29 AM
+-- Generation Time: May 09, 2022 at 06:45 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -1132,7 +1132,10 @@ INSERT INTO `series` (`series_id`, `team_id_a`, `team_id_b`, `format`, `team_a_s
 (36, 4, 8, 'BO_3', NULL, NULL, 1641945300000),
 (37, 1, 6, 'BO_3', NULL, NULL, 1642020900000),
 (38, 5, 7, 'BO_3', NULL, NULL, 1642280100000),
-(39, 3, 8, 'BO_3', NULL, NULL, 1642290900000);
+(39, 3, 8, 'BO_3', NULL, NULL, 1642290900000),
+(40, 2, 1, 'BO_3', NULL, NULL, 1642531253000),
+(41, 4, 7, 'BO_3', NULL, NULL, 1642542053000),
+(42, 6, 5, 'BO_3', NULL, NULL, 1642617653000);
 
 -- --------------------------------------------------------
 
@@ -1354,7 +1357,10 @@ INSERT INTO `tournament_roundrobin` (`tournament_roundrobin_id`, `tournament_id`
 (37, 1, 36, 5, 1, 2),
 (38, 1, 37, 5, 2, 1),
 (39, 1, 38, 5, 3, 1),
-(40, 1, 39, 5, 3, 2);
+(40, 1, 39, 5, 3, 2),
+(41, 1, 40, 6, 1, 1),
+(42, 1, 41, 6, 1, 2),
+(43, 1, 42, 6, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -1530,7 +1536,7 @@ ALTER TABLE `player_role`
 -- AUTO_INCREMENT for table `series`
 --
 ALTER TABLE `series`
-  MODIFY `series_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `series_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `team`
@@ -1560,7 +1566,7 @@ ALTER TABLE `tournament_bracket`
 -- AUTO_INCREMENT for table `tournament_roundrobin`
 --
 ALTER TABLE `tournament_roundrobin`
-  MODIFY `tournament_roundrobin_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `tournament_roundrobin_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `tournament_team`
