@@ -12,4 +12,7 @@ public interface TournamentRoundrobinRepository extends JpaRepository<Tournament
     @Query(value = "SELECT * FROM tournament_roundrobin where tournament_id = :tournamentId",
             nativeQuery = true)
     List<TournamentRoundRobin> findByTournamentId(@Param("tournamentId") int tournamentId);
+
+    @Query(value = "SELECT * FROM tournament_roundrobin where series_id = :seriesId", nativeQuery = true)
+    TournamentRoundRobin findBySeriesId(@Param("seriesId") int seriesId);
 }

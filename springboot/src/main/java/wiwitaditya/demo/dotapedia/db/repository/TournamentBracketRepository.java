@@ -12,4 +12,7 @@ public interface TournamentBracketRepository extends JpaRepository<TournamentBra
     @Query(value = "SELECT * FROM tournament_bracket where tournament_id = :tournamentId",
             nativeQuery = true)
     List<TournamentBracket> findByTournamentId(@Param("tournamentId") int tournamentId);
+
+    @Query(value = "SELECT * FROM tournament_bracket where series_id = :seriesId", nativeQuery = true)
+    TournamentBracket findBySeriesId(@Param("seriesId") int seriesId);
 }
