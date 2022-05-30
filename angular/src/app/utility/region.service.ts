@@ -19,6 +19,17 @@ export class RegionService {
     public getRegionByIndex(index: number): RegionType {
         return this.regions[index];
     }
+
+    public getRegionAbbreviationByKey(key: string): string {
+        let result: string = "";
+        this.regions.forEach((region) => {
+            if (region.key === key) {
+                result = region.abbreviation;
+            }
+        });
+
+        return result;
+    }
 }
 
 export class RegionType {

@@ -42,6 +42,7 @@ import { SeriesService } from './tournament/tournament-detail/series/series.serv
 
 import { NgttDoubleEliminationTreeModule } from './utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.module';
 import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
+import { ScheduleService } from './schedule/schedule.service';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
     TournamentService,
     RegionService,
     SeriesService,
+    ScheduleService,
   ],
   bootstrap: [AppComponent]
 })
