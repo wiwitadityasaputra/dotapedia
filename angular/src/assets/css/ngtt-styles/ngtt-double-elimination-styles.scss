@@ -108,7 +108,7 @@
     position: absolute;
     width: $ngtt-round-gutters;
     content: '';
-    bottom: ($ngtt-match-wrapper-height/2) + $ngtt-vertical-match-padding;
+    bottom: calc($ngtt-match-wrapper-height/2) + $ngtt-vertical-match-padding;
     border-left: $ngtt-bracket-line-width solid $ngtt-line-color-main;
     border-bottom: $ngtt-bracket-line-width solid $ngtt-line-color-main;
   }
@@ -166,7 +166,7 @@
   flex-direction: column;
   justify-content: flex-start;
   width: $ngtt-match-wrapper-width + 2*($ngtt-round-gutters);
-  padding-top: $ngtt-match-wrapper-height/2;
+  padding-top: calc($ngtt-match-wrapper-height/2);
   box-sizing: border-box !important;
 
   &:nth-child(1) {
@@ -221,7 +221,7 @@
 
     &:nth-child(even) {
       &::after {
-        top: $ngtt-bracket-line-width / 2;
+        top: calc($ngtt-bracket-line-width / 2);
         width: $ngtt-round-gutters;
         border-bottom-right-radius: $ngtt-bracket-border-radius;
         border-bottom: $ngtt-bracket-line-width solid $ngtt-line-color-main;

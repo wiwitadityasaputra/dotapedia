@@ -9,4 +9,4 @@ $ mvn clean spring-boot:run
 ##### run
 $ cd angular
 $ nvm use
-$ ng serve
+$ npm start
