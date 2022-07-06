@@ -4,6 +4,13 @@
 .upcoming-match table {
     color: #ffffff;
 }
+.upcoming-match table .series {
+    background-color: #908f908f;
+    cursor: pointer;
+}
+.upcoming-match table .tournament-info {
+    background-color: #908f9040;
+}
 .upcoming-match table .logo-a {
     text-align: right;
 }
@@ -20,10 +27,11 @@
     text-align: left;
 }
 .upcoming-match .image-wrapper {
-    height: 25px;
-    width: 25px;
-    float: left;
-    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    display: flex;
+    width: 100%;
 }
 .upcoming-match .image-wrapper img {
     max-width: 100%;
@@ -37,6 +45,7 @@
 .upcoming-match .region {
     padding-right: 20px;
 }
+
 
 .news p {
     text-indent: 30px;
