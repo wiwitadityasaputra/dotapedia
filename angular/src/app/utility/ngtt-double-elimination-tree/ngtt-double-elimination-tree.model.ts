@@ -1,4 +1,4 @@
-import { TournamentBracketResponse } from "src/app/tournament/tournament.response.model";
+import { BracketSeriesResponse } from "src/app/tournament/tournament.response.model";
 
 export interface NgttTournament {
     rounds: NgttRound[];
@@ -10,7 +10,7 @@ export interface NgttRound {
    * SingleElimination-Trees only consist of a winnerbracket and a final
    */
   type: 'Winnerbracket' | 'Loserbracket' | 'Final';
-  matches: TournamentBracketResponse[];
+  matches: BracketSeriesResponse[];
 }
   
   

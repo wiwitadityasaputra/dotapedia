@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import wiwitaditya.demo.dotapedia.controller.LookupUtil;
 import wiwitaditya.demo.dotapedia.controller.tournament.model.detail.*;
 import wiwitaditya.demo.dotapedia.controller.tournament.model.player.PlayerParticipantResponse;
+import wiwitaditya.demo.dotapedia.controller.tournament.model.series.BracketSeriesResponse;
+import wiwitaditya.demo.dotapedia.controller.tournament.model.series.RoundRoibinSeriesResponse;
 import wiwitaditya.demo.dotapedia.db.entity.*;
 import wiwitaditya.demo.dotapedia.db.repository.*;
 import wiwitaditya.demo.dotapedia.db.utility.Region;
@@ -37,7 +39,7 @@ public class TournamentService {
     @Autowired
     private PlayerRoleRepository playerRoleRepository;
 
-    public List findTournamentByRegion(String regions) {
+    public List<Tournament> findTournamentByRegion(String regions) {
         if (regions == null) {
             return tournamentRepository.findAll();
         }
@@ -76,34 +78,19 @@ public class TournamentService {
                 }
             }
             response.setTeams(tournamentTeamResponses);
-
-            if (TournamentType.BRACKET.equals(tournament.getTournamentType())) {
-                List<TournamentBracketResponse> bracketSeries = new ArrayList();
-                List<TournamentBracket> brackets = bracketRepository.findByTournamentId(tournament.getId());
-                for (TournamentBracket bracket: brackets) {
-                    Series series = seriesRepository.findById(bracket.getSeriesId()).orElse(null);
-                    if (series != null) {
-                        bracketSeries.add(TournamentMapping.toTournamentBracketResponse(series, mapTeam, bracket));
-                    }
-                }
-
-                response.setBracketSeries(bracketSeries);
-            } else if (TournamentType.ROUND_ROBIN.equals(tournament.getTournamentType())) {
-                List<TournamentRoundRobinResponse> roundRobinSeries = new ArrayList();
-                List<TournamentRoundRobin> roundRobins = roundrobinRepository.findByTournamentId(tournament.getId());
-                for (TournamentRoundRobin roundRobin: roundRobins) {
-                    Series series = seriesRepository.findById(roundRobin.getSeriesId()).orElse(null);
-                    if (series != null) {
-                        roundRobinSeries.add(TournamentMapping.toTournamentRoundRobinResponse(series, mapTeam, roundRobin));
-                    }
-                }
-                response.setRoundRobinSeries(roundRobinSeries);
-            }
         }
         return response;
     }
 
     public List<PlayerParticipantResponse> getPlayers(int tournamentId) {
         return tournamentTeamPlayerRepository.findPlayersByTournamentId(tournamentId);
+    }
+
+    public List<RoundRoibinSeriesResponse> getRoundRobinSeries(int tournamentId) {
+        return roundrobinRepository.findRoundRobinSeries(tournamentId);
+    }
+
+    public List<BracketSeriesResponse> getBracketSeries(int tournamentId) {
+        return bracketRepository.findBracketSeries(tournamentId);
     }
 }

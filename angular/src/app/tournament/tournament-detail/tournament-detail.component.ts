@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment'
 import { NgttTournament } from "src/app/utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.model";
-import { TournamentSeriesResponse, TournamentBracketResponse, TournamentDetailResponse } from "../tournament.response.model";
+import { TournamentSeriesResponse, TournamentDetailResponse, BracketSeriesResponse, RoundRoibinSeriesResponse } from "../tournament.response.model";
 import { TournamentService } from "../tournament.service";
 import { RoundSeriesWeekly } from "../tournament.view.model";
 import { SeriesComponent } from "./series/series.component";
@@ -46,11 +46,18 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
               }
             });
 
-            if (response.roundRobinSeries) {
-              this.initRoundRobinSeries(response);
-            }
-            if (response.bracketSeries) {
-              this.initBracketSeries(response) 
+            console.log(response.tournamentType)
+
+            if ("ROUND_ROBIN" === response.tournamentType) {
+              this.tournamentService.getRoundRobinSeries(this.tournament.id)
+                .subscribe((response) => {
+                  this.initRoundRobinSeries(response);
+                });
+            } else if ("BRACKET" === response.tournamentType) {
+              this.tournamentService.getBracketSeries(this.tournament.id)
+                .subscribe((response) => {
+                  this.initBracketSeries(response);
+                });
             }
           });
 
@@ -81,8 +88,9 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
       });
     }
 
-    private initRoundRobinSeries(response: TournamentDetailResponse): void {
-      response.roundRobinSeries.sort((ta, tb) => {
+    
+    private initRoundRobinSeries(roundRobinSeries: RoundRoibinSeriesResponse[]): void {
+      roundRobinSeries.sort((ta, tb) => {
         return ta.startDate - tb.startDate;
       });
 
@@ -90,9 +98,8 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
       let lastWeek = 0;
       let lastDay = 0;
       let lastMd = "";
-      response.roundRobinSeries.forEach((series) => {
-        const date = new Date(series.startDate);
-        const md = moment(series.startDate).format('MMMM DD');
+      roundRobinSeries.forEach((series) => {
+        const md = moment(series.startDate, 'x').format('MMMM DD');
         if (lastWeek != series.weekIndex) {
           var weekIndex = this.roundSeries.length
           const roundSeriesWeekly: RoundSeriesWeekly = {
@@ -130,7 +137,7 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
       });
     }
 
-    private initBracketSeries(response: TournamentDetailResponse): void {
+    private initBracketSeries(bracketSeries: BracketSeriesResponse[]): void {
       
       this.tournamentData = {
         rounds: []
@@ -139,7 +146,7 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
       let lastBracketRound = -1;
       let lastRoundsIndex = -1;
 
-      response.bracketSeries.filter((series) => {
+      bracketSeries.filter((series) => {
         return series.bracketPosition === "UPPER";
       })
       .sort(this.sortingBracketSeries)
@@ -163,7 +170,7 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
         }
       });
 
-      response.bracketSeries.filter((series) => {
+      bracketSeries.filter((series) => {
         return series.bracketPosition === "LOWER";
       })
       .sort(this.sortingBracketSeries)
@@ -187,7 +194,7 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
         }
       });
 
-      const finalSeries = response.bracketSeries.find((series) => {
+      const finalSeries = bracketSeries.find((series) => {
         return series.bracketPosition === "FINAL";
       });
       if (finalSeries) {
@@ -200,7 +207,7 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
       }
     }
 
-    private sortingBracketSeries(a: TournamentBracketResponse, b: TournamentBracketResponse): number {
+    private sortingBracketSeries(a: BracketSeriesResponse, b: BracketSeriesResponse): number {
       return ((a.bracketRound * 10) + a.roundIndex) - ((b.bracketRound * 10) + b.roundIndex);
     }
 

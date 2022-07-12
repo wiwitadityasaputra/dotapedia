@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, SimpleChanges, TemplateRef} from '@angular/core';
-import { TournamentBracketResponse } from 'src/app/tournament/tournament.response.model';
+import { BracketSeriesResponse } from 'src/app/tournament/tournament.response.model';
 import {NgttRound, NgttTournament} from './ngtt-double-elimination-tree.model';
 
 @Component({
@@ -13,7 +13,7 @@ export class NgttDoubleEliminationTreeComponent implements OnChanges {
 
   public losersBracket: NgttRound[];
   public winnersBracket: NgttRound[];
-  public finalMatch: TournamentBracketResponse;
+  public finalMatch: BracketSeriesResponse;
 
   constructor() {
   }

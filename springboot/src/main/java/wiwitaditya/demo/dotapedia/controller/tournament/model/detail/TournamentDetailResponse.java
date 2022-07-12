@@ -22,7 +22,4 @@ public class TournamentDetailResponse {
 
     private TournamentType tournamentType;
     private List<TournamentTeamResponse> teams;
-
-    private List<TournamentBracketResponse> bracketSeries;
-    private List<TournamentRoundRobinResponse> roundRobinSeries;
 }

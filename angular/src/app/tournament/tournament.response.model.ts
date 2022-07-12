@@ -25,9 +25,6 @@ export interface TournamentDetailResponse {
     // TODO change to enum
     tournamentType: string;
     teams: TournamentTeamResponse[];
-
-    bracketSeries: TournamentBracketResponse[];
-    roundRobinSeries: TournamentRoundRobinResponse[];
 }
 
 export interface TournamentTeamResponse {
@@ -46,31 +43,29 @@ export interface TournamentSeriesResponse {
     seriesId: number;
     // TODO change to enum
     seriesFormat: string;
-    teamAScore: number;
-    teamBScore: number;
+    startDate: number;
 
     teamAId: number;
-    teamBId: number;
-
+    teamAScore: number;
     teamAName: string;
     teamAShortName: string;
     teamAImage: string;
-
+    
+    teamBId: number;
+    teamBScore: number;
     teamBName: string;
     teamBShortName: string;
     teamBImage: string;
-
-    startDate: number;
 }
 
-export interface TournamentBracketResponse extends TournamentSeriesResponse {
+export interface BracketSeriesResponse extends TournamentSeriesResponse {
     bracketRound: number;
     roundIndex: number;
     // TODO change to enum
     bracketPosition: string;
 }
 
-export interface TournamentRoundRobinResponse extends TournamentSeriesResponse {
+export interface RoundRoibinSeriesResponse extends TournamentSeriesResponse {
     weekIndex: number;
     dayIndex: number;
     matchIndex: number;
