@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import wiwitaditya.demo.dotapedia.controller.LookupUtil;
 import wiwitaditya.demo.dotapedia.controller.tournament.model.detail.*;
+import wiwitaditya.demo.dotapedia.controller.tournament.model.player.PlayerParticipantResponse;
 import wiwitaditya.demo.dotapedia.db.entity.*;
 import wiwitaditya.demo.dotapedia.db.repository.*;
 import wiwitaditya.demo.dotapedia.db.utility.Region;
@@ -70,26 +71,11 @@ public class TournamentService {
                 Team team = teamRepository.findById(tournamentTeam.getTeamId()).orElse(null);
                 if (team != null) {
                     mapTeam.put(team.getId(), team);
-
-                    // find players
-                    List<TeamPlayerResponse> teamPlayerResponses = new ArrayList();
-                    List<TournamentTeamPlayer> tournamentTeamPlayers =
-                            tournamentTeamPlayerRepository.findPlayerByTournamentTeamId(team.getId());
-                    for (TournamentTeamPlayer ttp: tournamentTeamPlayers) {
-                        PlayerRole playerRole = playerRoleRepository.findById(ttp.getPlayerRoleId()).orElse(null);
-                        Player player = playerRepository.findById(ttp.getPlayerId()).orElse(null);
-                        teamPlayerResponses.add(TournamentMapping.toTeamPlayerResponse(player, playerRole));
-                    }
-
                     TournamentTeamResponse ttr = TournamentMapping.toTournamentTeamResponse(team, tournamentTeam);
-                    ttr.setPlayers(teamPlayerResponses);
                     tournamentTeamResponses.add(ttr);
                 }
             }
             response.setTeams(tournamentTeamResponses);
-
-
-
 
             if (TournamentType.BRACKET.equals(tournament.getTournamentType())) {
                 List<TournamentBracketResponse> bracketSeries = new ArrayList();
@@ -115,5 +101,9 @@ public class TournamentService {
             }
         }
         return response;
+    }
+
+    public List<PlayerParticipantResponse> getPlayers(int tournamentId) {
+        return tournamentTeamPlayerRepository.findPlayersByTournamentId(tournamentId);
     }
 }

@@ -17,6 +17,4 @@ public class TournamentTeamResponse {
     private Long price;
     private Integer dpcPoints;
     private String seed;
-
-    private List<TeamPlayerResponse> players;
 }

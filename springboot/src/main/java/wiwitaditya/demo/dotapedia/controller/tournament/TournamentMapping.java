@@ -35,15 +35,6 @@ public class TournamentMapping {
         return tournamentTeamResponse;
     }
 
-    public static TeamPlayerResponse toTeamPlayerResponse(Player player, PlayerRole playerRole) {
-        TeamPlayerResponse tpr = new TeamPlayerResponse();
-        tpr.setNickName(player.getNickName());
-        tpr.setPlayerId(player.getId());
-        tpr.setRoleId(playerRole.getId());
-        tpr.setRoleName(playerRole.getName());
-        return tpr;
-    }
-
     private static TournamentSeriesResponse toSeriesResponse(Series series, Map<Integer, Team> mapTeam) {
         TournamentSeriesResponse seriesResponse = new TournamentSeriesResponse();
         seriesResponse.setSeriesId(series.getId());

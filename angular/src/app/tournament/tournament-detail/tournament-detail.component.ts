@@ -7,6 +7,7 @@ import { TournamentSeriesResponse, TournamentBracketResponse, TournamentDetailRe
 import { TournamentService } from "../tournament.service";
 import { RoundSeriesWeekly } from "../tournament.view.model";
 import { SeriesComponent } from "./series/series.component";
+import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.view.model";
 
 @Component({
     selector: 'app-tournament-detail',
@@ -20,6 +21,7 @@ import { SeriesComponent } from "./series/series.component";
     public columnDpc: boolean = false;
     public roundSeries: RoundSeriesWeekly[];
     public tournamentData: NgttTournament;
+    public teams: TeamParticipant[];
 
     constructor(private activatedRoute: ActivatedRoute,
       private tournamentService: TournamentService,
@@ -51,6 +53,31 @@ import { SeriesComponent } from "./series/series.component";
               this.initBracketSeries(response) 
             }
           });
+
+        this.tournamentService.getPlayerParticipant(param.tournamentId)
+          .subscribe((response: PlayerParticipantResponse[]) => {
+            this.teams = [];
+
+            response.forEach((player) => {
+              const team = this.teams.find((t) => t.teamId == player.teamId);
+              const p = {
+                playerId: player.playerId,
+                playerNickName: player.playerNickName,
+                roleId: player.roleId,
+                roleName: player.roleName
+              };
+              if (!team) {
+                this.teams.push({
+                  teamId: player.teamId,
+                  teamName: player.teamName,
+                  players: [p]
+                });
+              } else {
+                team.players.push(p);
+              }
+            });
+          });
+
       });
     }
 
