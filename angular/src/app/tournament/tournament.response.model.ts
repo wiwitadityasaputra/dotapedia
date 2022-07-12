@@ -40,6 +40,16 @@ export interface TournamentTeamResponse {
     price: number;
     dpcPoints: number;
     seed: string;
+
+    players: TournamentPlayerResponse[];
+}
+
+export interface TournamentPlayerResponse {
+    playerId: number;
+    nickName: string;
+
+    roleId: number;
+    roleName: string;
 }
 
 export interface TournamentSeriesResponse {

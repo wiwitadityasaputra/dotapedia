@@ -1,6 +1,6 @@
 package wiwitaditya.demo.dotapedia.controller.tournament;
 
-import wiwitaditya.demo.dotapedia.controller.tournament.model.*;
+import wiwitaditya.demo.dotapedia.controller.tournament.model.detail.*;
 import wiwitaditya.demo.dotapedia.db.entity.*;
 
 import java.util.Map;
@@ -35,6 +35,15 @@ public class TournamentMapping {
         return tournamentTeamResponse;
     }
 
+    public static TeamPlayerResponse toTeamPlayerResponse(Player player, PlayerRole playerRole) {
+        TeamPlayerResponse tpr = new TeamPlayerResponse();
+        tpr.setNickName(player.getNickName());
+        tpr.setPlayerId(player.getId());
+        tpr.setRoleId(playerRole.getId());
+        tpr.setRoleName(playerRole.getName());
+        return tpr;
+    }
+
     private static TournamentSeriesResponse toSeriesResponse(Series series, Map<Integer, Team> mapTeam) {
         TournamentSeriesResponse seriesResponse = new TournamentSeriesResponse();
         seriesResponse.setSeriesId(series.getId());
@@ -58,7 +67,7 @@ public class TournamentMapping {
     }
 
     public static TournamentBracketResponse toTournamentBracketResponse(Series series, Map<Integer, Team> mapTeam,
-        TournamentBracket bracket) {
+                                                                        TournamentBracket bracket) {
 
         TournamentBracketResponse tournamentBracketResponse =
                 new TournamentBracketResponse(toSeriesResponse(series, mapTeam));
@@ -69,7 +78,7 @@ public class TournamentMapping {
     }
 
     public static TournamentRoundRobinResponse toTournamentRoundRobinResponse(Series series, Map<Integer, Team> mapTeam,
-        TournamentRoundRobin roundRobin) {
+                                                                              TournamentRoundRobin roundRobin) {
 
         TournamentRoundRobinResponse tournamentRoundRobinResponse =
                 new TournamentRoundRobinResponse(toSeriesResponse(series, mapTeam));

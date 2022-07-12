@@ -61,6 +61,13 @@
     display: block;
 }
 
+.team-player-wrapper {
+    margin-top: 30px;
+}
+.team-player-wrapper .team {
+    margin-top: 10px;
+}
+
 .round-robind-wrapper {
     margin-top: 30px;
 }

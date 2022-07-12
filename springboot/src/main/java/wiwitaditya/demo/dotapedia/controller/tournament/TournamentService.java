@@ -3,7 +3,7 @@ package wiwitaditya.demo.dotapedia.controller.tournament;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import wiwitaditya.demo.dotapedia.controller.LookupUtil;
-import wiwitaditya.demo.dotapedia.controller.tournament.model.*;
+import wiwitaditya.demo.dotapedia.controller.tournament.model.detail.*;
 import wiwitaditya.demo.dotapedia.db.entity.*;
 import wiwitaditya.demo.dotapedia.db.repository.*;
 import wiwitaditya.demo.dotapedia.db.utility.Region;
@@ -29,19 +29,12 @@ public class TournamentService {
     private TournamentRoundrobinRepository roundrobinRepository;
     @Autowired
     private SeriesRepository seriesRepository;
-
-//    public List<TeamParticipantResponse> getAllTeamByTournamentId(int tournamentId) {
-//        List<TeamParticipantResponse> participants = new ArrayList();
-//
-//        List<TournamentTeam> teams = tournamentTeamRepository.findTeamsByTournamentId(tournamentId);
-//        for (TournamentTeam tournamentTeam: teams) {
-//            Team team = teamRepository.findById(tournamentTeam.getTeamId()).orElse(null);
-//            if (team != null) {
-//                participants.add(TeamParticipantMapping.toTeamParticipant(tournamentTeam, team));
-//            }
-//        }
-//        return participants;
-//    }
+    @Autowired
+    private TournamentTeamPlayerRepository tournamentTeamPlayerRepository;
+    @Autowired
+    private PlayerRepository playerRepository;
+    @Autowired
+    private PlayerRoleRepository playerRoleRepository;
 
     public List findTournamentByRegion(String regions) {
         if (regions == null) {
@@ -77,10 +70,26 @@ public class TournamentService {
                 Team team = teamRepository.findById(tournamentTeam.getTeamId()).orElse(null);
                 if (team != null) {
                     mapTeam.put(team.getId(), team);
-                    tournamentTeamResponses.add(TournamentMapping.toTournamentTeamResponse(team, tournamentTeam));
+
+                    // find players
+                    List<TeamPlayerResponse> teamPlayerResponses = new ArrayList();
+                    List<TournamentTeamPlayer> tournamentTeamPlayers =
+                            tournamentTeamPlayerRepository.findPlayerByTournamentTeamId(team.getId());
+                    for (TournamentTeamPlayer ttp: tournamentTeamPlayers) {
+                        PlayerRole playerRole = playerRoleRepository.findById(ttp.getPlayerRoleId()).orElse(null);
+                        Player player = playerRepository.findById(ttp.getPlayerId()).orElse(null);
+                        teamPlayerResponses.add(TournamentMapping.toTeamPlayerResponse(player, playerRole));
+                    }
+
+                    TournamentTeamResponse ttr = TournamentMapping.toTournamentTeamResponse(team, tournamentTeam);
+                    ttr.setPlayers(teamPlayerResponses);
+                    tournamentTeamResponses.add(ttr);
                 }
             }
             response.setTeams(tournamentTeamResponses);
+
+
+
 
             if (TournamentType.BRACKET.equals(tournament.getTournamentType())) {
                 List<TournamentBracketResponse> bracketSeries = new ArrayList();
