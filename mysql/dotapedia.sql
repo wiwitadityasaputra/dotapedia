@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jul 11, 2022 at 01:35 AM
+-- Generation Time: Jul 13, 2022 at 06:31 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -4994,7 +4994,7 @@ INSERT INTO `team` (`team_id`, `name`, `short_name`, `image`, `region`, `sponsor
 (4, 'Team Secret', 'Secret', 'team-secret.jpeg', 'WESTERN_EUROPE', 'Secretlab', 15240459),
 (5, 'Tundra Esports', 'Tundra', 'team-tundra.png', 'WESTERN_EUROPE', 'Noblechairs', 348100),
 (6, 'OG', 'OG', 'team-og.jpeg', 'WESTERN_EUROPE', 'BMW', 34880062),
-(7, 'Gaimin Gladiators', 'Tickles', 'gaimin-gladiators.jpg', 'WESTERN_EUROPE', NULL, 0),
+(7, 'Team Tickles', 'Tickles', 'team-tickles.webp', 'WESTERN_EUROPE', NULL, 0),
 (8, 'Coolguys', 'Coolguys', 'team-coolguys.png', 'WESTERN_EUROPE', NULL, 0),
 (9, 'Team Spirit', 'TSpirit', 'team-spirit.jpeg', 'EASTERN_EUROPE', 'DXRacer', 18837882),
 (10, 'Natus Vincere', 'NAVI', 'team-navi.jpeg', 'EASTERN_EUROPE', 'GG BET', 5000070),
@@ -5035,7 +5035,8 @@ INSERT INTO `team` (`team_id`, `name`, `short_name`, `image`, `region`, `sponsor
 (202, 'Hokori', 'Hokori', 'hokori.jpg', 'SOUTH_AMERICA', NULL, 122678),
 (203, 'SG esports', 'SG', 'sg-esports.jpg', 'SOUTH_AMERICA', NULL, 483499),
 (204, 'Lava Esports', 'Lava', 'lava-esports.jpg', 'SOUTH_AMERICA', NULL, 73050),
-(205, 'APU King of Kings', 'APU', 'apu-king.jpg', 'SOUTH_AMERICA', NULL, 61427);
+(205, 'APU King of Kings', 'APU', 'apu-king.jpg', 'SOUTH_AMERICA', NULL, 61427),
+(206, 'Gaimin Gladiators', 'Gladiators', 'gaimin-gladiators.webp', 'WESTERN_EUROPE', 'gaimin.gg', 145000);
 
 -- --------------------------------------------------------
 
@@ -5084,11 +5085,11 @@ INSERT INTO `team_player` (`team_player_id`, `team_id`, `player_id`, `player_rol
 (32, 6, 38, 4, 1637452800000, NULL, 1, NULL),
 (33, 6, 39, 5, 1637452800000, NULL, 1, NULL),
 (34, 6, 40, 6, 1637452800000, NULL, 1, NULL),
-(35, 7, 41, 2, 1636588800000, NULL, 1, NULL),
-(36, 7, 42, 3, 1636588800000, NULL, 1, NULL),
-(37, 7, 43, 4, 1636588800000, NULL, 1, NULL),
-(38, 7, 44, 5, 1636588800000, NULL, 1, NULL),
-(39, 7, 45, 6, 1636588800000, NULL, 1, NULL),
+(35, 7, 41, 2, 1636588800000, 1644281191000, 1, 206),
+(36, 7, 42, 3, 1636588800000, 1644281191000, 1, 206),
+(37, 7, 43, 4, 1636588800000, 1644281191000, 1, 206),
+(38, 7, 44, 5, 1636588800000, 1644281191000, 1, 206),
+(39, 7, 45, 6, 1636588800000, 1644281191000, 1, 206),
 (45, 8, 47, 2, 1636329600000, NULL, 1, NULL),
 (46, 8, 48, 3, 1636329600000, NULL, 1, NULL),
 (47, 8, 49, 4, 1636329600000, NULL, 1, NULL),
@@ -5298,7 +5299,12 @@ INSERT INTO `team_player` (`team_player_id`, `team_id`, `player_id`, `player_rol
 (251, 182, 134, 3, 1638548702000, NULL, 1, NULL),
 (252, 182, 135, 4, 1638548702000, NULL, 1, NULL),
 (253, 182, 136, 5, 1638548702000, NULL, 1, NULL),
-(254, 182, 137, 6, 1638548702000, NULL, 1, NULL);
+(254, 182, 137, 6, 1638548702000, NULL, 1, NULL),
+(255, 206, 41, 2, 1644367591000, NULL, 1, NULL),
+(256, 206, 42, 3, 1644367591000, NULL, 1, NULL),
+(257, 206, 43, 4, 1644367591000, NULL, 1, NULL),
+(258, 206, 44, 5, 1644367591000, NULL, 1, NULL),
+(259, 206, 45, 6, 1644367591000, NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -5323,13 +5329,14 @@ CREATE TABLE `tournament` (
 --
 
 INSERT INTO `tournament` (`tournament_id`, `region`, `name`, `image`, `prize_pool`, `start_date`, `end_date`, `total_dpc_points`, `tournament_type`) VALUES
-(1, 'WESTERN_EUROPE', 'DPC WEU Div 1', 'dream-league.png', 205000, 1638230400000, 1642550400000, 690, 'ROUND_ROBIN'),
-(2, 'EASTERN_EUROPE', 'Dota PIT', 'dota-pit.png', 175000, 1639353600000, 1639958400000, 0, 'BRACKET'),
-(11, 'EASTERN_EUROPE', 'DPC EEU 2021/2022 Tour 1: Division I', 'epicenter.png', 205000, 1638468192000, 1642960992000, 690, 'ROUND_ROBIN'),
-(12, 'CHINA', 'DPC CN 2021/2022 Tour 1: Division I', 'DPC_CN_2021-2022_Tour_1.jpeg', 205000, 1641214861000, 1643029261000, 690, 'ROUND_ROBIN'),
-(13, 'SOUTHEAST_ASIA', 'DPC SEA 2021/2022 Tour 1: Division I', 'DPC_SEA_2021-2022_Tour_1_lightmode.png', 205000, 1638327086000, 1642819886000, 690, 'ROUND_ROBIN'),
-(14, 'NORTH_AMERICA', 'DPC NA 2021/2022 Tour 1: Division I', 'DPC_NA_2021_lightmode.png', 205000, 1638289145000, 1642695545000, 690, 'ROUND_ROBIN'),
-(15, 'SOUTH_AMERICA', 'DPC SA 2021/2022 Tour 1: Division I\r\n', 'DPC_SA_2021-2022_lightmode.png', 205000, 1669997945000, 1642954745000, 690, 'ROUND_ROBIN');
+(1, 'WESTERN_EUROPE', 'DPC WEU Div 1', '2022_Tour-1_WEU_Div-1.png', 205000, 1638230400000, 1642550400000, 690, 'ROUND_ROBIN'),
+(2, 'EASTERN_EUROPE', 'Dota PIT', '2021_dota-pit_season-5.png', 175000, 1639353600000, 1639958400000, 0, 'BRACKET'),
+(11, 'EASTERN_EUROPE', 'DPC EEU 2021/2022 Tour 1: Division I', '2022_Tour-1_EEU_Div-1.png', 205000, 1638468192000, 1642960992000, 690, 'ROUND_ROBIN'),
+(12, 'CHINA', 'DPC CN 2021/2022 Tour 1: Division I', '2022_Tour-1_CN_Div-1.jpeg', 205000, 1641214861000, 1643029261000, 690, 'ROUND_ROBIN'),
+(13, 'SOUTHEAST_ASIA', 'DPC SEA 2021/2022 Tour 1: Division I', '2022_Tour-1_SEA_Div-1.png', 205000, 1638327086000, 1642819886000, 690, 'ROUND_ROBIN'),
+(14, 'NORTH_AMERICA', 'DPC NA 2021/2022 Tour 1: Division I', '2022_Tour-1_NA_Div-1.png', 205000, 1638289145000, 1642695545000, 690, 'ROUND_ROBIN'),
+(15, 'SOUTH_AMERICA', 'DPC SA 2021/2022 Tour 1: Division I\r\n', '2022_Tour-1_SA_Div-1.png', 205000, 1669997945000, 1642954745000, 690, 'ROUND_ROBIN'),
+(16, 'WESTERN_EUROPE', 'DPC WEU 2021/2022 Tour 1: Regional Final', '2022_Tour-1_WEU_Regional-Final.png', 100000, 1644540391000, 1644713191000, 380, 'BRACKET');
 
 -- --------------------------------------------------------
 
@@ -5632,7 +5639,11 @@ INSERT INTO `tournament_team` (`tournament_team_id`, `tournament_id`, `team_id`,
 (54, 15, 204, 2, 25000, 30, 'Division I'),
 (55, 15, 202, 2, 24000, 0, 'Division I'),
 (56, 15, 198, 2, 23000, 0, 'Division II'),
-(57, 15, 203, 2, 22000, 0, 'Division II');
+(57, 15, 203, 2, 22000, 0, 'Division II'),
+(58, 16, 206, 1, 50000, 250, NULL),
+(59, 16, 2, 2, 25000, 250, NULL),
+(60, 16, 6, 3, 15000, 0, NULL),
+(61, 16, 5, 4, 10000, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -5936,7 +5947,27 @@ INSERT INTO `tournament_team_player` (`tournament_team_player_id`, `tournament_t
 (286, 57, 239, 3),
 (287, 57, 240, 4),
 (288, 57, 241, 5),
-(289, 57, 242, 6);
+(289, 57, 242, 6),
+(290, 59, 6, 2),
+(291, 59, 7, 3),
+(292, 59, 8, 4),
+(293, 59, 9, 5),
+(294, 59, 10, 6),
+(295, 60, 36, 2),
+(296, 60, 37, 3),
+(297, 60, 38, 4),
+(298, 60, 39, 5),
+(299, 60, 40, 6),
+(300, 61, 31, 2),
+(301, 61, 32, 3),
+(302, 61, 33, 4),
+(303, 61, 34, 5),
+(304, 61, 35, 6),
+(305, 58, 41, 2),
+(306, 58, 42, 3),
+(307, 58, 43, 4),
+(308, 58, 44, 5),
+(309, 58, 45, 6);
 
 --
 -- Indexes for dumped tables
@@ -6089,19 +6120,19 @@ ALTER TABLE `series`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `team_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
+  MODIFY `team_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
 
 --
 -- AUTO_INCREMENT for table `team_player`
 --
 ALTER TABLE `team_player`
-  MODIFY `team_player_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=255;
+  MODIFY `team_player_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=260;
 
 --
 -- AUTO_INCREMENT for table `tournament`
 --
 ALTER TABLE `tournament`
-  MODIFY `tournament_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `tournament_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tournament_bracket`
@@ -6119,13 +6150,13 @@ ALTER TABLE `tournament_roundrobin`
 -- AUTO_INCREMENT for table `tournament_team`
 --
 ALTER TABLE `tournament_team`
-  MODIFY `tournament_team_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `tournament_team_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `tournament_team_player`
 --
 ALTER TABLE `tournament_team_player`
-  MODIFY `tournament_team_player_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=290;
+  MODIFY `tournament_team_player_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=310;
 
 --
 -- Constraints for dumped tables
