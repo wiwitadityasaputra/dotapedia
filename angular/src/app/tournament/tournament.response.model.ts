@@ -24,14 +24,13 @@ export interface TournamentDetailResponse {
 
     // TODO change to enum
     tournamentType: string;
-    teams: TournamentTeamResponse[];
 }
 
 export interface TournamentTeamResponse {
-    id: number;
-    name: string;
-    shortName: string;
-    image: string;
+    teamId: number;
+    teamName: string;
+    teamShortName: string;
+    teamImage: string;
 
     place: number;
     price: number;

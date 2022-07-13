@@ -3,6 +3,7 @@ package wiwitaditya.demo.dotapedia.controller.tournament;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import wiwitaditya.demo.dotapedia.controller.tournament.model.detail.TournamentDetailResponse;
+import wiwitaditya.demo.dotapedia.controller.tournament.model.detail.TournamentTeamResponse;
 import wiwitaditya.demo.dotapedia.controller.tournament.model.player.PlayerParticipantResponse;
 import wiwitaditya.demo.dotapedia.controller.tournament.model.series.BracketSeriesResponse;
 import wiwitaditya.demo.dotapedia.controller.tournament.model.series.RoundRoibinSeriesResponse;
@@ -40,5 +41,10 @@ public class TournamentController {
     @GetMapping(path = "/{tournamentId}/bracket-series")
     public List<BracketSeriesResponse> getBracketSeries(@PathVariable(value = "tournamentId") int tournamentId) {
         return tournamentService.getBracketSeries(tournamentId);
+    }
+
+    @GetMapping(path = "/{tournamentId}/teams")
+    public List<TournamentTeamResponse> getTeams(@PathVariable(value = "tournamentId") int tournamentId) {
+        return tournamentService.getTeams(tournamentId);
     }
 }

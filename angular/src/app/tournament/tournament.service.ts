@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { EnvirontmentService } from "../utility/environtment.service";
 import { PlayerParticipantResponse } from "./tournament-detail/tournament-detail.view.model";
-import { TournamentModel, TournamentDetailResponse, RoundRoibinSeriesResponse, BracketSeriesResponse } from "./tournament.response.model";
+import { TournamentModel, TournamentDetailResponse, RoundRoibinSeriesResponse, BracketSeriesResponse, TournamentTeamResponse } from "./tournament.response.model";
 
 @Injectable()
 export class TournamentService {
@@ -20,6 +20,11 @@ export class TournamentService {
     public getTournamentDetail(tournamentId: number): Observable<TournamentDetailResponse> {
         var url = this.environtment.getServerUrl() + this.API_PATH + "/" + tournamentId;
         return this.http.get<TournamentDetailResponse>(url);
+    }
+
+    public getTeamParticipant(tournamentId: number): Observable<TournamentTeamResponse[]> {
+        var url = this.environtment.getServerUrl() + this.API_PATH + "/" + tournamentId + "/teams";
+        return this.http.get<TournamentTeamResponse[]>(url);        
     }
 
     public getPlayerParticipant(tournamentId: number): Observable<PlayerParticipantResponse[]> {

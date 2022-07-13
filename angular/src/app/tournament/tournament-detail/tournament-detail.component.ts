@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment'
 import { NgttTournament } from "src/app/utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.model";
-import { TournamentSeriesResponse, TournamentDetailResponse, BracketSeriesResponse, RoundRoibinSeriesResponse } from "../tournament.response.model";
+import { TournamentSeriesResponse, TournamentDetailResponse, BracketSeriesResponse, RoundRoibinSeriesResponse, TournamentTeamResponse } from "../tournament.response.model";
 import { TournamentService } from "../tournament.service";
 import { RoundSeriesWeekly } from "../tournament.view.model";
 import { SeriesComponent } from "./series/series.component";
@@ -22,6 +22,7 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
     public roundSeries: RoundSeriesWeekly[];
     public tournamentData: NgttTournament;
     public teams: TeamParticipant[];
+    public tournamentTeams: TournamentTeamResponse[];
 
     constructor(private activatedRoute: ActivatedRoute,
       private tournamentService: TournamentService,
@@ -37,16 +38,19 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
 
             this.columnSeed = false;
             this.columnDpc = false;
-            this.tournament.teams.forEach((team) => {
-              if (team.seed) {
-                this.columnSeed = true;
-              }
-              if (team.dpcPoints > 0) {
-                this.columnDpc = true;
-              }
-            });
 
-            console.log(response.tournamentType)
+            this.tournamentService.getTeamParticipant(this.tournament.id)
+              .subscribe((response) => {
+                  this.tournamentTeams = response;
+                  this.tournamentTeams.forEach((team) => {
+                    if (team.seed) {
+                      this.columnSeed = true;
+                    }
+                    if (team.dpcPoints > 0) {
+                      this.columnDpc = true;
+                    }
+                  });
+              });
 
             if ("ROUND_ROBIN" === response.tournamentType) {
               this.tournamentService.getRoundRobinSeries(this.tournament.id)

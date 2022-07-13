@@ -5,8 +5,6 @@ import lombok.Setter;
 import wiwitaditya.demo.dotapedia.db.utility.Region;
 import wiwitaditya.demo.dotapedia.db.utility.TournamentType;
 
-import java.util.List;
-
 @Getter
 @Setter
 public class TournamentDetailResponse {
@@ -21,5 +19,4 @@ public class TournamentDetailResponse {
     private int totalDpcPoints;
 
     private TournamentType tournamentType;
-    private List<TournamentTeamResponse> teams;
 }

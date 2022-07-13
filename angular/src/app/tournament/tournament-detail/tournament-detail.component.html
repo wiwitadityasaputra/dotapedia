@@ -80,7 +80,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let t of tournament?.teams">
+                  <tr *ngFor="let t of tournamentTeams">
                     <td>{{ t.place }}</td>
                     <td>
                         {{ t?.price | currency:'USD': 'symbol' }}
@@ -89,9 +89,9 @@
                     <td [hidden]="!columnDpc">{{ t.dpcPoints }}</td>
                     <td>
                         <div class="image-wrapper">
-                            <img [src]="'assets/image/teams-logo-100/' + t?.id + '.png'" class="" alt="">
+                            <img [src]="'assets/image/teams-logo-100/' + t?.teamId + '.png'" class="" alt="">
                         </div>
-                        {{ t.name }}
+                        {{ t.teamName }}
                     </td>
                   </tr>
                 </tbody>

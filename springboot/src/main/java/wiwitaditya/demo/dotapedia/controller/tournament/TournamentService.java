@@ -10,12 +10,9 @@ import wiwitaditya.demo.dotapedia.controller.tournament.model.series.RoundRoibin
 import wiwitaditya.demo.dotapedia.db.entity.*;
 import wiwitaditya.demo.dotapedia.db.repository.*;
 import wiwitaditya.demo.dotapedia.db.utility.Region;
-import wiwitaditya.demo.dotapedia.db.utility.TournamentType;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Component
 public class TournamentService {
@@ -60,24 +57,11 @@ public class TournamentService {
     }
 
     public TournamentDetailResponse getTournamentByTournamentId(int tournamentId) {
-        Map<Integer, Team> mapTeam = new HashMap();
         TournamentDetailResponse response = new TournamentDetailResponse();
 
         Tournament tournament = tournamentRepository.findById(tournamentId).orElse(null);
         if (tournament != null) {
             response = TournamentMapping.toTournamentDetailResponse(tournament);
-
-            List<TournamentTeamResponse> tournamentTeamResponses = new ArrayList();
-            List<TournamentTeam> tournamentTeams = tournamentTeamRepository.findTeamsByTournamentId(tournamentId);
-            for (TournamentTeam tournamentTeam: tournamentTeams) {
-                Team team = teamRepository.findById(tournamentTeam.getTeamId()).orElse(null);
-                if (team != null) {
-                    mapTeam.put(team.getId(), team);
-                    TournamentTeamResponse ttr = TournamentMapping.toTournamentTeamResponse(team, tournamentTeam);
-                    tournamentTeamResponses.add(ttr);
-                }
-            }
-            response.setTeams(tournamentTeamResponses);
         }
         return response;
     }
@@ -92,5 +76,9 @@ public class TournamentService {
 
     public List<BracketSeriesResponse> getBracketSeries(int tournamentId) {
         return bracketRepository.findBracketSeries(tournamentId);
+    }
+
+    public List<TournamentTeamResponse> getTeams(int tournamentId) {
+        return tournamentTeamRepository.findTournamentTeamByTournamentId(tournamentId);
     }
 }
