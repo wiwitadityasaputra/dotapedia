@@ -16,6 +16,6 @@ public class ScheduleController {
 
     @GetMapping
     private List<ScheduleResponse> findSeriesHasNotStart() {
-        return scheduleService.findSeriesHasNotStart();
+        return scheduleService.findUpcomingSeries();
     }
 }

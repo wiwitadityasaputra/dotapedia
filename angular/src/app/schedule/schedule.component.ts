@@ -22,11 +22,13 @@ export class ScheduleComponent implements OnInit {
       this.schedules = [];
       response.forEach((r) => {
         this.schedules.push({
-          direTeamId: r.direTeamId,
-          direTeamName: r.direTeamName,
-          radiantTeamId: r.radiantTeamId,
-          radiantTeamName: r.radiantTeamName,
           startDate: r.startDate,
+          
+          direTeamId: r.teamAId,
+          direTeamName: r.teamAName,
+          radiantTeamId: r.teamBId,
+          radiantTeamName: r.teamBName,
+          
           tournamentId: r.tournamentId,
           tournamentImage: r.tournamentImage,
           tournamentName: r.tournamentName,

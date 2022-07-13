@@ -1,11 +1,13 @@
 export interface ScheduleResponse {
-    direTeamId: number;
-    direTeamName: string;
-    radiantTeamId: number;
-    radiantTeamName: string;
     startDate: string;
+
+    teamAId: number;
+    teamAName: string;
+    teamBId: number;
+    teamBName: string;
+    
     tournamentId: number;
-    tournamentImage: string;
-    tournamentName: string;
     tournamentRegion: string;
+    tournamentName: string;
+    tournamentImage: string;
 }
