@@ -18,5 +18,4 @@ public class TeamResponse {
     private String sponsors;
 
     private long totalEarnings;
-    private List<TeamPlayerResponse> players;
 }

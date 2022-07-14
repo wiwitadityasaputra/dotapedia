@@ -35,32 +35,36 @@ export class TeamComponent implements OnInit {
 
   private updateTeams(index: number): void {
     this.teamsLoaded[index] = false;
-    this.teamService.getTeams(this.regionService.getRegionByIndex(index)).subscribe((response: TeamResponse[]) => {
-      this.teamsLoaded[index] = true;
-      
-      let teamViewModel: TeamModel = {
-        teamA: null,
-        teamB: null
-      };
-      let teamA: boolean = true;
+    this.teamService.getTeams(this.regionService.getRegionByIndex(index))
+      .subscribe((response: TeamResponse[]) => {
+        this.teamsLoaded[index] = true;
+        
+        let teamViewModel: TeamModel = {
+          teamA: null,
+          teamB: null
+        };
+        let teamA: boolean = true;
 
-      for (let key in response) {
-        let team: TeamResponse = response[key];
+        for (let key in response) {
+          let team: TeamResponse = response[key];
+          this.teamService.getPlayers(team.teamId)
+            .subscribe((players) => {
+              team.players = players;
+            });
 
-        if (teamA) {
-          teamA = false;
-          teamViewModel = {
-            teamA: team,
-            teamB: null
+          if (teamA) {
+            teamA = false;
+            teamViewModel = {
+              teamA: team,
+              teamB: null
+            }
+          } else {
+            teamA = true;
+            teamViewModel.teamB = team;
+
+            this.teams[index].push(teamViewModel);
           }
-        } else {
-          teamA = true;
-          teamViewModel.teamB = team;
-
-          this.teams[index].push(teamViewModel);
         }
-      }
-    });
+      });
   }
-
 }

@@ -15,5 +15,5 @@ export interface TeamPlayerResponse {
     nickName: string;
 
     playerRoleId: number;
-    role: string;
+    playerRole: string;
 }

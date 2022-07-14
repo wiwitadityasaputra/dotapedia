@@ -1,10 +1,9 @@
 package wiwitaditya.demo.dotapedia.controller.team;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import wiwitaditya.demo.dotapedia.controller.team.model.TeamPlayer;
+import wiwitaditya.demo.dotapedia.controller.team.model.TeamResponse;
 
 import java.util.List;
 
@@ -16,7 +15,12 @@ public class TeamController {
     private TeamService teamService;
 
     @GetMapping(path = "")
-    public List getTeams(@RequestParam(name = "region", required = false) String regions) {
+    public List<TeamResponse> getTeams(@RequestParam(name = "region", required = false) String regions) {
         return teamService.getTeamAndRoster(regions);
+    }
+
+    @GetMapping(path = "/{teamId}/players")
+    public List<TeamPlayer> getActivePlayers(@PathVariable(value = "teamId") int teamId) {
+        return teamService.findActivePlayerByTeamId(teamId);
     }
 }
