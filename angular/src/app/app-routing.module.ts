@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingComponent } from './landing/landing.component';
 import { TournamentComponent } from './tournament/tournament.component';
 import { TournamentDetailComponent } from './tournament/tournament-detail/tournament-detail.component';
 import { TeamComponent } from './team/team.component';
 import { HeroComponent } from './hero/hero.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: LandingComponent, data: { name: 'home' } },
-  { path: 'home', component: LandingComponent, data: { name: 'home' } },
+  { path: '', component: HomeComponent, data: { name: 'home' } },
+  { path: 'home', component: HomeComponent, data: { name: 'home' } },
   { path: 'tournament', component: TournamentComponent, data: { name: 'tournament' } },
   { path: 'tournament/:tournamentId', component: TournamentDetailComponent, data: { name: 'tournament' } },
   { path: 'team', component: TeamComponent, data: { name: 'team' } },

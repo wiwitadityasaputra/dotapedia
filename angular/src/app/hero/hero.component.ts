@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { HeroResponse } from './hero.response.model';
 import { HeroService } from './hero.service';
 
@@ -10,22 +9,22 @@ import { HeroService } from './hero.service';
 })
 export class HeroComponent implements OnInit {
 
-  public heroType: string = "";
   public heroes: HeroResponse[];
+  public activeButton: string = "ALL";
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
-    this.updateHero();
+    this.updateHero(null);
   }
 
-  public onValChange(event: MatButtonToggleChange) {
-    this.heroType = event.value;
-    this.updateHero();
+  public clickButton(heroType: string) {
+    this.activeButton = heroType;
+    this.updateHero(heroType === "ALL" ? null : heroType);
   }
 
-  private updateHero() {
-    this.heroService.getHeroes(this.heroType).subscribe((heroes: HeroResponse[]) => {
+  private updateHero(heroType: string | null) {
+    this.heroService.getHeroes(heroType).subscribe((heroes: HeroResponse[]) => {
       this.heroes = heroes;
     });
   }

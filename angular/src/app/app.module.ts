@@ -22,38 +22,43 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { HeroComponent } from './hero/hero.component';
-import { LandingComponent } from './landing/landing.component';
 import { TournamentComponent } from './tournament/tournament.component';
 import { TournamentDetailComponent } from './tournament/tournament-detail/tournament-detail.component';
-import { SeriesComponent } from './tournament/tournament-detail/series/series.component';
 import { TeamComponent } from './team/team.component';
+import { SeriesComponent } from './tournament/tournament-detail/series/series.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { FooterComponent } from './utility/footer/footer.component';
 
-import { HeroService } from './hero/hero.service';
-import { EnvirontmentService } from './utility/environtment.service';
-import { TeamService } from './team/team.service';
-import { TournamentService } from './tournament/tournament.service';
 import { RegionPipe } from './utility/region.pipe';
 import { TournamentTypePipe } from './utility/tournament-type.pipe';
+
+import { EnvirontmentService } from './utility/environtment.service';
+import { HeroService } from './hero/hero.service';
+import { TeamService } from './team/team.service';
+import { TournamentService } from './tournament/tournament.service';
 import { RegionService } from './utility/region.service';
 import { SeriesService } from './tournament/tournament-detail/series/series.service';
+import { ScheduleService } from './schedule/schedule.service';
 
 import { NgttDoubleEliminationTreeModule } from './utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.module';
 import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
-import { ScheduleService } from './schedule/schedule.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     HeroComponent,
-    LandingComponent,
     TournamentComponent,
     TournamentDetailComponent,
     TeamComponent,
     SeriesComponent,
     ScheduleComponent,
+
+    FooterComponent,
 
     RegionPipe,
     TournamentTypePipe,
@@ -64,22 +69,22 @@ import { ScheduleService } from './schedule/schedule.service';
     BrowserAnimationsModule,
     HttpClientModule,
 
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatGridListModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatListModule,
-    MatExpansionModule,
-    MatTabsModule,
-    FlexLayoutModule,
-    MatDialogModule,
-    MatProgressSpinnerModule,
-    MatTableModule,
+    // MatToolbarModule,
+    // MatSidenavModule,
+    // MatButtonModule,
+    // MatIconModule,
+    // MatDividerModule,
+    // MatGridListModule,
+    // MatButtonToggleModule,
+    // MatCardModule,
+    // MatCheckboxModule,
+    // MatListModule,
+    // MatExpansionModule,
+    // MatTabsModule,
+    // FlexLayoutModule,
+    // MatDialogModule,
+    // MatProgressSpinnerModule,
+    // MatTableModule,
 
     NgttDoubleEliminationTreeModule,
     NgttMatchModule,

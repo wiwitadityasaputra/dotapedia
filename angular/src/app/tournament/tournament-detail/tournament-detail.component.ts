@@ -1,4 +1,4 @@
-import { Component, OnInit, Optional } from "@angular/core";
+import { Component, OnInit, Optional, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment'
@@ -23,6 +23,8 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
     public tournamentData: NgttTournament;
     public teams: TeamParticipant[];
     public tournamentTeams: TournamentTeamResponse[];
+    public seriesId: number;
+    @ViewChild(SeriesComponent) childSeries: SeriesComponent;
 
     constructor(private activatedRoute: ActivatedRoute,
       private tournamentService: TournamentService,
@@ -221,9 +223,8 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
 
     public openSeries(series: TournamentSeriesResponse): void {
       if (series.teamAScore || series.teamBScore) {
-        this.dialog
-          .open(SeriesComponent, { width: '100%', data: { seriesId: series.seriesId } })
-          .afterClosed().subscribe(result => {});
+        this.seriesId = series.seriesId;
+        this.childSeries.open(series.seriesId);
       }
     }
   }

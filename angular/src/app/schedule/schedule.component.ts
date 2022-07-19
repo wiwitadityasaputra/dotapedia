@@ -35,7 +35,7 @@ export class ScheduleComponent implements OnInit {
           tournamentRegion: r.tournamentRegion,
 
           regionAbbr: this.regionService.getRegionAbbreviationByKey(r.tournamentRegion),
-          startDateStr: moment(r.startDate).format('YYYY, MMMM DD'),
+          startDateStr: moment(parseInt(r.startDate)).format('YYYY, MMMM DD, hh:mm'),
         });        
       });
     });

@@ -11,7 +11,7 @@ export class HeroService {
     constructor(private http: HttpClient, private environtment: EnvirontmentService) {
     }
   
-    public getHeroes(heroType: string): Observable<HeroResponse[]> {
+    public getHeroes(heroType: string | null): Observable<HeroResponse[]> {
         var url = this.environtment.getServerUrl() + this.API_PATH;
         if (heroType) {
             url += "?heroType=" + heroType;

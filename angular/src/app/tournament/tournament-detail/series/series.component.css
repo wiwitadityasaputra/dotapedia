@@ -1,37 +1,55 @@
-.team-name.win {
-    color: green;
-}
-.team-name.lose {
-    color: red;
-}
-h5 {
-    margin-top: 10px;
-}
-.image-wrapper {
-    height: 20px;
-    width: 20px;
+.modal-body {
     position: relative;
-    margin-left: 5px;
-    margin-right: 5px;
+    overflow-y: auto;
+    max-height: 850px;
 }
-.image-wrapper img {
-    max-height: 20px;
-    max-width: 20px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+.nk-modal .modal-dialog.stick-on-top {
+    margin-top: 50px;
 }
 
-.image-wrapper-hero {
-    height: 100%;
-    width: 50px;
+.series {
+    background-color:rgba(0, 0, 0, 0.5);
 }
-.image-wrapper-hero img {
-    max-width: 100%;
-    max-height: 100%;
-    margin: auto;
+.series-close-btn {
+    top: 10px;
+    right: 12px;
+}
+.series.series-show {
     display: block;
+}
+.nk-match-team-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.game-header {
+    cursor: pointer;
+    position: relative;
+    background: #dd163b;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-family: Montserrat,sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.game-header .winner {
+    position: absolute;
+    top: 11px;
+    right: 17px;
+}
+.game-header .team-participant-logo {
+    height: 20px;
+    height: 20px;
+}
+.game-detail {
+    display: none;
+}
+.game-detail.show {
+    display: block;
+}
+.game-detail .hero-image {
+    height: 30%;
+    width: 30%;
+    margin-right: 10px;
 }

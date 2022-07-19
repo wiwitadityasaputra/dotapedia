@@ -12,18 +12,67 @@ import { TeamService } from './team.service';
 })
 export class TeamComponent implements OnInit {
 
-  public teams: TeamModel[][];
+  public teams: TeamResponse[];
   public teamsLoaded: boolean[];
-  public regions: RegionType[];
+  public regions = [
+    { name: "Western Europe", checked: true, value: "WESTERN_EUROPE" },
+    { name: "Eastern Europe", checked: false, value: "EASTERN_EUROPE" },
+    { name: "China", checked: false, value: "CHINA" },
+    { name: "Southeast Asia", checked: false, value: "SOUTHEAST_ASIA" },
+    { name: "North America", checked: false, value: "NORTH_AMERICA" },
+    { name: "South America", checked: false, value: "SOUTH_AMERICA" },
+  ];
 
   constructor(private teamService: TeamService, private regionService: RegionService) { }
 
   ngOnInit(): void {
-    this.regions = this.regionService.getAllRegions();
+    this.updateTeams(0);
+  }
+
+  changeRegion(index: number): void {
+    const lastChecked = this.regions[index].checked;
+    if (lastChecked !== true) {
+      this.regions.forEach( r => r.checked = false);
+      this.regions[index].checked = true;
+      this.updateTeams(index);
+    }
+    // this.regions[index].checked = !this.regions[index].checked;
+  }
+  
+  private updateTeams(index: number): void {
+    this.teamService.getTeams(this.regionService.getRegionByIndex(index))
+    .subscribe((teams) => {
+      console.log(teams)
+      this.teams = teams;
+      this.teams.forEach((team) => {
+        if (team.name.indexOf("Team") >= 0) {
+          team.name = team.name.substring(4).trim();
+        }
+
+        this.teamService.getPlayers(team.teamId)
+          .subscribe((players) => {
+            team.players = players;
+          });
+      });
+    });
+  }
+
+  /*
+  ngOnInit(): void {
     const totalRegion = this.regions.length;
     this.teams = new Array(totalRegion).fill([]).map(() => []);
     this.teamsLoaded = new Array(totalRegion).fill(false);
     this.updateTeams(0);
+  }
+
+  changeRegion(index: number) {
+    if (false === this.regions[index].checked) {
+      this.regions.forEach( r => r.checked = false);
+      this.regions[index].checked = true;
+    }
+    if (!this.teamsLoaded[index]) {
+      this.updateTeams(index);
+    }
   }
 
   public tabChanged(event: MatTabChangeEvent): void {
@@ -67,4 +116,5 @@ export class TeamComponent implements OnInit {
         }
       });
   }
+  */
 }

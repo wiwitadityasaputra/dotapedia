@@ -1,64 +1,144 @@
-<mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
-    <mat-tab *ngFor="let region of regions; let i = index;" label="{{region.abbreviation}}">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12" *ngIf="teamsLoaded[i] === false">
-                    Please wait...
-                </div>
-                <div class="col-xs-12" *ngIf="teamsLoaded[i] === true && teams[region.index].length === 0">
-                    No Teams available.
-                </div>
+<div class="nk-main">
+    <div class="nk-gap-1"></div>
+    <div class="container">
+        <h3 class="nk-decorated-h-3"><span><span class="text-main-1">Top Tier</span> Teams</span></h3>
+        <div class="nk-gap-1"></div>
+        <div class="row text-white">
+            <div class="col-lg-2 col-md-4 col-xs-1"
+                *ngFor="let region of regions; let index = index">
+                <button class="nk-btn nk-btn-rounded region-btn"
+                    [ngClass]="{'nk-btn-color-main-1': region.checked, 'nk-btn-color-dark-3': !region.checked}"
+                    (click)="changeRegion(index)">
+                <span class="icon ion-paper-airplane"></span> {{ region.name }}
+            </button>
             </div>
         </div>
-        <div class="container" *ngFor="let team of teams[region.index]">
-            <div class="row teams" [ngClass]="region.key">
-                <div class="col-xs-12">
-                    <h3 class="team-tittle">
-                        {{team.teamA?.name}}
-                    </h3>
-                </div>
-                <div class="col-md-7">
-                    <ol class="list-group list-group-numbered">
-                        <li class="list-group-item d-flex justify-content-between align-items-start"
-                            *ngFor="let player of team.teamA?.players">
-                          <div class="ms-2 me-auto">
-                            <div class="fw-bold">{{player.nickName}} - {{player.fullName}}</div>
-                          </div>
-                          <span class="badge bg-primary rounded-pill">
-                              {{player.playerRole}}
-                          </span>
-                        </li>
-                    </ol>
-                    <button mat-button>Upcoming Match</button>
-                </div>
-                <div class="col-md-5">
-                    <img [src]="'assets/image/teams/' + team.teamA?.image" class="img-fluid" alt="...">
+    </div>
+    <div class="nk-gap-1"></div>
+    <div class="container">
+        <div class="nk-gap"></div>
+        <div class="row vertical-gap">
+            <div class="col-lg-8">
+                <div class="nk-team" *ngFor="let team of teams">
+                    <div class="nk-team-logo">
+                        <img [src]="'assets/image/teams-logo-100/' + team.teamId + '.png'" alt="...">
+                    </div>
+                    <div class="nk-team-cont">
+                        <h3 class="h5 mb-20"><span class="text-main-1">Team:</span> {{ team.name }}</h3>
+                        <h4 class="h6 mb-5">Players:</h4>
+                        <ul class="text-main-1 pl-20">
+                            <li *ngFor="let player of team.players">
+                                <strong class="text-white">{{player.nickName}}</strong>
+                            </li>
+                        </ul>
+                        <div class="nk-team-photo" style="background-image: url('assets/image/teams/{{team.image}}');"></div>
+                    </div>
                 </div>
             </div>
-            <div class="row teams" [ngClass]="region.key">
-                <div class="col-xs-12">
-                    <h3 class="team-tittle">
-                        {{team.teamB?.name}}
-                    </h3>
+            <div class="col-lg-4">
+                <div class="nk-widget nk-widget-highlighted">
+                    <h4 class="nk-widget-title"><span><span class="text-main-1">Top 3</span> Team</span></h4>
+                    <div class="nk-widget-content">
+                        <div class="nk-widget-post">
+                            <a href="blog-article.html" class="nk-post-image">
+                                <img src="assets/images/post-1-sm.jpg" alt="">
+                            </a>
+                            <h3 class="nk-post-title"><a href="blog-article.html">Smell magic in the air. Or maybe barbecue</a></h3>
+                            <div class="nk-post-date"><span class="fa fa-calendar"></span> Sep 18, 2018</div>
+                        </div>
+                        <div class="nk-widget-post">
+                            <a href="blog-article.html" class="nk-post-image">
+                                <img src="assets/images/post-2-sm.jpg" alt="">
+                            </a>
+                            <h3 class="nk-post-title"><a href="blog-article.html">Grab your sword and fight the Horde</a></h3>
+                            <div class="nk-post-date"><span class="fa fa-calendar"></span> Sep 5, 2018</div>
+                        </div>
+                        <div class="nk-widget-post">
+                            <a href="blog-article.html" class="nk-post-image">
+                                <img src="assets/images/post-3-sm.jpg" alt="">
+                            </a>
+                            <h3 class="nk-post-title"><a href="blog-article.html">We found a witch! May we burn her?</a></h3>
+                            <div class="nk-post-date"><span class="fa fa-calendar"></span> Aug 27, 2018</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-5">
-                    <img [src]="'assets/image/teams/' + team.teamB?.image" class="img-fluid" alt="...">
+                <!-- Most Popular Player -->
+                <div class="nk-widget nk-widget-highlighted">
+                    <h4 class="nk-widget-title"><span><span class="text-main-1">Most</span> Popular Player</span></h4>
+                    <div class="nk-widget-content">
+                        <div class="nk-widget-post">
+                            <a href="store-product.html" class="nk-post-image">
+                                <img src="assets/images/product-1-xs.jpg" alt="So saying he unbuckled">
+                            </a>
+                            <h3 class="nk-post-title"><a href="store-product.html">So saying he unbuckled</a></h3>
+                            <span class="nk-product-rating">
+                                <span class="nk-product-rating-front" style="width: 80%;">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="nk-product-rating-back">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </span>
+                            </span>
+                            <div class="nk-product-price">€ 23.00</div>
+                        </div>
+                        <div class="nk-widget-post">
+                            <a href="store-product.html" class="nk-post-image">
+                                <img src="assets/images/product-2-xs.jpg" alt="However, I have reason">
+                            </a>
+                            <h3 class="nk-post-title"><a href="store-product.html">However, I have reason</a></h3>
+                            <span class="nk-product-rating">
+                                <span class="nk-product-rating-front" style="width: 50%;">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="nk-product-rating-back">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </span>
+                            </span>
+                            <div class="nk-product-price">€ 32.00</div>
+                        </div>
+                        <div class="nk-widget-post">
+                            <a href="store-product.html" class="nk-post-image">
+                                <img src="assets/images/product-3-xs.jpg" alt="It was some time before">
+                            </a>
+                            <h3 class="nk-post-title"><a href="store-product.html">It was some time before</a></h3>
+                            <span class="nk-product-rating">
+                                <span class="nk-product-rating-front" style="width: 100%;">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="nk-product-rating-back">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </span>
+                            </span>
+                            <div class="nk-product-price">€ 14.00</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-7">
-                    <ol class="list-group list-group-numbered">
-                        <li class="list-group-item d-flex justify-content-between align-items-start"
-                            *ngFor="let player of team.teamB?.players">
-                          <div class="ms-2 me-auto">
-                            <div class="fw-bold">{{player.nickName}}</div>
-                            {{player.fullName}}
-                          </div>
-                          <span class="badge bg-primary rounded-pill">
-                              {{player.playerRole}}
-                          </span>
-                        </li>
-                    </ol>
-                </div>
-            </div>
+            </div> 
         </div>
-    </mat-tab>
-</mat-tab-group>
+    </div>
+    <app-footer></app-footer>
+</div>

@@ -1,0 +1,10 @@
+p {
+    color: #ffffff;
+    text-align: justify;
+    text-indent: 50px;
+    font-size: medium;
+}
+.p-even {
+    direction: rtl;
+    text-align: left;
+}

@@ -27,6 +27,7 @@ export interface GameResponse {
     direPlayers: PlayerGameResponse[];
 
     startDateStr?: string;
+    isShow: boolean;
 }
 
 export interface PlayerGameResponse {

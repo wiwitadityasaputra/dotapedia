@@ -30,15 +30,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/fonts/material-icon.css",
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/fontawesome-4.7/css/font-awesome.min.css",
-              "src/assets/css/styles.css",
+              "src/assets/css/goodgames/bootstrap.min.css",
+              "src/assets/css/goodgames/goodgames.min.css",
+              "src/assets/css/goodgames/custom.css",
               "src/assets/css/ngtt-styles/ngtt-styles.scss"
             ],
             "scripts": [
-              "src/assets/js/modernizr-2.8.3-respond-1.4.2.min.js"
+              "src/assets/js/goodgames/fontawesome-free-all.js",
+              "src/assets/js/goodgames/fontawesome-free-v4-shims.js",
+              "src/assets/js/goodgames/jquery.min.js",
+              "src/assets/js/goodgames/bootstrap.min.js",
+              "src/assets/js/goodgames/goodgames.min.js",
+              "src/assets/js/goodgames/goodgames-init.js"
             ]
           },
           "configurations": {

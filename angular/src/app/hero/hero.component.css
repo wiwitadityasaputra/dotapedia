@@ -1,9 +1,16 @@
-.hero-wrapper {
-    cursor: pointer;
+.hero-type-btn-wrapper {
+    text-align: center;
 }
-.image img {
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    display: block;
+
+.hero-box {
+    margin-bottom: 15px;
+}
+.hero-box .hero-name {
+    color: #ffffff;
+    text-transform: capitalize;
+    font-size: large;
+}
+
+.hero-overlay {
+    cursor: pointer;
 }

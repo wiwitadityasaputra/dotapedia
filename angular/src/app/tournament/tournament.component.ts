@@ -14,54 +14,49 @@ export class TournamentComponent implements OnInit {
   public tournaments: TournamentModel[] = [];
   public allRegion: boolean = true;
   public regions = [
-    { name: "Western Europe", checked: true, value: "WESTERN_EUROPE" },
-    { name: "Eastern Europe", checked: true, value: "EASTERN_EUROPE" },
-    { name: "China", checked: true, value: "CHINA" },
-    { name: "Southeast Asia", checked: true, value: "SOUTHEAST_ASIA" },
-    { name: "North America", checked: true, value: "NORTH_AMERICA" },
-    { name: "South America", checked: true, value: "SOUTH_AMERICA" },
+    { name: "Western Europe", checked: false, value: "WESTERN_EUROPE" },
+    { name: "Eastern Europe", checked: false, value: "EASTERN_EUROPE" },
+    { name: "China", checked: false, value: "CHINA" },
+    { name: "Southeast Asia", checked: false, value: "SOUTHEAST_ASIA" },
+    { name: "North America", checked: false, value: "NORTH_AMERICA" },
+    { name: "South America", checked: false, value: "SOUTH_AMERICA" },
   ];
 
   constructor(private router: Router, private tournamentService: TournamentService) { }
 
   ngOnInit(): void {
-    this.updateTournaments();
+    this.updateTourney("ALL");
   }
 
-  allRegionChange(event: MatCheckboxChange): void {
-    const checked = event.checked;
-    Object.entries(this.regions).forEach(([key, value]) => {
-      value.checked = checked;
-    });
-
-    if (checked) {
-      this.updateTournaments();
+  toggleAllRegion(): void {
+    if (this.allRegion) {
+      this.updateTourney("ALL");
+      this.regions.forEach((region) => {
+        region.checked = false;
+      })
     } else {
       this.tournaments = [];
     }
   }
 
-  selectedRegionChange(event: MatCheckboxChange): void {
-    if (!event.checked) {
-      this.allRegion = false;
-    }
-    this.updateTournaments();
-  }
+  toggleRegion(): void {
+    this.allRegion = false;
 
-  private updateTournaments(): void {
     let regions: string = "";
     Object.entries(this.regions).forEach(([key, value]) => {
       if (value.checked) {
         regions += "," + value.value;
       }
     });
-
-    if (regions.length == 0) {
+    if (regions === "") {
       this.tournaments = [];
-      return;
+    } else {
+      this.updateTourney(regions);
     }
+  }
 
-    this.tournamentService.getTournaments(regions.slice(1)).subscribe((response) => {
+  private updateTourney(selectedRegion: string) {
+    this.tournamentService.getTournaments(selectedRegion).subscribe((response) => {
       this.tournaments = response;
     });
   }

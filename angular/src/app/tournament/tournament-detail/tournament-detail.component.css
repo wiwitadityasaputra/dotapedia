@@ -1,71 +1,26 @@
-.container {
-    padding-top: 10px;
-}
-@media (min-width: 576px) {
-    .container, .container-sm {
-        max-width: 100%;
-    }
-}
-
 .title-area {
-    float: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #292e38;
 }
 .title-area h3 {
-    float: left;
-    position: relative;
-    top: 3px;
-}
-.title-area button {
-    float: left;
-}
-
-.image img {
-    width: 300px;
-    height: 300px;
-    margin: auto;
-    display: block;
     cursor: pointer;
+    margin: 0px;
+}
+.tournament-info-left {
+    background-color: #292e38;
 }
 
-.mat-list-base {
-    padding-top: 0px;
+.image-box {
+    background-color: #292e38;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
 }
 
-.mat-icon-button i, .mat-icon-button .mat-icon {
-    line-height: 19px;
-}
-
-.table {
-    color: white;
-    margin-bottom: 0px;
-    border-bottom: none;
-}
-
-.logo-100 {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-}
-
-.tournament-info .image-wrapper {
+.team-participant-logo {
     height: 25px;
     width: 25px;
-    float: left;
-    margin-right: 10px;
-}
-
-.tournament-info .image-wrapper img {
-    max-width: 100%;
-    max-height: 100%;
-    margin: auto;
-    display: block;
-}
-
-.team-player-wrapper {
-    margin-top: 30px;
-}
-.team-player-wrapper .team {
-    margin-top: 10px;
 }
 
 .round-robind-wrapper {
@@ -73,7 +28,11 @@
 }
 
 .round-robind-wrapper .series-wrapper {
-    margin-top: 10px;
+    margin-top: 30px;
+}
+
+.round-robind-wrapper .week-index {
+    background-color: #292e38;
 }
 
 .round-robind-wrapper .table {
@@ -90,21 +49,30 @@
 
 .round-robind-wrapper .table .series-name {
     text-align: center;
+    background: #2a2e38;
+}
+
+.round-robind-wrapper .table tbody tr {
+    cursor: pointer;
+    background: #2e3641;
+}
+.round-robind-wrapper .table tbody tr:hover {
+    background: #535760;
 }
 
 .round-robind-wrapper .table .team-a {
     text-align: right;
-    cursor: pointer;
+    
 }
 
 .round-robind-wrapper .table .team-b {
     text-align: left;
-    cursor: pointer;
+    
 }
 
 .round-robind-wrapper .table .score {
     text-align: center;
-    cursor: pointer;
+    
 }
 
 .round-robind-wrapper .table .score.lose {
@@ -141,11 +109,7 @@
     right: 0;
     margin: auto;
 }
-
 .bracket-wrapper {
-    margin-top: 30px;
-    width: 100%;
+    overflow-x: scroll;
 }
-
-
 

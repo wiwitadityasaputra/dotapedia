@@ -1,175 +1,175 @@
-<div class="container">
-    <div class="row tournament-info">
-        <div class="col-sm-3 image">
-            <div class="col-12 title-area">
-                <button mat-icon-button aria-label="Back" (click)="back();">
-                    <mat-icon>arrow_back</mat-icon>
-                </button>
-                <h3>
-                    {{ tournament?.name }}
-                </h3>
+<div class="nk-main">
+    <div class="nk-gap-1"></div>
+    <div class="container">
+        <div class="row tournament-info">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                <div class="col-12 title-area">
+                    <h3 (click)="back();">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i> {{ tournament?.name }}
+                    </h3>
+                </div>
+                <div class="image-box">
+                    <img class="img-fluid" alt="Responsive image" [src]="'assets/image/tournaments/' + tournament?.image" >
+                </div>
             </div>
-            <img [src]="'assets/image/tournaments/' + tournament?.image" >
-        </div>
-        <div class="col-sm-3">
-            <mat-list>
-                <mat-list-item>
-                    <div class="col-6">
-                        Region
-                    </div>
-                    <div class="col-6">
-                        {{ tournament?.region | region }}
-                    </div>
-                </mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item>
-                    <div class="col-6">
-                        Prize Pool
-                    </div>
-                    <div class="col-6">
-                        {{ tournament?.prizePool | currency:'USD': 'symbol' }}
-                    </div>
-                </mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item>
-                    <div class="col-6">
-                        Format
-                    </div>
-                    <div class="col-6">
-                        {{ tournament?.tournamentType | tournamentPipe }}
-                    </div>
-                </mat-list-item>
-                <mat-divider [hidden]="!tournament?.totalDpcPoints"></mat-divider>
-                <mat-list-item [hidden]="!tournament?.totalDpcPoints">
-                    <div class="col-6">
-                        Total DPC Points
-                    </div>
-                    <div class="col-6">
-                        {{ tournament?.totalDpcPoints }}
-                    </div>
-                </mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item>
-                    <div class="col-6">
-                        Start Date
-                    </div>
-                    <div class="col-6">
-                        {{ tournament?.startDate | date: 'mediumDate' }} 
-                    </div>
-                </mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item>
-                    <div class="col-6">
-                        End Date
-                    </div>
-                    <div class="col-6">
-                        {{ tournament?.endDate | date: 'mediumDate' }} 
-                    </div>
-                </mat-list-item>
-            </mat-list>
-        </div>
-        <div class="col-sm-6">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">$ USD {{columnDpc}}</th>
-                    <th scope="col" [hidden]="!columnSeed">Seed</th>
-                    <th scope="col" [hidden]="!columnDpc">DPC</th>
-                    <th scope="col">Team</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let t of tournamentTeams">
-                    <td>{{ t.place }}</td>
-                    <td>
-                        {{ t?.price | currency:'USD': 'symbol' }}
-                    </td>
-                    <td [hidden]="!columnSeed">{{ t.seed }}</td>
-                    <td [hidden]="!columnDpc">{{ t.dpcPoints }}</td>
-                    <td>
-                        <div class="image-wrapper">
-                            <img [src]="'assets/image/teams-logo-100/' + t?.teamId + '.png'" class="" alt="">
-                        </div>
-                        {{ t.teamName }}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
-    </div>
-    
-    <div class="team-player-wrapper row col-xs-12">
-        <div class="team col-xs-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let t of teams">
-            <div class="col-xs-12">
-                {{ t.teamName }}
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <table class="nk-table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Tournament Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Price Pool</td>
+                            <td>
+                                {{ tournament?.prizePool | currency:'USD': 'symbol' }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Start Date</td>
+                            <td>
+                                {{ tournament?.startDate | date: 'mediumDate' }} 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>End Date</td>
+                            <td>
+                                {{ tournament?.endDate | date: 'mediumDate' }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Region</td>
+                            <td>
+                                {{ tournament?.region | region }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td>
+                                {{ tournament?.tournamentType | tournamentPipe }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>DPC Point</td>
+                            <td>{{ tournament?.totalDpcPoints}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-xs-12" *ngFor="let p of t.players">
-                {{ p?.playerNickName }}
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
+                <table class="nk-table">
+                    <thead>
+                        <tr>
+                            <th colspan="5">Teams Participant</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>#</th>
+                            <th>Team</th>
+                            <th>Price</th>
+                            <th *ngIf="columnDpc">DPC</th>
+                            <th *ngIf="columnSeed">Seed</th>
+                        </tr>
+                        <tr *ngFor="let team of tournamentTeams; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>
+                                <img [src]="'assets/image/teams-logo-100/' + team.teamId + '.png'" class="team-participant-logo" alt="">
+                                {{team.teamName}}
+                            </td>
+                            <td>
+                                {{ team.price | currency:'USD': 'symbol' }}
+                            </td>
+                            <td *ngIf="columnDpc">{{team.dpcPoints}}</td>
+                            <td *ngIf="columnSeed">{{team.seed}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-    
-    <div class="row round-robind-wrapper" [hidden]="!roundSeries">
-        <div class="series-wrapper col-xs-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let round of roundSeries">
-            <table class="table" >
-                <thead>
-                    <tr>
-                        <th colspan="3">
-                            <h5>
-                                {{round.name}}
-                            </h5>
-                        </th>
-                    </tr>
-                </thead>                
-            </table>
-            <table class="table" *ngFor="let series of round.roundSeriesDaily">
-                <thead>
-                    <tr>
-                        <th colspan="5" class="series-name">{{series.name}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let match of series.series" (click)="openSeries(match)">
-                        <td class="team-a">
-                            {{ match.teamAShortName }}
-                            <div class="image-wrapper">
-                                <img [src]="'assets/image/teams-logo-100/' + match.teamAId + '.png'" class="" alt="">
-                            </div>
-                        </td>
-                        <td class="score"
-                            [ngClass]="{'lose': match.teamAScore < match.teamBScore, 
-                                'win': match.teamAScore > match.teamBScore}">
-                            {{match.teamAScore}}
-                        </td>
-                        <td class="score">
-                            -
-                        </td>
-                        <td class="score"
-                            [ngClass]="{'win': match.teamAScore < match.teamBScore, 
-                                'lose': match.teamAScore > match.teamBScore}">
-                            {{match.teamBScore}}
-                        </td>
-                        <td class="team-b">
-                            <div class="image-wrapper">
-                                <img [src]="'assets/image/teams-logo-100/' + match.teamBId + '.png'" class="" alt="">
-                            </div>
-                            {{ match.teamBShortName }}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 
-    <div class="row bracket-wrapper" [hidden]="!tournamentData">
-        <ngtt-double-elimination-tree
-            [tournament]="tournamentData"
-            [matchTemplate]="matchTemplate">
-        </ngtt-double-elimination-tree>
+        <div class="nk-gap-2"></div>
+        
+        <div class="team-player-wrapper row col-xs-12">
+            <div class="team col-xs-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let t of teams">
+                <div class="col-xs-12">
+                    <ul class="text-main-1 pl-20">
+                        <li><strong class="text-white">{{t.teamName}}</strong>
+                            <ol>
+                                <li *ngFor="let p of t.players">
+                                    <span class="text-white">{{p.playerNickName}}</span>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row round-robind-wrapper" [hidden]="!roundSeries">
+            <div class="series-wrapper col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let round of roundSeries">
+                <table class="table" >
+                    <thead>
+                        <tr>
+                            <th colspan="3" class="week-index">
+                                <h5>
+                                    {{round.name}}
+                                </h5>
+                            </th>
+                        </tr>
+                    </thead>                
+                </table>
+                <table class="table" *ngFor="let series of round.roundSeriesDaily">
+                    <thead>
+                        <tr>
+                            <th colspan="5" class="series-name">{{series.name}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let match of series.series" (click)="openSeries(match)" class="series-row">
+                            <td class="team-a">
+                                {{ match.teamAShortName }}
+                                <div class="image-wrapper">
+                                    <img [src]="'assets/image/teams-logo-100/' + match.teamAId + '.png'" class="" alt="">
+                                </div>
+                            </td>
+                            <td class="score"
+                                [ngClass]="{'lose': match.teamAScore < match.teamBScore, 
+                                    'win': match.teamAScore > match.teamBScore}">
+                                {{match.teamAScore}}
+                            </td>
+                            <td class="score">
+                                -
+                            </td>
+                            <td class="score"
+                                [ngClass]="{'win': match.teamAScore < match.teamBScore, 
+                                    'lose': match.teamAScore > match.teamBScore}">
+                                {{match.teamBScore}}
+                            </td>
+                            <td class="team-b">
+                                <div class="image-wrapper">
+                                    <img [src]="'assets/image/teams-logo-100/' + match.teamBId + '.png'" class="" alt="">
+                                </div>
+                                {{ match.teamBShortName }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <ng-template #matchTemplate let-match>
-            <ngtt-match [match]="match"></ngtt-match>
-        </ng-template>
+        <div class="row bracket-wrapper" [hidden]="!tournamentData">
+            <ngtt-double-elimination-tree
+                [tournament]="tournamentData"
+                [matchTemplate]="matchTemplate">
+            </ngtt-double-elimination-tree>
+
+            <ng-template #matchTemplate let-match>
+                <ngtt-match [match]="match"></ngtt-match>
+            </ng-template>
+        </div>
     </div>
+    <app-footer></app-footer>
+    <app-series></app-series>
 </div>

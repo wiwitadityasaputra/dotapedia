@@ -1,58 +1,80 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 upcoming-match">
-            <h2>
-                Upcoming Match
-            </h2>
-            <table class="table">
-                <tbody *ngFor="let s of schedules">
-                    <tr class="series">
-                        <td class="team-a">
-                            {{s.radiantTeamName}}
-                        </td>
-                        <td class="logo-a">
-                            <div class="image-wrapper">
-                                <img [src]="'assets/image/teams-logo-100/' + s.radiantTeamId + '.png'" class="" alt="">
+<div class="nk-main">
+    <div class="nk-gap-1"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <h3 class="nk-decorated-h-3"><span><span class="text-main-1">Upcoming</span> Match</span></h3>
+
+                <div class="nk-match" *ngFor="let match of schedules">
+                    <div class="nk-match-team-left">
+                        <a href="">
+                            <span class="nk-match-team-logo">
+                                <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'" alt="...">
+                            </span>
+                            <span class="nk-match-team-name"> {{match.radiantTeamName}} </span>
+                        </a>
+                    </div>
+                    <div class="nk-match-status">
+                        <div>
+                            <span class="nk-match-status-vs">VS</span>
+                            <span class="nk-match-status-date">{{match.startDateStr}}</span>
+                            <div class="tournament-image-wrapper">
+                                <img [src]="'assets/image/tournaments/' + match.tournamentImage" class="" alt="" />
                             </div>
-                        </td>
-                        <td class="separator">
-                            -
-                        </td>
-                        <td class="logo-b">
-                            <div class="image-wrapper">
-                                <img [src]="'assets/image/teams-logo-100/' + s.direTeamId + '.png'" class="" alt="">
+                        </div>
+                    </div>
+                    <div class="nk-match-team-right">
+                        <a href="">
+                            <span class="nk-match-team-name"> {{match.direTeamName}} </span>
+                            <span class="nk-match-team-logo">
+                                <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'" alt="...">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <aside class="nk-sidebar nk-sidebar-right nk-sidebar-sticky">
+                    <div class="nk-widget nk-widget-highlighted">
+                        <h4 class="nk-widget-title"><span><span class="text-main-1">Latest</span> Matches</span></h4>
+                        <div class="nk-widget-content">
+                            <div class="nk-widget-match">
+                                <a href="#">
+                                    <span class="nk-widget-match-left">
+                                        <span class="nk-widget-match-teams">
+                                            <span class="nk-widget-match-team-logo">
+                                                <img src="assets/images/team-1.jpg" alt="">
+                                            </span>
+                                            <span class="nk-widget-match-vs">VS</span>
+                                            <span class="nk-widget-match-team-logo">
+                                                <img src="assets/images/team-2.jpg" alt="">
+                                            </span>
+                                        </span>
+                                        <span class="nk-widget-match-date">CS:GO - Apr 28, 2018 8:00 pm</span>
+                                    </span>
+                                </a>
                             </div>
-                        </td>
-                        <td class="team-b">
-                            {{s.direTeamName}}
-                        </td>
-                    </tr>                    
-                    <tr class="tournament-info">
-                        <td colspan="4">
-                            <span class="startdate">{{s.startDateStr}}</span>
-                            <span class="region">{{s.regionAbbr}}</span>
-                            <span class="tournament-name">{{s.tournamentName}}</span>
-                        </td>
-                        <td colspan="1">
-                            <div class="image-wrapper">
-                                <img [src]="'assets/image/tournaments/' + s.tournamentImage" class="" alt="">
+                            <div class="nk-widget-match">
+                                <a href="#">
+                                    <span class="nk-widget-match-left">
+                                        <span class="nk-widget-match-teams">
+                                            <span class="nk-widget-match-team-logo">
+                                                <img src="assets/images/team-3.jpg" alt="">
+                                            </span>
+                                            <span class="nk-widget-match-vs">VS</span>
+                                            <span class="nk-widget-match-team-logo">
+                                                <img src="assets/images/team-2.jpg" alt="">
+                                            </span>
+                                        </span>
+                                        <span class="nk-widget-match-date">LoL - Apr 24, 2018 7:20 pm</span>
+                                    </span>
+                                </a>
                             </div>
-                        </td>
-                    </tr>
-                    <tr class="">
-                        <td colspan="5"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-lg-6 news">
-            <h2>News</h2>
-            <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                <a href="#">read-more</a>
-            </p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
         </div>
     </div>
+    <app-footer></app-footer>
 </div>
