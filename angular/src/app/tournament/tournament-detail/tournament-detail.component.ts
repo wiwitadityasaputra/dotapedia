@@ -83,7 +83,9 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
                 this.teams.push({
                   teamId: player.teamId,
                   teamName: player.teamName,
-                  players: [p]
+                  players: [p],
+
+                  showImage: true
                 });
               } else {
                 team.players.push(p);
@@ -93,7 +95,6 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
 
       });
     }
-
     
     private initRoundRobinSeries(roundRobinSeries: RoundRoibinSeriesResponse[]): void {
       roundRobinSeries.sort((ta, tb) => {
@@ -218,6 +219,7 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
     }
 
     public back(): void {
+      console.log("back")
       this.router.navigate(['/tournament', {}]);
     }
 
@@ -226,5 +228,14 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
         this.seriesId = series.seriesId;
         this.childSeries.open(series.seriesId);
       }
+    }
+
+    public teamMouseover(team: TeamParticipant): void {
+      console.log("teamMouseover ", team);
+      team.showImage = false;
+    }
+    public teamMouseLeave(team: TeamParticipant): void {
+      console.log("teamMouseLeave");
+      team.showImage = true;
     }
   }

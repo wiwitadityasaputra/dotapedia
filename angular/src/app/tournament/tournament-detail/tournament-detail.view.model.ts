@@ -11,6 +11,9 @@ export interface TeamParticipant {
     teamId: number;
     teamName: string;
     players: PlayerParticipant[];
+
+    // css
+    showImage: boolean;
 }
 
 export interface PlayerParticipant {

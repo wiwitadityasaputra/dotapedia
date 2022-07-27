@@ -7,6 +7,9 @@
     cursor: pointer;
     margin: 0px;
 }
+.tournament-info .back {
+    cursor: pointer;
+}
 .tournament-info-left {
     background-color: #292e38;
 }
@@ -16,6 +19,40 @@
     width: 100%;
     text-align: center;
     padding: 10px;
+}
+
+.team-player-wrapper {
+    margin-bottom: 10px;
+}
+.team-player-wrapper .team-name {
+    cursor: pointer;
+    text-align: center;
+    font-size: large;
+    color: #ffffff;
+}
+.team-player-wrapper .team {
+    position: relative;
+    height: 150px;
+    /* border: 1px solid red; */
+}
+.team-player-wrapper .team .team-logo {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 1;
+    display: none;
+}
+.team-player-wrapper .team .team-logo.show {
+    display: block;
+}
+.team-player-wrapper .team .players.hide {
+    display: none;
+}
+.team-player-wrapper .team .players .player {
+    font-size: large;
+    cursor: pointer;
 }
 
 .team-participant-logo {
