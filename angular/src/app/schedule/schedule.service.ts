@@ -12,8 +12,13 @@ export class ScheduleService {
     constructor(private http: HttpClient, private environtment: EnvirontmentService) {
     }
 
-    public getSchedule() : Observable<ScheduleResponse[]> {
-        var url = this.environtment.getServerUrl() + this.API_PATH;
+    public getUpcomingMatch(): Observable<ScheduleResponse[]> {
+        var url = this.environtment.getServerUrl() + this.API_PATH + "/upcoming-match";
+        return this.http.get<ScheduleResponse[]>(url);
+    }
+
+    public getLatestmatch(region: string, page: number): Observable<ScheduleResponse[]> {
+        var url = this.environtment.getServerUrl() + this.API_PATH + "/latest-match?region=" + region + "&page=" + page;
         return this.http.get<ScheduleResponse[]>(url);
     }
 }

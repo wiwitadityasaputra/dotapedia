@@ -6,3 +6,41 @@
     height: 30px;
     width: 30px;
 }
+
+.tournament-image-wrapper-prev-match img {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.prev-match-action {
+    margin: 0px;
+}
+.prev-match-action > div {
+    padding: 0px;
+}
+.prev-match-action .prev-next .prev {
+    margin-right: 10px;
+}
+.prev-match-action .prev-next .prev,
+.prev-match-action .prev-next .next {
+    cursor: pointer;
+}
+.prev-match-action .prev-next .prev.not-allowed,
+.prev-match-action .prev-next .next.not-allowed {
+    cursor: not-allowed;
+}
+.prev-match-action .prev-next .prev.not-allowed:hover {
+    color: #a0a7ab
+}
+.prev-match-action .prev-next .prev:hover,
+.prev-match-action .prev-next .next:hover {
+    color: #ffffff;
+}
+.prev-match-action .view-more {
+    text-align: right;
+    cursor: pointer;
+}
+.prev-match-action .view-more:hover {
+    color: #ffffff;
+}

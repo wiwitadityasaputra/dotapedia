@@ -3,8 +3,11 @@ export interface ScheduleResponse {
 
     teamAId: number;
     teamAName: string;
+    teamAScore?: number;
+
     teamBId: number;
     teamBName: string;
+    teamBScore?: number;
     
     tournamentId: number;
     tournamentRegion: string;
