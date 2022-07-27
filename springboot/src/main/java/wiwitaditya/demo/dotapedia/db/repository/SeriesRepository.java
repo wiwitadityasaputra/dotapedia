@@ -31,7 +31,7 @@ public interface SeriesRepository extends JpaRepository<Series, Integer> {
             "LEFT JOIN tournament_roundrobin tr ON tr.series_id = s.series_id " +
             "LEFT JOIN tournament t ON t.tournament_id = tb.tournament_id OR t.tournament_id = tr.tournament_id " +
             "WHERE s.team_a_series_score IS NULL AND s.team_b_series_score IS NULL " +
-            "ORDER BY s.start_date ASC ",
+            "ORDER BY s.start_date ASC LIMIT 8 OFFSET 0",
             nativeQuery = true)
     List<ScheduleResponse> findUpcomingMatch();
 

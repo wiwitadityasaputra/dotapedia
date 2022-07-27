@@ -35,7 +35,6 @@ export class ScheduleComponent implements OnInit {
   }
 
   prevMatchSelectRegion(region: Event): void {
-    console.log("region change ", (region.target as HTMLInputElement).value);
     this.prevPage = 0;
     this.prevRegion = (region.target as HTMLInputElement).value;
     this.updatePrevmatches();
