@@ -1,3 +1,23 @@
 .region-btn {
     width: 100%;;
 }
+
+.nk-team-logo {
+    position: relative;
+    margin: 1em 0;
+    height: 200px;
+    width: 160px;
+}
+
+.nk-team-logo h4 {
+    text-align: center;
+}
+
+.nk-team-logo .team-logo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
