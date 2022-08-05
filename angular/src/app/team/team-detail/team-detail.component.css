@@ -1,0 +1,39 @@
+.biography {
+    background-color: #2a2e38;
+    padding: 10px;
+}
+.biography p {
+    text-indent: 3ch;
+    text-align: justify;
+}
+
+.team-logo-wrapper {
+    position: relative;
+    height: 305px;
+    width: 100%;
+}
+
+.team-logo-wrapper .team-logo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+
+.next-matches.hide {
+    display: none;
+}
+
+.tournament-image-wrapper img {
+    height: 30px;
+    width: 30px;
+}
+.tournament-image-wrapper-prev-match img {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}

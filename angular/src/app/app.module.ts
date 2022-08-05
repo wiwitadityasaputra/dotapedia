@@ -46,6 +46,7 @@ import { ScheduleService } from './schedule/schedule.service';
 
 import { NgttDoubleEliminationTreeModule } from './utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.module';
 import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
+import { TeamDeatilComponent } from './team/team-detail/team-detail.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
     TournamentComponent,
     TournamentDetailComponent,
     TeamComponent,
+    TeamDeatilComponent,
     SeriesComponent,
     ScheduleComponent,
 

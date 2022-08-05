@@ -23,4 +23,5 @@ public class Team {
     private Region region;
     private String sponsors;
     private long totalEarnings;
+    private String biography;
 }

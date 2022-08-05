@@ -219,7 +219,6 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
     }
 
     public back(): void {
-      console.log("back")
       this.router.navigate(['/tournament', {}]);
     }
 

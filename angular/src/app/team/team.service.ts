@@ -3,13 +3,18 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { EnvirontmentService } from "../utility/environtment.service";
 import { RegionType } from "../utility/region.service";
-import { TeamPlayerResponse, TeamResponse } from "./team.response.model";
+import { TeamDetailResponse, TeamPlayerResponse, TeamResponse } from "./team.response.model";
 
 @Injectable()
 export class TeamService {
     private API_PATH: string = "/api/teams";
 
     constructor(private http: HttpClient, private environtment: EnvirontmentService) {
+    }
+
+    public getTeam(teamId: string): Observable<TeamDetailResponse> {
+        var url = this.environtment.getServerUrl() + this.API_PATH + "/" + teamId;
+        return this.http.get<TeamDetailResponse>(url);        
     }
 
     public getTeams(region: RegionType): Observable<TeamResponse[]> {

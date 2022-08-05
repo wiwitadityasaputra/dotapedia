@@ -53,8 +53,7 @@ public interface SeriesRepository extends JpaRepository<Series, Integer> {
             "LEFT JOIN tournament_bracket tb ON tb.series_id = s.series_id " +
             "LEFT JOIN tournament_roundrobin tr ON tr.series_id = s.series_id " +
             "LEFT JOIN tournament t ON t.tournament_id = tb.tournament_id OR t.tournament_id = tr.tournament_id " +
-            "WHERE s.team_a_series_score IS NOT NULL AND " +
-            "  s.team_b_series_score IS NOT NULL AND " +
+            "WHERE s.team_a_series_score IS NOT NULL AND s.team_b_series_score IS NOT NULL AND " +
             "  t.region IN (:regions) " +
             "ORDER BY s.start_date DESC LIMIT :limit OFFSET :offset ",
             nativeQuery = true)

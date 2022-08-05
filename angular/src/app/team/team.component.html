@@ -21,10 +21,10 @@
             <div class="col-lg-8">
                 <div class="nk-team" *ngFor="let team of teams">
                     <div class="nk-team-logo">
-                        <h4>
+                        <h4 (click)="selectTeam(team)">
                             {{ team.name }}
                         </h4>
-                        <img class="team-logo" [src]="'assets/image/teams-logo-100/' + team.teamId + '.png'" alt="...">
+                        <img (click)="selectTeam(team)" class="team-logo" [src]="'assets/image/teams-logo-100/' + team.teamId + '.png'" alt="...">
                     </div>
                     <div class="nk-team-cont">
                         <h4 class="h6 mb-5">Players:</h4>

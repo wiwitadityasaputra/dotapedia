@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatCheckboxChange } from '@angular/material/checkbox';
 import { Router } from '@angular/router';
 import { TournamentModel } from './tournament.response.model';
 import { TournamentService } from './tournament.service';

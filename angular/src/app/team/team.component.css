@@ -11,6 +11,7 @@
 
 .nk-team-logo h4 {
     text-align: center;
+    cursor: pointer;
 }
 
 .nk-team-logo .team-logo {
@@ -20,4 +21,5 @@
     left: 0;
     right: 0;
     margin: auto;
+    cursor: pointer;
 }
