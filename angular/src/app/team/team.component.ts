@@ -46,7 +46,6 @@ export class TeamComponent implements OnInit {
   private updateTeams(index: number): void {
     this.teamService.getTeams(this.regionService.getRegionByIndex(index))
     .subscribe((teams) => {
-      console.log(teams)
       this.teams = teams;
       this.teams.forEach((team) => {
         if (team.name.indexOf("Team") >= 0) {

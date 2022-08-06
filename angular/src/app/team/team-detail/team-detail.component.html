@@ -55,8 +55,43 @@
                     </table>
                 </div>
             </div>
-            <div class="nk-gap-3"></div>
-            <h3 class="nk-decorated-h-2"><span>Biography</span></h3>
+            
+            <div class="nk-gap-1"></div>
+            <h3 class="nk-decorated-h"><span><span class="text-main-1">Player</span> Roster</span></h3>
+            <div class="nk-popup-gallery player-roster" data-pswp-uid="1">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 player-wrapper" *ngFor="let p of playersTop; let i = index">
+                        <div class="nk-gallery-item-box image-wrapper">
+                            <div class="role-wrapper">
+                                <h5 class="player-role"><span class="text-main-1">Pos {{i + 1}}.</span> {{p.playerRole}}</h5>    
+                            </div>
+                            <img [src]="'assets/image/players/' + p.playerId + '.png'" alt=""
+                                onerror="this.src='assets/image/players/null.png';">
+                            <div class="name-wrapper">
+                                <h5 class="player-name">{{p.nickName}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nk-gap-1"></div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-4 player-wrapper" *ngFor="let p of playersBottom; let i = index">
+                        <div class="nk-gallery-item-box image-wrapper">
+                            <div class="role-wrapper">
+                                <h5 class="player-role"><span class="text-main-1">Pos {{i + 1}}.</span> {{p.playerRole}}</h5>    
+                            </div>
+                            <img [src]="'assets/image/players/' + p.playerId + '.png'" alt=""
+                                onerror="this.src='assets/image/players/null.png';">
+                            <div class="name-wrapper">
+                                <h5 class="player-name">{{p.nickName}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nk-gap-1"></div>
+            <h3 class="nk-decorated-h"><span><span class="text-main-1">Team</span> Biography</span></h3>
             <div class="biography">
                 <p *ngFor="let b of team?.team?.biographies">
                     {{b}}

@@ -4,7 +4,7 @@ import * as moment from 'moment';
 import { ScheduleResponse } from 'src/app/schedule/schedule.response.model';
 import { ScheduleView } from 'src/app/schedule/schedule.view.model';
 import { RegionService } from 'src/app/utility/region.service';
-import { TeamDetailResponse } from '../team.response.model';
+import { TeamDetailResponse, TeamPlayerResponse } from '../team.response.model';
 import { TeamService } from '../team.service';
 import { TeamDetailView } from '../team.view.model';
 
@@ -16,6 +16,8 @@ import { TeamDetailView } from '../team.view.model';
 export class TeamDeatilComponent implements OnInit {
 
   public team: TeamDetailView;
+  public playersTop: TeamPlayerResponse[];
+  public playersBottom: TeamPlayerResponse[];
 
   constructor(private activatedRoute: ActivatedRoute,
     private teamService: TeamService,
@@ -24,7 +26,14 @@ export class TeamDeatilComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((param: any) => {
-      this.teamService.getTeam(param.teamId).subscribe( response => {
+      const teamId = param.teamId;
+
+      this.teamService.getPlayers(teamId).subscribe( response => {
+        this.playersTop = response.slice(0, 3);
+        this.playersBottom = response.slice(3, 5);
+      });
+
+      this.teamService.getTeam(teamId).subscribe( response => {
         this.team = {
           team: {
             id: response.team.id,

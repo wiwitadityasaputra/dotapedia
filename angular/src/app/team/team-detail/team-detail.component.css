@@ -37,3 +37,30 @@
     width: 50px;
     cursor: pointer;
 }
+
+.player-roster .player-wrapper {
+    cursor: pointer;
+}
+.player-roster .player-wrapper .image-wrapper {
+    background-color: #303641;
+}
+.player-roster .player-wrapper .image-wrapper .role-wrapper {
+    background-color: #2a2e38; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.player-roster .player-wrapper .player-role {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+.player-roster .player-wrapper .image-wrapper .name-wrapper {
+    background-color: #2a2e38; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.player-roster .player-wrapper .player-name {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+}
