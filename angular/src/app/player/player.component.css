@@ -1,0 +1,49 @@
+.player-countries-box .player-countries-box-content {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+.player-countries-box .player-countries-box-content form {
+    /* padding: 0px; */
+}
+
+.player-countries-box .search-player {
+    display: none;
+}
+.player-countries-box .search-player.show {
+    display: flex;
+}
+
+.player-countries-box .country-and-player {
+    margin-top: 10px;
+}
+.player-countries-box .countries .country,
+.player-countries-box .players .player {
+    cursor: pointer;
+    color: #fff;
+}
+.player-countries-box .countries .country:hover,
+.player-countries-box .players .player:hover {
+    color: #dd163b;
+    opacity: 0.7;
+}
+.player-countries-box .countries .country.selected {
+    color: #dd163b;
+}
+.player-countries-box .countries .country.selected:hover {
+    color: #fff;
+    opacity: 0.7;
+}
+
+.players .player-wrapper .image-wrapper {
+    cursor: pointer;
+}
+.players .player-wrapper .image-wrapper .name-wrapper {
+    background-color: #2a2e38; 
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+.players .player-wrapper .player-name {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+}

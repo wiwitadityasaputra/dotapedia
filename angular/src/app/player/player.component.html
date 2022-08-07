@@ -1,0 +1,53 @@
+<div class="nk-main">
+    <div class="nk-gap-1"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 player-countries-box">
+                <div class="nk-widget nk-widget-highlighted">
+                    <h4 class="nk-widget-title"><span><span class="text-main-1">All</span> Players & Countries</span></h4>
+                    <div class="nk-widget-content player-countries-box-content" >
+                        <div class="row">
+                            <div class="nk-form nk-form-style-1 col-6" novalidate="novalidate">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Find player...">
+                                    <button class="nk-btn nk-btn-color-main-1">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="nk-btn nk-btn-color-main-1">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row country-and-player">
+                            <div class="countries" [ngClass]="{'col-12': !countryFlag, 'col-6': countryFlag}">
+                                <div class="row">
+                                    <div class="country" *ngFor="let pc of playerCountries"
+                                        [ngClass]="{'selected': pc.selected, 'col-3': !countryFlag, 'col-6': countryFlag}"
+                                        (click)="selecCountry(pc)">
+                                        {{pc.country}} ({{pc.totalPlayer}})
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="players col-6">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 player-wrapper" *ngFor="let p of players">
+                                        <div class="nk-gallery-item-box image-wrapper">
+                                            <img [src]="'assets/image/players/' + p.id + '.png'" alt=""
+                                                onerror="this.src='assets/image/players/null.png';">
+                                            <div class="name-wrapper">
+                                                <h5 class="player-name">{{p.nickName}}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
