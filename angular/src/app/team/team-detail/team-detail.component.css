@@ -28,9 +28,18 @@
     display: none;
 }
 
+.next-matches .image-logo {
+    cursor: pointer;
+}
+
+.last-matches .image-logo {
+    cursor: pointer;
+}
+
 .tournament-image-wrapper img {
     height: 30px;
     width: 30px;
+    cursor: pointer;
 }
 .tournament-image-wrapper-prev-match img {
     height: 50px;

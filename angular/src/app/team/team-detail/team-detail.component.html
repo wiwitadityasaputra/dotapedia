@@ -118,25 +118,28 @@
                             <div class="col-9">
                                 <span class="nk-widget-match-teams">
                                     <span class="nk-widget-match-team-logo">
-                                        <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'" alt="...">
+                                        <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'"
+                                            routerLink="/team/{{match.radiantTeamId}}" alt="..." class="image-logo">
                                     </span>
                                     <span class="nk-widget-match-vs">
                                         &nbsp; - &nbsp;
                                     </span>
                                     <span class="nk-widget-match-team-logo">
-                                        <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'" alt="...">
+                                        <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'"
+                                            routerLink="/team/{{match.direTeamId}}" alt="..." class="image-logo">
                                     </span>
                                 </span>
                                 <span class="nk-widget-match-date">{{match.startDateStr}}</span>
                             </div>
                             <div class="col-3 tournament-image-wrapper-prev-match">
-                                <img [src]="'assets/image/tournaments/' + match.tournamentImage" class="" alt="" />
+                                <img [src]="'assets/image/tournaments/' + match.tournamentImage" class=""
+                                    routerLink="/tournament/{{match.tournamentId}}" alt="" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="nk-widget nk-widget-highlighted">
+            <div class="nk-widget nk-widget-highlighted last-matches">
                 <h4 class="nk-widget-title"><span><span class="text-main-1">Last</span> Matches</span></h4>
                 <div class="nk-widget-content">
                     <div class="nk-widget-match" *ngFor="let match of team?.latestMatch">
@@ -144,19 +147,22 @@
                             <div class="col-9">
                                 <span class="nk-widget-match-teams">
                                     <span class="nk-widget-match-team-logo">
-                                        <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'" alt="...">
+                                        <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'"
+                                            routerLink="/team/{{match.radiantTeamId}}" alt="..." class="image-logo">
                                     </span>
                                     <span class="nk-widget-match-vs">
                                         {{match.radiantScore}} - {{match.direScore}}
                                     </span>
                                     <span class="nk-widget-match-team-logo">
-                                        <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'" alt="...">
+                                        <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'"
+                                            routerLink="/team/{{match.direTeamId}}" alt="..." class="image-logo">
                                     </span>
                                 </span>
                                 <span class="nk-widget-match-date">{{match.startDateStr}}</span>
                             </div>
                             <div class="col-3 tournament-image-wrapper-prev-match">
-                                <img [src]="'assets/image/tournaments/' + match.tournamentImage" class="" alt="" />
+                                <img [src]="'assets/image/tournaments/' + match.tournamentImage"
+                                    routerLink="/tournament/{{match.tournamentId}}" class="" alt="" />
                             </div>
                         </div>
                     </div>

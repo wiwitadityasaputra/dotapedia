@@ -6,10 +6,10 @@
                     <img src="assets/image/dotapedia.png" alt="DotaPedia" width="199">
                 </a>
                 <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
-                    <li> <a href="" routerLink="/tournament">Tournament</a> </li>
-                    <li> <a href="" routerLink="/team">Teams</a> </li>
+                    <li> <a href="" routerLink="/tournament" [queryParams]="{regions: 'ALL'}">Tournament</a> </li>
+                    <li> <a href="" routerLink="/team" [queryParams]="{region: 'WESTERN_EUROPE'}">Teams</a> </li>
                     <li> <a href="" routerLink="/player">Players</a> </li>
-                    <li> <a href="" routerLink="/hero">Hero</a> </li>
+                    <li> <a href="" routerLink="/hero"  [queryParams]="{type: 'ALL'}">Hero</a> </li>
                     <li> <a href="" routerLink="/schedule">Schedule</a> </li>
                     <li> <a href="#">News</a> </li>
                 </ul>

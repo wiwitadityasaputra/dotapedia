@@ -8,7 +8,7 @@
                 *ngFor="let region of regions; let index = index">
                 <button class="nk-btn nk-btn-rounded region-btn"
                     [ngClass]="{'nk-btn-color-main-1': region.checked, 'nk-btn-color-dark-3': !region.checked}"
-                    (click)="changeRegion(index)">
+                    (click)="changeRegion(region)">
                 <span class="icon ion-paper-airplane"></span> {{ region.name }}
             </button>
             </div>

@@ -17,7 +17,7 @@ export class TeamService {
         return this.http.get<TeamDetailResponse>(url);        
     }
 
-    public getTeams(region: RegionType): Observable<TeamResponse[]> {
+    public getTeams(region: string): Observable<TeamResponse[]> {
         var url = this.environtment.getServerUrl() + this.API_PATH + "?&region=" + region;
         return this.http.get<TeamResponse[]>(url);
     }

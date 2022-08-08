@@ -6,7 +6,7 @@
                 <h3 class="nk-decorated-h-3"><span><span class="text-main-1">Upcoming</span> Match</span></h3>
                 <div class="nk-match" *ngFor="let match of nextMatchs">
                     <div class="nk-match-team-left">
-                        <a href="">
+                        <a href="" routerLink="/team/{{match.radiantTeamId}}">
                             <span class="nk-match-team-logo">
                                 <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'" alt="...">
                             </span>
@@ -18,12 +18,13 @@
                             <span class="nk-match-status-vs">VS</span>
                             <span class="nk-match-status-date">{{match.startDateStr}}</span>
                             <div class="tournament-image-wrapper">
-                                <img [src]="'assets/image/tournaments/' + match.tournamentImage" class="" alt="" />
+                                <img [src]="'assets/image/tournaments/' + match.tournamentImage"
+                                    routerLink="/tournament/{{match.tournamentId}}" class="" alt="" />
                             </div>
                         </div>
                     </div>
                     <div class="nk-match-team-right">
-                        <a href="">
+                        <a href="" routerLink="/team/{{match.direTeamId}}">
                             <span class="nk-match-team-name"> {{match.direTeamName}} </span>
                             <span class="nk-match-team-logo">
                                 <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'" alt="...">
@@ -50,19 +51,22 @@
                                     <div class="col-9">
                                         <span class="nk-widget-match-teams">
                                             <span class="nk-widget-match-team-logo">
-                                                <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'" alt="...">
+                                                <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'"
+                                                    routerLink="/team/{{match.radiantTeamId}}" alt="...">
                                             </span>
                                             <span class="nk-widget-match-vs">
                                                 {{match.radiantScore}} - {{match.direScore}}
                                             </span>
                                             <span class="nk-widget-match-team-logo">
-                                                <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'" alt="...">
+                                                <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'"
+                                                    routerLink="/team/{{match.radiantTeamId}}" alt="...">
                                             </span>
                                         </span>
                                         <span class="nk-widget-match-date">{{match.startDateStr}}</span>
                                     </div>
                                     <div class="col-3 tournament-image-wrapper-prev-match">
-                                        <img [src]="'assets/image/tournaments/' + match.tournamentImage" class="" alt="" />
+                                        <img [src]="'assets/image/tournaments/' + match.tournamentImage"
+                                            routerLink="/tournament/{{match.tournamentId}}" class="" alt="" />
                                     </div>
                                 </div>
                             </div>

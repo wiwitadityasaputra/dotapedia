@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TournamentModel } from './tournament.response.model';
 import { TournamentService } from './tournament.service';
 
@@ -21,18 +21,39 @@ export class TournamentComponent implements OnInit {
     { name: "South America", checked: false, value: "SOUTH_AMERICA" },
   ];
 
-  constructor(private router: Router, private tournamentService: TournamentService) { }
+  constructor(private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private tournamentService: TournamentService) {
+    }
 
   ngOnInit(): void {
-    this.updateTourney("ALL");
+    const regions = this.activatedRoute.snapshot.queryParamMap.get("regions");
+    if (regions) {
+      this.updateTourney(regions);
+      const regionArray = regions.split(",");
+      regionArray.forEach(r => {
+        if (r && r.trim().length > 0) {
+          console.log('r = ', r)
+          const region = this.regions.find( region => region.value == r);
+          if (region) {
+            region.checked = true;
+          }
+        }
+      });
+      this.allRegion = regionArray[0] == "ALL";
+    } else {
+      this.updateTourney("ALL");
+      this.updateParam("ALL");
+    }
   }
 
   toggleAllRegion(): void {
     if (this.allRegion) {
       this.updateTourney("ALL");
+      this.updateParam("ALL");
       this.regions.forEach((region) => {
         region.checked = false;
-      })
+      });
     } else {
       this.tournaments = [];
     }
@@ -44,13 +65,14 @@ export class TournamentComponent implements OnInit {
     let regions: string = "";
     Object.entries(this.regions).forEach(([key, value]) => {
       if (value.checked) {
-        regions += "," + value.value;
+        regions += value.value + ",";
       }
     });
     if (regions === "") {
       this.tournaments = [];
     } else {
       this.updateTourney(regions);
+      this.updateParam(regions);
     }
   }
 
@@ -58,6 +80,13 @@ export class TournamentComponent implements OnInit {
     this.tournamentService.getTournaments(selectedRegion).subscribe((response) => {
       this.tournaments = response;
     });
+  }
+
+  private updateParam(regions: string): void {
+    this.router.navigate(
+      ['/tournament'],
+      { queryParams: { regions: regions } }
+    );
   }
 
   selectTournament(tournament: TournamentModel): void {
