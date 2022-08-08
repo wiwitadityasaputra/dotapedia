@@ -1,16 +1,16 @@
-.hero-type-btn-wrapper {
+.dp-hero-type-btn-wrapper {
     text-align: center;
 }
 
-.hero-box {
+.dp-hero-box {
     margin-bottom: 15px;
 }
-.hero-box .hero-name {
+.dp-hero-box .dp-hero-name {
     color: #ffffff;
     text-transform: capitalize;
     font-size: large;
 }
 
-.hero-overlay {
+.dp-hero-overlay {
     cursor: pointer;
 }

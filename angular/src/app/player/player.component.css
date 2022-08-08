@@ -1,48 +1,48 @@
-.player-countries-box .player-countries-box-content {
+.dp-player-countries-box .dp-player-countries-box-content {
     margin-top: 0px;
     padding-top: 0px;
 }
-.player-countries-box .player-countries-box-content form {
+.dp-player-countries-box .dp-player-countries-box-content form {
     /* padding: 0px; */
 }
 
-.player-countries-box .search-player {
+.dp-player-countries-box .dp-search-player {
     display: none;
 }
-.player-countries-box .search-player.show {
+.dp-player-countries-box .dp-search-player.show {
     display: flex;
 }
 
-.player-countries-box .country-and-player {
+.dp-player-countries-box .dp-country-and-player {
     margin-top: 10px;
 }
-.player-countries-box .countries .country,
-.player-countries-box .players .player {
+.dp-player-countries-box .dp-countries .country,
+.dp-player-countries-box .dp-players .player {
     cursor: pointer;
     color: #fff;
 }
-.player-countries-box .countries .country:hover,
-.player-countries-box .players .player:hover {
+.dp-player-countries-box .dp-countries .country:hover,
+.dp-player-countries-box .dp-players .player:hover {
     color: #dd163b;
     opacity: 0.7;
 }
-.player-countries-box .countries .country.selected {
+.dp-player-countries-box .dp-countries .country.selected {
     color: #dd163b;
 }
-.player-countries-box .countries .country.selected:hover {
+.dp-player-countries-box .dp-countries .country.selected:hover {
     color: #fff;
     opacity: 0.7;
 }
 
-.players .player-wrapper .image-wrapper {
+.dp-players .dp-player-wrapper .dp-image-wrapper {
     cursor: pointer;
 }
-.players .player-wrapper .image-wrapper .name-wrapper {
+.dp-players .dp-player-wrapper .dp-image-wrapper .dp-name-wrapper {
     background-color: #2a2e38; 
     padding-top: 5px;
     padding-bottom: 10px;
 }
-.players .player-wrapper .player-name {
+.dp-players .dp-player-wrapper .dp-player-name {
     margin-top: 0px;
     margin-bottom: 0px;
     text-align: center;

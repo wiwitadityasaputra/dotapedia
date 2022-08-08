@@ -1,7 +1,7 @@
 <div class="nk-main">
     <div class="nk-gap-1"></div>
     <div class="container">
-        <div class="row tournament-info">
+        <div class="row dp-tournament-info">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <table class="nk-table">
                     <thead>
@@ -17,7 +17,7 @@
                     <tbody>
                         <tr>
                             <td colspan="2">
-                                <div class="image-box">
+                                <div class="dp-image-box">
                                     <img class="img-fluid" [src]="'assets/image/tournaments/' + tournament?.image" >
                                 </div>
                             </td>
@@ -77,8 +77,8 @@
                         <tr *ngFor="let team of tournamentTeams; let i = index">
                             <td>{{i + 1}}</td>
                             <td>
-                                <img [src]="'assets/image/teams-logo-100/' + team.teamId + '.png'" class="team-participant-logo" alt="">
-                                <span class="team-participant-name" routerLink="/team/{{team.teamId}}" >{{team.teamName}}</span>
+                                <img [src]="'assets/image/teams-logo-100/' + team.teamId + '.png'" class="dp-team-participant-logo" alt="">
+                                <span class="dp-team-participant-name" routerLink="/team/{{team.teamId}}" >{{team.teamName}}</span>
                             </td>
                             <td>
                                 {{ team.price | currency:'USD': 'symbol' }}
@@ -93,30 +93,30 @@
 
         <div class="nk-gap-2"></div>
         
-        <div class="team-player-wrapper row col-xs-12">
+        <div class="dp-team-player-wrapper row col-xs-12">
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let t of teams">
-                <div class="col-xs-12 team-name" routerLink="/team/{{t.teamId}}">
+                <div class="col-xs-12 dp-team-name" routerLink="/team/{{t.teamId}}">
                     {{t.teamName}}
                 </div>
-                <div class="col-xs-12 team" (mouseenter)="teamMouseover(t)" (mouseleave)="teamMouseLeave(t)">
-                    <img [src]="'assets/image/teams-logo-100/' + t.teamId + '.png'" class="team-logo" alt=""
+                <div class="col-xs-12 dp-team" (mouseenter)="teamMouseover(t)" (mouseleave)="teamMouseLeave(t)">
+                    <img [src]="'assets/image/teams-logo-100/' + t.teamId + '.png'" class="dp-team-logo" alt=""
                         [ngClass]="{'show': t.showImage}">
-                    <ol class="text-main-1 pl-20 players"
+                    <ol class="text-main-1 pl-20 dp-players"
                         [ngClass]="{'hide': t.showImage}">
                         <li *ngFor="let p of t.players">
-                            <span class="text-white player">{{p.playerNickName}}</span>
+                            <span class="text-white dp-player">{{p.playerNickName}}</span>
                         </li>
                     </ol>
                 </div>
             </div>
         </div>
         
-        <div class="row round-robind-wrapper" [hidden]="!roundSeries">
-            <div class="series-wrapper col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let round of roundSeries">
+        <div class="row dp-round-robind-wrapper" [hidden]="!roundSeries">
+            <div class="dp-series-wrapper col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let round of roundSeries">
                 <table class="table" >
                     <thead>
                         <tr>
-                            <th colspan="3" class="week-index">
+                            <th colspan="3" class="dp-week-index">
                                 <h5>
                                     {{round.name}}
                                 </h5>
@@ -127,14 +127,14 @@
                 <table class="table" *ngFor="let series of round.roundSeriesDaily">
                     <thead>
                         <tr>
-                            <th colspan="5" class="series-name">{{series.name}}</th>
+                            <th colspan="5" class="dp-series-name">{{series.name}}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let match of series.series" (click)="openSeries(match)" class="series-row">
                             <td class="team-a">
                                 {{ match.teamAShortName }}
-                                <div class="image-wrapper">
+                                <div class="dp-image-wrapper">
                                     <img [src]="'assets/image/teams-logo-100/' + match.teamAId + '.png'" class="" alt="">
                                 </div>
                             </td>
@@ -152,7 +152,7 @@
                                 {{match.teamBScore}}
                             </td>
                             <td class="team-b">
-                                <div class="image-wrapper">
+                                <div class="dp-image-wrapper">
                                     <img [src]="'assets/image/teams-logo-100/' + match.teamBId + '.png'" class="" alt="">
                                 </div>
                                 {{ match.teamBShortName }}
@@ -163,7 +163,7 @@
             </div>
         </div>
 
-        <div class="row bracket-wrapper" [hidden]="!tournamentData">
+        <div class="row dp-bracket-wrapper" [hidden]="!tournamentData">
             <ngtt-double-elimination-tree
                 [tournament]="tournamentData"
                 [matchTemplate]="matchTemplate">

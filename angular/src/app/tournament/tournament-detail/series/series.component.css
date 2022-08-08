@@ -1,20 +1,21 @@
-.modal-body {
+.dp-modal .dp-modal-dialog.dp-stick-on-top {
+    margin-top: 50px;
+}
+
+.dp-modal-body {
     position: relative;
     overflow-y: auto;
     max-height: 850px;
 }
-.nk-modal .modal-dialog.stick-on-top {
-    margin-top: 50px;
-}
 
-.series {
+.dp-modal {
     background-color:rgba(0, 0, 0, 0.5);
 }
-.series-close-btn {
+.dp-series-close-btn {
     top: 10px;
     right: 12px;
 }
-.series.series-show {
+.dp-modal.series-show {
     display: block;
 }
 .nk-match-team-logo img {
@@ -22,7 +23,7 @@
     height: 50px;
 }
 
-.game-header {
+.dp-game-header {
     cursor: pointer;
     position: relative;
     background: #dd163b;
@@ -33,22 +34,22 @@
     text-decoration: none;
     text-transform: uppercase;
 }
-.game-header .winner {
+.dp-game-header .winner {
     position: absolute;
     top: 11px;
     right: 17px;
 }
-.game-header .team-participant-logo {
+.dp-game-header .dp-team-participant-logo {
     height: 20px;
     height: 20px;
 }
-.game-detail {
+.dp-game-detail {
     display: none;
 }
-.game-detail.show {
+.dp-game-detail.show {
     display: block;
 }
-.game-detail .hero-image {
+.dp-game-detail .dp-hero-image {
     height: 30%;
     width: 30%;
     margin-right: 10px;

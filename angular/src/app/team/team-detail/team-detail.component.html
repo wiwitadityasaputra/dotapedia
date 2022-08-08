@@ -11,8 +11,8 @@
         <div class="col-lg-8">
             <div class="nk-teammate-card">
                 <div class="nk-teammate-card-photo">
-                    <div class="team-logo-wrapper">
-                        <img class="team-logo" [src]="'assets/image/teams-logo-100/' + team?.team?.id + '.png'" alt="...">
+                    <div class="dp-team-logo-wrapper">
+                        <img class="dp-team-logo" [src]="'assets/image/teams-logo-100/' + team?.team?.id + '.png'" alt="...">
                     </div>
                 </div>
                 <div class="nk-teammate-card-info">
@@ -58,32 +58,32 @@
             
             <div class="nk-gap-1"></div>
             <h3 class="nk-decorated-h"><span><span class="text-main-1">Player</span> Roster</span></h3>
-            <div class="nk-popup-gallery player-roster" data-pswp-uid="1">
+            <div class="nk-popup-gallery dp-player-roster" data-pswp-uid="1">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 player-wrapper" *ngFor="let p of playersTop; let i = index">
-                        <div class="nk-gallery-item-box image-wrapper">
-                            <div class="role-wrapper">
-                                <h5 class="player-role"><span class="text-main-1">Pos {{i + 1}}.</span> {{p.playerRole}}</h5>    
+                    <div class="col-lg-4 col-md-4 dp-player-wrapper" *ngFor="let p of playersTop; let i = index">
+                        <div class="nk-gallery-item-box dp-image-wrapper">
+                            <div class="dp-role-wrapper">
+                                <h5 class="dp-player-role"><span class="text-main-1">Pos {{i + 1}}.</span> {{p.playerRole}}</h5>    
                             </div>
                             <img [src]="'assets/image/players/' + p.playerId + '.png'" alt=""
                                 onerror="this.src='assets/image/players/null.png';">
-                            <div class="name-wrapper">
-                                <h5 class="player-name">{{p.nickName}}</h5>
+                            <div class="dp-name-wrapper">
+                                <h5 class="dp-player-name">{{p.nickName}}</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="nk-gap-1"></div>
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-4 player-wrapper" *ngFor="let p of playersBottom; let i = index">
-                        <div class="nk-gallery-item-box image-wrapper">
-                            <div class="role-wrapper">
-                                <h5 class="player-role"><span class="text-main-1">Pos {{i + 1}}.</span> {{p.playerRole}}</h5>    
+                    <div class="col-lg-4 col-md-4 dp-player-wrapper" *ngFor="let p of playersBottom; let i = index">
+                        <div class="nk-gallery-item-box dp-image-wrapper">
+                            <div class="dp-role-wrapper">
+                                <h5 class="dp-player-role"><span class="text-main-1">Pos {{i + 1}}.</span> {{p.playerRole}}</h5>    
                             </div>
                             <img [src]="'assets/image/players/' + p.playerId + '.png'" alt=""
                                 onerror="this.src='assets/image/players/null.png';">
-                            <div class="name-wrapper">
-                                <h5 class="player-name">{{p.nickName}}</h5>
+                            <div class="dp-name-wrapper">
+                                <h5 class="dp-player-name">{{p.nickName}}</h5>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
 
             <div class="nk-gap-1"></div>
             <h3 class="nk-decorated-h"><span><span class="text-main-1">Team</span> Biography</span></h3>
-            <div class="biography">
+            <div class="dp-biography">
                 <p *ngFor="let b of team?.team?.biographies">
                     {{b}}
                 </p>
@@ -110,7 +110,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="nk-widget nk-widget-highlighted next-matches" [ngClass]="{'hide':  team?.upcomingMatch?.length == 0}">
+            <div class="nk-widget nk-widget-highlighted dp-next-matches" [ngClass]="{'hide':  team?.upcomingMatch?.length == 0}">
                 <h4 class="nk-widget-title"><span><span class="text-main-1">Next</span> Matches</span></h4>
                 <div class="nk-widget-content">
                     <div class="nk-widget-match" *ngFor="let match of team?.upcomingMatch">
@@ -119,19 +119,19 @@
                                 <span class="nk-widget-match-teams">
                                     <span class="nk-widget-match-team-logo">
                                         <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'"
-                                            routerLink="/team/{{match.radiantTeamId}}" alt="..." class="image-logo">
+                                            routerLink="/team/{{match.radiantTeamId}}" alt="..." class="dp-image-logo">
                                     </span>
                                     <span class="nk-widget-match-vs">
                                         &nbsp; - &nbsp;
                                     </span>
                                     <span class="nk-widget-match-team-logo">
                                         <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'"
-                                            routerLink="/team/{{match.direTeamId}}" alt="..." class="image-logo">
+                                            routerLink="/team/{{match.direTeamId}}" alt="..." class="dp-image-logo">
                                     </span>
                                 </span>
                                 <span class="nk-widget-match-date">{{match.startDateStr}}</span>
                             </div>
-                            <div class="col-3 tournament-image-wrapper-prev-match">
+                            <div class="col-3 dp-tournament-image-wrapper-prev-match">
                                 <img [src]="'assets/image/tournaments/' + match.tournamentImage" class=""
                                     routerLink="/tournament/{{match.tournamentId}}" alt="" />
                             </div>
@@ -139,7 +139,7 @@
                     </div>
                 </div>
             </div>
-            <div class="nk-widget nk-widget-highlighted last-matches">
+            <div class="nk-widget nk-widget-highlighted dp-last-matches">
                 <h4 class="nk-widget-title"><span><span class="text-main-1">Last</span> Matches</span></h4>
                 <div class="nk-widget-content">
                     <div class="nk-widget-match" *ngFor="let match of team?.latestMatch">
@@ -148,19 +148,19 @@
                                 <span class="nk-widget-match-teams">
                                     <span class="nk-widget-match-team-logo">
                                         <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'"
-                                            routerLink="/team/{{match.radiantTeamId}}" alt="..." class="image-logo">
+                                            routerLink="/team/{{match.radiantTeamId}}" alt="..." class="dp-image-logo">
                                     </span>
                                     <span class="nk-widget-match-vs">
                                         {{match.radiantScore}} - {{match.direScore}}
                                     </span>
                                     <span class="nk-widget-match-team-logo">
                                         <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'"
-                                            routerLink="/team/{{match.direTeamId}}" alt="..." class="image-logo">
+                                            routerLink="/team/{{match.direTeamId}}" alt="..." class="dp-image-logo">
                                     </span>
                                 </span>
                                 <span class="nk-widget-match-date">{{match.startDateStr}}</span>
                             </div>
-                            <div class="col-3 tournament-image-wrapper-prev-match">
+                            <div class="col-3 dp-tournament-image-wrapper-prev-match">
                                 <img [src]="'assets/image/tournaments/' + match.tournamentImage"
                                     routerLink="/tournament/{{match.tournamentId}}" class="" alt="" />
                             </div>

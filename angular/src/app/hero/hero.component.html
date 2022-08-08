@@ -4,28 +4,28 @@
         <h3 class="nk-decorated-h-3"><span><span class="text-main-1">DoTA2</span> Heroes</span></h3>
         <div class="nk-gap-1"></div>
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-xs-12 hero-type-btn-wrapper">
+            <div class="col-lg-3 col-md-3 col-xs-12 dp-hero-type-btn-wrapper">
                 <button class="nk-btn nk-btn-rounded nk-btn-color-main-1"
                     [ngClass]="{'active': activeButton === 'ALL'}"
                     (click)="clickButton('ALL')">
                     All Heroes
                 </button>
             </div>
-            <div class="col-lg-3 col-md-3 col-xs-12 hero-type-btn-wrapper">
+            <div class="col-lg-3 col-md-3 col-xs-12 dp-hero-type-btn-wrapper">
                 <button class="nk-btn nk-btn-rounded nk-btn-color-success"
                     [ngClass]="{'active': activeButton === 'AGILITY'}"
                     (click)="clickButton('AGILITY')">
                     Agility
                 </button>
             </div>
-            <div class="col-lg-3 col-md-3 col-xs-12 hero-type-btn-wrapper">
+            <div class="col-lg-3 col-md-3 col-xs-12 dp-hero-type-btn-wrapper">
                 <button class="nk-btn nk-btn-rounded nk-btn-color-warning"
                     [ngClass]="{'active': activeButton === 'STRENGTH'}"
                     (click)="clickButton('STRENGTH')">
                     Strength
                 </button>
             </div>
-            <div class="col-lg-3 col-md-3 col-xs-12 hero-type-btn-wrapper">
+            <div class="col-lg-3 col-md-3 col-xs-12 dp-hero-type-btn-wrapper">
                 <button class="nk-btn nk-btn-rounded nk-btn-color-info"
                     [ngClass]="{'active': activeButton === 'INTELLIGENCE'}"
                     (click)="clickButton('INTELLIGENCE')">
@@ -38,10 +38,10 @@
         <div class="nk-gap-1"></div>
         <div class="row">
             <div class="col-lg-3 col-md-4 col-xs-2" *ngFor="let hero of heroes">
-                <div class="nk-gallery-item-box hero-box">
-                    <div class="hero-name">{{ hero.name }}</div>
+                <div class="nk-gallery-item-box dp-hero-box">
+                    <div class="dp-hero-name">{{ hero.name }}</div>
                     <img [src]="'/assets/image/heroes/' + hero.imageName">
-                    <div class="nk-gallery-item-overlay hero-overlay">
+                    <div class="nk-gallery-item-overlay dp-hero-overlay">
                         soon
                     </div>
                 </div>

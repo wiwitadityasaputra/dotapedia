@@ -1,19 +1,18 @@
-.biography {
+.dp-biography {
     background-color: #2a2e38;
     padding: 10px;
 }
-.biography p {
+.dp-biography p {
     text-indent: 3ch;
     text-align: justify;
 }
 
-.team-logo-wrapper {
+.dp-team-logo-wrapper {
     position: relative;
     height: 305px;
     width: 100%;
 }
-
-.team-logo-wrapper .team-logo {
+.dp-team-logo-wrapper .dp-team-logo {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -24,51 +23,49 @@
     height: 200px;
 }
 
-.next-matches.hide {
+.dp-next-matches.hide {
     display: none;
 }
-
-.next-matches .image-logo {
+.dp-next-matches .dp-image-logo {
+    cursor: pointer;
+}
+.dp-last-matches .dp-image-logo {
     cursor: pointer;
 }
 
-.last-matches .image-logo {
-    cursor: pointer;
-}
-
-.tournament-image-wrapper img {
+.dp-tournament-image-wrapper img {
     height: 30px;
     width: 30px;
     cursor: pointer;
 }
-.tournament-image-wrapper-prev-match img {
+.dp-tournament-image-wrapper-prev-match img {
     height: 50px;
     width: 50px;
     cursor: pointer;
 }
 
-.player-roster .player-wrapper {
+.dp-player-roster .dp-player-wrapper {
     cursor: pointer;
 }
-.player-roster .player-wrapper .image-wrapper {
+.dp-player-roster .dp-player-wrapper .dp-image-wrapper {
     background-color: #303641;
 }
-.player-roster .player-wrapper .image-wrapper .role-wrapper {
+.dp-player-roster .dp-player-wrapper .dp-image-wrapper .dp-role-wrapper {
     background-color: #2a2e38; 
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.player-roster .player-wrapper .player-role {
+.dp-player-roster .dp-player-wrapper .dp-player-role {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 10px;
 }
-.player-roster .player-wrapper .image-wrapper .name-wrapper {
+.dp-player-roster .dp-player-wrapper .dp-image-wrapper .dp-name-wrapper {
     background-color: #2a2e38; 
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.player-roster .player-wrapper .player-name {
+.dp-player-roster .dp-player-wrapper .dp-player-name {
     margin-top: 0px;
     margin-bottom: 0px;
     text-align: center;

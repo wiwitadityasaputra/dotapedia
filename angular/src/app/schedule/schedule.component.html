@@ -17,7 +17,7 @@
                         <div>
                             <span class="nk-match-status-vs">VS</span>
                             <span class="nk-match-status-date">{{match.startDateStr}}</span>
-                            <div class="tournament-image-wrapper">
+                            <div class="dp-tournament-image-wrapper">
                                 <img [src]="'assets/image/tournaments/' + match.tournamentImage"
                                     routerLink="/tournament/{{match.tournamentId}}" class="" alt="" />
                             </div>
@@ -71,8 +71,8 @@
                                 </div>
                             </div>
                             <div class="nk-widget-match">
-                                <div class="row prev-match-action">
-                                    <div class="col-6 prev-next">
+                                <div class="row dp-prev-match-action">
+                                    <div class="col-6 dp-prev-next">
                                         <span class="prev" [ngClass]="{'not-allowed': prevPage == 0}" (click)="prevPrevMatches()">
                                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                             Prev
@@ -82,7 +82,7 @@
                                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                         </span>
                                     </div>
-                                    <div class="col-6 view-more">
+                                    <div class="col-6 dp-view-more">
                                         View More
                                     </div>
                                 </div>

@@ -1,41 +1,31 @@
-.title-area {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #292e38;
-}
-.title-area h3 {
-    cursor: pointer;
-    margin: 0px;
-}
-.tournament-info .back {
+.dp-tournament-info .back {
     cursor: pointer;
 }
-.tournament-info-left {
+.dp-tournament-info-left {
     background-color: #292e38;
 }
 
-.image-box {
+.dp-image-box {
     background-color: #292e38;
     width: 100%;
     text-align: center;
     padding: 10px;
 }
 
-.team-player-wrapper {
+.dp-team-player-wrapper {
     margin-bottom: 10px;
 }
-.team-player-wrapper .team-name {
+.dp-team-player-wrapper .dp-team-name {
     cursor: pointer;
     text-align: center;
     font-size: large;
     color: #ffffff;
 }
-.team-player-wrapper .team {
+.dp-team-player-wrapper .dp-team {
     position: relative;
     height: 150px;
-    /* border: 1px solid red; */
 }
-.team-player-wrapper .team .team-logo {
+.dp-team-player-wrapper .dp-team .dp-team-logo {
     position: absolute;
     margin: auto;
     left: 0;
@@ -44,103 +34,103 @@
     z-index: 1;
     display: none;
 }
-.team-player-wrapper .team .team-logo.show {
+.dp-team-player-wrapper .dp-team .dp-team-logo.show {
     display: block;
 }
-.team-player-wrapper .team .players.hide {
+.dp-team-player-wrapper .dp-team .dp-players.hide {
     display: none;
 }
-.team-player-wrapper .team .players .player {
+.dp-team-player-wrapper .dp-team .dp-players .dp-player {
     font-size: large;
     cursor: pointer;
 }
 
-.team-participant-logo {
+.dp-team-participant-logo {
     height: 25px;
     width: 25px;
 }
-.team-participant-name {
+.dp-team-participant-name {
     cursor: pointer;
     margin-left: 5px;
 }
 
-.round-robind-wrapper {
+.dp-round-robind-wrapper {
     margin-top: 30px;
 }
 
-.round-robind-wrapper .series-wrapper {
+.dp-round-robind-wrapper .dp-series-wrapper {
     margin-top: 30px;
 }
 
-.round-robind-wrapper .week-index {
+.dp-round-robind-wrapper .dp-week-index {
     background-color: #292e38;
 }
 
-.round-robind-wrapper .table {
+.dp-round-robind-wrapper .table {
     color: white;
     margin-bottom: 0px;
     border-bottom: none;
 }
 
-.round-robind-wrapper .table h5 {
+.dp-round-robind-wrapper .table h5 {
     text-align: center;
     padding: 0px;
     margin: 0px;
 }
 
-.round-robind-wrapper .table .series-name {
+.dp-round-robind-wrapper .table .dp-series-name {
     text-align: center;
     background: #2a2e38;
 }
 
-.round-robind-wrapper .table tbody tr {
+.dp-round-robind-wrapper .table tbody tr {
     cursor: pointer;
     background: #2e3641;
 }
-.round-robind-wrapper .table tbody tr:hover {
+.dp-round-robind-wrapper .table tbody tr:hover {
     background: #535760;
 }
 
-.round-robind-wrapper .table .team-a {
+.dp-round-robind-wrapper .table .team-a {
     text-align: right;
     
 }
 
-.round-robind-wrapper .table .team-b {
+.dp-round-robind-wrapper .table .team-b {
     text-align: left;
     
 }
 
-.round-robind-wrapper .table .score {
+.dp-round-robind-wrapper .table .score {
     text-align: center;
     
 }
 
-.round-robind-wrapper .table .score.lose {
+.dp-round-robind-wrapper .table .score.lose {
     color: red;
 }
 
-.round-robind-wrapper .table .score.win {
+.dp-round-robind-wrapper .table .score.win {
     color: green;
 }
 
-.round-robind-wrapper .image-wrapper {
+.dp-round-robind-wrapper .dp-image-wrapper {
     height: 20px;
     width: 20px;
     position: relative;
 }
 
-.round-robind-wrapper .team-a .image-wrapper {
+.dp-round-robind-wrapper .team-a .dp-image-wrapper {
     float: right;
     margin-left: 5px;
 }
 
-.round-robind-wrapper .team-b .image-wrapper {
+.dp-round-robind-wrapper .team-b .dp-image-wrapper {
     float: left;
     margin-right: 5px;
 }
 
-.round-robind-wrapper .image-wrapper img {
+.dp-round-robind-wrapper .dp-image-wrapper img {
     max-height: 20px;
     max-width: 20px;
     position: absolute;
@@ -150,7 +140,7 @@
     right: 0;
     margin: auto;
 }
-.bracket-wrapper {
+.dp-bracket-wrapper {
     overflow-x: scroll;
 }
 

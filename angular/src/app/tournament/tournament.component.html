@@ -5,17 +5,17 @@
         <div class="nk-gap-1"></div>
         <div class="row">
             <div class="col-lg-4 col-md-4 col-xs-12">
-                <label class="checkbox-container">All Region
+                <label class="dp-checkbox-container">All Region
                     <input type="checkbox" [(ngModel)]="allRegion" (ngModelChange)="toggleAllRegion()">
-                    <span class="checkmark"></span>
+                    <span class="dp-checkmark"></span>
                 </label>
             </div>
             <div class="col-lg-8 col-md-8 col-xs-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let region of regions; let i = index">
-                        <label class="checkbox-container">{{ region.name }}
+                        <label class="dp-checkbox-container">{{ region.name }}
                             <input type="checkbox" [(ngModel)]="region.checked" (ngModelChange)="toggleRegion()">
-                            <span class="checkmark"></span>
+                            <span class="dp-checkmark"></span>
                         </label>
                     </div>
                 </div>
@@ -27,11 +27,11 @@
         <div class="row vertical-gap">
             <div class="col-lg-6" *ngFor="let t of tournaments">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-xs-6 tournament-left-box">
-                        <h3 class="tournament-name" (click)="selectTournament(t)">
+                    <div class="col-lg-6 col-md-6 col-xs-6 dp-tournament-left-box">
+                        <h3 class="dp-tournament-name" (click)="selectTournament(t)">
                             {{t.name}}
                         </h3>
-                        <div class="col-12 image-box"  (click)="selectTournament(t)">
+                        <div class="col-12 dp-image-box"  (click)="selectTournament(t)">
                             <img [src]="'assets/image/tournaments/' + t.image" >
                         </div>
                     </div>
