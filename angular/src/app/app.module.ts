@@ -29,9 +29,9 @@ import { ScheduleService } from './schedule/schedule.service';
 import { NgttDoubleEliminationTreeModule } from './utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.module';
 import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
 import { TeamDeatilComponent } from './team/team-detail/team-detail.component';
-import { PlayerComponent } from './player/player.component';
 import { PlayerService } from './player/player.service';
 import { TeamAllComponent } from './team/team-all/team-all.component';
+import { PlayerAllComponent } from './player/player-all/player-all.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import { TeamAllComponent } from './team/team-all/team-all.component';
     TeamDeatilComponent,
     SeriesComponent,
     ScheduleComponent,
-    PlayerComponent,
+    PlayerAllComponent,
 
     FooterComponent,
 

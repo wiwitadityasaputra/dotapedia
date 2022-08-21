@@ -1,15 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Player, PlayerCountry } from "./player.response.model";
-import { PlayerService } from "./player.service";
-import { PlayerCountryView } from "./player.view.model";
+import { Player, PlayerCountry } from "../player.response.model";
+import { PlayerService } from "../player.service";
+import { PlayerCountryView } from "../player.view.model";
 
 @Component({
-    selector: 'app-player',
-    templateUrl: './player.component.html',
-    styleUrls: ['./player.component.css']
+    selector: 'app-player-all',
+    templateUrl: './player-all.component.html',
+    styleUrls: ['./player-all.component.css']
 })
-export class PlayerComponent implements OnInit {
+export class PlayerAllComponent implements OnInit {
 
     public playerCountries: PlayerCountryView[] = [];
     public players: Player[];
