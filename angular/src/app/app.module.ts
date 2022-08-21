@@ -11,7 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { HeroComponent } from './hero/hero.component';
 import { TournamentComponent } from './tournament/tournament.component';
 import { TournamentDetailComponent } from './tournament/tournament-detail/tournament-detail.component';
-import { TeamComponent } from './team/team.component';
 import { SeriesComponent } from './tournament/tournament-detail/series/series.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { FooterComponent } from './utility/footer/footer.component';
@@ -32,6 +31,7 @@ import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
 import { TeamDeatilComponent } from './team/team-detail/team-detail.component';
 import { PlayerComponent } from './player/player.component';
 import { PlayerService } from './player/player.service';
+import { TeamAllComponent } from './team/team-all/team-all.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { PlayerService } from './player/player.service';
     HeroComponent,
     TournamentComponent,
     TournamentDetailComponent,
-    TeamComponent,
+    TeamAllComponent,
     TeamDeatilComponent,
     SeriesComponent,
     ScheduleComponent,

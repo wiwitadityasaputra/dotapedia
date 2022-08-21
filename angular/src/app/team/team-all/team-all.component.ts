@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TeamResponse } from './team.response.model';
-import { TeamService } from './team.service';
+import { TeamResponse } from '../team.response.model';
+import { TeamService } from '../team.service';
 
 interface TeamRegion {
   name: string,
@@ -10,11 +10,11 @@ interface TeamRegion {
 }
 
 @Component({
-  selector: 'app-team',
-  templateUrl: './team.component.html',
-  styleUrls: ['./team.component.css']
+  selector: 'app-team-all',
+  templateUrl: './team-all.component.html',
+  styleUrls: ['./team-all.component.css']
 })
-export class TeamComponent implements OnInit {
+export class TeamAllComponent implements OnInit {
 
   public teams: TeamResponse[];
   public teamsLoaded: boolean[];
