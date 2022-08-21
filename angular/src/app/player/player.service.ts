@@ -20,4 +20,9 @@ export class PlayerService {
         var url = this.environtment.getServerUrl() + this.API_PATH + "?countries=" + countries;
         return this.http.get<Player[]>(url);
     }
+
+    public getPlayerById(playerId: number): Observable<Player> {
+        var url = this.environtment.getServerUrl() + this.API_PATH + "/" + playerId;
+        return this.http.get<Player>(url);
+    }
 }

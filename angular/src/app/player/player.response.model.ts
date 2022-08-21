@@ -10,5 +10,5 @@ export interface Player {
     id: number;
     nickName: string;
     roles: string;
-    
+    totalEarnings: string;
 }

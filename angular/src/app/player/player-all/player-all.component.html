@@ -34,7 +34,7 @@
                             <div class="dp-players col-6">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 dp-player-wrapper" *ngFor="let p of players">
-                                        <div class="nk-gallery-item-box dp-image-wrapper">
+                                        <div class="nk-gallery-item-box dp-image-wrapper" routerLink="/player/{{p.id}}">
                                             <img [src]="'assets/image/players/' + p.id + '.png'" alt=""
                                                 onerror="this.src='assets/image/players/null.png';">
                                             <div class="dp-name-wrapper">

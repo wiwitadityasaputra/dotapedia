@@ -33,4 +33,8 @@ public class PlayerService {
         log.debug("countryList.size = {}", countryList.size());
         return playerRepository.findByCounties(countryList);
     }
+
+    public Player findById(int playerId) {
+        return playerRepository.findById(playerId).orElse(null);
+    }
 }

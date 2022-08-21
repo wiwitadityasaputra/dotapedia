@@ -1,0 +1,24 @@
+.nk-main {
+    padding-bottom: 20px;
+}
+.dp-player-img-box {
+    padding: 10px;
+    background-color: #2a2e38;
+}
+.dp-player-img {
+    width: 100%;
+    height: auto;
+}
+.dp-player-info {
+    margin: 0px 0px 20px 0px;
+    padding: 15px 15px 15px 15px;
+    background-color: #2a2e38;
+    color: #ffffff;
+}
+.dp-player-info .dp-player-bio {
+    text-align: justify;
+    text-indent: 10%;
+}
+.dp-player-info .dp-player-quote {
+    padding-top: 20px;
+}

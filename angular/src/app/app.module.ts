@@ -8,10 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HeroComponent } from './hero/hero.component';
-import { TournamentComponent } from './tournament/tournament.component';
+import { TeamAllComponent } from './team/team-all/team-all.component';
+import { TeamDeatilComponent } from './team/team-detail/team-detail.component';
+import { TournamentAllComponent } from './tournament/tournament-all/tournament-all.component';
 import { TournamentDetailComponent } from './tournament/tournament-detail/tournament-detail.component';
 import { SeriesComponent } from './tournament/tournament-detail/series/series.component';
+import { HeroComponent } from './hero/hero.component';
+import { PlayerAllComponent } from './player/player-all/player-all.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { FooterComponent } from './utility/footer/footer.component';
 
@@ -25,26 +28,25 @@ import { TournamentService } from './tournament/tournament.service';
 import { RegionService } from './utility/region.service';
 import { SeriesService } from './tournament/tournament-detail/series/series.service';
 import { ScheduleService } from './schedule/schedule.service';
+import { PlayerService } from './player/player.service';
 
 import { NgttDoubleEliminationTreeModule } from './utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.module';
 import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
-import { TeamDeatilComponent } from './team/team-detail/team-detail.component';
-import { PlayerService } from './player/player.service';
-import { TeamAllComponent } from './team/team-all/team-all.component';
-import { PlayerAllComponent } from './player/player-all/player-all.component';
+import { PlayerDetailComponent } from './player/player-detail/player-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeroComponent,
-    TournamentComponent,
+    TournamentAllComponent,
     TournamentDetailComponent,
     TeamAllComponent,
     TeamDeatilComponent,
     SeriesComponent,
     ScheduleComponent,
     PlayerAllComponent,
+    PlayerDetailComponent,
 
     FooterComponent,
 

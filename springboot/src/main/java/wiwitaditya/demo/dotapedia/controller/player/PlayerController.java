@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import wiwitaditya.demo.dotapedia.db.entity.Player;
-import wiwitaditya.demo.dotapedia.db.repository.PlayerRepository;
 
 import java.util.List;
 
@@ -25,5 +24,10 @@ public class PlayerController {
     public List<Player> getPlayersByCountry(@RequestParam(name = "countries") String countries) {
         log.debug("GET /countries/{}", countries);
         return playerService.findByCounties(countries);
+    }
+
+    @GetMapping(path = "/{playerId}")
+    public Player findByPlayerId(@PathVariable(value = "playerId") int playerId) {
+        return playerService.findById(playerId);
     }
 }
