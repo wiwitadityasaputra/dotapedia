@@ -4,23 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatCardModule } from '@angular/material/card';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatListModule } from '@angular/material/list';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatTabsModule } from '@angular/material/tabs';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatTableModule } from '@angular/material/table';
-
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -73,23 +56,6 @@ import { PlayerService } from './player/player.service';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
-    // MatToolbarModule,
-    // MatSidenavModule,
-    // MatButtonModule,
-    // MatIconModule,
-    // MatDividerModule,
-    // MatGridListModule,
-    // MatButtonToggleModule,
-    // MatCardModule,
-    // MatCheckboxModule,
-    // MatListModule,
-    // MatExpansionModule,
-    // MatTabsModule,
-    // FlexLayoutModule,
-    // MatDialogModule,
-    // MatProgressSpinnerModule,
-    // MatTableModule,
 
     NgttDoubleEliminationTreeModule,
     NgttMatchModule,
