@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Player } from "../player.response.model";
+import { Player, PlayerDetailResponse } from "../player.response.model";
 import { PlayerService } from "../player.service";
 
 @Component({
@@ -10,7 +10,7 @@ import { PlayerService } from "../player.service";
 })
 export class PlayerDetailComponent implements OnInit {
 
-    public player: Player;
+    public player: PlayerDetailResponse;
 
     constructor(private router: Router,
         private activatedRoute: ActivatedRoute,
@@ -21,7 +21,7 @@ export class PlayerDetailComponent implements OnInit {
         this.activatedRoute.params.subscribe((param: any) => {
             const playerId = param.playerId;
             this.playerService.getPlayerById(playerId)
-                .subscribe((player: Player) => {
+                .subscribe((player: PlayerDetailResponse) => {
                     this.player = player;
                     console.log("this.player ", this.player);
                 });

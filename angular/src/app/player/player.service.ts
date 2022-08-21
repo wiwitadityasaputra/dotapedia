@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { EnvirontmentService } from "../utility/environtment.service";
-import { Player, PlayerCountry } from "./player.response.model";
+import { Player, PlayerCountry, PlayerDetailResponse } from "./player.response.model";
 
 @Injectable()
 export class PlayerService {
@@ -21,8 +21,8 @@ export class PlayerService {
         return this.http.get<Player[]>(url);
     }
 
-    public getPlayerById(playerId: number): Observable<Player> {
+    public getPlayerById(playerId: number): Observable<PlayerDetailResponse> {
         var url = this.environtment.getServerUrl() + this.API_PATH + "/" + playerId;
-        return this.http.get<Player>(url);
+        return this.http.get<PlayerDetailResponse>(url);
     }
 }

@@ -22,3 +22,6 @@
 .dp-player-info .dp-player-quote {
     padding-top: 20px;
 }
+.dp-player-ss-box {
+    cursor: pointer;
+}
