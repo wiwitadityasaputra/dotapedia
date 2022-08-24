@@ -1,0 +1,14 @@
+<div class="dp-image-slideshow-box " [ngClass]="{'show': isShow}">
+    <div class="dp-image-slideshow-screen" >
+        <span (click)="close()" class="dp-image-slideshow-close">
+            <i class="fa fa-times-circle-o " aria-hidden="true"></i>
+        </span>
+        <span (click)="next()" class="dp-image-slideshow-right">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </span>
+        <span (click)="left()" class="dp-image-slideshow-left">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </span>
+        <img class="dp-image-slideshow-img" [src]="imageSrc" alt=""/>
+    </div>
+</div>

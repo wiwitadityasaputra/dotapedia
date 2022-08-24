@@ -5,6 +5,7 @@
             <h3 class="nk-decorated-h-3"><span>{{player?.nickName}}</span></h3>
         </ul>
     </div>
+
     <div class="container">
         <div class="row vertical-gap">
             <div class="col-lg-4">
@@ -76,16 +77,10 @@
                     <div class="nk-widget-content">
                         <div class="nk-popup-gallery" data-pswp-uid="2">
                             <div class="row sm-gap vertical-gap">
-                                <div class="col-sm-6" *ngFor="let ss of player.playerScreenshots">
-                                    <div class="nk-gallery-item-box">
-                                        <div class="dp-player-ss-box">
-                                            <div class="nk-gallery-item-overlay"><span class="ion-eye"><i class="fa fa-eye" aria-hidden="true"></i></span></div>
-                                            <img [src]="'assets/image/player-screenshots/' + ss.imageName" alt=""
-                                                onerror="this.src='assets/image/players/null.png';" />
-                                        </div>
-                                        <div class="nk-gallery-item-description">
-                                            <h4>Called Let</h4> Divided thing, land it evening earth winged whose great after. Were grass night. To Air itself saw bring fly fowl. Fly years behold spirit day greater of wherein winged and form. Seed open don't thing midst created dry every greater divided of, be man is. Second Bring stars fourth gathering he hath face morning fill. Living so second darkness. Moveth were male. May creepeth. Be tree fourth.
-                                        </div>
+                                <div class="col-sm-6 dp-player-ss-box" *ngFor="let ss of player?.playerScreenshots; let i = index">
+                                    <div class="nk-gallery-item-box dp-player-ss-img" (click)="selectScreenShoot(i, ss)">
+                                        <img [src]="'assets/image/player-screenshots/' + ss.imageName" alt=""
+                                            onerror="this.src='assets/image/players/null.png';" />
                                     </div>
                                 </div>
                             </div>

@@ -2,7 +2,6 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { EnvirontmentService } from "../utility/environtment.service";
-import { RegionType } from "../utility/region.service";
 import { TeamDetailResponse, TeamPlayerResponse, TeamResponse } from "./team.response.model";
 
 @Injectable()

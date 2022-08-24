@@ -33,6 +33,8 @@ import { PlayerService } from './player/player.service';
 import { NgttDoubleEliminationTreeModule } from './utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.module';
 import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
 import { PlayerDetailComponent } from './player/player-detail/player-detail.component';
+import { SlideShowComponent } from './utility/slide-show/slide-show.component';
+import { SlideShowService } from './utility/slide-show/slide-show.service';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { PlayerDetailComponent } from './player/player-detail/player-detail.comp
     PlayerDetailComponent,
 
     FooterComponent,
+    SlideShowComponent,
 
     RegionPipe,
     TournamentTypePipe,
@@ -73,6 +76,7 @@ import { PlayerDetailComponent } from './player/player-detail/player-detail.comp
     SeriesService,
     ScheduleService,
     PlayerService,
+    SlideShowService,
   ],
   bootstrap: [AppComponent]
 })
