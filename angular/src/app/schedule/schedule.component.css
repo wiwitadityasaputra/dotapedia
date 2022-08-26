@@ -2,6 +2,10 @@
     height: 84px;
     width: 84px;
 }
+.nk-widget-match-team-logo {
+    cursor: pointer;
+}
+
 .dp-tournament-image-wrapper img {
     height: 30px;
     width: 30px;
