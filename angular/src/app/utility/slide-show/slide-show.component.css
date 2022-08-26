@@ -1,3 +1,8 @@
+.dp-button {
+background: none;
+    color: #ffffff;
+    border: none;
+}
 .dp-image-slideshow-box {
     display: none;
     background-color: #000000;

@@ -33,7 +33,6 @@ export class TournamentAllComponent implements OnInit {
       const regionArray = regions.split(",");
       regionArray.forEach(r => {
         if (r && r.trim().length > 0) {
-          console.log('r = ', r)
           const region = this.regions.find( region => region.value == r);
           if (region) {
             region.checked = true;

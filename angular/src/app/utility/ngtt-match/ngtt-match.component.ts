@@ -1,6 +1,4 @@
-import {Component, Input, OnInit, Optional} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { SeriesComponent } from 'src/app/tournament/tournament-detail/series/series.component';
+import { Component, Input, OnInit } from '@angular/core';
 import { BracketSeriesResponse } from 'src/app/tournament/tournament.response.model';
 
 @Component({
@@ -12,15 +10,13 @@ export class NgttMatchComponent implements OnInit {
 
   @Input() match: BracketSeriesResponse;
 
-  constructor(@Optional() public dialog: MatDialog) {
+  constructor() {
   }
 
   ngOnInit() {
   }
 
   public openSeries(): void {
-    this.dialog
-    .open(SeriesComponent, { width: '100%', data: { seriesId: this.match.seriesId } })
-    .afterClosed().subscribe(result => {});
+
   }
 }

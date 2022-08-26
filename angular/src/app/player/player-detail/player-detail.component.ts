@@ -43,6 +43,6 @@ export class PlayerDetailComponent implements OnInit {
             imageSrcs: imageSrcs
         };
 
-        this.slideShowService.product.next(data);
+        this.slideShowService.show(data);
     }
 }

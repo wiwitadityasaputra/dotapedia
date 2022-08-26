@@ -1,4 +1,4 @@
 export interface SlideShowView {
-    imageSrcs: string[];
-    selected: number;
+    imageSrcs: string[] | null;
+    selected: number | null;
 }

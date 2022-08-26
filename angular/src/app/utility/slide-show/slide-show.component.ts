@@ -17,10 +17,13 @@ export class SlideShowComponent implements OnInit {
   constructor(private slideShowService: SlideShowService) { }
 
   ngOnInit(): void {
-    this.slideShowService.selectedProduct.subscribe((value: SlideShowView) => {
+    this.slideShowService.getObservable().subscribe((value: SlideShowView) => {
       if (value.imageSrcs) {
         this.imageSrcs = value.imageSrcs;
-        this.selected = value.selected;
+        if (value != null) {
+          this.selected = value.selected as number;
+        }
+        
 
         this.imageSrc = this.imageSrcs[this.selected];
         this.isShow = true;

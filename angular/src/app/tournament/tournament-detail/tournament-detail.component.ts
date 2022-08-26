@@ -1,6 +1,5 @@
-import { Component, OnInit, Optional, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment'
 import { NgttTournament } from "src/app/utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.model";
 import { TournamentSeriesResponse, TournamentDetailResponse, BracketSeriesResponse, RoundRoibinSeriesResponse, TournamentTeamResponse } from "../tournament.response.model";
@@ -28,8 +27,7 @@ export class TournamentDetailComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
     private tournamentService: TournamentService,
-    private router: Router,
-    @Optional() public dialog: MatDialog) {
+    private router: Router) {
   }
 
   ngOnInit(): void {
