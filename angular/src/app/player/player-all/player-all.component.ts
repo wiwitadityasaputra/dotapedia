@@ -14,6 +14,7 @@ export class PlayerAllComponent implements OnInit {
     public playerCountries: PlayerCountryView[] = [];
     public players: Player[];
     public countryFlag: boolean = false;
+    public isResetShow: boolean = false;
 
     constructor(private router: Router,
         private activatedRoute: ActivatedRoute,
@@ -61,6 +62,7 @@ export class PlayerAllComponent implements OnInit {
         });
 
         if (selectedCountries.length >= 1) {
+            this.isResetShow = true;
             this.playerService.getPlayerByCountries(selectedCountries).subscribe((response: Player[]) => {
                 this.players = response;
                 this.countryFlag = true;
@@ -68,10 +70,21 @@ export class PlayerAllComponent implements OnInit {
                 this.updateParam(selectedCountries);
             });
         } else {
+            this.isResetShow = false;
             this.players = [];
             this.countryFlag = false;
             this.updateParam(null);
         }
+    }
+
+    public resetSearching(): void {
+        this.playerCountries.forEach(pc => {
+            pc.selected = false;
+        });
+        this.isResetShow = false;
+
+        this.updatePlayers();
+        this.updateParam(null);
     }
 
     private updateParam(countries: string | null): void {

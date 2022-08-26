@@ -3,7 +3,12 @@
     padding-top: 0px;
 }
 .dp-player-countries-box .dp-player-countries-box-content form {
-    /* padding: 0px; */
+}
+.dp-player-countries-box .dp-reset {
+    display: none;
+}
+.dp-player-countries-box .dp-reset.show {
+    display: block;
 }
 
 .dp-player-countries-box .dp-search-player {
