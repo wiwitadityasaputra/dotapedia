@@ -21,6 +21,11 @@ import { SeriesService } from "./series.service";
     }
 
     ngOnInit(): void {
+      this.seriesService.getObservable().subscribe((seriesId: number) => {
+        if (!Number.isNaN(Number(seriesId))) {
+          this.open(seriesId);
+        }
+      });
     }
 
     close() {

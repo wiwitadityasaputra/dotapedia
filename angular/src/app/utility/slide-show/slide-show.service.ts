@@ -5,12 +5,12 @@ import { SlideShowView } from "./slide-show.view.model";
 @Injectable()
 export class SlideShowService {
     private item = new BehaviorSubject<SlideShowView>({ imageSrcs: null, selected: null });
-    private selectedItem: Observable<SlideShowView> = this.item.asObservable();
+    private observable: Observable<SlideShowView> = this.item.asObservable();
 
     constructor() {}
 
     public getObservable(): Observable<SlideShowView> {
-        return this.selectedItem;
+        return this.observable;
     }
 
     public show(data: SlideShowView): void {

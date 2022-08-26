@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SeriesService } from 'src/app/tournament/tournament-detail/series/series.service';
 import { BracketSeriesResponse } from 'src/app/tournament/tournament.response.model';
 
 @Component({
@@ -10,13 +11,13 @@ export class NgttMatchComponent implements OnInit {
 
   @Input() match: BracketSeriesResponse;
 
-  constructor() {
+  constructor(private seriesService: SeriesService) {
   }
 
   ngOnInit() {
   }
 
   public openSeries(): void {
-
+    this.seriesService.show(this.match.seriesId);
   }
 }

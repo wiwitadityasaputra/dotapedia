@@ -6,6 +6,7 @@ import { TournamentSeriesResponse, TournamentDetailResponse, BracketSeriesRespon
 import { TournamentService } from "../tournament.service";
 import { RoundSeriesWeekly } from "../tournament.view.model";
 import { SeriesComponent } from "./series/series.component";
+import { SeriesService } from "./series/series.service";
 import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.view.model";
 
 @Component({
@@ -23,10 +24,10 @@ export class TournamentDetailComponent implements OnInit {
   public teams: TeamParticipant[];
   public tournamentTeams: TournamentTeamResponse[];
   public seriesId: number;
-  @ViewChild(SeriesComponent) childSeries: SeriesComponent;
 
   constructor(private activatedRoute: ActivatedRoute,
     private tournamentService: TournamentService,
+    private seriesService: SeriesService,
     private router: Router) {
   }
 
@@ -223,7 +224,9 @@ export class TournamentDetailComponent implements OnInit {
   public openSeries(series: TournamentSeriesResponse): void {
     if (series.teamAScore || series.teamBScore) {
       this.seriesId = series.seriesId;
-      this.childSeries.open(series.seriesId);
+      // this.childSeries.open(series.seriesId);
+      this.seriesService.show(series.seriesId);
+
     }
   }
 
