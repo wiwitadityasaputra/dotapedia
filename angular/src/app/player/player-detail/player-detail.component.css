@@ -25,3 +25,19 @@
 .dp-player-ss-img {
     cursor: pointer;
 }
+
+.dp-quote-action {
+    width: 100%;
+}
+.dp-quote-action .dp-btn {
+    background-color: inherit;
+    border: none;
+    color: #ffffff;
+}
+.dp-quote-action .dp-btn:hover {
+    color: red;
+}
+.dp-quote-action .dp-btn-right {
+    position: absolute;
+    right: 30px;
+}

@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { SlideShowService } from "src/app/utility/slide-show/slide-show.service";
 import { SlideShowView } from "src/app/utility/slide-show/slide-show.view.model";
-import { PlayerDetailResponse, PlayerScreenshotResponse } from "../player.response.model";
+import { PlayerDetailResponse, PlayerQuoteResponse, PlayerScreenshotResponse } from "../player.response.model";
 import { PlayerService } from "../player.service";
 
 @Component({
@@ -13,6 +13,7 @@ import { PlayerService } from "../player.service";
 export class PlayerDetailComponent implements OnInit {
 
     public player: PlayerDetailResponse;
+    public quote: PlayerQuoteResponse;
 
     constructor(private router: Router,
         private activatedRoute: ActivatedRoute,
@@ -26,6 +27,10 @@ export class PlayerDetailComponent implements OnInit {
             this.playerService.getPlayerById(playerId)
                 .subscribe((player: PlayerDetailResponse) => {
                     this.player = player;
+
+                    if (this.player.quotes.length > 0) {
+                        this.quote = this.player.quotes[0];
+                    }
                 });
         });
     }
@@ -44,5 +49,21 @@ export class PlayerDetailComponent implements OnInit {
         };
 
         this.slideShowService.show(data);
+    }
+
+    public changeQuote(next: number): void {
+        const quotes = this.player.quotes;
+        const currentIndex = quotes.findIndex((q) => {
+            return q.content == this.quote.content && q.author == this.quote.author;
+        });
+
+        let nextIndex = currentIndex + next;
+        if (nextIndex < 0) {
+            nextIndex = quotes.length -1;
+        }
+        if (nextIndex >= quotes.length) {
+            nextIndex = 0;
+        }
+        this.quote = this.player.quotes[nextIndex];
     }
 }

@@ -7,6 +7,7 @@ import wiwitaditya.demo.dotapedia.controller.player.model.PlayerDetailResponse;
 import wiwitaditya.demo.dotapedia.controller.player.model.PlayerScreenshotResponse;
 import wiwitaditya.demo.dotapedia.db.entity.Player;
 import wiwitaditya.demo.dotapedia.db.entity.PlayerScreenshot;
+import wiwitaditya.demo.dotapedia.db.repository.PlayerQuoteRepository;
 import wiwitaditya.demo.dotapedia.db.repository.PlayerRepository;
 import wiwitaditya.demo.dotapedia.db.repository.PlayerScreenshotRepository;
 
@@ -22,6 +23,8 @@ public class PlayerService {
     private PlayerRepository playerRepository;
     @Autowired
     private PlayerScreenshotRepository screenshotRepository;
+    @Autowired
+    private PlayerQuoteRepository playerQuoteRepository;
 
     public List<PlayerCountry> findPlayerCountries() {
         return playerRepository.findPlayerCountries();
@@ -56,6 +59,8 @@ public class PlayerService {
             for (PlayerScreenshot ps: screenshotRepository.findScreenshots(playerId)) {
                 response.getPlayerScreenshots().add(new PlayerScreenshotResponse(ps.getId(), ps.getImageName()));
             }
+
+            response.setQuotes(playerQuoteRepository.findPlayerId(p.getId()));
         }
         return response;
     }

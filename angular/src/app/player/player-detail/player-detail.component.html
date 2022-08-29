@@ -98,9 +98,13 @@
                 <div class="nk-post-text mt-0 dp-player-info">
                     <blockquote class="nk-blockquote dp-player-quote">
                         <div class="nk-blockquote-icon"><span>"</span></div>
-                        <div class="nk-blockquote-content"> Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door. As if she had known them all her life. Indeed, she had quite a long argument with the Lory. </div>
-                        <div class="nk-blockquote-author"><span>Samuel Marlow</span></div>
+                        <div class="nk-blockquote-content">{{quote?.content}}</div>
+                        <div class="nk-blockquote-author"><span>{{quote?.author}}, &nbsp; {{quote?.createdDate | date: 'mediumDate'}}</span></div>
                     </blockquote>
+                    <div class="dp-quote-action" *ngIf="player?.quotes">
+                        <button (click)="changeQuote(-1)" class="dp-btn dp-btn-left"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button (click)="changeQuote(1)" class="dp-btn dp-btn-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                    </div>
                 </div>
 
                 <h3 class="nk-decorated-h"><span><span class="text-main-1">Team</span> Histories</span></h3>

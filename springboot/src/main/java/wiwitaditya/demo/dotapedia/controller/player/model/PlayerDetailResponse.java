@@ -16,4 +16,5 @@ public class PlayerDetailResponse {
     private String country;
     private String totalEarnings;
     private List<PlayerScreenshotResponse> playerScreenshots;
+    private List<PlayerQuoteResponse> quotes;
 }

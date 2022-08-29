@@ -22,6 +22,13 @@ export interface PlayerDetailResponse {
     roles: string;
     totalEarnings: string;
     playerScreenshots: PlayerScreenshotResponse[];
+    quotes: PlayerQuoteResponse[];
+}
+
+export interface PlayerQuoteResponse {
+    content: string;
+    author: string;
+    createdDate: number;
 }
 
 export interface PlayerScreenshotResponse {
