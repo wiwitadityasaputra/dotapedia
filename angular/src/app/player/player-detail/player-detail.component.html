@@ -89,9 +89,9 @@
                 </div>
             </div>
             <div class="col-lg-8">
-                <h3 class="nk-decorated-h"><span><span class="text-main-1">Player</span> Biography</span></h3>
-                <div class="nk-post-text mt-0 dp-player-info">
-                    <p class="dp-player-bio">Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door. The first question of course was, how to get dry again: they had a consultation about this, and after a few minutes it seemed quite natural to Alice to find herself talking familiarly with them, as if she had known them all her life. Indeed, she had quite a long argument with the Lory, who at last turned sulky, and would only say, `I am older than you, and must know better'; and this Alice would not allow without knowing how old it was, and, as the Lory positively refused to tell its age, there was no more to be said.</p>
+                <h3 *ngIf="biographies" class="nk-decorated-h"><span><span class="text-main-1">Player</span> Biography</span></h3>
+                <div *ngIf="biographies" class="nk-post-text mt-0 dp-player-info">
+                    <p *ngFor="let bio of biographies" class="dp-player-bio">{{bio}}</p>
                 </div>
 
                 <h3 class="nk-decorated-h"><span><span class="text-main-1">Friends</span> Quote</span></h3>

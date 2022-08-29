@@ -55,6 +55,7 @@ public class PlayerService {
             response.setNickName(p.getNickName());
             response.setTotalEarnings(p.getTotalEarnings());
             response.setRoles(p.getRoles());
+            response.setBiography(p.getBiography());
 
             response.setPlayerScreenshots(new ArrayList());
             for (PlayerScreenshot ps: screenshotRepository.findScreenshots(playerId)) {

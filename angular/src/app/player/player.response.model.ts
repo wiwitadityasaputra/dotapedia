@@ -26,6 +26,7 @@ export interface PlayerDetailResponse {
     nickName: string;
     roles: string;
     totalEarnings: string;
+    biography: string;
     playerScreenshots: PlayerScreenshotResponse[];
     quotes: PlayerQuoteResponse[];
 }

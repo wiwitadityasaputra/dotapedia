@@ -21,4 +21,5 @@ public class Player {
     private long dateOfBirth;
     private String country;
     private String totalEarnings;
+    private String biography;
 }

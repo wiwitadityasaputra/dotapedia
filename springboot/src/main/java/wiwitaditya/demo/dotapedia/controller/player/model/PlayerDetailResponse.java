@@ -15,6 +15,7 @@ public class PlayerDetailResponse {
     private long dateOfBirth;
     private String country;
     private String totalEarnings;
+    private String biography;
     private List<PlayerScreenshotResponse> playerScreenshots;
     private List<PlayerQuoteResponse> quotes;
 }

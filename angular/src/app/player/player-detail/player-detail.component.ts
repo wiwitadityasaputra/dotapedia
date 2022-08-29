@@ -14,6 +14,7 @@ export class PlayerDetailComponent implements OnInit {
 
     public player: PlayerDetailResponse;
     public quote: PlayerQuoteResponse;
+    public biographies: string[];
 
     constructor(private router: Router,
         private activatedRoute: ActivatedRoute,
@@ -27,6 +28,9 @@ export class PlayerDetailComponent implements OnInit {
             this.playerService.getPlayerById(playerId)
                 .subscribe((player: PlayerDetailResponse) => {
                     this.player = player;
+                    if (this.player.biography) {
+                        this.biographies = this.player.biography.split("\n");
+                    }
 
                     if (this.player.quotes.length > 0) {
                         this.quote = this.player.quotes[0];
