@@ -13,6 +13,11 @@ export interface Player {
     totalEarnings: string;
 }
 
+export interface PlayerByCountryResponse {
+    id: number;
+    nickName: string;
+}
+
 export interface PlayerDetailResponse {
     country: string;
     dateOfBirth: number;

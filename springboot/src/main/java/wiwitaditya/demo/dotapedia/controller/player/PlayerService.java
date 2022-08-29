@@ -3,6 +3,7 @@ package wiwitaditya.demo.dotapedia.controller.player;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import wiwitaditya.demo.dotapedia.controller.player.model.PlayerByCountryResponse;
 import wiwitaditya.demo.dotapedia.controller.player.model.PlayerDetailResponse;
 import wiwitaditya.demo.dotapedia.controller.player.model.PlayerScreenshotResponse;
 import wiwitaditya.demo.dotapedia.db.entity.Player;
@@ -30,17 +31,17 @@ public class PlayerService {
         return playerRepository.findPlayerCountries();
     }
 
-    public List<Player> findByCounties(String countries) {
+    public List<PlayerByCountryResponse> findByCounties(String countries) {
         log.debug("inside findByCounties");
         if (countries == null) {
-            return playerRepository.findAll();
+            return playerRepository.findByCountries();
         }
         List<String> countryList = new ArrayList();
         Arrays.stream(countries.split(",")).forEach( country -> {
             countryList.add(country);
         });
         log.debug("countryList.size = {}", countryList.size());
-        return playerRepository.findByCounties(countryList);
+        return playerRepository.findByCountries(countryList);
     }
 
     public PlayerDetailResponse findById(int playerId) {

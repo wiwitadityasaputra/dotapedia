@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Player, PlayerCountry } from "../player.response.model";
+import { PlayerByCountryResponse, PlayerCountry } from "../player.response.model";
 import { PlayerService } from "../player.service";
 import { PlayerCountryView } from "../player.view.model";
 
@@ -12,7 +12,7 @@ import { PlayerCountryView } from "../player.view.model";
 export class PlayerAllComponent implements OnInit {
 
     public playerCountries: PlayerCountryView[] = [];
-    public players: Player[];
+    public players: PlayerByCountryResponse[];
     public countryFlag: boolean = false;
     public isResetShow: boolean = false;
 
@@ -63,7 +63,7 @@ export class PlayerAllComponent implements OnInit {
 
         if (selectedCountries.length >= 1) {
             this.isResetShow = true;
-            this.playerService.getPlayerByCountries(selectedCountries).subscribe((response: Player[]) => {
+            this.playerService.getPlayerByCountries(selectedCountries).subscribe((response: PlayerByCountryResponse[]) => {
                 this.players = response;
                 this.countryFlag = true;
 

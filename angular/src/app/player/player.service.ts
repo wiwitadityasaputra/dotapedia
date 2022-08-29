@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { EnvirontmentService } from "../utility/environtment.service";
-import { Player, PlayerCountry, PlayerDetailResponse } from "./player.response.model";
+import { PlayerByCountryResponse, PlayerCountry, PlayerDetailResponse } from "./player.response.model";
 
 @Injectable()
 export class PlayerService {
@@ -16,9 +16,9 @@ export class PlayerService {
         return this.http.get<PlayerCountry[]>(url);
     }
 
-    public getPlayerByCountries(countries: string): Observable<Player[]> {
+    public getPlayerByCountries(countries: string): Observable<PlayerByCountryResponse[]> {
         var url = this.environtment.getServerUrl() + this.API_PATH + "?countries=" + countries;
-        return this.http.get<Player[]>(url);
+        return this.http.get<PlayerByCountryResponse[]>(url);
     }
 
     public getPlayerById(playerId: number): Observable<PlayerDetailResponse> {

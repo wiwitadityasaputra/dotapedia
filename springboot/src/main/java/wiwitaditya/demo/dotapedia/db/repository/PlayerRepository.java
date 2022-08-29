@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import wiwitaditya.demo.dotapedia.controller.player.PlayerCountry;
+import wiwitaditya.demo.dotapedia.controller.player.model.PlayerByCountryResponse;
 import wiwitaditya.demo.dotapedia.db.entity.Player;
 
 import java.util.List;
@@ -23,6 +24,13 @@ public interface PlayerRepository extends JpaRepository<Player, Integer> {
             "FROM player GROUP BY country ORDER BY country ASC", nativeQuery = true)
     List<PlayerCountry> findPlayerCountries();
 
-    @Query(value = "SELECT * FROM player where country IN (:countries)", nativeQuery = true)
-    List<Player> findByCounties(@Param("countries") List<String> countries);
+    @Query(value = "SELECT player_id as id, " +
+            "  nick_name as nickName " +
+            "FROM player where country IN (:countries)", nativeQuery = true)
+    List<PlayerByCountryResponse> findByCountries(@Param("countries") List<String> countries);
+
+    @Query(value = "SELECT player_id as id, " +
+            "  nick_name as nickName " +
+            "FROM player ", nativeQuery = true)
+    List<PlayerByCountryResponse> findByCountries();
 }
