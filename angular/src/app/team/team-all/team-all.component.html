@@ -29,7 +29,9 @@
                     <div class="nk-team-cont">
                         <h4 class="h6 mb-5">Players:</h4>
                         <ul class="text-main-1 pl-20">
-                            <li *ngFor="let player of team.players">
+                            <li *ngFor="let player of team.players"
+                                routerLink="/player/{{player.playerId}}"
+                                class="dp-player-link">
                                 <strong class="text-white">{{player.nickName}}</strong>
                             </li>
                         </ul>

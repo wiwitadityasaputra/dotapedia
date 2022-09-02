@@ -23,3 +23,7 @@
     margin: auto;
     cursor: pointer;
 }
+
+.dp-player-link {
+    cursor: pointer;
+}
