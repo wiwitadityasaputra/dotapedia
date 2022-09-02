@@ -33,4 +33,9 @@ public interface PlayerRepository extends JpaRepository<Player, Integer> {
             "  nick_name as nickName " +
             "FROM player ", nativeQuery = true)
     List<PlayerByCountryResponse> findByCountries();
+
+    @Query(value = "SELECT player_id as id, " +
+            "  nick_name as nickName " +
+            "FROM player ORDER BY total_earnings DESC LIMIT 3", nativeQuery = true)
+    List<PlayerByCountryResponse> findTop3Players();
 }

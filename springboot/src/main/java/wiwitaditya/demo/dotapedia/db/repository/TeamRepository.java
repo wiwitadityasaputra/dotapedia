@@ -77,4 +77,7 @@ public interface TeamRepository extends JpaRepository<Team, Integer> {
             "ORDER BY s.start_date DESC LIMIT :limit OFFSET :offset ",
             nativeQuery = true)
     List<ScheduleResponse> findUpcomingMatchByTeam(@Param("teamId") int teamId, @Param("limit") int limit, @Param("offset") int offset);
+
+    @Query(value = "SELECT * FROM team ORDER BY total_earnings DESC LIMIT 3", nativeQuery = true)
+    List<Team> findTop3Teams();
 }
