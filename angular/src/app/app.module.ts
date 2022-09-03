@@ -35,6 +35,7 @@ import { NgttMatchModule } from './utility/ngtt-match/ngtt-match.module';
 import { PlayerDetailComponent } from './player/player-detail/player-detail.component';
 import { SlideShowComponent } from './utility/slide-show/slide-show.component';
 import { SlideShowService } from './utility/slide-show/slide-show.service';
+import { HomeService } from './home/home.service';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { SlideShowService } from './utility/slide-show/slide-show.service';
     ScheduleService,
     PlayerService,
     SlideShowService,
+    HomeService,
   ],
   bootstrap: [AppComponent]
 })

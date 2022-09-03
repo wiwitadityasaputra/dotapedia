@@ -8,3 +8,24 @@ p {
     direction: rtl;
     text-align: left;
 }
+
+
+.dp-next-match-team-logo {
+    cursor: pointer;
+}
+.dp-next-match-team-logo img {
+    height: 70px;
+    width: 70px;
+}
+.dp-tournament-image-wrapper-prev-match img {
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.dp-post-title {
+    margin-bottom: 0px;
+}
+.dp-post-info {
+    margin-top: 5px;
+}
