@@ -9,6 +9,7 @@ import { TeamDeatilComponent } from './team/team-detail/team-detail.component';
 import { TeamAllComponent } from './team/team-all/team-all.component';
 import { PlayerAllComponent } from './player/player-all/player-all.component';
 import { PlayerDetailComponent } from './player/player-detail/player-detail.component';
+import { NewsComponent } from './news/news.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { name: 'home' } },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'team/:teamId', component: TeamDeatilComponent, data: { name: 'team-detail' } },
   { path: 'hero', component: HeroComponent, data: { name: 'hero' } },
   { path: 'schedule', component: ScheduleComponent, data: { name: 'schedule' } },
+  { path: 'news', component: NewsComponent, data: { name: 'news' } },
 ];
 
 @NgModule({

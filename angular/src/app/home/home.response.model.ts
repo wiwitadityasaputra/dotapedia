@@ -1,3 +1,4 @@
+import { NewsApiArticle } from "../news/news.response.model";
 import { PlayerByCountryResponse } from "../player/player.response.model";
 import { ScheduleResponse } from "../schedule/schedule.response.model";
 import { TeamResponse } from "../team/team.response.model";
@@ -15,14 +16,4 @@ export interface TopHeroResponse {
     name: string;
     imageName: string;
     total: number;
-}
-
-export interface NewsApiArticle {
-    author: string;
-    title: string;
-    description: string;
-    url: string;
-    urlToImage: string;
-    publishedAt: string;
-    content: string;
 }

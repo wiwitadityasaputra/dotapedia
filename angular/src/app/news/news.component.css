@@ -1,0 +1,17 @@
+.dp-blog-fullwidth {
+    background: #2f3541;
+}
+.dp-post-text {
+    background: #2a2e38;
+    color: #ffffff;
+    padding: 10px;
+}
+.dp-post-by {
+    background: #2a2e38;
+    color: #ffffff;
+    padding: 5px;
+}
+.dp-post-img img {
+    max-width: 1920px;
+    max-height: 459px;
+}

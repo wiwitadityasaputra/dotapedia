@@ -36,6 +36,8 @@ import { PlayerDetailComponent } from './player/player-detail/player-detail.comp
 import { SlideShowComponent } from './utility/slide-show/slide-show.component';
 import { SlideShowService } from './utility/slide-show/slide-show.service';
 import { HomeService } from './home/home.service';
+import { NewsService } from './news/news.service';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { HomeService } from './home/home.service';
     ScheduleComponent,
     PlayerAllComponent,
     PlayerDetailComponent,
+    NewsComponent,
 
     FooterComponent,
     SlideShowComponent,
@@ -79,6 +82,7 @@ import { HomeService } from './home/home.service';
     PlayerService,
     SlideShowService,
     HomeService,
+    NewsService,
   ],
   bootstrap: [AppComponent]
 })
