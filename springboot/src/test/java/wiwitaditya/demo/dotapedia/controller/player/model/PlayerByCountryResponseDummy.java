@@ -1,5 +1,8 @@
 package wiwitaditya.demo.dotapedia.controller.player.model;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class PlayerByCountryResponseDummy {
 
     public static PlayerByCountryResponse get() {
@@ -14,5 +17,9 @@ public class PlayerByCountryResponseDummy {
                 return "nick-name";
             }
         };
+    }
+
+    public static List<PlayerByCountryResponse> findTop3Players() {
+        return Arrays.asList(get());
     }
 }

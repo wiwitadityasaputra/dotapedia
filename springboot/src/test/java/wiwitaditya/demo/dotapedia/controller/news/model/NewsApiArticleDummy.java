@@ -1,5 +1,8 @@
 package wiwitaditya.demo.dotapedia.controller.news.model;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class NewsApiArticleDummy {
 
     public static NewsApiArticle get() {
@@ -12,5 +15,9 @@ public class NewsApiArticleDummy {
         article.setPublishedAt("published-at");
         article.setContent("content");
         return article;
+    }
+
+    public static List<NewsApiArticle> getNews() {
+        return Arrays.asList(get(), get(), get(), get(), get(), get());
     }
 }

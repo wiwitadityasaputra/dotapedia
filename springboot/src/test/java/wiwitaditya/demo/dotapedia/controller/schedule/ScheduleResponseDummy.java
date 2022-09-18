@@ -1,5 +1,8 @@
 package wiwitaditya.demo.dotapedia.controller.schedule;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class ScheduleResponseDummy {
 
     public static ScheduleResponse get() {
@@ -16,5 +19,9 @@ public class ScheduleResponseDummy {
             @Override public String getTournamentName() { return "tournament-name"; }
             @Override public String getTournamentImage() { return "tournament-image"; }
         };
+    }
+
+    public static List<ScheduleResponse> findUpcomingMatch() {
+        return Arrays.asList(get());
     }
 }

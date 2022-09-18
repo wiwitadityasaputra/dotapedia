@@ -37,8 +37,8 @@ public class HomeService {
         });
 
         HomeResponse response = new HomeResponse();
-        response.setNews(newsApiService.getNews().subList(0, 2));
         response.setTop3Teams(top3Teams);
+        response.setNews(newsApiService.getNews().subList(0, 2));
         response.setTop3Players(playerRepository.findTop3Players());
         response.setTop6Heroes(heroRepository.findTop6Hero());
         response.setUpcomingMatch(scheduleService.findUpcomingMatch());
