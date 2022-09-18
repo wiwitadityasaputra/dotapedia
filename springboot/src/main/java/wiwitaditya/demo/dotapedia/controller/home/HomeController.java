@@ -18,7 +18,7 @@ public class HomeController {
     }
 
     @GetMapping(name = "/")
-    public HomeResponse getNews() {
+    public HomeResponse getHome() {
         return this.homeService.getHome();
     }
 }
