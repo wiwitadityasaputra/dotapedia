@@ -17,7 +17,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 
-
 @Slf4j
 @ExtendWith(MockitoExtension.class)
 public class HeroServiceTest {
