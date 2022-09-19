@@ -1,6 +1,7 @@
 package wiwitaditya.demo.dotapedia.controller.hero;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,11 +14,8 @@ import java.util.List;
 @RequestMapping(path = "/api/heroes")
 public class HeroController {
 
-    private final HeroService heroService;
-
-    public HeroController(HeroService heroService) {
-        this.heroService = heroService;
-    }
+    @Autowired
+    private HeroService heroService;
 
     @GetMapping(name = "/")
     public List getAllHeroes(@RequestParam(name = "heroType", required = false) String heroType) {
