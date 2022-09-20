@@ -1,6 +1,7 @@
 package wiwitaditya.demo.dotapedia.controller.news;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,20 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class NewsApiService {
 
+    @Value(value = "${dotapedia.newsapi.scheme}")
+    private String scheme;
+
+    @Value(value = "${dotapedia.newsapi.host}")
+    private String host;
+
+    @Value(value = "${dotapedia.newsapi.path}")
+    private String path;
+
     @Value(value = "${dotapedia.newsapi.apikey}")
     private String apikey;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     private List<NewsApiArticle> articles;
     private Date latestUpdate = new Date();
@@ -33,11 +46,10 @@ public class NewsApiService {
         log.debug("inside diffInMillies({}), diff({}), doUpdate({})", diffInMillies, diff, doUpdate);
 
         if (this.articles == null || doUpdate) {
-            RestTemplate restTemplate = new RestTemplate();
             UriComponentsBuilder builder = UriComponentsBuilder.newInstance()
-                    .scheme("https")
-                    .host("newsapi.org")
-                    .path("v2/top-headlines")
+                    .scheme(scheme)
+                    .host(host)
+                    .path(path)
                     .queryParam("sources", "techcrunch")
                     .queryParam("apiKey", apikey);
             URI uri = builder.build().toUri();
