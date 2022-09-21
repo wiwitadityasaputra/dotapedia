@@ -8,7 +8,7 @@ $ mvn clean spring-boot:run
 ##### test
 $ cd springboot
 $ mvn clean test
-$ mvn clean test -Dtest=HeroControllerTest
+$ mvn clean test -Dtest=NewsApiServiceTest
 $ mvn clean test -Dtest=HeroControllerTest#getAllHeroes_heroType_null
 
 ### angular

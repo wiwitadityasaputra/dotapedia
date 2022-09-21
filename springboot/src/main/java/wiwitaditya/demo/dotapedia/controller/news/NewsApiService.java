@@ -2,7 +2,6 @@ package wiwitaditya.demo.dotapedia.controller.news;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -18,40 +17,31 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Service
 public class NewsApiService {
-
-    @Value(value = "${dotapedia.newsapi.scheme}")
-    private String scheme;
-
-    @Value(value = "${dotapedia.newsapi.host}")
-    private String host;
-
-    @Value(value = "${dotapedia.newsapi.path}")
-    private String path;
-
-    @Value(value = "${dotapedia.newsapi.apikey}")
-    private String apikey;
-
     @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    private NewsApiConfig newsApiConfig;
 
     private List<NewsApiArticle> articles;
     private Date latestUpdate = new Date();
 
     private void checkUpdate() {
         log.debug("inside checkUpdate()");
+        log.debug("updateInterval = {}", newsApiConfig.getUpdateInterval());
         long diffInMillies = Math.abs(latestUpdate.getTime() - (new Date()).getTime());
         long diff = TimeUnit.MINUTES.convert(diffInMillies, TimeUnit.MILLISECONDS);
-        boolean doUpdate = diff >= 10;
-        log.debug("this.articles == null = ", (this.articles == null));
+        boolean doUpdate = diff >= newsApiConfig.getUpdateInterval();
+        log.debug("this.articles == null, {}", (this.articles == null));
         log.debug("inside diffInMillies({}), diff({}), doUpdate({})", diffInMillies, diff, doUpdate);
 
         if (this.articles == null || doUpdate) {
             UriComponentsBuilder builder = UriComponentsBuilder.newInstance()
-                    .scheme(scheme)
-                    .host(host)
-                    .path(path)
-                    .queryParam("sources", "techcrunch")
-                    .queryParam("apiKey", apikey);
+                .scheme(newsApiConfig.getScheme())
+                .host(newsApiConfig.getHost())
+                .path(newsApiConfig.getPath())
+                .queryParam("sources", "techcrunch")
+                .queryParam("apiKey", newsApiConfig.getApikey());
             URI uri = builder.build().toUri();
             log.debug("uri = {}", uri);
             ResponseEntity<NewsApiResponse> response = restTemplate.getForEntity(uri, NewsApiResponse.class);
