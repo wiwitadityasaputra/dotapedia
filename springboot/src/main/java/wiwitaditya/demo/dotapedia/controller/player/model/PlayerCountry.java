@@ -1,4 +1,4 @@
-package wiwitaditya.demo.dotapedia.controller.player;
+package wiwitaditya.demo.dotapedia.controller.player.model;
 
 public interface PlayerCountry {
     String getCountry();

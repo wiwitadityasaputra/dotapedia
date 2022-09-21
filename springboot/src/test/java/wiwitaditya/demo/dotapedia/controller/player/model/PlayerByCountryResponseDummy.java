@@ -20,6 +20,10 @@ public class PlayerByCountryResponseDummy {
     }
 
     public static List<PlayerByCountryResponse> findTop3Players() {
+        return Arrays.asList(get(), get(), get());
+    }
+
+    public static List<PlayerByCountryResponse> findByCountries() {
         return Arrays.asList(get());
     }
 }

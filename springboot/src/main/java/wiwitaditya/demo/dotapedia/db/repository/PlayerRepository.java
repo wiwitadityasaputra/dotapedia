@@ -3,7 +3,7 @@ package wiwitaditya.demo.dotapedia.db.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import wiwitaditya.demo.dotapedia.controller.player.PlayerCountry;
+import wiwitaditya.demo.dotapedia.controller.player.model.PlayerCountry;
 import wiwitaditya.demo.dotapedia.controller.player.model.PlayerByCountryResponse;
 import wiwitaditya.demo.dotapedia.db.entity.Player;
 

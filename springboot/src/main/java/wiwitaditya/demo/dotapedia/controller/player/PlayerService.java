@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import wiwitaditya.demo.dotapedia.controller.player.model.PlayerByCountryResponse;
+import wiwitaditya.demo.dotapedia.controller.player.model.PlayerCountry;
 import wiwitaditya.demo.dotapedia.controller.player.model.PlayerDetailResponse;
 import wiwitaditya.demo.dotapedia.controller.player.model.PlayerScreenshotResponse;
 import wiwitaditya.demo.dotapedia.db.entity.Player;
@@ -31,8 +32,8 @@ public class PlayerService {
         return playerRepository.findPlayerCountries();
     }
 
-    public List<PlayerByCountryResponse> findByCounties(String countries) {
-        log.debug("inside findByCounties");
+    public List<PlayerByCountryResponse> findByCountries(String countries) {
+        log.debug("inside findByCountries");
         if (countries == null) {
             return playerRepository.findByCountries();
         }
