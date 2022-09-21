@@ -24,4 +24,8 @@ public class ScheduleResponseDummy {
     public static List<ScheduleResponse> findUpcomingMatch() {
         return Arrays.asList(get());
     }
+
+    public static List<ScheduleResponse> findLatestMatch() {
+        return Arrays.asList(get());
+    }
 }
