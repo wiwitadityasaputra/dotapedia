@@ -1,6 +1,5 @@
-package wiwitaditya.demo.dotapedia.db;
+package wiwitaditya.demo.dotapedia.db.entity;
 
-import wiwitaditya.demo.dotapedia.db.entity.Team;
 import wiwitaditya.demo.dotapedia.db.utility.Region;
 
 import java.util.ArrayList;

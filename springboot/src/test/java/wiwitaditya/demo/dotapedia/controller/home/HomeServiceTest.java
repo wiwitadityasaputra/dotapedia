@@ -14,7 +14,7 @@ import wiwitaditya.demo.dotapedia.controller.news.model.NewsApiArticleDummy;
 import wiwitaditya.demo.dotapedia.controller.player.model.PlayerByCountryResponseDummy;
 import wiwitaditya.demo.dotapedia.controller.schedule.ScheduleResponseDummy;
 import wiwitaditya.demo.dotapedia.controller.schedule.ScheduleService;
-import wiwitaditya.demo.dotapedia.db.TeamDummy;
+import wiwitaditya.demo.dotapedia.db.entity.TeamDummy;
 import wiwitaditya.demo.dotapedia.db.repository.HeroRepository;
 import wiwitaditya.demo.dotapedia.db.repository.PlayerRepository;
 import wiwitaditya.demo.dotapedia.db.repository.TeamRepository;

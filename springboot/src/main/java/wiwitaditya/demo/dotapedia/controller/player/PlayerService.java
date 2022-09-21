@@ -16,6 +16,7 @@ import wiwitaditya.demo.dotapedia.db.repository.PlayerScreenshotRepository;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Component
@@ -46,6 +47,7 @@ public class PlayerService {
     }
 
     public PlayerDetailResponse findById(int playerId) {
+        log.debug("inside findById playerId = {}", playerId);
         PlayerDetailResponse response = new PlayerDetailResponse();
         Player p = playerRepository.findById(playerId).orElse(null);
         if (p != null) {
