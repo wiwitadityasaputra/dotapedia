@@ -1,5 +1,6 @@
 package wiwitaditya.demo.dotapedia.controller.series;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import wiwitaditya.demo.dotapedia.controller.series.model.SeriesResponse;
@@ -9,6 +10,7 @@ import wiwitaditya.demo.dotapedia.db.repository.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Component
 public class SeriesService {
 
@@ -29,7 +31,6 @@ public class SeriesService {
 
     public SeriesResponse getSeries(int seriesId) {
         Series series = seriesRepository.findById(seriesId).orElse(null);
-
         if (series == null) {
             return new SeriesResponse();
         }

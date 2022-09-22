@@ -1,5 +1,6 @@
 package wiwitaditya.demo.dotapedia.controller.series;
 
+import lombok.extern.slf4j.Slf4j;
 import wiwitaditya.demo.dotapedia.controller.series.model.GameResponse;
 import wiwitaditya.demo.dotapedia.controller.series.model.PlayerGameResponse;
 import wiwitaditya.demo.dotapedia.controller.series.model.SeriesResponse;
@@ -8,6 +9,7 @@ import wiwitaditya.demo.dotapedia.db.entity.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class SeriesMapping {
 
     public static SeriesResponse toSeriesResponse(Series series, Team teamA, Team teamB, List<Game> games,
@@ -16,7 +18,6 @@ public class SeriesMapping {
         List<GameResponse> gameResponses = new ArrayList();
         for (Game game: games) {
             GameResponse gameResponse = toGameResponse(game, teamA, teamB);
-
             playerGames.stream()
                 .filter( pg -> pg.getGameId().equals(game.getId()) )
                 .forEach( pg -> {
