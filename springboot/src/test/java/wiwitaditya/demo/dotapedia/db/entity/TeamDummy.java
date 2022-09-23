@@ -3,6 +3,7 @@ package wiwitaditya.demo.dotapedia.db.entity;
 import wiwitaditya.demo.dotapedia.db.utility.Region;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TeamDummy {
@@ -26,5 +27,13 @@ public class TeamDummy {
         team.setTotalEarnings(2l);
         team.setBiography("biography");
         return team;
+    }
+
+    public static List<Team> findTeamOrderByEarningsDesc() {
+        return Arrays.asList(get());
+    }
+
+    public static List<Team> findTeamByRegion() {
+        return Arrays.asList(get());
     }
 }

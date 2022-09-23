@@ -44,7 +44,7 @@ public class TeamService {
 
     public TeamDetail getTeam(int teamId) {
         Optional<Team> optional = teamRepository.findById(teamId);
-        if (optional == null) {
+        if (!optional.isPresent()) {
             return null;
         }
         TeamDetail response = new TeamDetail();
