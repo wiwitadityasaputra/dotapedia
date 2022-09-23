@@ -13,6 +13,7 @@ public class TeamResponse {
     private Integer teamId;
     private String name;
     private String shortName;
+
     private String image;
     private Region region;
     private String sponsors;

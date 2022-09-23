@@ -2,6 +2,9 @@ package wiwitaditya.demo.dotapedia.controller.team.model;
 
 import wiwitaditya.demo.dotapedia.db.utility.Region;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class TeamResponseDummy {
 
     public static TeamResponse get() {
@@ -14,5 +17,9 @@ public class TeamResponseDummy {
         teamResponse.setSponsors("sponsors");
         teamResponse.setTotalEarnings(2);
         return teamResponse;
+    }
+
+    public static List<TeamResponse> getTeamAndRoster() {
+        return Arrays.asList(get());
     }
 }
