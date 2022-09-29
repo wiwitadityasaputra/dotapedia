@@ -13,7 +13,15 @@ public class PlayerRoleDummy {
         return pg;
     }
 
+    public static PlayerRole getById(int id) {
+        PlayerRole pg = new PlayerRole();
+        pg.setId(id);
+        pg.setName("name");
+        pg.setActive(true);
+        return pg;
+    }
+
     public static List<PlayerRole> findAll() {
-        return Arrays.asList(get());
+        return Arrays.asList(getById(6));
     }
 }

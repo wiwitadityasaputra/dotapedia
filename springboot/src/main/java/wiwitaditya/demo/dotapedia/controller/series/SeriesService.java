@@ -30,6 +30,7 @@ public class SeriesService {
     private HeroRepository heroRepository;
 
     public SeriesResponse getSeries(int seriesId) {
+        log.info("getSereis seriesId = {}", seriesId);
         Series series = seriesRepository.findById(seriesId).orElse(null);
         if (series == null) {
             return new SeriesResponse();
@@ -48,6 +49,7 @@ public class SeriesService {
             heroIds.add(pg.getHeroId());
         });
 
+        log.info("teamA id = {}, teamB id = {}", series.getTeamIdA(), series.getTeamIdB());
         Team teamA = teamRepository.findById(series.getTeamIdA()).orElse(null);
         Team teamB = teamRepository.findById(series.getTeamIdB()).orElse(null);
         List<Player> players = playerRepository.findByPlayerIds(playerIds);

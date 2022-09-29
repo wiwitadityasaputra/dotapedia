@@ -62,13 +62,14 @@ public class SeriesServiceTest {
         Mockito.when(gameRepository.findBySeriesId(anyInt())).thenReturn(games);
         List<PlayerGame> playerGames = PlayerGameDummy.findByGameId();
         Mockito.when(playerGameRepository.findByGameId(anyInt())).thenReturn(playerGames);
-        Team team = TeamDummy.get();
-        Mockito.when(teamRepository.findById(anyInt())).thenReturn(Optional.of(team));
-        Mockito.when(teamRepository.findById(anyInt())).thenReturn(Optional.of(team));
+        Mockito.when(teamRepository.findById(2)).thenReturn(Optional.of(TeamDummy.getByTeamId(2)));
+        Mockito.when(teamRepository.findById(3)).thenReturn(Optional.of(TeamDummy.getByTeamId(3)));
         List<PlayerRole> playerRoles = PlayerRoleDummy.findAll();
         Mockito.when(playerRoleRepository.findAll()).thenReturn(playerRoles);
         List<Hero> heroes = HeroDummy.findByHeroIds();
         Mockito.when(heroRepository.findByHeroIds(any())).thenReturn(heroes);
+        List<Player> players = PlayerDummy.findByPlayerIds();
+        Mockito.when(playerRepository.findByPlayerIds(any())).thenReturn(players);
 
         SeriesResponse result = seriesService.getSeries(1);
         assertNotNull(result);
