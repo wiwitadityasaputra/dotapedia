@@ -10,12 +10,12 @@ public interface SeriesResponse {
     Integer getTeamAScore();
     String getTeamAName();
     String getTeamAShortName();
-    String getTteamAImage();
+    String getTeamAImage();
 
     Integer getTeamBId();
     Integer getTeamBScore();
     String getTeamBName();
     String getTeamBShortName();
-    String getTteamBImage();
+    String getTeamBImage();
 
 }
