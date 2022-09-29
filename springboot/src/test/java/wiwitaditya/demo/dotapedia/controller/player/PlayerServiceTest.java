@@ -3,7 +3,6 @@ package wiwitaditya.demo.dotapedia.controller.player;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -20,6 +19,7 @@ import wiwitaditya.demo.dotapedia.db.repository.PlayerScreenshotRepository;
 import java.util.List;
 import java.util.Optional;
 
+import static org.mockito.ArgumentMatchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
@@ -65,7 +65,7 @@ public class PlayerServiceTest {
     @Test
     public void findByCountries_countries_notnull() {
         List<PlayerByCountryResponse> list = PlayerByCountryResponseDummy.findByCountries();
-        Mockito.when(playerRepository.findByCountries(ArgumentMatchers.any())).thenReturn(list);
+        Mockito.when(playerRepository.findByCountries(any())).thenReturn(list);
 
         List<PlayerByCountryResponse> result = playerService.findByCountries("CANADA");
 
@@ -81,9 +81,9 @@ public class PlayerServiceTest {
         List<PlayerScreenshot> playerScreenshots = PlayerScreenshotDummy.findScreenshots();
         List<PlayerQuoteResponse> playerQuoteResponses = PlayerQuoteResponseDummy.findPlayerId();
 
-        Mockito.when(playerRepository.findById(ArgumentMatchers.anyInt())).thenReturn(Optional.of(player));
-        Mockito.when(screenshotRepository.findScreenshots(ArgumentMatchers.anyInt())).thenReturn(playerScreenshots);
-        Mockito.when(playerQuoteRepository.findPlayerId(ArgumentMatchers.anyInt())).thenReturn(playerQuoteResponses);
+        Mockito.when(playerRepository.findById(anyInt())).thenReturn(Optional.of(player));
+        Mockito.when(screenshotRepository.findScreenshots(anyInt())).thenReturn(playerScreenshots);
+        Mockito.when(playerQuoteRepository.findPlayerId(anyInt())).thenReturn(playerQuoteResponses);
 
         PlayerDetailResponse result = playerService.findById(1);
         assertNotNull(result);
@@ -109,7 +109,7 @@ public class PlayerServiceTest {
 
     @Test
     public void findById_unknownid() {
-        Mockito.when(playerRepository.findById(ArgumentMatchers.anyInt())).thenReturn(Optional.empty());
+        Mockito.when(playerRepository.findById(anyInt())).thenReturn(Optional.empty());
         PlayerDetailResponse result = playerService.findById(1);
 
         assertNotNull(result);

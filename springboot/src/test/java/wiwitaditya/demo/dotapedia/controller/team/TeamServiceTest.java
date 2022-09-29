@@ -3,7 +3,6 @@ package wiwitaditya.demo.dotapedia.controller.team;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -18,6 +17,7 @@ import wiwitaditya.demo.dotapedia.db.repository.TeamRepository;
 import java.util.List;
 import java.util.Optional;
 
+import static org.mockito.ArgumentMatchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
@@ -51,7 +51,7 @@ public class TeamServiceTest {
     @Test
     public void getTeamAndRoster_region_valid() {
         List<Team> teams = TeamDummy.findTeamByRegion();
-        Mockito.when(teamRepository.findTeamByRegion(ArgumentMatchers.anyString())).thenReturn(teams);
+        Mockito.when(teamRepository.findTeamByRegion(anyString())).thenReturn(teams);
 
         List<TeamResponse> result = teamService.getTeamAndRoster("CHINA");
 
@@ -69,7 +69,7 @@ public class TeamServiceTest {
     @Test
     public void findActivePlayerByTeamId() {
         List<TeamPlayer> teamPlayers = TeamPlayerDummy.findActivePlayerByTeamId();
-        Mockito.when(teamRepository.findActivePlayerByTeamId(ArgumentMatchers.anyInt())).thenReturn(teamPlayers);
+        Mockito.when(teamRepository.findActivePlayerByTeamId(anyInt())).thenReturn(teamPlayers);
 
         List<TeamPlayer> result = teamService.findActivePlayerByTeamId(3);
         assertNotNull(result);
@@ -83,7 +83,7 @@ public class TeamServiceTest {
 
     @Test
     public void getTeam_team_null() {
-        Mockito.when(teamRepository.findById(ArgumentMatchers.anyInt())).thenReturn(Optional.empty());
+        Mockito.when(teamRepository.findById(anyInt())).thenReturn(Optional.empty());
 
         TeamDetail result = teamService.getTeam(1);
 
@@ -93,12 +93,12 @@ public class TeamServiceTest {
     @Test
     public void getTeam_team_exist() {
         Team team = TeamDummy.get();
-        Mockito.when(teamRepository.findById(ArgumentMatchers.anyInt())).thenReturn(Optional.of(team));
+        Mockito.when(teamRepository.findById(anyInt())).thenReturn(Optional.of(team));
         List<ScheduleResponse> upcomingMatch = ScheduleResponseDummy.findUpcomingMatch();
-        Mockito.when(teamRepository.findUpcomingMatchByTeam(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+        Mockito.when(teamRepository.findUpcomingMatchByTeam(anyInt(), anyInt(), anyInt()))
             .thenReturn(upcomingMatch);
         List<ScheduleResponse> latestMatch = ScheduleResponseDummy.findLatestSeries();
-        Mockito.when(teamRepository.findLatestSeriesByTeam(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+        Mockito.when(teamRepository.findLatestSeriesByTeam(anyInt(), anyInt(), anyInt()))
             .thenReturn(latestMatch);
 
         TeamDetail result = teamService.getTeam(1);

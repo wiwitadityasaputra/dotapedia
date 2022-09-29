@@ -2,7 +2,6 @@ package wiwitaditya.demo.dotapedia.controller.series;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -16,6 +15,7 @@ import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.ArgumentMatchers.*;
 
 @Slf4j
 @SpringBootTest
@@ -31,7 +31,7 @@ public class SeriesControllerTest {
     @Test
     public void getSeries_ok() throws Exception {
         SeriesResponse seriesResponse = SeriesResponseDummy.get();
-        Mockito.when(seriesService.getSeries(ArgumentMatchers.anyInt())).thenReturn(seriesResponse);
+        Mockito.when(seriesService.getSeries(anyInt())).thenReturn(seriesResponse);
 
         this.mockMvc.perform(get("/api/series/1"))
             .andExpect(status().isOk())

@@ -2,7 +2,6 @@ package wiwitaditya.demo.dotapedia.controller.tournament;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -18,6 +17,7 @@ import wiwitaditya.demo.dotapedia.db.entity.TournamentDummy;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.ArgumentMatchers.*;
 
 @Slf4j
 @SpringBootTest
@@ -32,7 +32,7 @@ public class TournamentControllerTest {
 
     @Test
     public void getTournaments() throws Exception {
-        Mockito.when(tournamentService.findTournamentByRegion(ArgumentMatchers.anyString())).thenReturn(TournamentDummy.findTournamentByRegion());
+        Mockito.when(tournamentService.findTournamentByRegion(anyString())).thenReturn(TournamentDummy.findTournamentByRegion());
 
         this.mockMvc.perform(get("/api/tournaments"))
                 .andExpect(status().isOk());
@@ -40,35 +40,35 @@ public class TournamentControllerTest {
 
     @Test
     public void getTournament() throws Exception {
-        Mockito.when(tournamentService.getTournamentByTournamentId(ArgumentMatchers.anyInt())).thenReturn(TournamentDetailResponseDummy.get());
+        Mockito.when(tournamentService.getTournamentByTournamentId(anyInt())).thenReturn(TournamentDetailResponseDummy.get());
         this.mockMvc.perform(get("/api/tournaments/1"))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void getPlayers() throws Exception {
-        Mockito.when(tournamentService.getPlayers(ArgumentMatchers.anyInt())).thenReturn(PlayerParticipantResponseDummy.getPlayers());
+        Mockito.when(tournamentService.getPlayers(anyInt())).thenReturn(PlayerParticipantResponseDummy.getPlayers());
         this.mockMvc.perform(get("/api/tournaments/1/players"))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void getRoundRobinSeries() throws Exception {
-        Mockito.when(tournamentService.getRoundRobinSeries(ArgumentMatchers.anyInt())).thenReturn(RoundRoibinSeriesResponseDummy.getRoundRobinSeries());
+        Mockito.when(tournamentService.getRoundRobinSeries(anyInt())).thenReturn(RoundRoibinSeriesResponseDummy.getRoundRobinSeries());
         this.mockMvc.perform(get("/api/tournaments/1/round-robin-series"))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void getBracketSeries() throws Exception {
-        Mockito.when(tournamentService.getBracketSeries(ArgumentMatchers.anyInt())).thenReturn(BracketSeriesResponseDummy.getBracketSeries());
+        Mockito.when(tournamentService.getBracketSeries(anyInt())).thenReturn(BracketSeriesResponseDummy.getBracketSeries());
         this.mockMvc.perform(get("/api/tournaments/1/bracket-series"))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void getTeams() throws Exception {
-        Mockito.when(tournamentService.getTeams(ArgumentMatchers.anyInt())).thenReturn(TournamentTeamResponseDummy.getTeams());
+        Mockito.when(tournamentService.getTeams(anyInt())).thenReturn(TournamentTeamResponseDummy.getTeams());
         this.mockMvc.perform(get("/api/tournaments/1/teams"))
                 .andExpect(status().isOk());
     }

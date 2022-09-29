@@ -10,7 +10,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import wiwitaditya.demo.dotapedia.controller.news.model.NewsApiArticle;
 import wiwitaditya.demo.dotapedia.controller.news.model.NewsApiArticleDummy;
-import wiwitaditya.demo.dotapedia.db.utility.HeroType;
 
 import java.util.List;
 

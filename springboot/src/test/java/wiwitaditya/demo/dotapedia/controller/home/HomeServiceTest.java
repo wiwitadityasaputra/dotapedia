@@ -20,7 +20,6 @@ import wiwitaditya.demo.dotapedia.db.repository.PlayerRepository;
 import wiwitaditya.demo.dotapedia.db.repository.TeamRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Slf4j
 @ExtendWith(MockitoExtension.class)

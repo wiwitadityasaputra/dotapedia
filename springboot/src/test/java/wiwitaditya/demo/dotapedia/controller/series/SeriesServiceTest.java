@@ -3,7 +3,6 @@ package wiwitaditya.demo.dotapedia.controller.series;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -15,8 +14,8 @@ import wiwitaditya.demo.dotapedia.db.repository.*;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.ArgumentMatchers.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @ExtendWith(MockitoExtension.class)
@@ -42,7 +41,7 @@ public class SeriesServiceTest {
 
     @Test
     public void getSeries_unknown_seriesid() {
-        Mockito.when(seriesRepository.findById(ArgumentMatchers.anyInt())).thenReturn(Optional.empty());
+        Mockito.when(seriesRepository.findById(anyInt())).thenReturn(Optional.empty());
         SeriesResponse result = seriesService.getSeries(1);
 
         assertNotNull(result);
@@ -58,18 +57,18 @@ public class SeriesServiceTest {
     @Test
     public void getSeries_valid_seriesid() {
         Series series = SeriesDummy.get();
-        Mockito.when(seriesRepository.findById(ArgumentMatchers.anyInt())).thenReturn(Optional.of(series));
+        Mockito.when(seriesRepository.findById(anyInt())).thenReturn(Optional.of(series));
         List<Game> games = GameDummy.findBySeriesId();
-        Mockito.when(gameRepository.findBySeriesId(ArgumentMatchers.anyInt())).thenReturn(games);
+        Mockito.when(gameRepository.findBySeriesId(anyInt())).thenReturn(games);
         List<PlayerGame> playerGames = PlayerGameDummy.findByGameId();
-        Mockito.when(playerGameRepository.findByGameId(ArgumentMatchers.anyInt())).thenReturn(playerGames);
+        Mockito.when(playerGameRepository.findByGameId(anyInt())).thenReturn(playerGames);
         Team team = TeamDummy.get();
-        Mockito.when(teamRepository.findById(ArgumentMatchers.anyInt())).thenReturn(Optional.of(team));
-        Mockito.when(teamRepository.findById(ArgumentMatchers.anyInt())).thenReturn(Optional.of(team));
+        Mockito.when(teamRepository.findById(anyInt())).thenReturn(Optional.of(team));
+        Mockito.when(teamRepository.findById(anyInt())).thenReturn(Optional.of(team));
         List<PlayerRole> playerRoles = PlayerRoleDummy.findAll();
         Mockito.when(playerRoleRepository.findAll()).thenReturn(playerRoles);
         List<Hero> heroes = HeroDummy.findByHeroIds();
-        Mockito.when(heroRepository.findByHeroIds(ArgumentMatchers.any())).thenReturn(heroes);
+        Mockito.when(heroRepository.findByHeroIds(any())).thenReturn(heroes);
 
         SeriesResponse result = seriesService.getSeries(1);
         assertNotNull(result);

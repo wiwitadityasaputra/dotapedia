@@ -2,7 +2,6 @@ package wiwitaditya.demo.dotapedia.controller.schedule;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -16,6 +15,8 @@ import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.ArgumentMatchers.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @SpringBootTest
@@ -52,7 +53,7 @@ public class ScheduleControllerTest {
     @Test
     public void findLatestMatch() throws Exception {
         List<ScheduleResponse> latestMatch = ScheduleResponseDummy.findLatestMatch();
-        Mockito.when(scheduleService.findLatestMatch(ArgumentMatchers.anyString(), ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+        Mockito.when(scheduleService.findLatestMatch(anyString(), anyInt(), anyInt()))
             .thenReturn(latestMatch);
 
         this.mockMvc.perform(get("/api/schedule/latest-match?region=region&size=1&page=1"))

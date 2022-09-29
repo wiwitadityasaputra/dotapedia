@@ -3,7 +3,6 @@ package wiwitaditya.demo.dotapedia.controller.schedule;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -15,8 +14,8 @@ import wiwitaditya.demo.dotapedia.db.utility.RegionService;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @ExtendWith(MockitoExtension.class)
@@ -58,10 +57,10 @@ public class ScheduleServiceTest {
     @Test
     public void findLatestMatch_region_valid() {
         List<String> regions = Arrays.asList(Region.CHINA.toString());
-        Mockito.when(regionService.toRegions(ArgumentMatchers.any())).thenReturn(regions);
+        Mockito.when(regionService.toRegions(any())).thenReturn(regions);
 
         List<ScheduleResponse> latestSeries = ScheduleResponseDummy.findLatestSeries();
-        Mockito.when(seriesRepository.findLatestSeries(ArgumentMatchers.any(List.class), ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+        Mockito.when(seriesRepository.findLatestSeries(any(List.class), anyInt(), anyInt()))
             .thenReturn(latestSeries);
 
         List<ScheduleResponse> result = scheduleService.findLatestMatch("CHINA", 0, 1);
@@ -90,7 +89,7 @@ public class ScheduleServiceTest {
         Mockito.when(regionService.getAllRegions()).thenReturn(regions);
 
         List<ScheduleResponse> latestSeries = ScheduleResponseDummy.findLatestSeries();
-        Mockito.when(seriesRepository.findLatestSeries(ArgumentMatchers.any(List.class), ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
+        Mockito.when(seriesRepository.findLatestSeries(any(List.class), anyInt(), anyInt()))
                 .thenReturn(latestSeries);
 
         List<ScheduleResponse> result = scheduleService.findLatestMatch("wrong-value", 0, 1);
