@@ -79,6 +79,8 @@
                 <version>0.8.5</version>
                 <configuration>
                     <excludes>
+                        <exclude>wiwitaditya/demo/dotapedia/controller/news/NewsApiConfig.class</exclude>
+                        <exclude>wiwitaditya/demo/dotapedia/db/entity/**</exclude>
                         <exclude>wiwitaditya/demo/dotapedia/zzzz/**</exclude>
                     </excludes>
                 </configuration>
