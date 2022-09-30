@@ -1,27 +1,27 @@
 # dotapedia
 
-### springboot
-##### run
+## springboot
+#### run
 $ cd springboot
 $ export NEWSAPI_APIKEY=3e68bc0d922f4cd4a176119148cb78c5
 $ mvn clean spring-boot:run
-##### test
+#### test
 $ cd springboot
 $ mvn clean test
 $ mvn clean test -Dtest=NewsApiServiceTest
 $ mvn clean test -Dtest=HeroControllerTest#getAllHeroes_heroType_null
 
-### angular
-##### install
+## angular
+#### install
 $ cd angular
 $ nvm use
 $ npm install --force
-##### run
+#### run
 $ cd angular
 $ nvm use
 $ npm start
-##### test
+#### test
 $ cd angular
 $ npm run cypress:open
-or
 $ npm run cypress:headless
+$ npx cypress run --spec cypress/e2e/home.cy.ts
