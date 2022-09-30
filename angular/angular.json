@@ -42,6 +42,9 @@
               "src/assets/js/goodgames/bootstrap.min.js",
               "src/assets/js/goodgames/goodgames.min.js",
               "src/assets/js/goodgames/goodgames-init.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "moment"
             ]
           },
           "configurations": {
