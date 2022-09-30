@@ -12,7 +12,14 @@ $ mvn clean test -Dtest=NewsApiServiceTest
 $ mvn clean test -Dtest=HeroControllerTest#getAllHeroes_heroType_null
 
 ### angular
+##### install
+$ cd angular
+$ nvm use
+$ npm install --force
 ##### run
 $ cd angular
 $ nvm use
 $ npm start
+##### test
+$ cd angular
+$ npm run cypress:open

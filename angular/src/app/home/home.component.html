@@ -23,7 +23,7 @@
                 <ul class="nk-breadcrumbs">
                     <li><span>Latest News</span></li>
                 </ul>
-                <div class="nk-blog-post" *ngFor="let news of data?.news">
+                <div class="nk-blog-post dp-latest-news" *ngFor="let news of data?.news">
                     <div class="row vertical-gap">
                         <div class="col-lg-3 col-md-5">
                             <a target="_blank" [href]="news?.url" class="nk-post-img">
@@ -50,9 +50,9 @@
                         <!-- Most Popular Player -->
                         <div class="nk-widget nk-widget-highlighted">
                             <h4 class="nk-widget-title"><span><span class="text-main-1">Most</span> Popular Player</span></h4>
-                            <div class="nk-widget-content" *ngFor="let player of data?.top3Players">
+                            <div class="nk-widget-content dp-popular-player" *ngFor="let player of data?.top3Players">
                                 <div class="nk-widget-post">
-                                    <a href="store-product.html" class="nk-post-image"
+                                    <a href="store-product.html" class="nk-post-image dp-most-popular-player"
                                         routerLink="/player/{{player.id}}">
                                         <img [src]="'assets/image/players/' + player.id + '.png'"
                                             onerror="this.src = 'assets/images/product-1-xs.jpg'">
@@ -86,7 +86,7 @@
                             <div class="nk-widget-content">
                                 <div class="nk-popup-gallery">
                                     <div class="row sm-gap vertical-gap">
-                                        <div class="col-sm-6" *ngFor="let hero of data?.top6Heroes">
+                                        <div class="col-sm-6 dp-most-hero-pick" *ngFor="let hero of data?.top6Heroes">
                                             <div class="nk-gallery-item-box">
                                                 <span>
                                                     <div class="nk-gallery-item-overlay"><span class="ion-eye"></span></div>
@@ -119,7 +119,7 @@
                     <div class="nk-widget nk-widget-highlighted">
                         <h4 class="nk-widget-title"><span><span class="text-main-1">Next</span> Matches</span></h4>
                         <div class="nk-widget-content">
-                            <div class="nk-widget-match" *ngFor="let match of nextMatchs">
+                            <div class="nk-widget-match dp-next-match" *ngFor="let match of nextMatchs">
                                 <div class="row">
                                     <div class="col-8">
                                         <span class="nk-widget-match-teams">
@@ -148,7 +148,7 @@
                     <div class="nk-widget nk-widget-highlighted">
                         <h4 class="nk-widget-title"><span><span class="text-main-1">Top 3</span> Team</span></h4>
                         <div class="nk-widget-content">
-                            <div class="nk-widget-post" *ngFor="let team of data?.top3Teams">
+                            <div class="nk-widget-post dp-top-3-team" *ngFor="let team of data?.top3Teams">
                                 <a href="blog-article.html" class="nk-post-image"
                                     routerLink="/team/{{team.teamId}}">
                                     <img [src]="'assets/image/teams-logo-100/' + team.teamId + '.png'" alt="">

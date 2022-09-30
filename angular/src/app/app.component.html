@@ -2,16 +2,16 @@
     <nav class="nk-navbar nk-navbar-top nk-navbar-sticky nk-navbar-autohide">
         <div class="container">
             <div class="nk-nav-table">
-                <a href="" routerLink="/home" class="nk-nav-logo">
+                <a href="" routerLink="/home" class="nk-nav-logo dp-nav-home">
                     <img src="assets/image/dotapedia.png" alt="DotaPedia" width="199">
                 </a>
                 <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
-                    <li> <a href="" routerLink="/tournament" [queryParams]="{regions: 'ALL'}">Tournament</a> </li>
-                    <li> <a href="" routerLink="/team" [queryParams]="{region: 'WESTERN_EUROPE'}">Teams</a> </li>
-                    <li> <a href="" routerLink="/player">Players</a> </li>
-                    <li> <a href="" routerLink="/hero"  [queryParams]="{type: 'ALL'}">Hero</a> </li>
-                    <li> <a href="" routerLink="/schedule">Schedule</a> </li>
-                    <li> <a href="" routerLink="/news">News</a> </li>
+                    <li> <a class="dp-nav-tournament" href="" routerLink="/tournament" [queryParams]="{regions: 'ALL'}">Tournament</a> </li>
+                    <li> <a class="dp-nav-team" href="" routerLink="/team" [queryParams]="{region: 'WESTERN_EUROPE'}">Teams</a> </li>
+                    <li> <a class="dp-nav-player" href="" routerLink="/player">Players</a> </li>
+                    <li> <a class="dp-nav-hero" href="" routerLink="/hero"  [queryParams]="{type: 'ALL'}">Hero</a> </li>
+                    <li> <a class="dp-nav-schedule" href="" routerLink="/schedule">Schedule</a> </li>
+                    <li> <a class="dp-nav-news" href="" routerLink="/news">News</a> </li>
                 </ul>
                 <ul class="nk-nav nk-nav-right nk-nav-icons">
                     <li class="single-icon d-lg-none">
