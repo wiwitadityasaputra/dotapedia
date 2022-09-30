@@ -1,9 +1,7 @@
-let config = require('../support/config');
-
 describe('home page', () => {
 
   function toHomePage() {
-    cy.visit(config.env.MAIN_URL + '/home');
+    cy.visit('/home');
   }
 
   it('should open home page', () => {

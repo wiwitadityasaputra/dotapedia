@@ -1,8 +1,6 @@
-let config = require('../support/config');
-
 describe('main navigation', () => {
   it('should change theh url', () => {
-    cy.visit(config.env.MAIN_URL + '/home');
+    cy.visit('/home');
     
     cy.get('.dp-nav-tournament').click();
     cy.url().should('include', '/tournament');
