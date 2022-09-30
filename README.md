@@ -23,3 +23,5 @@ $ npm start
 ##### test
 $ cd angular
 $ npm run cypress:open
+or
+$ npm run cypress:headless
