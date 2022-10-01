@@ -6,15 +6,15 @@
         <div class="row">
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <label class="dp-checkbox-container">All Region
-                    <input type="checkbox" [(ngModel)]="allRegion" (ngModelChange)="toggleAllRegion()">
+                    <input class="dp-region-checkbox-allregion" type="checkbox" [(ngModel)]="allRegion" (ngModelChange)="toggleAllRegion()">
                     <span class="dp-checkmark"></span>
                 </label>
             </div>
             <div class="col-lg-8 col-md-8 col-xs-12">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let region of regions; let i = index">
+                    <div class="col-lg-4 col-md-6 col-xs-12 dp-region" *ngFor="let region of regions; let i = index">
                         <label class="dp-checkbox-container">{{ region.name }}
-                            <input type="checkbox" [(ngModel)]="region.checked" (ngModelChange)="toggleRegion()">
+                            <input class="dp-region-checkbox" type="checkbox" [(ngModel)]="region.checked" (ngModelChange)="toggleRegion()">
                             <span class="dp-checkmark"></span>
                         </label>
                     </div>
@@ -25,7 +25,7 @@
     <div class="nk-gap-1"></div>
     <div class="container">
         <div class="row vertical-gap">
-            <div class="col-lg-6" *ngFor="let t of tournaments">
+            <div class="col-lg-6 dp-tournament" *ngFor="let t of tournaments">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-xs-6 dp-tournament-left-box">
                         <h3 class="dp-tournament-name" (click)="selectTournament(t)">
