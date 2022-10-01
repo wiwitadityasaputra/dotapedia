@@ -19,12 +19,12 @@
         <div class="nk-gap"></div>
         <div class="row vertical-gap">
             <div class="col-lg-8">
-                <div class="nk-team" *ngFor="let team of teams">
+                <div class="nk-team dp-team" *ngFor="let team of teams">
                     <div class="nk-team-logo">
-                        <h4 (click)="selectTeam(team)">
+                        <h4 class="dp-team-name" (click)="selectTeam(team)">
                             {{ team.name }}
                         </h4>
-                        <img (click)="selectTeam(team)" class="team-logo" [src]="'assets/image/teams-logo-100/' + team.teamId + '.png'" alt="...">
+                        <img (click)="selectTeam(team)" class="team-logo dp-team-logo" [src]="'assets/image/teams-logo-100/' + team.teamId + '.png'" alt="...">
                     </div>
                     <div class="nk-team-cont">
                         <h4 class="h6 mb-5">Players:</h4>
