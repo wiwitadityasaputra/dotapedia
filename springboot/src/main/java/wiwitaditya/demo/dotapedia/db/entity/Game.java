@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import wiwitaditya.demo.dotapedia.db.utility.GameSide;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Getter
 @Setter

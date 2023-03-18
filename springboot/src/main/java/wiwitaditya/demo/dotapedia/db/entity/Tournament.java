@@ -5,7 +5,7 @@ import lombok.Setter;
 import wiwitaditya.demo.dotapedia.db.utility.Region;
 import wiwitaditya.demo.dotapedia.db.utility.TournamentType;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Getter
 @Setter
