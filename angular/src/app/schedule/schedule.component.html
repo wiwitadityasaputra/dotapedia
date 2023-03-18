@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <h3 class="nk-decorated-h-3"><span><span class="text-main-1">Upcoming</span> Match</span></h3>
-                <div class="nk-match" *ngFor="let match of nextMatchs">
+                <div class="nk-match dp-upcoming-match" *ngFor="let match of nextMatchs">
                     <div class="nk-match-team-left">
-                        <a href="" routerLink="/team/{{match.radiantTeamId}}">
+                        <a href="" routerLink="/team/{{match.radiantTeamId}}" class="dp-um-team-a">
                             <span class="nk-match-team-logo">
                                 <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'" alt="...">
                             </span>
@@ -19,12 +19,12 @@
                             <span class="nk-match-status-date">{{match.startDateStr}}</span>
                             <div class="dp-tournament-image-wrapper">
                                 <img [src]="'assets/image/tournaments/' + match.tournamentImage"
-                                    routerLink="/tournament/{{match.tournamentId}}" class="" alt="" />
+                                    routerLink="/tournament/{{match.tournamentId}}" class="dp-up-tournament" alt="" />
                             </div>
                         </div>
                     </div>
                     <div class="nk-match-team-right">
-                        <a href="" routerLink="/team/{{match.direTeamId}}">
+                        <a href="" routerLink="/team/{{match.direTeamId}}" class="dp-um-team-b">
                             <span class="nk-match-team-name"> {{match.direTeamName}} </span>
                             <span class="nk-match-team-logo">
                                 <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'" alt="...">
@@ -46,27 +46,29 @@
                                     <option *ngFor="let r of regions" value="{{r.key}}">{{r.value}}</option>
                                 </select>
                             </div>
-                            <div class="nk-widget-match" *ngFor="let match of prevMatchs">
+                            <div class="nk-widget-match dp-latest-match" *ngFor="let match of prevMatchs">
                                 <div class="row">
                                     <div class="col-9">
                                         <span class="nk-widget-match-teams">
                                             <span class="nk-widget-match-team-logo">
                                                 <img [src]="'assets/image/teams-logo-100/' + match.radiantTeamId + '.png'"
-                                                    routerLink="/team/{{match.radiantTeamId}}" alt="...">
+                                                    routerLink="/team/{{match.radiantTeamId}}" alt="..."
+                                                    class="dp-lm-team-a">
                                             </span>
                                             <span class="nk-widget-match-vs">
                                                 {{match.radiantScore}} - {{match.direScore}}
                                             </span>
                                             <span class="nk-widget-match-team-logo">
                                                 <img [src]="'assets/image/teams-logo-100/' + match.direTeamId + '.png'"
-                                                    routerLink="/team/{{match.radiantTeamId}}" alt="...">
+                                                    routerLink="/team/{{match.radiantTeamId}}" alt="..."
+                                                    class="dp-lm-team-b">
                                             </span>
                                         </span>
                                         <span class="nk-widget-match-date">{{match.startDateStr}}</span>
                                     </div>
                                     <div class="col-3 dp-tournament-image-wrapper-prev-match">
                                         <img [src]="'assets/image/tournaments/' + match.tournamentImage"
-                                            routerLink="/tournament/{{match.tournamentId}}" class="" alt="" />
+                                            routerLink="/tournament/{{match.tournamentId}}" class="dp-lm-tournament" alt="" />
                                     </div>
                                 </div>
                             </div>
