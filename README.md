@@ -25,3 +25,7 @@ $ cd angular
 $ npm run cypress:open
 $ npm run cypress:headless
 $ npx cypress run --spec cypress/e2e/home.cy.ts
+
+## others
+### dependencies
+$ mvn dependency:tree
