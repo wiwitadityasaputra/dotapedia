@@ -13,7 +13,7 @@ $ mvn clean package
 #### run spring-boot
 $ mvn clean spring-boot:run
 
-#### run jar
+#### run jar (spring-boot only)
 $ java -jar target/dotapedia-1.0.0-SNAPSHOT.war
 
 #### test
@@ -41,3 +41,12 @@ $ cd angular
 $ npm run cypress:open
 $ npm run cypress:headless
 $ npx cypress run --spec cypress/e2e/home.cy.ts
+
+#### run fat-jar (spring-boot & angular)
+##### prepare angular files then build & run spring-boot
+$ cd angular
+$ npm run build
+$ cp -R dist/angular/* ../springboot/src/main/resources/static
+$ cd ../springboot
+$ mvn clean package
+$ java -jar target/dotapedia-1.0.0-SNAPSHOT.war
