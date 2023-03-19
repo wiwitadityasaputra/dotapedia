@@ -15,6 +15,7 @@ services:
             DOTAPEDIA_DATASOURCE_DBNAME: dotapedia
             DOTAPEDIA_DATASOURCE_USER: root
             DOTAPEDIA_DATASOURCE_PASSWORD: password
+            NEWSAPI_APIKEY: 3e68bc0d922f4cd4a176119148cb78c5
     database:
         build:
             context: database
