@@ -50,3 +50,17 @@ $ cp -R dist/angular/* ../springboot/src/main/resources/static
 $ cd ../springboot
 $ mvn clean package
 $ java -jar target/dotapedia-1.0.0-SNAPSHOT.war
+
+
+
+docker-compose -f docker-compose.yml up -d
+docker-compose down --rmi all
+docker logs -f dotapedia_springboot_1
+
+docker run --rm -it --entrypoint bash ubuntu:jammy
+
+apt-get update
+DEBIAN_FRONTEND=noninteractive apt install -y curl
+curl -s https://deb.nodesource.com/setup_16.x | bash
+DEBIAN_FRONTEND=noninteractive apt install -y nodejs
+curl -s https://deb.nodesource.com/setup_8.x | bash

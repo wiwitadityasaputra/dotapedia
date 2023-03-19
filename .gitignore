@@ -1,11 +1,11 @@
-springboot/.idea
-springboot/target
-springboot/src/main/java/wiwitaditya/demo/dotapedia/zzzz/
-springboot/src/main/resources/static/
+src/springboot/.idea
+src/springboot/target
+src/springboot/src/main/java/wiwitaditya/demo/dotapedia/zzzz/
+src/springboot/src/main/resources/static/
 
-angular/node_modules
-angular/.angular
-angular/src/app_old
-angular/cypress/screenshots/
+src/angular/node_modules
+src/angular/.angular
+src/angular/src/app_old
+src/angular/cypress/screenshots/
 
 __dropbox

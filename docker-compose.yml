@@ -1,0 +1,29 @@
+version: "3.1"
+services:
+    springboot:
+        build:
+            context: src
+            dockerfile: Dockerfile
+        ports: 
+            - "8435:8435"
+        depends_on:
+            - database
+        environment:
+            DOTAPEDIA_SERVER_PORT: 8435
+            DOTAPEDIA_DATASOURCE_HOST: database
+            DOTAPEDIA_DATASOURCE_PORT: 3306
+            DOTAPEDIA_DATASOURCE_DBNAME: dotapedia
+            DOTAPEDIA_DATASOURCE_USER: root
+            DOTAPEDIA_DATASOURCE_PASSWORD: password
+    database:
+        build:
+            context: database
+            dockerfile: Dockerfile
+        ports: 
+            - "8434:3306"
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_DATABASE: dotapedia
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
+            MYSQL_ROOT_PASSWORD: password
