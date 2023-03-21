@@ -16,8 +16,13 @@ public class TeamController {
     private TeamService teamService;
 
     @GetMapping(path = "")
-    public List<TeamResponse> getTeams(@RequestParam(name = "region", required = false) String regions) {
-        return teamService.getTeamAndRoster(regions);
+    public List<TeamResponse> getTeams(@RequestParam(name = "region", required = false) String regions,
+        @RequestParam(name = "topTree", required = false) boolean topTree) {
+        if (topTree) {
+            return teamService.getTopTreeTeam();
+        } else {
+            return teamService.getTeamAndRoster(regions);
+        }
     }
 
     @GetMapping(path = "/{teamId}")

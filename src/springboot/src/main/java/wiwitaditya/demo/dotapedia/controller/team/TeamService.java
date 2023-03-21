@@ -20,6 +20,16 @@ public class TeamService {
     @Autowired
     private TeamRepository teamRepository;
 
+    public List<TeamResponse> getTopTreeTeam() {
+        List<TeamResponse> response = new ArrayList();
+
+        List<Team> teams = teamRepository.findTop3Teams();
+        for (Team team: teams) {
+            response.add(TeamMapping.toTeamResponse(team));
+        }
+        return response;
+    }
+
     public List<TeamResponse> getTeamAndRoster(String regionStr) {
         Region region = LookupUtil.lookup(Region.class, regionStr);
 

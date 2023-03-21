@@ -26,12 +26,16 @@ export class TeamAllComponent implements OnInit {
     { name: "North America", checked: false, value: "NORTH_AMERICA" },
     { name: "South America", checked: false, value: "SOUTH_AMERICA" },
   ];
+  public top3Teams: TeamResponse[];
 
   constructor(private teamService: TeamService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.teamService.getTopTreeTeam().subscribe((teams) => {
+      this.top3Teams = teams;
+    });
     const region = this.activatedRoute.snapshot.queryParamMap.get("region");
     if (region) {
       const validRegion = this.regions.find(r => r.value === region);

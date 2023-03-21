@@ -25,4 +25,9 @@ export class TeamService {
         var url = this.environtment.getServerUrl() + this.API_PATH + "/" + teamId + "/players";
         return this.http.get<TeamPlayerResponse[]>(url);
     }
+
+    public getTopTreeTeam(): Observable<TeamResponse[]> {
+        var url = this.environtment.getServerUrl() + this.API_PATH + "?&topTree=true";
+        return this.http.get<TeamResponse[]>(url);
+    }
 }
