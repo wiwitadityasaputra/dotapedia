@@ -32,4 +32,9 @@ public class PlayerController {
     public PlayerDetailResponse findByPlayerId(@PathVariable(value = "playerId") int playerId) {
         return playerService.findById(playerId);
     }
+
+    @GetMapping(path = "/top3Players")
+    public List<PlayerByCountryResponse> findTop3Players() {
+        return playerService.findTop3Players();
+    }
 }

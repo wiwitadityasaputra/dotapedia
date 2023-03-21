@@ -25,4 +25,9 @@ export class PlayerService {
         var url = this.environtment.getServerUrl() + this.API_PATH + "/" + playerId;
         return this.http.get<PlayerDetailResponse>(url);
     }
+
+    public findTop3Players(): Observable<PlayerByCountryResponse[]> {
+        var url = this.environtment.getServerUrl() + this.API_PATH + "/top3Players";
+        return this.http.get<PlayerByCountryResponse[]>(url);
+    }
 }

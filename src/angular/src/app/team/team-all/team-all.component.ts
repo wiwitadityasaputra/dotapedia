@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PlayerByCountryResponse } from 'src/app/player/player.response.model';
+import { PlayerService } from 'src/app/player/player.service';
 import { TeamResponse } from '../team.response.model';
 import { TeamService } from '../team.service';
 
@@ -27,8 +29,10 @@ export class TeamAllComponent implements OnInit {
     { name: "South America", checked: false, value: "SOUTH_AMERICA" },
   ];
   public top3Teams: TeamResponse[];
+  public top3Players: PlayerByCountryResponse[];
 
   constructor(private teamService: TeamService,
+    private playerService: PlayerService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
@@ -36,6 +40,10 @@ export class TeamAllComponent implements OnInit {
     this.teamService.getTopTreeTeam().subscribe((teams) => {
       this.top3Teams = teams;
     });
+    this.playerService.findTop3Players().subscribe((players) => {
+      this.top3Players = players;
+    })
+
     const region = this.activatedRoute.snapshot.queryParamMap.get("region");
     if (region) {
       const validRegion = this.regions.find(r => r.value === region);

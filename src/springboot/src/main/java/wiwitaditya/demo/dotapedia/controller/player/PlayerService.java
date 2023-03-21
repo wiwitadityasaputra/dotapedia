@@ -69,4 +69,8 @@ public class PlayerService {
         }
         return response;
     }
+
+    List<PlayerByCountryResponse> findTop3Players() {
+        return playerRepository.findTop3Players();
+    }
 }
