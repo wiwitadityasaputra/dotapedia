@@ -30,7 +30,6 @@ RUN npm run build || true
 
 # prepare springboot project
 WORKDIR /home
-RUN mkdir springboot
 COPY springboot/src /home/springboot/src
 COPY springboot/mvnw /home/springboot/mvnw
 COPY springboot/mvnw.cmd /home/springboot/mvnw.cmd
