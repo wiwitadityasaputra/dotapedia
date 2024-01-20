@@ -1,0 +1,6 @@
+# start
+$ npm start
+
+# test
+$ npm test
+$ npm test-once
