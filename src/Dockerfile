@@ -2,7 +2,7 @@ FROM ubuntu:jammy
 
 # install java, maven & nodejs
 RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt install -y openjdk-17-jdk
 RUN DEBIAN_FRONTEND=noninteractive apt install -y curl
 RUN curl -s https://deb.nodesource.com/setup_16.x | bash
