@@ -1,5 +1,5 @@
 
-function AppHeader() {
+function PageHeader() {
     return (
         <header className="nk-header nk-header-opaque App">
         <nav className="nk-navbar nk-navbar-top nk-navbar-sticky nk-navbar-autohide">
@@ -46,4 +46,4 @@ function AppHeader() {
     );
 }
 
-export default AppHeader;
+export default PageHeader;

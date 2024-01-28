@@ -4,3 +4,13 @@ $ npm start
 # test
 $ npm test
 $ npm test-once
+
+
+src
+    page
+        index.jsx
+        tournament
+            index.jsx
+        teams, players, hero, schdule, news
+    component
+    
