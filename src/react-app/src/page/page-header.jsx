@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 
 function PageHeader() {
     return (
@@ -5,27 +6,27 @@ function PageHeader() {
         <nav className="nk-navbar nk-navbar-top nk-navbar-sticky nk-navbar-autohide">
           <div className="container">
             <div className="nk-nav-table">
-              <a href="" className="nk-nav-logo dp-nav-home">
+              <NavLink to="/home" className={"nk-nav-logo dp-nav-home"}>
                 <img src="assets/image/dotapedia.png" alt="DotaPedia" width="199" />
-              </a>
+              </NavLink>
               <ul className="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
                 <li>
-                  <a className="dp-nav-tournament" href="" >Tournament</a>
+                  <NavLink to="/tournaments">Tournament</NavLink>
                 </li>
                 <li>
-                  <a className="dp-nav-team" href="" >Team</a>
+                  <NavLink to="/teams">Team</NavLink>
                 </li>
                 <li>
-                  <a className="dp-nav-player" href="" >Players</a>
+                  <NavLink to="/players">Players</NavLink>
                 </li>
                 <li>
-                  <a className="dp-nav-hero" href="" >Hero</a>
+                  <NavLink to="/heroes">Heroes</NavLink>
                 </li>
                 <li>
-                  <a className="dp-nav-schedule" href="" >Schedule</a>
+                  <NavLink to="/schedule">Schedule</NavLink>
                 </li>
                 <li>
-                  <a className="dp-nav-news" href="" >News</a>
+                  <NavLink to="/news">News</NavLink>
                 </li>
               </ul>
               <ul className="nk-nav nk-nav-right nk-nav-icons">
