@@ -9,6 +9,9 @@ we can run both inside docker using docker command - production mode
 
 or for dev mode we also can running frontend/backend separately
 
+## screen recording
+https://www.youtube.com/watch?v=azxRT_P04Ug
+
 ## production
 running inside docker, make sure you have docker running
 
