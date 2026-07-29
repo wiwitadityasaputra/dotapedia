@@ -37,4 +37,5 @@
     max-width: 1920px;
     max-height: 459px;
     padding: 10px;
+    object-fit: contain;
 }
