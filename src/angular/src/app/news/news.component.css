@@ -34,6 +34,7 @@
     text-align: left;
 }
 .dp-post-img img {
+    width: 100%;
     max-width: 1920px;
     max-height: 459px;
     padding: 10px;
