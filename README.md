@@ -3,10 +3,14 @@ this project is demo application to implement angular, springboot & mysql togeth
 
 its a website application to show information about dota2 tournament around Dec-21
 
+#### setup
+1. prepare database using database/dotapedia.sql
+2. make sure has java 21
+$ java -version
+3. setup news api key
+$ export NEWSAPI_APIKEY=3e68bc0d922f4cd4a176119148cb78c5
+
 in this project we have frontend (angular) & backend (springboot) projects
-
-we can run both inside docker using docker command - production mode
-
 or for dev mode we also can running frontend/backend separately
 
 ## screen recording

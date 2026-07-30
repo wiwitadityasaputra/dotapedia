@@ -1,9 +1,9 @@
-FROM ubuntu:jammy
+FROM ubuntu:stonking
 
 # install java, maven & nodejs
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN DEBIAN_FRONTEND=noninteractive apt install -y openjdk-17-jdk
+RUN DEBIAN_FRONTEND=noninteractive apt install -y openjdk-21-jdk
 RUN DEBIAN_FRONTEND=noninteractive apt install -y curl
 RUN curl -s https://deb.nodesource.com/setup_16.x | bash
 RUN DEBIAN_FRONTEND=noninteractive apt install -y maven
