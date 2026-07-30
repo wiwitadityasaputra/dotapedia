@@ -18,10 +18,8 @@
     padding-top: 10px !important;
 }
 .dp-row-news-content > div {
-    padding: 0px;
-    margin: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px;
+    margin: 0;
 }
 .dp-post-text {
     background: #2a2e38;
@@ -30,11 +28,13 @@
 .dp-post-by {
     background: #2a2e38;
     color: #ffffff;
-    padding: 5px 5px 5px 5px;
+    padding: 5px;
     text-align: left;
 }
 .dp-post-img img {
+    width: 100%;
     max-width: 1920px;
     max-height: 459px;
     padding: 10px;
+    object-fit: contain;
 }
