@@ -4,7 +4,7 @@
 
 #### setup
 1. prepare database using database/dotapedia.sql
-2. make sure has java 17
+2. make sure has java 21
 $ java -version
 3. setup news api key
 $ export NEWSAPI_APIKEY=3e68bc0d922f4cd4a176119148cb78c5
