@@ -9,9 +9,8 @@ its a website application to show information about dota2 tournament around Dec-
 $ java -version
 3. setup news api key
 $ export NEWSAPI_APIKEY=3e68bc0d922f4cd4a176119148cb78c5
-=======
-in this project we have frontend (angular) & backend (springboot) projects
 
+in this project we have frontend (angular) & backend (springboot) projects
 or for dev mode we also can running frontend/backend separately
 
 ## screen recording

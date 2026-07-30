@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:stonking
 
 # install java, maven & nodejs
 RUN apt-get update
