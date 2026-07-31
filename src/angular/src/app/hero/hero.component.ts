@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HeroResponse } from './hero.response.model';
 import { HeroService } from './hero.service';
 
 @Component({
-  selector: 'app-hero',
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.css']
+    selector: 'app-hero',
+    templateUrl: './hero.component.html',
+    styleUrls: ['./hero.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class HeroComponent implements OnInit {
 

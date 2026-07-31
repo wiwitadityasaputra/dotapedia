@@ -1,11 +1,12 @@
-@import '../../../assets/css/ngtt-styles/ngtt-variables.scss';
+@use "sass:color";
+@use '../../../assets/css/ngtt-styles/ngtt-variables.scss' as v;
 
 .ngtt__match-wrapper {
   display: flex;
   flex-direction: column;
-  width: $ngtt-match-wrapper-width;
-  height: $ngtt-match-wrapper-height;
-  background-color: lighten($ngtt-background-primary, 15%);
+  width: v.$ngtt-match-wrapper-width;
+  height: v.$ngtt-match-wrapper-height;
+  background-color: color.adjust(v.$ngtt-background-primary, $lightness: 15%);
   border-radius: 6px;
   cursor: pointer;
 }

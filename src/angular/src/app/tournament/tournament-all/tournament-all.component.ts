@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TournamentModel } from '../tournament.response.model';
 import { TournamentService } from '../tournament.service';
 
 @Component({
-  selector: 'app-all-tournament',
-  templateUrl: './tournament-all.component.html',
-  styleUrls: ['./tournament-all.component.css']
+    selector: 'app-all-tournament',
+    templateUrl: './tournament-all.component.html',
+    styleUrls: ['./tournament-all.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class TournamentAllComponent implements OnInit {
 

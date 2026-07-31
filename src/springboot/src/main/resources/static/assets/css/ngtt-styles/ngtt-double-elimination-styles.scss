@@ -1,7 +1,7 @@
-@import "ngtt-variables";
+@use "ngtt-variables" as v;
 
 .ngtt-de__container {
-  background-color: $ngtt-background-color;
+  background-color: v.$ngtt-background-color;
   display: inline-block;
   box-sizing: border-box;
 }
@@ -9,9 +9,9 @@
 // MATCH
 .ngtt-de__match-component-container {
   display: flex;
-  height: $ngtt-match-wrapper-height;
-  width: $ngtt-match-wrapper-width;
-  background-color: $ngtt-match-container-background;
+  height: v.$ngtt-match-wrapper-height;
+  width: v.$ngtt-match-wrapper-width;
+  background-color: v.$ngtt-match-container-background;
   box-sizing: border-box !important;
 }
 
@@ -19,9 +19,9 @@
   display: flex;
   flex-grow: 1;
   align-items: center;
-  height: $ngtt-match-wrapper-height + 2 * $ngtt-vertical-match-padding;
-  width: $ngtt-match-wrapper-width + 2* $ngtt-round-gutters;
-  padding: $ngtt-vertical-match-padding $ngtt-round-gutters;
+  height: v.$ngtt-match-wrapper-height + 2 * v.$ngtt-vertical-match-padding;
+  width: v.$ngtt-match-wrapper-width + 2* v.$ngtt-round-gutters;
+  padding: v.$ngtt-vertical-match-padding v.$ngtt-round-gutters;
   position: relative;
   box-sizing: border-box !important;
 
@@ -31,9 +31,9 @@
     flex-grow: 1;
     right: 0;
     position: absolute;
-    width: $ngtt-round-gutters;
+    width: v.$ngtt-round-gutters;
     height: 50%;
-    border-right: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+    border-right: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
     content: '';
     box-sizing: border-box !important;
   }
@@ -44,8 +44,8 @@
     left: 0;
     top: 50%;
     position: absolute;
-    width: $ngtt-round-gutters;
-    border-top: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+    width: v.$ngtt-round-gutters;
+    border-top: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
     content: '';
     box-sizing: border-box !important;
   }
@@ -53,16 +53,16 @@
   &:nth-child(odd) {
     &::after {
       top: 50%;
-      border-top-right-radius: $ngtt-bracket-border-radius;
-      border-top: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+      border-top-right-radius: v.$ngtt-bracket-border-radius;
+      border-top: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
     }
   }
 
   &:nth-child(even) {
     &::after {
       top: 0;
-      border-bottom-right-radius: $ngtt-bracket-border-radius;
-      border-bottom: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+      border-bottom-right-radius: v.$ngtt-bracket-border-radius;
+      border-bottom: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
     }
   }
 
@@ -70,14 +70,14 @@
     &::after {
       border-right: none;
       border-radius: 0;
-      width: $ngtt-round-gutters - $ngtt-bracket-line-width;
+      width: v.$ngtt-round-gutters - v.$ngtt-bracket-line-width;
     }
   }
 
   .ngtt-de__winners-round-wrapper:not(:first-child):not(:nth-child(2)):not(:last-child) > & {
     &::before {
-      width: ($ngtt-match-wrapper-width) + 3*$ngtt-round-gutters;
-      left: -1 * ($ngtt-match-wrapper-width + 2*$ngtt-round-gutters);
+      width: (v.$ngtt-match-wrapper-width) + 3*v.$ngtt-round-gutters;
+      left: -1 * (v.$ngtt-match-wrapper-width + 2*v.$ngtt-round-gutters);
     }
   }
 
@@ -93,9 +93,9 @@
   display: flex;
   flex-grow: 1;
   align-items: flex-end;
-  height: $ngtt-match-wrapper-height;
-  width: $ngtt-match-wrapper-width;
-  padding: $ngtt-vertical-match-padding $ngtt-round-gutters;
+  height: v.$ngtt-match-wrapper-height;
+  width: v.$ngtt-match-wrapper-width;
+  padding: v.$ngtt-vertical-match-padding v.$ngtt-round-gutters;
   position: relative;
   box-sizing: border-box !important;
 
@@ -106,26 +106,26 @@
     left: 0;
     top: 50%;
     position: absolute;
-    width: $ngtt-round-gutters;
+    width: v.$ngtt-round-gutters;
     content: '';
-    bottom: calc($ngtt-match-wrapper-height/2) + $ngtt-vertical-match-padding;
-    border-left: $ngtt-bracket-line-width solid $ngtt-line-color-main;
-    border-bottom: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+    bottom: calc(v.$ngtt-match-wrapper-height/2) + v.$ngtt-vertical-match-padding;
+    border-left: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
+    border-bottom: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
   }
 
   &::after {
     box-sizing: border-box !important;
     display: flex;
     flex-grow: 1;
-    left: ($ngtt-match-wrapper-width + 3*($ngtt-round-gutters)) * -1;
+    left: (v.$ngtt-match-wrapper-width + 3*(v.$ngtt-round-gutters)) * -1;
     top: 50%;
     height: 2%;
     position: absolute;
-    width: $ngtt-match-wrapper-width + 3*($ngtt-round-gutters) + $ngtt-bracket-line-width;
+    width: v.$ngtt-match-wrapper-width + 3*(v.$ngtt-round-gutters) + v.$ngtt-bracket-line-width;
     content: '';
-    border-right: $ngtt-bracket-line-width solid $ngtt-line-color-main;
-    border-top: $ngtt-bracket-line-width solid $ngtt-line-color-main;
-    border-top-right-radius: $ngtt-bracket-border-radius;
+    border-right: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
+    border-top: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
+    border-top-right-radius: v.$ngtt-bracket-border-radius;
   }
 }
 
@@ -142,10 +142,10 @@
   flex-direction: column;
   justify-content: space-around;
   box-sizing: border-box !important;
-  min-width: 2*($ngtt-match-wrapper-width + 2*($ngtt-round-gutters));
+  min-width: 2*(v.$ngtt-match-wrapper-width + 2*(v.$ngtt-round-gutters));
 
   &:first-child {
-    min-width: $ngtt-match-wrapper-width + 2*($ngtt-round-gutters);
+    min-width: v.$ngtt-match-wrapper-width + 2*(v.$ngtt-round-gutters);
   }
 
   &:last-child {
@@ -165,12 +165,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: $ngtt-match-wrapper-width + 2*($ngtt-round-gutters);
-  padding-top: calc($ngtt-match-wrapper-height/2);
+  width: v.$ngtt-match-wrapper-width + 2*(v.$ngtt-round-gutters);
+  padding-top: calc(v.$ngtt-match-wrapper-height/2);
   box-sizing: border-box !important;
 
   &:nth-child(1) {
-    margin-left: $ngtt-match-wrapper-width + 2*($ngtt-round-gutters);
+    margin-left: v.$ngtt-match-wrapper-width + 2*(v.$ngtt-round-gutters);
   }
 }
 
@@ -178,9 +178,9 @@
   display: flex;
   flex-grow: 1;
   align-items: center;
-  height: $ngtt-match-wrapper-height + 2 * $ngtt-vertical-match-padding;
-  width: $ngtt-match-wrapper-width + 2 * $ngtt-round-gutters;
-  padding: $ngtt-vertical-match-padding $ngtt-round-gutters;
+  height: v.$ngtt-match-wrapper-height + 2 * v.$ngtt-vertical-match-padding;
+  width: v.$ngtt-match-wrapper-width + 2 * v.$ngtt-round-gutters;
+  padding: v.$ngtt-vertical-match-padding v.$ngtt-round-gutters;
   position: relative;
   box-sizing: border-box !important;
 
@@ -190,7 +190,7 @@
     flex-grow: 1;
     right: 0;
     position: absolute;
-    width: $ngtt-round-gutters;
+    width: v.$ngtt-round-gutters;
     height: 50%;
     content: '';
     box-sizing: border-box !important;
@@ -199,11 +199,11 @@
   &::before {
     display: flex;
     flex-grow: 1;
-    left: -1 * $ngtt-bracket-line-width;
+    left: -1 * v.$ngtt-bracket-line-width;
     top: 50%;
     position: absolute;
-    width: $ngtt-round-gutters + $ngtt-bracket-line-width;
-    border-top: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+    width: v.$ngtt-round-gutters + v.$ngtt-bracket-line-width;
+    border-top: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
     content: '';
     box-sizing: border-box !important;
   }
@@ -212,20 +212,20 @@
     &:nth-child(odd) {
       &::after {
         top: 50%;
-        width: $ngtt-round-gutters;
-        border-top-right-radius: $ngtt-bracket-border-radius;
-        border-top: $ngtt-bracket-line-width solid $ngtt-line-color-main;
-        border-right: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+        width: v.$ngtt-round-gutters;
+        border-top-right-radius: v.$ngtt-bracket-border-radius;
+        border-top: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
+        border-right: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
       }
     }
 
     &:nth-child(even) {
       &::after {
-        top: calc($ngtt-bracket-line-width / 2);
-        width: $ngtt-round-gutters;
-        border-bottom-right-radius: $ngtt-bracket-border-radius;
-        border-bottom: $ngtt-bracket-line-width solid $ngtt-line-color-main;
-        border-right: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+        top: calc(v.$ngtt-bracket-line-width / 2);
+        width: v.$ngtt-round-gutters;
+        border-bottom-right-radius: v.$ngtt-bracket-border-radius;
+        border-bottom: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
+        border-right: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
       }
     }
   }
@@ -235,15 +235,15 @@
       &::after {
         top: 50%;
         border-top-right-radius: 0;
-        border-top: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+        border-top: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
       }
     }
 
     &:nth-child(even) {
       &::after {
-        top: $ngtt-bracket-line-width;
+        top: v.$ngtt-bracket-line-width;
         border-bottom-right-radius: 0;
-        border-bottom: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+        border-bottom: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
       }
     }
   }
@@ -258,15 +258,15 @@
   // bracket line to match up to final
   .ngtt-de__losers-round-wrapper:last-child > & {
     &::after {
-      right: -$ngtt-bracket-line-width;
+      right: -(v.$ngtt-bracket-line-width);
       height: 100%;
-      width: $ngtt-round-gutters + $ngtt-bracket-line-width;
+      width: v.$ngtt-round-gutters + v.$ngtt-bracket-line-width;
       top: -50%;
       border-top: none;
-      border-bottom: $ngtt-bracket-line-width solid $ngtt-line-color-main;
-      border-right: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+      border-bottom: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
+      border-right: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
       border-top-right-radius: 0;
-      border-bottom-right-radius: $ngtt-bracket-border-radius;
+      border-bottom-right-radius: v.$ngtt-bracket-border-radius;
       box-sizing: border-box !important;
     }
   }

@@ -1,14 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { SlideShowService } from "src/app/utility/slide-show/slide-show.service";
-import { SlideShowView } from "src/app/utility/slide-show/slide-show.view.model";
+import { SlideShowService } from "../../utility/slide-show/slide-show.service";
+import { SlideShowView } from "../../utility/slide-show/slide-show.view.model";
 import { PlayerDetailResponse, PlayerQuoteResponse, PlayerScreenshotResponse } from "../player.response.model";
 import { PlayerService } from "../player.service";
 
 @Component({
     selector: 'app-player-detail',
     templateUrl: './player-detail.component.html',
-    styleUrls: ['./player-detail.component.css']
+    styleUrls: ['./player-detail.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class PlayerDetailComponent implements OnInit {
 

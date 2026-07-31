@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import * as moment from 'moment'
-import { NgttTournament } from "src/app/utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.model";
+import moment from 'moment'
+import { NgttTournament } from "../../utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.model";
 import { TournamentSeriesResponse, TournamentDetailResponse, BracketSeriesResponse, RoundRoibinSeriesResponse, TournamentTeamResponse } from "../tournament.response.model";
 import { TournamentService } from "../tournament.service";
 import { RoundSeriesWeekly } from "../tournament.view.model";
@@ -10,9 +10,11 @@ import { SeriesService } from "./series/series.service";
 import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.view.model";
 
 @Component({
-  selector: 'app-tournament-detail',
-  templateUrl: './tournament-detail.component.html',
-  styleUrls: ['./tournament-detail.component.css']
+    selector: 'app-tournament-detail',
+    templateUrl: './tournament-detail.component.html',
+    styleUrls: ['./tournament-detail.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class TournamentDetailComponent implements OnInit {
 
