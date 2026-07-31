@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -39,51 +39,41 @@ import { HomeService } from './home/home.service';
 import { NewsService } from './news/news.service';
 import { NewsComponent } from './news/news.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    HeroComponent,
-    TournamentAllComponent,
-    TournamentDetailComponent,
-    TeamAllComponent,
-    TeamDeatilComponent,
-    SeriesComponent,
-    ScheduleComponent,
-    PlayerAllComponent,
-    PlayerDetailComponent,
-    NewsComponent,
-
-    FooterComponent,
-    SlideShowComponent,
-
-    RegionPipe,
-    TournamentTypePipe,
-  ],
-  imports: [
-    FormsModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-
-    NgttDoubleEliminationTreeModule,
-    NgttMatchModule,
-
-    AppRoutingModule,
-  ],
-  providers: [
-    EnvirontmentService,
-    HeroService,
-    TeamService,
-    TournamentService,
-    RegionService,
-    SeriesService,
-    ScheduleService,
-    PlayerService,
-    SlideShowService,
-    HomeService,
-    NewsService,
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        HeroComponent,
+        TournamentAllComponent,
+        TournamentDetailComponent,
+        TeamAllComponent,
+        TeamDeatilComponent,
+        SeriesComponent,
+        ScheduleComponent,
+        PlayerAllComponent,
+        PlayerDetailComponent,
+        NewsComponent,
+        FooterComponent,
+        SlideShowComponent,
+        RegionPipe,
+        TournamentTypePipe,
+    ],
+    bootstrap: [AppComponent], imports: [FormsModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        NgttDoubleEliminationTreeModule,
+        NgttMatchModule,
+        AppRoutingModule], providers: [
+        EnvirontmentService,
+        HeroService,
+        TeamService,
+        TournamentService,
+        RegionService,
+        SeriesService,
+        ScheduleService,
+        PlayerService,
+        SlideShowService,
+        HomeService,
+        NewsService,
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule { }
