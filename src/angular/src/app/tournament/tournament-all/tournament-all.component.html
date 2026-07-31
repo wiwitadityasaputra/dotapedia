@@ -1,83 +1,87 @@
 <div class="nk-main">
+  <div class="nk-gap-1"></div>
+  <div class="container">
+    <h3 class="nk-decorated-h-3"><span><span class="text-main-1">DoTa2</span> Tournaments</span></h3>
     <div class="nk-gap-1"></div>
-    <div class="container">
-        <h3 class="nk-decorated-h-3"><span><span class="text-main-1">DoTa2</span> Tournaments</span></h3>
-        <div class="nk-gap-1"></div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-xs-12">
+        <label class="dp-checkbox-container">All Region
+          <input class="dp-region-checkbox-allregion" type="checkbox" [(ngModel)]="allRegion" (ngModelChange)="toggleAllRegion()">
+          <span class="dp-checkmark"></span>
+        </label>
+      </div>
+      <div class="col-lg-8 col-md-8 col-xs-12">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-xs-12">
-                <label class="dp-checkbox-container">All Region
-                    <input class="dp-region-checkbox-allregion" type="checkbox" [(ngModel)]="allRegion" (ngModelChange)="toggleAllRegion()">
-                    <span class="dp-checkmark"></span>
-                </label>
+          @for (region of regions; track region; let i = $index) {
+            <div class="col-lg-4 col-md-6 col-xs-12 dp-region">
+              <label class="dp-checkbox-container">{{ region.name }}
+                <input class="dp-region-checkbox" type="checkbox" [(ngModel)]="region.checked" (ngModelChange)="toggleRegion()">
+                <span class="dp-checkmark"></span>
+              </label>
             </div>
-            <div class="col-lg-8 col-md-8 col-xs-12">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-xs-12 dp-region" *ngFor="let region of regions; let i = index">
-                        <label class="dp-checkbox-container">{{ region.name }}
-                            <input class="dp-region-checkbox" type="checkbox" [(ngModel)]="region.checked" (ngModelChange)="toggleRegion()">
-                            <span class="dp-checkmark"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
+          }
         </div>
+      </div>
     </div>
-    <div class="nk-gap-1"></div>
-    <div class="container">
-        <div class="row vertical-gap">
-            <div class="col-lg-6 dp-tournament" *ngFor="let t of tournaments">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-xs-6 dp-tournament-left-box">
-                        <h3 class="dp-tournament-name" (click)="selectTournament(t)">
-                            {{t.name}}
-                        </h3>
-                        <div class="col-12 dp-image-box"  (click)="selectTournament(t)">
-                            <img [src]="'assets/image/tournaments/' + t.image" >
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xs-6">
-                        <table class="nk-table">
-                            <tbody>
-                                <tr>
-                                    <td>Price Pool</td>
-                                    <td>
-                                        {{ t.prizePool | currency:'USD': 'symbol' }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Start Date</td>
-                                    <td>
-                                        {{ t.startDate | date: 'mediumDate' }} 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>End Date</td>
-                                    <td>
-                                        {{ t.endDate | date: 'mediumDate' }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Region</td>
-                                    <td>
-                                        {{ t.region | region }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Type</td>
-                                    <td>
-                                        {{ t.tournamentType | tournamentPipe }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>DPC Point</td>
-                                    <td>{{t.totalDpcPoints}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+  </div>
+  <div class="nk-gap-1"></div>
+  <div class="container">
+    <div class="row vertical-gap">
+      @for (t of tournaments; track t) {
+        <div class="col-lg-6 dp-tournament">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-6 dp-tournament-left-box">
+              <h3 class="dp-tournament-name" (click)="selectTournament(t)">
+                {{t.name}}
+              </h3>
+              <div class="col-12 dp-image-box"  (click)="selectTournament(t)">
+                <img [src]="'assets/image/tournaments/' + t.image" >
+              </div>
             </div>
+            <div class="col-lg-6 col-md-6 col-xs-6">
+              <table class="nk-table">
+                <tbody>
+                  <tr>
+                    <td>Price Pool</td>
+                    <td>
+                      {{ t.prizePool | currency:'USD': 'symbol' }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Start Date</td>
+                    <td>
+                      {{ t.startDate | date: 'mediumDate' }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>End Date</td>
+                    <td>
+                      {{ t.endDate | date: 'mediumDate' }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Region</td>
+                    <td>
+                      {{ t.region | region }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Type</td>
+                    <td>
+                      {{ t.tournamentType | tournamentPipe }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>DPC Point</td>
+                    <td>{{t.totalDpcPoints}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
+      }
     </div>
-    <app-footer></app-footer>
+  </div>
+  <app-footer></app-footer>
 </div>
