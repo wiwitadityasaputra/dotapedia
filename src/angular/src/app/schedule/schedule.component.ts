@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import moment from 'moment';
 import { RegionService, RegionType } from '../utility/region.service';
 import { ScheduleResponse } from './schedule.response.model';
@@ -9,6 +9,7 @@ import { ScheduleView } from './schedule.view.model';
     selector: 'app-schedule',
     templateUrl: './schedule.component.html',
     styleUrls: ['./schedule.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ScheduleComponent implements OnInit {

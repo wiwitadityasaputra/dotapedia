@@ -20,7 +20,7 @@
         </div>
 
         <div class="dp-player-img-box">
-          <img [src]="'assets/image/players/' + player?.id + '.png'" alt=""
+          <img [src]="'assets/image/players/' + $safeNavigationMigration(player?.id) + '.png'" alt=""
             class="dp-player-img"
             onerror="this.src='assets/image/players/null.png';" />
         </div>
@@ -40,7 +40,7 @@
                 <td>Date Of Birht</td>
                 <td class="text-right">
                   <strong>
-                    {{ player?.dateOfBirth| date: 'mediumDate' }}
+                    {{ $safeNavigationMigration(player?.dateOfBirth)| date: 'mediumDate' }}
                   </strong>
                 </td>
               </tr>
@@ -48,7 +48,7 @@
                 <td>Total Earnings</td>
                 <td class="text-right">
                   <strong>
-                    {{player?.totalEarnings | currency:'USD': 'symbol'}}
+                    {{$safeNavigationMigration(player?.totalEarnings) | currency:'USD': 'symbol'}}
                   </strong>
                 </td>
               </tr>
@@ -107,7 +107,7 @@
           <blockquote class="nk-blockquote dp-player-quote">
             <div class="nk-blockquote-icon"><span>"</span></div>
             <div class="nk-blockquote-content">{{quote?.content}}</div>
-            <div class="nk-blockquote-author"><span>{{quote?.author}}, &nbsp; {{quote?.createdDate | date: 'mediumDate'}}</span></div>
+            <div class="nk-blockquote-author"><span>{{quote?.author}}, &nbsp; {{$safeNavigationMigration(quote?.createdDate) | date: 'mediumDate'}}</span></div>
           </blockquote>
           @if (player?.quotes) {
             <div class="dp-quote-action">

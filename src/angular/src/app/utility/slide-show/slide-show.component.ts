@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SlideShowService } from './slide-show.service';
 import { SlideShowView } from './slide-show.view.model';
 
@@ -6,6 +6,7 @@ import { SlideShowView } from './slide-show.view.model';
     selector: 'app-slide-show',
     templateUrl: './slide-show.component.html',
     styleUrls: ['./slide-show.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SlideShowComponent implements OnInit {

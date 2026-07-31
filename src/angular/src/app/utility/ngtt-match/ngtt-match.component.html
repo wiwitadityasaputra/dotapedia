@@ -1,7 +1,7 @@
 <div class="ngtt__match-wrapper" (click)="openSeries()">
   <div class="ngtt__team-wrapper">
     <div class="ngtt__team-avatar">
-      <img [src]="'assets/image/teams-logo-100/' + match?.teamAId + '.png'" class="img-fluid logo-100" alt="">
+      <img [src]="'assets/image/teams-logo-100/' + $safeNavigationMigration(match?.teamAId) + '.png'" class="img-fluid logo-100" alt="">
     </div>
     <h6 class="ngtt__team-title">{{match?.teamAShortName}}</h6>
     <div class="ngtt__team-score">{{match?.teamAScore}}</div>
@@ -9,7 +9,7 @@
 
   <div class="ngtt__team-wrapper">
     <div class="ngtt__team-avatar">
-      <img [src]="'assets/image/teams-logo-100/' + match?.teamBId + '.png'" class="img-fluid logo-100" alt="">
+      <img [src]="'assets/image/teams-logo-100/' + $safeNavigationMigration(match?.teamBId) + '.png'" class="img-fluid logo-100" alt="">
     </div>
     <h6 class="ngtt__team-title">{{match?.teamBShortName}}</h6>
     <div class="ngtt__team-score">{{match?.teamBScore}}</div>

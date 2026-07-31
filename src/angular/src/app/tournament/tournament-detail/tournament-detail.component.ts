@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import moment from 'moment'
 import { NgttTournament } from "../../utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.model";
@@ -13,6 +13,7 @@ import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.
     selector: 'app-tournament-detail',
     templateUrl: './tournament-detail.component.html',
     styleUrls: ['./tournament-detail.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TournamentDetailComponent implements OnInit {

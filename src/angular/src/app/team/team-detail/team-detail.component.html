@@ -12,7 +12,7 @@
       <div class="nk-teammate-card">
         <div class="nk-teammate-card-photo">
           <div class="dp-team-logo-wrapper">
-            <img class="dp-team-logo" [src]="'assets/image/teams-logo-100/' + team?.team?.id + '.png'" alt="...">
+            <img class="dp-team-logo" [src]="'assets/image/teams-logo-100/' + $safeNavigationMigration(team?.team?.id) + '.png'" alt="...">
           </div>
         </div>
         <div class="nk-teammate-card-info">
@@ -31,7 +31,7 @@
                 <td>Region</td>
                 <td class="text-right">
                   <strong>
-                    {{team?.team?.region | region}}
+                    {{$safeNavigationMigration(team?.team?.region) | region}}
                   </strong>
                 </td>
               </tr>
@@ -47,7 +47,7 @@
                 <td>Total Earnings</td>
                 <td class="text-right">
                   <strong>
-                    {{team?.team?.totalEarnings | currency:'USD': 'symbol'}}
+                    {{$safeNavigationMigration(team?.team?.totalEarnings) | currency:'USD': 'symbol'}}
                   </strong>
                 </td>
               </tr>

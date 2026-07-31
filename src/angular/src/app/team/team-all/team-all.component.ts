@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlayerByCountryResponse } from '../../player/player.response.model';
 import { PlayerService } from '../../player/player.service';
@@ -15,6 +15,7 @@ interface TeamRegion {
     selector: 'app-team-all',
     templateUrl: './team-all.component.html',
     styleUrls: ['./team-all.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TeamAllComponent implements OnInit {

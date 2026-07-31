@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges, TemplateRef} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges, TemplateRef, ChangeDetectionStrategy} from '@angular/core';
 import { BracketSeriesResponse } from '../../tournament/tournament.response.model';
 import {NgttRound, NgttTournament} from './ngtt-double-elimination-tree.model';
 
@@ -6,6 +6,7 @@ import {NgttRound, NgttTournament} from './ngtt-double-elimination-tree.model';
     selector: 'ngtt-double-elimination-tree',
     templateUrl: './ngtt-double-elimination-tree.component.html',
     styleUrls: ['./ngtt-double-elimination-tree.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class NgttDoubleEliminationTreeComponent implements OnChanges {

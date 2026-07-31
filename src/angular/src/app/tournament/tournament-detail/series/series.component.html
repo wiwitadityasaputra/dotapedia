@@ -18,7 +18,7 @@
               <div class="nk-match-team-left">
                 <div>
                   <span class="nk-match-team-logo">
-                    <img [src]="'assets/image/teams-logo-100/' + series?.teamAId + '.png'" class="dp-team-participant-logo" alt="">
+                    <img [src]="'assets/image/teams-logo-100/' + $safeNavigationMigration(series?.teamAId) + '.png'" class="dp-team-participant-logo" alt="">
                   </span>
                   <span class="nk-match-team-name">
                     {{series?.teamAName}}
@@ -29,7 +29,7 @@
                 <div>
                   <span class="nk-match-status-vs">VS</span>
                   <span class="nk-match-status-date">
-                    {{ series?.startDate| date: 'mediumDate' }}
+                    {{ $safeNavigationMigration(series?.startDate)| date: 'mediumDate' }}
                   </span>
                   <span class="nk-match-status-date">
                     {{ series?.format}}
@@ -43,7 +43,7 @@
                     {{series?.teamBName}}
                   </span>
                   <span class="nk-match-team-logo">
-                    <img [src]="'assets/image/teams-logo-100/' + series?.teamBId + '.png'" class="dp-team-participant-logo" alt="">
+                    <img [src]="'assets/image/teams-logo-100/' + $safeNavigationMigration(series?.teamBId) + '.png'" class="dp-team-participant-logo" alt="">
                   </span>
                 </div>
               </div>

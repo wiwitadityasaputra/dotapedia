@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import moment from 'moment';
 import { ScheduleResponse } from '../../schedule/schedule.response.model';
@@ -12,6 +12,7 @@ import { TeamDetailView } from '../team.view.model';
     selector: 'app-team-detail',
     templateUrl: './team-detail.component.html',
     styleUrls: ['./team-detail.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TeamDeatilComponent implements OnInit {

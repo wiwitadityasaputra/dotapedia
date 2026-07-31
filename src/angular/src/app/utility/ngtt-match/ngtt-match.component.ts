@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SeriesService } from '../../tournament/tournament-detail/series/series.service';
 import { BracketSeriesResponse } from '../../tournament/tournament.response.model';
 
@@ -6,6 +6,7 @@ import { BracketSeriesResponse } from '../../tournament/tournament.response.mode
     selector: 'ngtt-match',
     templateUrl: './ngtt-match.component.html',
     styleUrls: ['./ngtt-match.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class NgttMatchComponent implements OnInit {

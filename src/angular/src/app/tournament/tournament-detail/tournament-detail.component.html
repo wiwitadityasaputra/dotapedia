@@ -18,38 +18,38 @@
             <tr>
               <td colspan="2">
                 <div class="dp-image-box">
-                  <img class="img-fluid" [src]="'assets/image/tournaments/' + tournament?.image" >
+                  <img class="img-fluid" [src]="'assets/image/tournaments/' + $safeNavigationMigration(tournament?.image)" >
                 </div>
               </td>
             </tr>
             <tr>
               <td>Price Pool</td>
               <td>
-                {{ tournament?.prizePool | currency:'USD': 'symbol' }}
+                {{ $safeNavigationMigration(tournament?.prizePool) | currency:'USD': 'symbol' }}
               </td>
             </tr>
             <tr>
               <td>Start Date</td>
               <td>
-                {{ tournament?.startDate | date: 'mediumDate' }}
+                {{ $safeNavigationMigration(tournament?.startDate) | date: 'mediumDate' }}
               </td>
             </tr>
             <tr>
               <td>End Date</td>
               <td>
-                {{ tournament?.endDate | date: 'mediumDate' }}
+                {{ $safeNavigationMigration(tournament?.endDate) | date: 'mediumDate' }}
               </td>
             </tr>
             <tr>
               <td>Region</td>
               <td>
-                {{ tournament?.region | region }}
+                {{ $safeNavigationMigration(tournament?.region) | region }}
               </td>
             </tr>
             <tr>
               <td>Type</td>
               <td>
-                {{ tournament?.tournamentType | tournamentPipe }}
+                {{ $safeNavigationMigration(tournament?.tournamentType) | tournamentPipe }}
               </td>
             </tr>
             <tr>

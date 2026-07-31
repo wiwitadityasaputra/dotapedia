@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit, ViewChild } from "@angular/core";
+import { Component, Inject, Input, OnInit, ViewChild, ChangeDetectionStrategy } from "@angular/core";
 import moment from "moment";
 import { GameResponse, SeriesResponse } from "./series.response.model";
 import { SeriesService } from "./series.service";
@@ -7,6 +7,7 @@ import { SeriesService } from "./series.service";
     selector: 'app-series',
     templateUrl: './series.component.html',
     styleUrls: ['./series.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
   export class SeriesComponent implements OnInit {

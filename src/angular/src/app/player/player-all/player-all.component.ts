@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { PlayerByCountryResponse, PlayerCountry } from "../player.response.model";
 import { PlayerService } from "../player.service";
@@ -8,6 +8,7 @@ import { PlayerCountryView } from "../player.view.model";
     selector: 'app-player-all',
     templateUrl: './player-all.component.html',
     styleUrls: ['./player-all.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PlayerAllComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { NewsApiArticle } from "./news.response.model";
 import { NewsService } from "./news.service";
 
@@ -6,6 +6,7 @@ import { NewsService } from "./news.service";
     selector: 'app-news',
     templateUrl: './news.component.html',
     styleUrls: ['./news.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
   export class NewsComponent implements OnInit {

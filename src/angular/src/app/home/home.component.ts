@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import moment from 'moment';
 import { ScheduleResponse } from '../schedule/schedule.response.model';
 import { ScheduleView } from '../schedule/schedule.view.model';
@@ -10,6 +10,7 @@ import { HomeService } from './home.service';
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class HomeComponent implements OnInit {
