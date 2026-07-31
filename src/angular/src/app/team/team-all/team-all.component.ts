@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PlayerByCountryResponse } from 'src/app/player/player.response.model';
-import { PlayerService } from 'src/app/player/player.service';
+import { PlayerByCountryResponse } from '../../player/player.response.model';
+import { PlayerService } from '../../player/player.service';
 import { TeamResponse } from '../team.response.model';
 import { TeamService } from '../team.service';
 

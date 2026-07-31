@@ -1,4 +1,4 @@
-import { BracketSeriesResponse } from "src/app/tournament/tournament.response.model";
+import { BracketSeriesResponse } from "../../tournament/tournament.response.model";
 
 export interface NgttTournament {
     rounds: NgttRound[];

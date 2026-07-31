@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SeriesService } from 'src/app/tournament/tournament-detail/series/series.service';
-import { BracketSeriesResponse } from 'src/app/tournament/tournament.response.model';
+import { SeriesService } from '../../tournament/tournament-detail/series/series.service';
+import { BracketSeriesResponse } from '../../tournament/tournament.response.model';
 
 @Component({
     selector: 'ngtt-match',

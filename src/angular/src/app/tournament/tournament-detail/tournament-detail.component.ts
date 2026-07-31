@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import moment from 'moment'
-import { NgttTournament } from "src/app/utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.model";
+import { NgttTournament } from "../../utility/ngtt-double-elimination-tree/ngtt-double-elimination-tree.model";
 import { TournamentSeriesResponse, TournamentDetailResponse, BracketSeriesResponse, RoundRoibinSeriesResponse, TournamentTeamResponse } from "../tournament.response.model";
 import { TournamentService } from "../tournament.service";
 import { RoundSeriesWeekly } from "../tournament.view.model";

@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, SimpleChanges, TemplateRef} from '@angular/core';
-import { BracketSeriesResponse } from 'src/app/tournament/tournament.response.model';
+import { BracketSeriesResponse } from '../../tournament/tournament.response.model';
 import {NgttRound, NgttTournament} from './ngtt-double-elimination-tree.model';
 
 @Component({

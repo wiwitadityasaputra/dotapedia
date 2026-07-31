@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import moment from 'moment';
-import { ScheduleResponse } from 'src/app/schedule/schedule.response.model';
-import { ScheduleView } from 'src/app/schedule/schedule.view.model';
-import { RegionService } from 'src/app/utility/region.service';
+import { ScheduleResponse } from '../../schedule/schedule.response.model';
+import { ScheduleView } from '../../schedule/schedule.view.model';
+import { RegionService } from '../../utility/region.service';
 import { TeamDetailResponse, TeamPlayerResponse } from '../team.response.model';
 import { TeamService } from '../team.service';
 import { TeamDetailView } from '../team.view.model';

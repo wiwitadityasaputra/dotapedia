@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { SlideShowService } from "src/app/utility/slide-show/slide-show.service";
-import { SlideShowView } from "src/app/utility/slide-show/slide-show.view.model";
+import { SlideShowService } from "../../utility/slide-show/slide-show.service";
+import { SlideShowView } from "../../utility/slide-show/slide-show.view.model";
 import { PlayerDetailResponse, PlayerQuoteResponse, PlayerScreenshotResponse } from "../player.response.model";
 import { PlayerService } from "../player.service";
 
