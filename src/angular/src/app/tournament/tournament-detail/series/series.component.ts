@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit, ViewChild } from "@angular/core";
-import * as moment from "moment";
+import moment from "moment";
 import { GameResponse, SeriesResponse } from "./series.response.model";
 import { SeriesService } from "./series.service";
 

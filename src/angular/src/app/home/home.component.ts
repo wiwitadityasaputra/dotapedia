@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
+import moment from 'moment';
 import { ScheduleResponse } from '../schedule/schedule.response.model';
 import { ScheduleView } from '../schedule/schedule.view.model';
 import { RegionService } from '../utility/region.service';

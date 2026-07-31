@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import * as moment from 'moment';
+import moment from 'moment';
 import { ScheduleResponse } from 'src/app/schedule/schedule.response.model';
 import { ScheduleView } from 'src/app/schedule/schedule.view.model';
 import { RegionService } from 'src/app/utility/region.service';
