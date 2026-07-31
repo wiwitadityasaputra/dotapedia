@@ -7,7 +7,8 @@ import { PlayerCountryView } from "../player.view.model";
 @Component({
     selector: 'app-player-all',
     templateUrl: './player-all.component.html',
-    styleUrls: ['./player-all.component.css']
+    styleUrls: ['./player-all.component.css'],
+    standalone: false
 })
 export class PlayerAllComponent implements OnInit {
 

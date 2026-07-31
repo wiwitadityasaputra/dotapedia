@@ -3,9 +3,10 @@ import { SeriesService } from 'src/app/tournament/tournament-detail/series/serie
 import { BracketSeriesResponse } from 'src/app/tournament/tournament.response.model';
 
 @Component({
-  selector: 'ngtt-match',
-  templateUrl: './ngtt-match.component.html',
-  styleUrls: ['./ngtt-match.component.scss']
+    selector: 'ngtt-match',
+    templateUrl: './ngtt-match.component.html',
+    styleUrls: ['./ngtt-match.component.scss'],
+    standalone: false
 })
 export class NgttMatchComponent implements OnInit {
 

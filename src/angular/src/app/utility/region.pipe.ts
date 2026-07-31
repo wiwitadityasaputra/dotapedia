@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from "@angular/core";
 
-@Pipe({name: 'region'})
+@Pipe({
+    name: 'region',
+    standalone: false
+})
 export class RegionPipe implements PipeTransform {
   transform(value: string | undefined): string {
     if ("WESTERN_EUROPE" === value) {

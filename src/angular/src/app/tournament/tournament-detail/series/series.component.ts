@@ -6,8 +6,9 @@ import { SeriesService } from "./series.service";
 @Component({
     selector: 'app-series',
     templateUrl: './series.component.html',
-    styleUrls: ['./series.component.css']
-  })
+    styleUrls: ['./series.component.css'],
+    standalone: false
+})
   export class SeriesComponent implements OnInit {
     public showSeries: boolean = false;
     public showLoading: boolean = true;

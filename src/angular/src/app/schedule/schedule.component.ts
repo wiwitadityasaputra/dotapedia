@@ -6,9 +6,10 @@ import { ScheduleService } from './schedule.service';
 import { ScheduleView } from './schedule.view.model';
 
 @Component({
-  selector: 'app-schedule',
-  templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.css']
+    selector: 'app-schedule',
+    templateUrl: './schedule.component.html',
+    styleUrls: ['./schedule.component.css'],
+    standalone: false
 })
 export class ScheduleComponent implements OnInit {
 

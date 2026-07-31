@@ -10,9 +10,10 @@ import { SeriesService } from "./series/series.service";
 import { PlayerParticipantResponse, TeamParticipant } from "./tournament-detail.view.model";
 
 @Component({
-  selector: 'app-tournament-detail',
-  templateUrl: './tournament-detail.component.html',
-  styleUrls: ['./tournament-detail.component.css']
+    selector: 'app-tournament-detail',
+    templateUrl: './tournament-detail.component.html',
+    styleUrls: ['./tournament-detail.component.css'],
+    standalone: false
 })
 export class TournamentDetailComponent implements OnInit {
 

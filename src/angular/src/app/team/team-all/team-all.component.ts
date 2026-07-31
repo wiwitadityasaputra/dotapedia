@@ -12,9 +12,10 @@ interface TeamRegion {
 }
 
 @Component({
-  selector: 'app-team-all',
-  templateUrl: './team-all.component.html',
-  styleUrls: ['./team-all.component.css']
+    selector: 'app-team-all',
+    templateUrl: './team-all.component.html',
+    styleUrls: ['./team-all.component.css'],
+    standalone: false
 })
 export class TeamAllComponent implements OnInit {
 

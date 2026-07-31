@@ -3,9 +3,10 @@ import { BracketSeriesResponse } from 'src/app/tournament/tournament.response.mo
 import {NgttRound, NgttTournament} from './ngtt-double-elimination-tree.model';
 
 @Component({
-  selector: 'ngtt-double-elimination-tree',
-  templateUrl: './ngtt-double-elimination-tree.component.html',
-  styleUrls: ['./ngtt-double-elimination-tree.component.css']
+    selector: 'ngtt-double-elimination-tree',
+    templateUrl: './ngtt-double-elimination-tree.component.html',
+    styleUrls: ['./ngtt-double-elimination-tree.component.css'],
+    standalone: false
 })
 export class NgttDoubleEliminationTreeComponent implements OnChanges {
   @Input() matchTemplate: TemplateRef<any>;
