@@ -1,17 +1,17 @@
-@import "ngtt-variables";
+@use "ngtt-variables" as v;
 
 
 .ngtt-se__container {
-  background-color: $ngtt-background-color;
+  background-color: v.$ngtt-background-color;
   display: inline-block;
   box-sizing: border-box !important;
 }
 
 .ngtt-se__match-component-container {
   display: flex;
-  height: $ngtt-match-wrapper-height;
-  width: $ngtt-match-wrapper-width;
-  background-color: $ngtt-match-container-background;
+  height: v.$ngtt-match-wrapper-height;
+  width: v.$ngtt-match-wrapper-width;
+  background-color: v.$ngtt-match-container-background;
   box-sizing: border-box !important;
 }
 
@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  min-width: $ngtt-match-wrapper-width + 2*($ngtt-round-gutters);
+  min-width: v.$ngtt-match-wrapper-width + 2*(v.$ngtt-round-gutters);
   box-sizing: border-box !important;
 }
 
@@ -34,9 +34,9 @@
   display: flex;
   flex-grow: 1;
   align-items: center;
-  height: $ngtt-match-wrapper-height + 2 * $ngtt-vertical-match-padding;
-  width: $ngtt-match-wrapper-width + 2* $ngtt-round-gutters;
-  padding: $ngtt-vertical-match-padding $ngtt-round-gutters;
+  height: v.$ngtt-match-wrapper-height + 2 * v.$ngtt-vertical-match-padding;
+  width: v.$ngtt-match-wrapper-width + 2* v.$ngtt-round-gutters;
+  padding: v.$ngtt-vertical-match-padding v.$ngtt-round-gutters;
   position: relative;
   box-sizing: border-box !important;
   // every bracket line
@@ -45,9 +45,9 @@
     flex-grow: 1;
     right: 0;
     position: absolute;
-    width: $ngtt-round-gutters;
+    width: v.$ngtt-round-gutters;
     height: 50%;
-    border-right: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+    border-right: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
     content: '';
     box-sizing: border-box !important;
   }
@@ -58,8 +58,8 @@
     left: 0;
     top: 50%;
     position: absolute;
-    width: $ngtt-round-gutters;
-    border-top: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+    width: v.$ngtt-round-gutters;
+    border-top: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
     content: '';
     box-sizing: border-box !important;
   }
@@ -67,16 +67,16 @@
   &:nth-child(odd) {
     &::after {
       top: 50%;
-      border-top-right-radius: $ngtt-bracket-border-radius;
-      border-top: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+      border-top-right-radius: v.$ngtt-bracket-border-radius;
+      border-top: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
     }
   }
 
   &:nth-child(even) {
     &::after {
       top: 0;
-      border-bottom-right-radius: $ngtt-bracket-border-radius;
-      border-bottom: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+      border-bottom-right-radius: v.$ngtt-bracket-border-radius;
+      border-bottom: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
     }
   }
 
@@ -99,18 +99,18 @@
   flex-grow: 1;
   flex-direction: column;
   align-items: flex-start;
-  height: $ngtt-match-wrapper-height + 2 * $ngtt-vertical-match-padding;
-  width: $ngtt-match-wrapper-width + 2* $ngtt-round-gutters;
-  padding: $ngtt-vertical-match-padding $ngtt-round-gutters;
+  height: v.$ngtt-match-wrapper-height + 2 * v.$ngtt-vertical-match-padding;
+  width: v.$ngtt-match-wrapper-width + 2* v.$ngtt-round-gutters;
+  padding: v.$ngtt-vertical-match-padding v.$ngtt-round-gutters;
   position: relative;
   box-sizing: border-box !important;
 
   & > .ngtt-se__finale-component-container {
     display: block;
-    height: $ngtt-match-wrapper-height;
-    width: $ngtt-match-wrapper-width;
-    background-color: $ngtt-match-container-background;
-    margin-bottom: 2*$ngtt-vertical-match-padding;
+    height: v.$ngtt-match-wrapper-height;
+    width: v.$ngtt-match-wrapper-width;
+    background-color: v.$ngtt-match-container-background;
+    margin-bottom: 2*v.$ngtt-vertical-match-padding;
   }
 
   &::before {
@@ -119,8 +119,8 @@
     left: 0;
     top: 50%;
     position: absolute;
-    width: $ngtt-round-gutters;
-    border-top: $ngtt-bracket-line-width solid $ngtt-line-color-main;
+    width: v.$ngtt-round-gutters;
+    border-top: v.$ngtt-bracket-line-width solid v.$ngtt-line-color-main;
     content: '';
   }
 }
