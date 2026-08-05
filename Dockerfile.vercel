@@ -1,0 +1,4 @@
+FROM arm64v8/amazoncorretto:21-headless
+COPY vercel/vercel.jar /vercel.jar
+EXPOSE 8081
+CMD ["java", "-jar", "vercel.jar"]
